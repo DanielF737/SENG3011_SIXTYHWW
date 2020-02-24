@@ -16,12 +16,14 @@ axios(base_url)
 		})
 		// For each event, add the url to the list
 		return Promise.all(
-			pages.map(url =>{
+			pages.map(url => {
 				return parseURL(url)
 			})
 		)
 	}).then(res =>{
-		console.log(res)
+		res.forEach(e =>{
+			console.log(JSON.stringify(e))
+		})
 	})
 	.catch(console.error);
 // Grab info from article
@@ -37,10 +39,22 @@ function parseURL(url){
 			.each(function(){
 				data.push($(this).text().trim())
 			})
-			console.log(data)
 			text = $(".tdtext").text().split("\n").join(" ").replace(/ +(?= )/g,'').trim()
-			return {url: url[0], date_of_publication: data[3],
-				headline: url[1], main_text: text}
+			console.log({country: data[5], location: data[7]})
+			return {
+				url: url[0],
+				date_of_publication: data[3],
+				headline: url[1],
+				main_text: text,
+				reports: [
+					{
+						event_date: 	data[3],
+						locations:	[{country: data[5], location: data[7]}],
+						diseases:	[data[1]],
+						syndromes: 	['i have no idea what to put here xd']
+					}
+				]
+			}
 
 		})
 		.catch(console.error)
