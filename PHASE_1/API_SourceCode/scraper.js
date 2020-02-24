@@ -37,7 +37,7 @@ function parseURL(url){
 			.each(function(){
 				data.push($(this).text().trim())
 			})
-			//console.log(data)
+			console.log(data)
 			text = $(".tdtext").text().split("\n").join(" ").replace(/ +(?= )/g,'').trim()
 			return {url: url[0], date_of_publication: data[3],
 				headline: url[1], main_text: text}
