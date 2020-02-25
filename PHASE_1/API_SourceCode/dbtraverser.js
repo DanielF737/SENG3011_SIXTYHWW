@@ -17,6 +17,15 @@ db.serialize(() => {
   })
 });
 
+db.serialize(() => {
+  db.each('SELECT * FROM ARTICLE', (err, row) => {
+    if (err) {
+      console.log(err.message);
+    }
+    console.log(row);
+  })
+});
+
 // close the database connection
 db.close((err) => {
   if (err) {
