@@ -3,7 +3,7 @@
 
 const sqlite3 = require('sqlite3').verbose();
 
-// open database in memory
+// Opens up the database.
 let db = new sqlite3.Database('./database', (err) => {
   if (err) {
     return console.error(err.message);
@@ -11,6 +11,7 @@ let db = new sqlite3.Database('./database', (err) => {
   console.log('Connected to the database.');
 });
  
+// Creates table for Articles.
 db.run('create table if not exists Article (' +
   'url                   text not null,' +
   'headline              text,' +
@@ -19,18 +20,28 @@ db.run('create table if not exists Article (' +
   'primary key           (url)' +
 ');');
 
-db.run('create table  if not exists Report (' +
+
+// Creates table for reports.
+db.run('create table if not exists Report (' +
+  'id          integer not null,' +
   'disease     text not null,' +
-  'article     text not null,' +
   'syndrome    text,' +
   'event_date  date,' +
   'location    date,' +
-  'primary key (disease)' +
+  'primary key (id)' +
 ');');
 
-db.run('insert into article(url, headline, main_text, date_of_publication) values ("www.hello.com", "stuff", "a lot of stuff","2000-12-12")');
+// Creates table for link between article and reports.
+db.run('create table if not exists Part_Of (' +
+  'article_url   text not null,' +
+  'report_id     integer not null,' +
+  'foreign key   (article_url) references Article(url),' +
+  'foreign key   (report_id) references Report(id)' +
+');');
 
-// close the database connection
+//db.run('insert into article(url, headline, main_text, date_of_publication) values ("www.hello.com", "stuff", "a lot of stuff","2000-12-12")');
+
+// Closes the database.
 db.close((err) => {
   if (err) {
     return console.error(err.message);
