@@ -128,6 +128,8 @@ function retrieveReports(amount) {
     console.log('Connected to the database.');
   });
 
+  let query = 'SELECT * FROM Report ORDER BY event'
+
   // Closes the database.
   db.close((err) => {
     if (err) {
