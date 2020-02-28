@@ -24,19 +24,12 @@ db.run('create table if not exists Article (' +
 // Creates table for reports.
 db.run('create table if not exists Report (' +
   'id          integer primary key autoincrement,' +
+  'article_id  integer not null,' +
   'disease     text not null,' +
   'syndrome    text,' +
   'event_date  date,' +
-  'location    text' +
-');');
-
-// Creates table for link between article and reports.
-db.run('create table if not exists Part_Of (' +
-  'article_id    integer not null,' +
-  'report_id     integer not null,' +
-  'foreign key   (article_id) references Article(id),' +
-  'foreign key   (report_id) references Report(id),' +
-  'primary key   (article_id, report_id)' +
+  'location    text,' +
+  'foreign key (article_id) references Article(id)' + 
 ');');
 
 //db.run('insert into article(url, headline, main_text, date_of_publication) values ("www.hello.com", "stuff", "a lot of stuff","2000-12-12")');
