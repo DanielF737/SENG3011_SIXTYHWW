@@ -40,7 +40,7 @@ create table if not exists Users (
 create table if not exists SubbedDiseases (
   user_id     integer not null,
   disease     text not null,
-  primary key (user_id, disease_id),
+  primary key (user_id, disease),
   foreign key (user_id) references Users(id),
   foreign key (disease) references Diseases(disease)
 );
