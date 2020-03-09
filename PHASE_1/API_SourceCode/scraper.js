@@ -24,11 +24,18 @@ axios(base_url)
 			})
 		)
 	}).then(res =>{
-		res.forEach(e =>{
-			console.log(e.reports[0])
+		fs.writeFile("output.json", JSON.stringify(res), 'utf8',err => {
+			if (err){
+				console.log("[ERROR] Failed to write output.json")
+				return console.log(error);
+			}
+			console.log("[LOG] Saved output to output.json")
 		})
 	})
-	.catch(console.error);
+	.catch(err =>{
+		console.log("[ERROR] Failed parsing base_url")
+		console.log(err)
+	});
 // Grab info from article
 function parseURL(url){
 	return axios(url[0])
@@ -67,7 +74,10 @@ function parseURL(url){
 			}
 
 		})
-		.catch(console.error)
+		.catch(err => {
+			console.log("[ERROR] Failed parsing subpage")
+			console.log(err)
+		})
 }
 function parseDisease(disease){
 	for (var i =0 ; i < diseases.length; i++) {
