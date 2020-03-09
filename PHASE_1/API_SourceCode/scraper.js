@@ -1,6 +1,9 @@
 const axios = require('axios');
 const cheerio = require('cheerio')
 const base_url = 'http://outbreaks.globalincidentmap.com/'
+const fs = require('fs')
+let diseases = JSON.parse(fs.readFileSync('disease_list.json'));
+let syndromes = JSON.parse(fs.readFileSync('syndrome_list.json'));
 // Grab the page
 axios(base_url)
 	.then(response => {
@@ -22,7 +25,7 @@ axios(base_url)
 		)
 	}).then(res =>{
 		res.forEach(e =>{
-			console.log(JSON.stringify(e))
+			console.log(e.reports[0])
 		})
 	})
 	.catch(console.error);
@@ -40,7 +43,14 @@ function parseURL(url){
 				data.push($(this).text().trim())
 			})
 			text = $(".tdtext").text().split("\n").join(" ").replace(/ +(?= )/g,'').trim()
-			console.log({country: data[5], location: data[7]})
+			let d = ''
+			let s = ''
+			if (data[1].includes('/')){
+				d = parseDisease(data[1].split(' / ')[0].trim())
+				s = parseSyndrome(data[1].split(' / ')[1].trim())
+			}else{
+				d = parseDisease(data[1])
+			}
 			return {
 				url: url[0],
 				date_of_publication: data[3],
@@ -50,8 +60,8 @@ function parseURL(url){
 					{
 						event_date: 	data[3],
 						locations:	[{country: data[5], location: data[7]}],
-						diseases:	[data[1]],
-						syndromes: 	['i have no idea what to put here xd']
+						diseases:	[d],
+						syndromes:	s === ''? [] : [s],
 					}
 				]
 			}
@@ -59,4 +69,19 @@ function parseURL(url){
 		})
 		.catch(console.error)
 }
-
+function parseDisease(disease){
+	for (var i =0 ; i < diseases.length; i++) {
+		if (diseases[i].equiv.includes(disease.toLowerCase())){
+			return diseases[i].name
+		}
+	}
+	return "other"
+}
+function parseSyndrome(syndrome){
+	for (var i =0 ; i < syndromes.length; i++) {
+		if (syndromes[i].equiv.includes(syndrome.toLowerCase())){
+			return syndromes[i].name
+		}
+	}
+	return ''
+}
