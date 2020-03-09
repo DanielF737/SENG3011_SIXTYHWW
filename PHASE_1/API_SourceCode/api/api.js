@@ -1,12 +1,9 @@
-// Libraries
 const express = require('express');
 const bodyParser = require('body-parser');
-
-// Imports
-const db = require('./db.js');
+const db = require('../common/db');
 
 // Constants
-const port = 3000;
+const PORT = 3000;
 
 // Init Express
 const app = express();
@@ -14,7 +11,9 @@ const app = express();
 // Middleware
 app.use(bodyParser.json());
 
-// Routes
+/* 
+  Routes
+*/
 
 // Root
 app.get('/', (req, res) => res.send('Machine Learning API'));
@@ -27,4 +26,4 @@ app.get('/search', async (req, res) => {
 });
 
 // Run Server
-app.listen(port, () => console.log(`Listening on port ${port}`));
+app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
