@@ -65,6 +65,6 @@
 { "name": "legionares" , "equiv":["legionares"]},
 { "name": "listeriosis" , "equiv":["listeriosis"]},
 { "name": "monkeypox", "equiv": ["monkeypox"] },
-{ "name": "2019 nCoV", "equiv": ["2019 ncov", "coronavirus", "covid-19", "covid"] }
+{ "name": "COVID-19", "equiv": ["COVID-19", "2019 ncov", "coronavirus", "covid-19", "covid"] }
 ]
 
