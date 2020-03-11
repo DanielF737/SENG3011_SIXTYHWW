@@ -24,7 +24,7 @@ axios(base_url)
 			})
 		)
 	}).then(res =>{
-		fs.writeFile("output.json", JSON.stringify(res), 'utf8',err => {
+		fs.writeFile("output.json", JSON.stringify(res, null, 2), 'utf8', err => {
 			if (err){
 				console.log("[ERROR] Failed to write output.json")
 				return console.log(error);
@@ -66,7 +66,12 @@ function parseURL(url){
 				reports: [
 					{
 						event_date: 	data[3],
-						locations:	[{country: data[5], location: data[7]}],
+						locations:	[
+							{
+								country: data[5],
+								city: data[7]
+							}
+						],
 						diseases:	[d],
 						syndromes:	s === ''? [] : [s],
 					}

@@ -1,4 +1,4 @@
-create table if not exists article (
+CREATE TABLE IF NOT EXISTS articles (
   id                  integer primary key autoincrement,
   url                 text not null,
   headline            text not null,
@@ -6,13 +6,17 @@ create table if not exists article (
   date_of_publication date not null
 );
 
-create table if not exists report (
+CREATE TABLE IF NOT EXISTS reports (
   id         integer primary key autoincrement,
   article_id integer not null,
-  disease    text not null,
-  syndrome   text not null,
+  diseases   text not null,
+  syndromes  text not null,
   event_date date not null,
+  country    text not null,
+  city       text not null,
   latitude   text not null,
-  longitude  text not null
+  longitude  text not null,
   foreign key (article_id) references Article(id)
 );
+
+CREATE UNIQUE INDEX articles_idx ON articles (url);
