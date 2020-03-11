@@ -20,3 +20,4 @@ CREATE TABLE IF NOT EXISTS reports (
 );
 
 CREATE UNIQUE INDEX articles_idx ON articles (url);
+CREATE UNIQUE INDEX reports_idx ON reports (diseases, syndromes, event_date, country, city, longitude, latitude);

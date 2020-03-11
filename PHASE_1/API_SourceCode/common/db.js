@@ -10,34 +10,37 @@ const db = sqlite.open(DB_NAME);
 async function addArticle(article) {
   const conn = await db;
 
-  const statement = await conn.run("INSERT OR REPLACE INTO articles (url, headline, body, date_of_publication) values ($url, $headline, $body, $date)", {
+  const statement = await conn.run(`
+    INSERT OR REPLACE
+    INTO articles (url, headline, body, date_of_publication)
+    VALUES ($url, $headline, $body, $date)`, {
     $url: article.url,
     $headline: article.headline,
     $body: article.main_text,
     $date: article.date_of_publication
   });
 
-  const id = statement.lastID;
-
-  article.reports.forEach((report) => addReport(id, report));
+  article.reports.forEach((report) => addReport(statement.lastID, report));
 }
 
 async function addReport(id, report) {
   const conn = await db;
+
+  console.log(report);
   
   const statement = await conn.run(`
     INSERT OR REPLACE
-    INTO reports (article_id, disease, syndrome, event_date, country, city, latitude, longitude)
+    INTO reports (article_id, diseases, syndromes, event_date, country, city, latitude, longitude)
     VALUES ($article_id, $disease, $syndrome, $event_date, $country, $city, $latitude, $longitude)
   `, {
     $article_id: id,
-    $disease: report.diseases,
-    $syndrome: report.syndromes, 
+    $disease: JSON.stringify(report.diseases),
+    $syndrome: JSON.stringify(report.syndromes), 
     $event_date: report.event_date, 
-    $country: report.locations.country, 
-    $city: report.locations.city, 
-    $latitude: report.locations.latitude, 
-    $longitude: report.locations.longitude
+    $country: report.location.country,
+    $city: report.location.city, 
+    $latitude: report.location.latitude, 
+    $longitude: report.location.longitude
   });
 }
 
@@ -49,7 +52,7 @@ async function search(searchRequest) {
   const conn = await db;
 
   const articles = await conn.all(`
-    SELECT * FROM articles
+    SELECT * FROM reports
     WHERE event_date > $start_date
     AND event_date < $end_date
     AND country == $country
@@ -66,5 +69,7 @@ async function search(searchRequest) {
 }
 
 module.exports = {
+  "addArticle": addArticle,
+  "addReport": addReport,
   "search": search
 };
