@@ -6,8 +6,6 @@ info:
   license:
     name: "Click Me ;)"
     url: 'https://www.gnu.org/licenses/gpl-3.0.txt'
-host: "ninjachicken.io"
-basePath: "/no_idea"
 paths:
   /search:
      post:
