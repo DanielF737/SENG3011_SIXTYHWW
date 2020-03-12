@@ -66,12 +66,14 @@ function parseURL(url){
 				reports: [
 					{
 						event_date: data[3],
-						location: {
-							country: data[5],
-							city: data[7],
-							latitude: data[9],
-							longitude: data[11]
-						},
+						locations: [
+							{
+								country: data[5],
+								city: data[7],
+								latitude: data[9],
+								longitude: data[11]
+							}
+						],
 						diseases:	[d],
 						syndromes:	s === ''? [] : [s],
 					}

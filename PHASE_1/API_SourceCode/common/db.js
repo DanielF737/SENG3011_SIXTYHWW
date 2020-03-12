@@ -37,10 +37,10 @@ async function addReport(id, report) {
     $disease: JSON.stringify(report.diseases),
     $syndrome: JSON.stringify(report.syndromes), 
     $event_date: report.event_date, 
-    $country: report.location.country,
-    $city: report.location.city, 
-    $latitude: report.location.latitude, 
-    $longitude: report.location.longitude
+    $country: report.locations[0].country,
+    $city: report.locations[0].city, 
+    $latitude: report.locations[0].latitude, 
+    $longitude: report.locations[0].longitude
   });
 }
 
@@ -67,6 +67,8 @@ async function addReport(id, report) {
 async function search(searchRequest) {
   try {
     const conn = await db;
+
+    searchRequest.key_terms = searchRequest.key_terms.split(",");
 
     const articles = await conn.all(`
       SELECT * FROM reports
