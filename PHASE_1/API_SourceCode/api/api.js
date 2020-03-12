@@ -20,9 +20,12 @@ app.get('/', (req, res) => res.send('Machine Learning API'));
 
 // Search Route
 app.get('/search', async (req, res) => {
-  console.log(req.body);
-  const articles = await db.search({});
-  console.log(articles);
+  const articles = await db.search(req.body);
+  res.send(articles);
+});
+
+app.get('/reports', async (req, res) => {
+  const articles = await db.getReports();
   res.send(articles);
 });
 

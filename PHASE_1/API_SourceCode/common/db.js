@@ -46,30 +46,64 @@ async function addReport(id, report) {
 
 /*
   API
-*/
 
-async function search(searchRequest) {
-  const conn = await db;
-
-  const articles = await conn.all(`
+  `
     SELECT * FROM reports
     WHERE event_date > $start_date
     AND event_date < $end_date
     AND country == $country
     AND city == $city
-  `, {
-    $start_date: searchRequest.start_date,
-    $end_date: searchRequest.end_date,
-    $key_terms: searchRequest.key_terms,
-    $country: searchRequest.country,
-    $city: searchRequest.city,
-  });
+  `
 
-  return articles;
+  const articles = await conn.all("SELECT * FROM reports", {
+      $start_date: searchRequest.start_date,
+      $end_date: searchRequest.end_date,
+      $key_terms: searchRequest.key_terms,
+      $country: searchRequest.country,
+      $city: searchRequest.city,
+    });
+*/
+
+async function search(searchRequest) {
+  try {
+    const conn = await db;
+
+    const articles = await conn.all(`
+      SELECT * FROM reports
+      WHERE event_date > $start_date
+      AND event_date < $end_date
+      AND country == $country
+      AND city == $city
+    `, {
+      $start_date: searchRequest.start_date,
+      $end_date: searchRequest.end_date,
+      $country: searchRequest.country,
+      $city: searchRequest.city,
+    });
+
+    return articles;
+  } catch (e){
+    console.log(e);
+    return [];
+  }
+}
+
+async function getReports() {
+  try {
+    const conn = await db;
+
+    const articles = await conn.all("SELECT * FROM reports");
+
+    return articles;
+  } catch (e){
+    console.log(e);
+    return [];
+  }
 }
 
 module.exports = {
   "addArticle": addArticle,
   "addReport": addReport,
+  "getReports": getReports,
   "search": search
 };
