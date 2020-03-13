@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 //const db = require('common/db');
 const YAML = require("yamljs")
 const swagger = require('swagger-ui-express')
-const swaggerDoc = YAML.load("../API_Documentation/swag.yml")
+const swaggerDoc = YAML.load("swag.yml")
 // Constants
 const PORT = process.env.PORT || 3000;
 

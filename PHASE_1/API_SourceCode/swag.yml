@@ -1,0 +1,196 @@
+swagger: "2.0"
+info:
+  description: "API for a deep learning backend"
+  version: "0.0.1"
+  title: "Shit course"
+  license:
+    name: "Click Me ;)"
+    url: 'https://www.gnu.org/licenses/gpl-3.0.txt'
+paths:
+  /search:
+     post:
+       tags:
+         - "Search"
+       summary: "Search query for articles"
+       description: ""
+       consumes:
+         - application/json
+       produces:
+         - application/json
+       parameters:
+         - name: body
+           in: body
+           description: "Search parameters"
+           required: true
+           schema:
+             $ref: '#/definitions/Search'
+
+       responses:
+         200:
+             description: Success
+             schema:
+                 type: array
+                 items:
+                   $ref: '#/definitions/Article'
+         400:
+             description: something failed
+  /articles:
+     put:
+       tags:
+         - "Articles"
+       summary: "Update a single Article"
+       description: ""
+       consumes:
+         - application/json
+       produces:
+         - application/json
+       parameters:
+         - name: body
+           in: body
+           description: "New Article"
+           required: true
+           schema:
+             $ref: '#/definitions/Article'
+       responses:
+         400:
+             description: Invalid ID
+         404:
+             description: Article not found
+         405:
+             description: Validation Exception
+     get:
+       tags:
+         - "Articles"
+       summary: "Get N most recent articles"
+       description: ""
+       produces:
+         - application/json
+       parameters:
+         - name: N
+           in: query
+           description: "Number of articles to yoink"
+           required: false
+           type: integer
+           default: 20
+       responses:
+         200:
+             description: Success
+             schema:
+                 type: array
+                 items:
+                   $ref: '#/definitions/Article'
+         400:
+             description: something failed
+  /articles/{id}:
+     get:
+       tags:
+         - "Articles"
+       summary: "Get Article by ID"
+       description: "Return a single article"
+       produces:
+         - application/json
+       parameters:
+         - name: id
+           in: path
+           description: "ID of article to be fetched"
+           required: true
+           type: integer
+           minimum: 0
+       responses:
+         200:
+             description: Success
+             schema:
+               $ref: "#/definitions/Article"
+         400:
+             description: Invalid ID
+         404:
+             description: Article not found
+
+
+     delete:
+       tags:
+         - "Articles"
+       summary: "Deletes an Article"
+       description: ""
+       produces:
+         - application/json
+       parameters:
+         - name: id
+           in: path
+           description: "ID of article to be deleted"
+           required: true
+           type: integer
+           minimum: 0
+       responses:
+         400:
+             description: Invalid ID
+         404:
+             description: Article not found
+
+
+definitions:
+   Location:
+     type: object
+     properties:
+       country:
+         type: string
+       city:
+         type: string
+       latitude:
+         type: string
+       longitude:
+         type: string
+
+   Report:
+     type: object
+     properties:
+       event_date:
+         type: string
+         format: "date time"
+       locations:
+         type: array
+         items:
+           $ref: "#/definitions/Location"
+       diseases:
+         type: array
+         items:
+           type: string
+       syndromes:
+         type: array
+         items:
+           type: string
+
+   Article:
+     type: object
+     properties:
+       id:
+         type: integer
+       url:
+         type: string
+       data_of_publication:
+         type: string
+         format: "date time"
+       headline:
+         type: string
+       main_text:
+         type: string
+       reports:
+         type: array
+         items:
+           $ref: "#/definitions/Report"
+   Search:
+     type: object
+     properties:
+       startDate:
+         type: string
+         format: "date time"
+       endDate:
+         type: string
+         format: "date time"
+       keyTerms:
+         type: array
+         items:
+           type: string
+       location:
+         type: string
+
