@@ -1,10 +1,10 @@
 swagger: "2.0"
 info:
-  description: "API for a deep learning backend"
+  description: "API for pulling disease reports from Global Incident Tracker"
   version: "0.0.1"
-  title: "Shit course"
+  title: "SIXTYHWW - SENG3011"
   license:
-    name: "Click Me ;)"
+    name: "All the reasons you arent allowed to sue"
     url: 'https://www.gnu.org/licenses/gpl-3.0.txt'
 paths:
   /search:
