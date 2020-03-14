@@ -4,7 +4,7 @@ SIXTHWW's scraper, API and frontend for SENG3011
 
 
 # API URL
-[http://api.sixtyhww.com/](http://api.sixtyhww.com/)
+[api.sixtyhww.com:3000](api.sixtyhww.com:3000)
 
 ## Members
 Daniel Ferraro z5204902
