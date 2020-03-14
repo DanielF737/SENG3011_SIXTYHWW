@@ -4,7 +4,7 @@ SIXTHWW's scraper, API and frontend for SENG3011
 
 
 # API URL
-[http://ec2-13-239-64-159.ap-southeast-2.compute.amazonaws.com:3000/](http://ec2-13-239-64-159.ap-southeast-2.compute.amazonaws.com:3000/)
+[http://api.sixtyhww.com/](http://api.sixtyhww.com/)
 
 ## Members
 Daniel Ferraro z5204902
