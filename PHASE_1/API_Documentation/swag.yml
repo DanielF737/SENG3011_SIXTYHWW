@@ -1,6 +1,6 @@
 swagger: "2.0"
 info:
-  description: "API for pulling disease reports from Global Incident Tracker"
+  description: "API for pulling disease outbreak reports from Global Incident Tracker"
   version: "0.0.1"
   title: "SIXTYHWW - SENG3011"
   license:
