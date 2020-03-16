@@ -47,13 +47,17 @@ paths:
        parameters:
          - name: body
            in: body
-           description: "New Article"
+           description: "Edit an existing Article"
            required: true
            schema:
              $ref: '#/definitions/Article'
+       security:
+         - TrivialAuth: []
        responses:
          400:
              description: Invalid ID
+         401:
+           $ref: "#/Responses/UnauthorisedError"
          404:
              description: Article not found
          405:
@@ -121,12 +125,26 @@ paths:
            required: true
            type: integer
            minimum: 0
+       security:
+         - TrivialAuth: []
        responses:
          400:
              description: Invalid ID
+         401:
+           $ref: '#/Responses/UnauthorisedError'
          404:
              description: Article not found
 
+Responses:
+  UnauthorisedError:
+    description: API key is missing or invalid
+
+securityDefinitions:
+  TrivialAuth:
+    type: apiKey
+    name: Password
+    in: cookie
+    adminKey: name
 
 definitions:
    Location:
