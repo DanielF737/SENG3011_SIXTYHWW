@@ -73,9 +73,9 @@ paths:
          - name: N
            in: query
            description: "Number of articles to yoink"
-           required: false
            type: integer
            default: 20
+           required: true
        responses:
          200:
              description: Success
@@ -97,6 +97,7 @@ paths:
          - name: id
            in: path
            description: "ID of article to be fetched"
+           default : 0
            required: true
            type: integer
            minimum: 0
