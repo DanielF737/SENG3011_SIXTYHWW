@@ -5,7 +5,7 @@ const YAML = require("yamljs")
 const swagger = require('swagger-ui-express')
 const swaggerDoc = YAML.load("../../API_Documentation/swag.yml")
 // Constants
-const PORT = 3001;
+const PORT = 3000;
 
 // Init Express
 const app = express();
