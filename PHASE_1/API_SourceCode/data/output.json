@@ -165,6 +165,167 @@
     ]
   },
   {
+    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34247",
+    "date_of_publication": "2020-03-15 03:38:00",
+    "headline": "UNITED KINGDOM - Coronavirus Case Confirmed In Norwich",
+    "main_text": "[edp24.co.uk] UNITED KINGDOM - Coronavirus case confirmed in Norwich “The patient becomes the fourth confirmed case in Norfolk after three people tested positive for coronavirus at the Queen Elizabeth Hospital in King's Lynn, the first cases in the county.” Read the full article: https://www.edp24.co.uk/news/health/first-coronavirus-case-confirmed-at-norfolk-and-norwich-university-hospital-1-6561908",
+    "reports": [
+      {
+        "event_date": "2020-03-15 03:38:00",
+        "locations": [
+          {
+            "country": "United Kingdom",
+            "city": "Norwich",
+            "latitude": "52.631",
+            "longitude": "1.297"
+          }
+        ],
+        "diseases": [
+          "COVID-19"
+        ],
+        "syndromes": []
+      }
+    ]
+  },
+  {
+    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34246",
+    "date_of_publication": "2020-03-15 03:34:00",
+    "headline": "ETHIOPIA - Ethiopia Records First Confirmed Case Of Coronavirus",
+    "main_text": "[Tadias.com] ETHIOPIA - Ethiopia records first confirmed case of coronavirus “A Japanese national who arrived in Ethiopia on 4 March from Burkina Faso, has tested positive for coronavirus, ...” Read the full article: http://www.tadias.com/03/14/2020/list-of-african-countries-with-coronavirus-grows-as-kenya-ethiopia-sudan-report-cases/",
+    "reports": [
+      {
+        "event_date": "2020-03-15 03:34:00",
+        "locations": [
+          {
+            "country": "Ethiopia",
+            "city": "Addis Ababa",
+            "latitude": "8.981",
+            "longitude": "38.758"
+          }
+        ],
+        "diseases": [
+          "COVID-19"
+        ],
+        "syndromes": []
+      }
+    ]
+  },
+  {
+    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34245",
+    "date_of_publication": "2020-03-15 03:29:00",
+    "headline": "MICHIGAN - Henry Ford Health Reports First 3 Patients Who Tested Positive For Coronavirus",
+    "main_text": "[Clickondetroit.com] MICHIGAN - Henry Ford Health reports first 3 patients who tested positive for coronavirus “Henry Ford Health System reported its first three patients who tested positive for COVID-19.” Read the full article: https://www.clickondetroit.com/news/2020/03/14/henry-ford-health-reports-first-3-patients-who-tested-positive-for-coronavirus/",
+    "reports": [
+      {
+        "event_date": "2020-03-15 03:29:00",
+        "locations": [
+          {
+            "country": "United States",
+            "city": "Lansing, MI",
+            "latitude": "42.733",
+            "longitude": "-84.556"
+          }
+        ],
+        "diseases": [
+          "COVID-19"
+        ],
+        "syndromes": []
+      }
+    ]
+  },
+  {
+    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34244",
+    "date_of_publication": "2020-03-15 03:25:00",
+    "headline": "TEXAS - CDC Confirms Another Positive Coronavirus Patient From JBSA-Lackland Quarantine",
+    "main_text": "[kens5.com] TEXAS - CDC Confirms Another Positive Coronavirus Patient From JBSA-Lackland Quarantine “A new case of coronavirus stemming from the Joint Base San Antonio-Lackland quarantine has been confirmed by the Centers for Disease Control—the first among the cohort of evacuees from the Grand Princess cruise ship that arrived in San Antonio last week.” Read the full article: https://www.kens5.com/article/news/health/coronavirus/cdc-confirms-another-positive-coronavirus-patient-from-jbsa-lackland-quarantine/273-054b2085-24cd-4be1-9db5-fe8d25dfacf1",
+    "reports": [
+      {
+        "event_date": "2020-03-15 03:25:00",
+        "locations": [
+          {
+            "country": "United States",
+            "city": "San Antonio, TX",
+            "latitude": "29.424",
+            "longitude": "-98.494"
+          }
+        ],
+        "diseases": [
+          "COVID-19"
+        ],
+        "syndromes": []
+      }
+    ]
+  },
+  {
+    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34243",
+    "date_of_publication": "2020-03-15 03:02:00",
+    "headline": "IDAHO - A Second New Yorker Had Died From The Coronavirus",
+    "main_text": "[NEW YORK DAILY NEWS] IDAHO - A second New Yorker had died from the coronavirus “An 82-year-old Manhattan woman already struggling with emphysema was identified Saturday as New York state’s first coronavirus death — followed hours later by the second victim.” Read the full article: https://www.nydailynews.com/coronavirus/ny-coronavirus-first-death-20200314-dya7w5st25dstj66sddbf3pun4-story.html",
+    "reports": [
+      {
+        "event_date": "2020-03-15 03:02:00",
+        "locations": [
+          {
+            "country": "United States",
+            "city": "Albany, NY",
+            "latitude": "42.653",
+            "longitude": "-73.756"
+          }
+        ],
+        "diseases": [
+          "COVID-19"
+        ],
+        "syndromes": []
+      }
+    ]
+  },
+  {
+    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34242",
+    "date_of_publication": "2020-03-15 02:47:00",
+    "headline": "IDAHO - 1st Coronavirus Patient In Idaho Is A Student At ISU Meridian",
+    "main_text": "[Idahonews.com] IDAHO - 1st Coronavirus patient in Idaho is a student at ISU Meridian “ISU's President Kevin Satterlee announced today that the first Coronavirus patient in Idaho is a student at the ISU-Meridian campus.” Read the full article: https://idahonews.com/news/local/1st-coronavirus-patient-in-idaho-is-a-student-at-isu-meridian",
+    "reports": [
+      {
+        "event_date": "2020-03-15 02:47:00",
+        "locations": [
+          {
+            "country": "United States",
+            "city": "ISU, ID",
+            "latitude": "42.027",
+            "longitude": "-93.646"
+          }
+        ],
+        "diseases": [
+          "COVID-19"
+        ],
+        "syndromes": []
+      }
+    ]
+  },
+  {
+    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34241",
+    "date_of_publication": "2020-03-15 02:44:00",
+    "headline": "ISRAEL - Israeli Start-Up To Donate 120000 Masks To Stop Coronavirus Spread",
+    "main_text": "[Jpost.com] ISRAEL - Israeli start-up to donate 120,000 masks to stop coronavirus spread “An Israeli start-up company that developed an anti-pathogen fabric that could be used in masks to stop the spread of coronavirus is donating its first product – some 120,000 masks – to Israeli hospitals, medical professionals and coronavirus patients.” Read the full article: https://www.jpost.com/HEALTH-SCIENCE/Israeli-start-up-to-donate-120000-masks-to-stop-coronavirus-spread-621077",
+    "reports": [
+      {
+        "event_date": "2020-03-15 02:44:00",
+        "locations": [
+          {
+            "country": "Israel",
+            "city": "Jerusalem",
+            "latitude": "31.768",
+            "longitude": "35.214"
+          }
+        ],
+        "diseases": [
+          "COVID-19"
+        ],
+        "syndromes": []
+      }
+    ]
+  },
+  {
     "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34240",
     "date_of_publication": "2020-03-15 02:41:00",
     "headline": "VIRGINIA - Virginia Reports State First Death From Coronavirus",
@@ -987,167 +1148,6 @@
             "city": "Riga",
             "latitude": "56.950",
             "longitude": "24.105"
-          }
-        ],
-        "diseases": [
-          "COVID-19"
-        ],
-        "syndromes": []
-      }
-    ]
-  },
-  {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34206",
-    "date_of_publication": "2020-03-12 03:07:00",
-    "headline": "SENEGAL - Senegal Reports Local Transmission Of 5 COVID-19 Cases",
-    "main_text": "[Xinhua] SENEGAL - Senegal reports local transmission of 5 COVID-19 cases \"Senegalese Ministry of Health and Social Action confirmed Thursday the country's first cluster infection and first local transmission, with 5 Senegalese nationals tested positive for COVID-19.\" Read the full article: http://www.xinhuanet.com/english/2020-03/13/c_138871536.htm",
-    "reports": [
-      {
-        "event_date": "2020-03-12 03:07:00",
-        "locations": [
-          {
-            "country": "Senegal",
-            "city": "Dakar",
-            "latitude": "14.717",
-            "longitude": "-17.468"
-          }
-        ],
-        "diseases": [
-          "COVID-19"
-        ],
-        "syndromes": []
-      }
-    ]
-  },
-  {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34205",
-    "date_of_publication": "2020-03-12 02:59:00",
-    "headline": "ITALY - Coronavirus Latest - Italy Death Toll Surpasses 1000",
-    "main_text": "[dw.com] ITALY - Coronavirus latest: Italy death toll surpasses 1,000 \"The Italian government said more than 15,000 people have tested positive for the novel coronavirus. Pressure is mounting on authorities as the pandemic takes its toll on Europe. Follow DW for the latest updates.\" Read the full article: https://www.dw.com/en/coronavirus-latest/a-52731894",
-    "reports": [
-      {
-        "event_date": "2020-03-12 02:59:00",
-        "locations": [
-          {
-            "country": "Italy",
-            "city": "Rome",
-            "latitude": "41.903",
-            "longitude": "12.496"
-          }
-        ],
-        "diseases": [
-          "COVID-19"
-        ],
-        "syndromes": []
-      }
-    ]
-  },
-  {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34204",
-    "date_of_publication": "2020-03-12 02:58:00",
-    "headline": "SINGAPORE - Singapore Reports 9 New COVID-19 Cases",
-    "main_text": "[Xinhua] SINGAPORE - Singapore reports 9 new COVID-19 cases \"Singapore records nine new COVID-19 cases, bringing the total number of confirmed cases to 187, the Ministry of Health said here Thursday.\" Read the full article: http://www.xinhuanet.com/english/2020-03/12/c_138870935.htm",
-    "reports": [
-      {
-        "event_date": "2020-03-12 02:58:00",
-        "locations": [
-          {
-            "country": "Singapore",
-            "city": "Singapore City",
-            "latitude": "1.352",
-            "longitude": "103.820"
-          }
-        ],
-        "diseases": [
-          "COVID-19"
-        ],
-        "syndromes": []
-      }
-    ]
-  },
-  {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34203",
-    "date_of_publication": "2020-03-12 02:56:00",
-    "headline": "MALDIVES - Maldives Declares Public Health Emergency",
-    "main_text": "[Xinhua] MALDIVES - Maldives declares public health emergency \"The Maldives government on Thursday declared a state of public health emergency for the first time in its history in response to an increase in COVID-19 cases, state-owned Public Service Media reported.\" Read the full article: http://www.xinhuanet.com/english/2020-03/12/c_138871316.htm",
-    "reports": [
-      {
-        "event_date": "2020-03-12 02:56:00",
-        "locations": [
-          {
-            "country": "Maldives",
-            "city": "Male",
-            "latitude": "4.175",
-            "longitude": "73.509"
-          }
-        ],
-        "diseases": [
-          "COVID-19"
-        ],
-        "syndromes": []
-      }
-    ]
-  },
-  {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34202",
-    "date_of_publication": "2020-03-12 01:54:00",
-    "headline": "CZECH REPUBLIC- Czech Govt Declares State Of Emergency Over Coronavirus Spread",
-    "main_text": "[Xinhua] CZECH REPUBLIC - Czech gov't declares state of emergency over coronavirus spread \"Public access to sports facilities, gyms, swimming pools, wellness facilities and saunas, music and social clubs, libraries or galleries will be banned from 6. a.m. Friday.\" Read the full article: http://www.xinhuanet.com/english/2020-03/12/c_138871342.htm",
-    "reports": [
-      {
-        "event_date": "2020-03-12 01:54:00",
-        "locations": [
-          {
-            "country": "Czech Republic",
-            "city": "Prague",
-            "latitude": "50.076",
-            "longitude": "14.438"
-          }
-        ],
-        "diseases": [
-          "COVID-19"
-        ],
-        "syndromes": []
-      }
-    ]
-  },
-  {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34201",
-    "date_of_publication": "2020-03-12 01:50:00",
-    "headline": "IRAN - Death Toll In Iran From Coronavirus Reaches 429 - Health Official",
-    "main_text": "[Reuters] IRAN - Death toll in Iran from coronavirus reaches 429: health official \"Iran on Thursday reported 75 new deaths from the coronavirus in the past 24 hours, the health ministry said, bringing the death toll to 429 in the worst-hit country in the Middle East.\" Read the full article: https://www.reuters.com/article/us-health-coronavirus-iran/death-toll-in-iran-from-coronavirus-reaches-429-health-official-idUSKBN20Z1IP",
-    "reports": [
-      {
-        "event_date": "2020-03-12 01:50:00",
-        "locations": [
-          {
-            "country": "Iran",
-            "city": "Tehran",
-            "latitude": "35.689",
-            "longitude": "51.389"
-          }
-        ],
-        "diseases": [
-          "COVID-19"
-        ],
-        "syndromes": []
-      }
-    ]
-  },
-  {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34200",
-    "date_of_publication": "2020-03-12 01:48:00",
-    "headline": "NORWAY - First Person Dies From Coronavirus In Norway - PM Says",
-    "main_text": "[Reuters] NORWAY - First person dies from coronavirus in Norway, PM says \"Since Norway’s first case of the virus was confirmed on Feb. 26, the total number of infected people had risen to 621 as of Wednesday.\" Read the full article: https://www.reuters.com/article/us-health-coronavirus-norway-casualties/first-person-dies-from-coronavirus-in-norway-pm-says-idUSKBN20Z37F",
-    "reports": [
-      {
-        "event_date": "2020-03-12 01:48:00",
-        "locations": [
-          {
-            "country": "Norway",
-            "city": "Oslo",
-            "latitude": "59.914",
-            "longitude": "10.752"
           }
         ],
         "diseases": [
