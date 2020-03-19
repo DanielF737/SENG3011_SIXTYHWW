@@ -1,7 +1,7 @@
 const sqlite = require('sqlite');
 const fs = require('fs');
 
-const DB_NAME = "./database.sqlite";
+const DB_NAME = "./database_static.sqlite";
 const DB_SCHEMA = "./schema.sql";
 
 fs.existsSync(DB_NAME) ? fs.unlinkSync(DB_NAME) : null;

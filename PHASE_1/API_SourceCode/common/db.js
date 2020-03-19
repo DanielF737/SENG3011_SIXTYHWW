@@ -1,6 +1,6 @@
 const sqlite = require('sqlite');
 
-const DB_NAME = "../database/database.sqlite";	
+const DB_NAME = "../database/database_static.sqlite";	
 const db = sqlite.open(DB_NAME);
 
 /*
