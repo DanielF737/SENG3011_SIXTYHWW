@@ -1,0 +1,215 @@
+swagger: "2.0"
+info:
+  description: "API for pulling disease reports from Global Incident Tracker"
+  version: "0.0.1"
+  title: "SIXTYHWW - SENG3011"
+  license:
+    name: "All the reasons you arent allowed to sue"
+    url: 'https://www.gnu.org/licenses/gpl-3.0.txt'
+paths:
+  /search:
+     post:
+       tags:
+         - "Search"
+       summary: "Search query for articles"
+       description: ""
+       consumes:
+         - application/json
+       produces:
+         - application/json
+       parameters:
+         - name: body
+           in: body
+           description: "Search parameters"
+           required: true
+           schema:
+             $ref: '#/definitions/Search'
+
+       responses:
+         200:
+             description: Success
+             schema:
+                 type: array
+                 items:
+                   $ref: '#/definitions/Article'
+         400:
+             description: something failed
+  /articles:
+     put:
+       tags:
+         - "Articles"
+       summary: "Update a single Article"
+       description: ""
+       consumes:
+         - application/json
+       produces:
+         - application/json
+       parameters:
+         - name: body
+           in: body
+           description: "Edit an existing Article"
+           required: true
+           schema:
+             $ref: '#/definitions/Article'
+       security:
+         - TrivialAuth: []
+       responses:
+         400:
+             description: Invalid ID
+         401:
+           $ref: "#/Responses/UnauthorisedError"
+         404:
+             description: Article not found
+         405:
+             description: Validation Exception
+     get:
+       tags:
+         - "Articles"
+       summary: "Get N most recent articles"
+       description: ""
+       produces:
+         - application/json
+       parameters:
+         - name: N
+           in: query
+           description: "Number of articles to yoink"
+           type: integer
+           default: 20
+           required: true
+       responses:
+         200:
+             description: Success
+             schema:
+                 type: array
+                 items:
+                   $ref: '#/definitions/Article'
+         400:
+             description: something failed
+  /articles/{id}:
+     get:
+       tags:
+         - "Articles"
+       summary: "Get Article by ID"
+       description: "Return a single article"
+       produces:
+         - application/json
+       parameters:
+         - name: id
+           in: path
+           description: "ID of article to be fetched"
+           default : 0
+           required: true
+           type: integer
+           minimum: 0
+       responses:
+         200:
+             description: Success
+             schema:
+               $ref: "#/definitions/Article"
+         400:
+             description: Invalid ID
+         404:
+             description: Article not found
+
+
+     delete:
+       tags:
+         - "Articles"
+       summary: "Deletes an Article"
+       description: ""
+       produces:
+         - application/json
+       parameters:
+         - name: id
+           in: path
+           description: "ID of article to be deleted"
+           required: true
+           type: integer
+           minimum: 0
+       security:
+         - TrivialAuth: []
+       responses:
+         400:
+             description: Invalid ID
+         401:
+           $ref: '#/Responses/UnauthorisedError'
+         404:
+             description: Article not found
+
+Responses:
+  UnauthorisedError:
+    description: API key is missing or invalid
+
+securityDefinitions:
+  TrivialAuth:
+    type: apiKey
+    name: Password
+    in: cookie
+    adminKey: name
+
+definitions:
+   Location:
+     type: object
+     properties:
+       country:
+         type: string
+       city:
+         type: string
+       latitude:
+         type: string
+       longitude:
+         type: string
+
+   Report:
+     type: object
+     properties:
+       event_date:
+         type: string
+         format: "date time"
+       locations:
+         type: array
+         items:
+           $ref: "#/definitions/Location"
+       diseases:
+         type: array
+         items:
+           type: string
+       syndromes:
+         type: array
+         items:
+           type: string
+
+   Article:
+     type: object
+     properties:
+       id:
+         type: integer
+       url:
+         type: string
+       data_of_publication:
+         type: string
+         format: "date time"
+       headline:
+         type: string
+       main_text:
+         type: string
+       reports:
+         type: array
+         items:
+           $ref: "#/definitions/Report"
+   Search:
+     type: object
+     properties:
+       startDate:
+         type: string
+         format: "date time"
+       endDate:
+         type: string
+         format: "date time"
+       keyTerms:
+         type: array
+         items:
+           type: string
+       location:
+         type: string
+
