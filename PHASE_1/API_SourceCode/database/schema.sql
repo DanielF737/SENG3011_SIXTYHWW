@@ -31,5 +31,11 @@ CREATE TABLE IF NOT EXISTS syndrome (
   foreign key (article_id) references Article(id)
 );
 
+CREATE TABLE IF NOT EXISTS locations (
+  id         integer primary key autoincrement,
+  article_id integer not null,
+  foreign key (article_id) references Article(id)
+);
+
 CREATE UNIQUE INDEX articles_idx ON articles (url);
 CREATE UNIQUE INDEX reports_idx ON reports (diseases, syndromes, event_date, country, city, longitude, latitude);
