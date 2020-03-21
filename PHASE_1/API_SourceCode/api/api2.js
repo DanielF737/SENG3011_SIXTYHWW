@@ -15,50 +15,53 @@ app.use(bodyParser.json());
 
 // Hardcoded stuff
 article1 = {
-      id: 0,
-      url: 'afakeurl.com',
-      date_of_publication: '2020-04-20 11:11:11',
-      headline: 'This is a placeholder',
-      main_text: 'Until we finish implementing endpoints!',
-      reports: [
+  id: 0,
+  url: 'afakeurl.com',
+  date_of_publication: '2020-04-20 11:11:11',
+  headline: 'This is a placeholder',
+  main_text: 'Until we finish implementing endpoints!',
+  reports: [
+      {
+      event_date: '2020-04-20 12:11:12',
+        locations: [
           {
-          event_date: '2020-04-20 12:11:12',
-            locations: [
-              {
-                country: "Australia",
-                city: "Sydney",
-                latitude: "idk how numbers work fam",
-                longitude: "same"
-              }
-            ],
-        diseases: ["unknown"],
-        syndromes: ["Acute fever and rash"]
+            country: "Australia",
+            city: "Sydney",
+            latitude: "idk how numbers work fam",
+            longitude: "same"
           }
-      ],
-}
+        ],
+    diseases: ["unknown"],
+    syndromes: ["Acute fever and rash"]
+      }
+  ],
+};
+
 article2 = {
-      id: 1,
-      url: 'afakeurl.com',
-      date_of_publication: '2020-04-20 11:11:11',
-      headline: 'This is a placeholder',
-      main_text: 'Until we finish implementing endpoints!',
-      reports: [
+  id: 1,
+  url: 'afakeurl.com',
+  date_of_publication: '2020-04-20 11:11:11',
+  headline: 'This is a placeholder',
+  main_text: 'Until we finish implementing endpoints!',
+  reports: [
+      {
+      event_date: '2020-04-20 12:11:12',
+        locations: [
           {
-          event_date: '2020-04-20 12:11:12',
-            locations: [
-              {
-                country: "Australia",
-                city: "Sydney",
-                latitude: "idk how numbers work fam",
-                longitude: "same"
-              }
-            ],
-        diseases: ["unknown"],
-        syndromes: ["Acute fever and rash"]
+            country: "Australia",
+            city: "Sydney",
+            latitude: "idk how numbers work fam",
+            longitude: "same"
           }
-      ],
-    }
+        ],
+    diseases: ["unknown"],
+    syndromes: ["Acute fever and rash"]
+      }
+  ],
+};
+
 articles = [article1,article2]
+
 // Root
 app.use('/', swagger.serve)
 app.get('/', swagger.setup(swaggerDoc))
@@ -68,11 +71,9 @@ app.post('/search', async (req, res) => {
   res.send(articles);
 });
 
-
 app.put('/articles', async (req, res) =>{
   res.status(401).send('API key is missing or invalid')
 })
-
 
 app.get('/articles', async (req, res) => {
   let articles2 = []
