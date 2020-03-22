@@ -20,8 +20,8 @@ paths:
        parameters:
          - name: body
            in: body
-           description: "startDate - string: Must be in following format: “yyyy-MM-ddTHH:mm:ss”. (REQUIRED)\n
-             endDate - string: Must be in following format: “yyyy-MM-ddTHH:mm:ss”. (REQUIRED)\n
+           description: "start_date - string: Must be in following format: “yyyy-MM-ddTHH:mm:ss”. (REQUIRED)\n
+             end_date - string: Must be in following format: “yyyy-MM-ddTHH:mm:ss”. (REQUIRED)\n
              keyTerms - string: Comma separated list of key terms\n
              location - string: location to search\n"
            required: true
@@ -227,11 +227,11 @@ definitions:
    Search:
      type: object
      properties:
-       startDate:
+       start_date:
          type: string
          format: "date time"
          required: true
-       endDate:
+       end_date:
          type: string
          format: "date time"
          required: true
@@ -242,8 +242,8 @@ definitions:
        location:
          type: string
      example:
-       startDate: "2015-10-01T08:45:10"
-       endDate: "2015-11-01T19:37:12"
+       start_date: "2015-10-01T08:45:10"
+       end_date: "2015-11-01T19:37:12"
        keyTerms: "Anthrax,Zika"
        location: "Sydney"
 
