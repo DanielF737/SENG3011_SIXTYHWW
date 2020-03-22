@@ -48,8 +48,6 @@ async function addReport(id, report) {
 
 async function search(searchRequest) {
   try {
-    const key_terms = searchRequest.key_terms.split(",");
-
     var query = `
       SELECT * FROM articles, reports
       WHERE articles.id == reports.article_id
@@ -66,20 +64,14 @@ async function search(searchRequest) {
       $location: searchRequest.location
     });
 
-    console.log(reports);
+    const regex = new RegExp(searchRequest.key_terms ? searchRequest.key_terms.replace(",", "|") : "", "i");
 
-    return reports.filter((report) => {
-      var validReport = false;
-
-      for (var i = 0; i < key_terms.length; i++) {
-        if (report.headline.includes(key_terms[i])) {
-          validReport = true;
-          break;
-        }
-      }
-
-      return validReport;
-    });
+    return reports.filter((report) =>
+      regex.test(report.headline) ||
+      regex.test(report.body) ||
+      regex.test(report.diseases) ||
+      regex.test(report.syndromes)
+    );
   } catch (e){
     console.log(e);
     return [];
