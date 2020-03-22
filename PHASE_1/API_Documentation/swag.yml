@@ -23,7 +23,7 @@ paths:
            description: "start_date - string: Must be in following format: “yyyy-MM-ddTHH:mm:ss”. (REQUIRED)\n
              end_date - string: Must be in following format: “yyyy-MM-ddTHH:mm:ss”. (REQUIRED)\n
              keyTerms - string: Comma separated list of key terms\n
-             location - string: location to search\n"
+             location - string: location to search. (CASE SENSITIVE)\n"
            required: true
            schema:
              $ref: '#/definitions/Search'
@@ -243,7 +243,7 @@ definitions:
          type: string
      example:
        start_date: "2015-10-01T08:45:10"
-       end_date: "2015-11-01T19:37:12"
-       keyTerms: "Anthrax,Zika"
-       location: "Sydney"
+       end_date: "2020-11-01T19:37:12"
+       keyTerms: "covid"
+       location: "Paris"
 
