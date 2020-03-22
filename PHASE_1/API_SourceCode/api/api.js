@@ -19,8 +19,7 @@ database().then((db) => {
   app.get('/', swagger.setup(swaggerDoc))
 
   // API Routes
-  app.get('/search', async (req, res) => {
-    console.log("/search");
+  app.post('/search', async (req, res) => {
     const reports = await db.search(req.body);
     res.send(reports);
   });
