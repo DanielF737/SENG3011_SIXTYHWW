@@ -1,9 +1,6 @@
 const sqlite = require('sqlite');
-const conn;
 
-/*
-  Scraper
-*/
+var conn;
 
 async function addArticle(article) {
   const statement = await conn.run(`
@@ -30,7 +27,6 @@ async function addReport(id, report) {
     VALUES ($article_id, $disease, $syndrome, $event_date, $country, $city, $latitude, $longitude)
     ON CONFLICT (diseases, syndromes, event_date, country, city, longitude, latitude)
     DO UPDATE SET
-    article_id = excluded.article_id,
     diseases = excluded.diseases,
     syndromes = excluded.syndromes,
     event_date = excluded.event_date,
@@ -50,29 +46,31 @@ async function addReport(id, report) {
   });
 }
 
-/*
-  API
-*/
-
 async function search(searchRequest) {
   try {
     const key_terms = searchRequest.key_terms.split(",");
 
-    const reports = await conn.all(`
-      SELECT * FROM reports
-      WHERE event_date > $start_date
+    var query = `
+      SELECT * FROM articles, reports
+      WHERE articles.id == reports.article_id
+      AND event_date > $start_date
       AND event_date < $end_date
-      AND (country == $country OR city == $city)
-    `, {
+    `;
+
+    if (searchRequest.location)
+      query += `AND (country == $location OR city == $location)`;
+
+    const reports = await conn.all(query, {
       $start_date: searchRequest.start_date,
       $end_date: searchRequest.end_date,
-      $country: searchRequest.country,
-      $city: searchRequest.city,
+      $location: searchRequest.location
     });
+
+    console.log(reports);
 
     return reports.filter((report) => {
       var validReport = false;
-      
+
       for (var i = 0; i < key_terms.length; i++) {
         if (report.headline.includes(key_terms[i])) {
           validReport = true;

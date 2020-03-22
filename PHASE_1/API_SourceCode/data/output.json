@@ -1,8 +1,449 @@
 [
   {
+    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34331",
+    "date_of_publication": "2020-03-21 23:58:00",
+    "headline": "IRELAND - 22 New Positive COVID-19 Tests In Northern Ireland",
+    "main_text": "[Goqradio.com] IRELAND - 22 new positive COVID-19 tests in Northern Ireland “The Department of Health has announced 22 new positive cases of coronavirus in Northern Ireland since yesterday.” Read the full article: https://www.goqradio.com/belfast/news/q-radio-local-news/22-new-positive-covid-19-tests-in-northern-ireland/",
+    "reports": [
+      {
+        "event_date": "2020-03-21 23:58:00",
+        "locations": [
+          {
+            "country": "Ireland",
+            "city": "Dublin",
+            "latitude": "53.350",
+            "longitude": "-6.260"
+          }
+        ],
+        "diseases": [
+          "COVID-19"
+        ],
+        "syndromes": []
+      }
+    ]
+  },
+  {
+    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34350",
+    "date_of_publication": "2020-03-21 05:28:00",
+    "headline": "VIRGINIA - 152 Cases Of COVID-19 Confirmed Across Virginia",
+    "main_text": "[WHSV] VIRGINIA  - 152 cases of COVID-19 confirmed across Virginia \"The commonwealth of Virginia has 152 positive or presumptive positive cases of COVID-19, as of Saturday, March 21.\" Read the full article: https://www.msn.com/en-us/news/us/152-cases-of-covid-19-confirmed-across-virginia/ar-BB11vC8b",
+    "reports": [
+      {
+        "event_date": "2020-03-21 05:28:00",
+        "locations": [
+          {
+            "country": "United States",
+            "city": "Richmond, VA",
+            "latitude": "37.541",
+            "longitude": "-77.436"
+          }
+        ],
+        "diseases": [
+          "COVID-19"
+        ],
+        "syndromes": []
+      }
+    ]
+  },
+  {
+    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34349",
+    "date_of_publication": "2020-03-21 05:26:00",
+    "headline": "TEXAS - 145 Cases Of Coronavirus COVID-19 In Greater Houston Area",
+    "main_text": "[fox7austin.com] TEXAS - 145 cases of Coronavirus COVID-19 in greater Houston area ''There have been 145 confirmed 2019 Novel Coronavirus (COVID-19) cases in and from the greater Houston area.'' Read the full article: https://www.fox7austin.com/news/145-cases-of-coronavirus-covid-19-in-greater-houston-area-2-deaths-7-recoverede/",
+    "reports": [
+      {
+        "event_date": "2020-03-21 05:26:00",
+        "locations": [
+          {
+            "country": "United States",
+            "city": "Austin, TX",
+            "latitude": "30.267",
+            "longitude": "-97.743"
+          }
+        ],
+        "diseases": [
+          "COVID-19"
+        ],
+        "syndromes": []
+      }
+    ]
+  },
+  {
+    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34348",
+    "date_of_publication": "2020-03-21 05:24:00",
+    "headline": "ILLINOIS - 1 More COVID-19 Death In Illinois - 168 New Cases Saturday",
+    "main_text": "[ksdk.com] ILLINOIS - 1 more COVID-19 death in Illinois, 168 new cases Saturday   “One more person in Illinois has died because of the coronavirus, Gov. J.B. Pritzker announced Saturday afternoon.” Read the full article: https://www.ksdk.com/article/news/health/coronavirus/illinois-coronavirus-deaths-thursday/63-b2f9cc5d-ec4d-4697-bf8e-92bd850c4efb",
+    "reports": [
+      {
+        "event_date": "2020-03-21 05:24:00",
+        "locations": [
+          {
+            "country": "United States",
+            "city": "Chicago, IL",
+            "latitude": "41.878",
+            "longitude": "-87.630"
+          }
+        ],
+        "diseases": [
+          "COVID-19"
+        ],
+        "syndromes": []
+      }
+    ]
+  },
+  {
+    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34347",
+    "date_of_publication": "2020-03-21 05:22:00",
+    "headline": "MICHIGAN - Michigan Coronavirus Cases Climb To Near 800 - With 5 Deaths",
+    "main_text": "[mlive.com] MICHIGAN - Michigan coronavirus cases climb to near 800, with 5 deaths   “The number of coronavirus cases in Michigan has jumped to 787, with one new death reported since Friday.” Read the full article: https://www.mlive.com/public-interest/2020/03/michigan-coronavirus-cases-climb-to-near-800-with-5-deaths.html",
+    "reports": [
+      {
+        "event_date": "2020-03-21 05:22:00",
+        "locations": [
+          {
+            "country": "United States",
+            "city": "Lansing, MI",
+            "latitude": "42.733",
+            "longitude": "-84.556"
+          }
+        ],
+        "diseases": [
+          "COVID-19"
+        ],
+        "syndromes": []
+      }
+    ]
+  },
+  {
+    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34346",
+    "date_of_publication": "2020-03-21 05:21:00",
+    "headline": "KANSAS - First Novel Coronavirus Death Reported In Johnson County - Officials Confirm Saturday",
+    "main_text": "[msn.com] KANSAS - First novel coronavirus death reported in Johnson County, officials confirm Saturday “The first coronavirus death in Allegheny County was reported Saturday morning. Allegheny County officials said the person who died was in their late 60s and had been hospitalized at Jefferson Hospital.” Read the full article: https://www.msn.com/en-us/news/us/first-novel-coronavirus-death-reported-in-johnson-county-officials-confirm-saturday/ar-BB11vUYM",
+    "reports": [
+      {
+        "event_date": "2020-03-21 05:21:00",
+        "locations": [
+          {
+            "country": "United States",
+            "city": "Johnson County, KS",
+            "latitude": "38.845",
+            "longitude": "-94.852"
+          }
+        ],
+        "diseases": [
+          "COVID-19"
+        ],
+        "syndromes": []
+      }
+    ]
+  },
+  {
+    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34345",
+    "date_of_publication": "2020-03-21 05:19:00",
+    "headline": "UNITED KINGDOM - Number Of Coronavirus Deaths In UK Jumps To 233 As Over 5018 Test Positive For Covi",
+    "main_text": "[msn.com] UNITED KINGDOM - Number of coronavirus deaths in UK jumps to 233 as over 5,018 test positive for Covid-19   “Britain's coronavirus death toll has increased to 233 after 56 more people died in just 24 hours.” Read the full article: https://www.msn.com/en-ie/news/other/number-of-coronavirus-deaths-in-uk-jumps-to-233-as-over-5018-test-positive-for-covid-19/ar-BB11vSzt",
+    "reports": [
+      {
+        "event_date": "2020-03-21 05:19:00",
+        "locations": [
+          {
+            "country": "United Kingdom",
+            "city": "London",
+            "latitude": "51.507",
+            "longitude": "-0.128"
+          }
+        ],
+        "diseases": [
+          "dengue"
+        ],
+        "syndromes": [
+          "Haemorrhagic Fever"
+        ]
+      }
+    ]
+  },
+  {
+    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34344",
+    "date_of_publication": "2020-03-21 05:17:00",
+    "headline": "SINGAPORE - Singapore Reports First Two Deaths",
+    "main_text": "[ALJAZEERA] SINGAPORE - Singapore Reports First Two Deaths \"Singapore's Ministry of Health reported on Saturday the first two deaths linked to the coronavirus.\" Read the full article: https://www.aljazeera.com/news/2020/03/coronavirus-live-updates-worldwide-death-toll-surges-11000-200320225513796.html",
+    "reports": [
+      {
+        "event_date": "2020-03-21 05:17:00",
+        "locations": [
+          {
+            "country": "Singapore",
+            "city": "Singapore City",
+            "latitude": "1.352",
+            "longitude": "103.820"
+          }
+        ],
+        "diseases": [
+          "COVID-19"
+        ],
+        "syndromes": []
+      }
+    ]
+  },
+  {
+    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34343",
+    "date_of_publication": "2020-03-21 05:15:00",
+    "headline": "FINLAND - Finland Confirms First Coronavirus Death",
+    "main_text": "[ALJAZEERA NEWS] FINLAND - Finland Confirms First Coronavirus Death \"Finland has confirmed its first coronavirus death, according to national public broadcaster YLE...\" Read the full article: https://www.aljazeera.com/news/2020/03/coronavirus-live-updates-worldwide-death-toll-surges-11000-200320225513796.html",
+    "reports": [
+      {
+        "event_date": "2020-03-21 05:15:00",
+        "locations": [
+          {
+            "country": "Finland",
+            "city": "Helsinki",
+            "latitude": "60.170",
+            "longitude": "24.938"
+          }
+        ],
+        "diseases": [
+          "COVID-19"
+        ],
+        "syndromes": []
+      }
+    ]
+  },
+  {
+    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34342",
+    "date_of_publication": "2020-03-21 05:13:00",
+    "headline": "MAURITIUS - Mauritius Reports First Death As Cases Rise",
+    "main_text": "[ALJAZEERA NEWS] MAURITIUS - Mauritius Reports First Death As Cases Rise \"Mauritius has recorded its first death from coronavirus, the health minister has said, just the third in sub-Saharan Africa, as the archipelago nation imposed a lockdown to contain the outbreak.\" Read the full article: https://www.aljazeera.com/news/2020/03/coronavirus-live-updates-worldwide-death-toll-surges-11000-200320225513796.html",
+    "reports": [
+      {
+        "event_date": "2020-03-21 05:13:00",
+        "locations": [
+          {
+            "country": "Mauritius",
+            "city": "Port Louis",
+            "latitude": "-20.161",
+            "longitude": "57.501"
+          }
+        ],
+        "diseases": [
+          "COVID-19"
+        ],
+        "syndromes": []
+      }
+    ]
+  },
+  {
+    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34341",
+    "date_of_publication": "2020-03-21 05:11:00",
+    "headline": "MALAYSIA - Malaysia Reports 4th Death Due To COVID-19 - 153 New Cases",
+    "main_text": "[Xinhua] MALAYSIA - Malaysia Reports 4th Death Due To COVID-19, 153 New Cases \"Malaysia on Saturday announced the fourth death due to COVID-19, besides 153 newly confirmed cases to bring the total in the country to 1,183, according to the Health Ministry.\" Read the full article: http://www.xinhuanet.com/english/2020-03/21/c_138902319.htm",
+    "reports": [
+      {
+        "event_date": "2020-03-21 05:11:00",
+        "locations": [
+          {
+            "country": "Malaysia",
+            "city": "Kuala Lumpur",
+            "latitude": "3.139",
+            "longitude": "101.687"
+          }
+        ],
+        "diseases": [
+          "COVID-19"
+        ],
+        "syndromes": []
+      }
+    ]
+  },
+  {
+    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34340",
+    "date_of_publication": "2020-03-21 05:09:00",
+    "headline": "SPAIN - Spain To Boost Coronavirus Testing As Deaths Surpass 1300",
+    "main_text": "[jpost.com] SPAIN - Spain to boost coronavirus testing as deaths surpass 1,300   “Spanish authorities said on Saturday that they would boost coronavirus testing, potentially with the help of robots, as the toll in the country kept climbing, surpassing 1,300 deaths and reaching close to 25,000 cases.” Read the full article: https://www.jpost.com/International/Spain-to-boost-coronavirus-testing-as-deaths-surpass-1300-621816",
+    "reports": [
+      {
+        "event_date": "2020-03-21 05:09:00",
+        "locations": [
+          {
+            "country": "Spain",
+            "city": "Madrid",
+            "latitude": "40.417",
+            "longitude": "-3.704"
+          }
+        ],
+        "diseases": [
+          "COVID-19"
+        ],
+        "syndromes": []
+      }
+    ]
+  },
+  {
+    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34339",
+    "date_of_publication": "2020-03-21 05:05:00",
+    "headline": "INDIANA - Indiana Reports Fourth Coronavirus Death",
+    "main_text": "[wndu.com] INDIANA - Indiana reports fourth coronavirus death ''A fourth Hoosier has died from the coronavirus, according to the Indiana State Department of Health. The patient is an adult resident of Delaware County over the age of 60 who had been hospitalized.'' Read the full article: https://www.wndu.com/content/news/Indiana-reports-fourth-coronavirus-death-568996971.html",
+    "reports": [
+      {
+        "event_date": "2020-03-21 05:05:00",
+        "locations": [
+          {
+            "country": "United States",
+            "city": "Indianapolis, IN",
+            "latitude": "39.768",
+            "longitude": "-86.158"
+          }
+        ],
+        "diseases": [
+          "COVID-19"
+        ],
+        "syndromes": []
+      }
+    ]
+  },
+  {
+    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34338",
+    "date_of_publication": "2020-03-21 05:03:00",
+    "headline": "PORTUGAL - Portugal Death Toll Doubles To 12",
+    "main_text": "[ALJAZEERA NEWS] PORTUGAL - Portugal's Death Toll Doubles To 12   \"The death toll from the coronavirus pandemic in Portugal doubled overnight to 12, the country's national health authority DGS has said. ..\" Read the full article: https://www.aljazeera.com/news/2020/03/coronavirus-live-updates-worldwide-death-toll-surges-11000-200320225513796.html",
+    "reports": [
+      {
+        "event_date": "2020-03-21 05:03:00",
+        "locations": [
+          {
+            "country": "Portugal",
+            "city": "Lisbon",
+            "latitude": "38.722",
+            "longitude": "-9.139"
+          }
+        ],
+        "diseases": [
+          "COVID-19"
+        ],
+        "syndromes": []
+      }
+    ]
+  },
+  {
+    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34337",
+    "date_of_publication": "2020-03-21 05:01:00",
+    "headline": "BANGLADESH - Bangladesh Reports Second Death Linked To COVID-19",
+    "main_text": "[Xinhua] BANGLADESH - Bangladesh Reports Second Death Linked To COVID-19 \"Bangladesh on Saturday recorded the country's second death related to COVID-19, Health and Family Welfare Minister Zahid Maleque said at a press briefing Saturday.\" Read the full article: http://www.xinhuanet.com/english/2020-03/21/c_138902284.htm",
+    "reports": [
+      {
+        "event_date": "2020-03-21 05:01:00",
+        "locations": [
+          {
+            "country": "Bangladesh",
+            "city": "Dhaka",
+            "latitude": "23.810",
+            "longitude": "90.413"
+          }
+        ],
+        "diseases": [
+          "COVID-19"
+        ],
+        "syndromes": []
+      }
+    ]
+  },
+  {
+    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34336",
+    "date_of_publication": "2020-03-21 04:58:00",
+    "headline": "IRAN - Iran Reports 1556 Death Cases Of COVID-19",
+    "main_text": "[Xinhua] IRAN - Iran Reports 1,556 Death Cases Of COVID-19 \"Iran's Ministry of Health and Medical Education on Saturday announced 20,610 coronavirus cases in the country, of whom 1,556 people have died, according to official IRNA news agency.\" Read the full article: http://www.xinhuanet.com/english/2020-03/21/c_138902462.htm",
+    "reports": [
+      {
+        "event_date": "2020-03-21 04:58:00",
+        "locations": [
+          {
+            "country": "Iran",
+            "city": "Tehran",
+            "latitude": "35.689",
+            "longitude": "51.389"
+          }
+        ],
+        "diseases": [
+          "COVID-19"
+        ],
+        "syndromes": []
+      }
+    ]
+  },
+  {
+    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34334",
+    "date_of_publication": "2020-03-21 02:40:00",
+    "headline": "ARGENTINA - There Are 279 Cases Of Dengue - Of Which 222 Are From The Banda Department",
+    "main_text": "Manual Google Translation [Elliberal.com.ar] ARGENTINA - There are 279 cases of dengue, of which 222 are from the Banda department “The undersecretary of Health of the province, Dr. César Monti, confirmed 279 cases of dengue in the province .” Read the full article: https://www.elliberal.com.ar/noticia/523711/hay-279-casos-dengue-cuales-222-son-departamento-banda",
+    "reports": [
+      {
+        "event_date": "2020-03-21 02:40:00",
+        "locations": [
+          {
+            "country": "Argentina",
+            "city": "Banda Department",
+            "latitude": "-27.362",
+            "longitude": "-64.242"
+          }
+        ],
+        "diseases": [
+          "dengue"
+        ],
+        "syndromes": [
+          "Haemorrhagic Fever"
+        ]
+      }
+    ]
+  },
+  {
+    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34333",
+    "date_of_publication": "2020-03-21 01:36:00",
+    "headline": "BRAZIL - DF Registers Fewer Dengue Deaths In 2020",
+    "main_text": "Manual Google Translation [Agenciabrasilia.df.gov.br] BRAZIL - DF registers fewer dengue deaths in 2020 “The efforts of government agencies, such as the Department of Health, and the population resulted in a number of deaths from dengue in the Federal District, compared to last year.” Read the full article: https://www.agenciabrasilia.df.gov.br/2020/03/21/df-registra-menos-mortes-por-dengue-em-2020/",
+    "reports": [
+      {
+        "event_date": "2020-03-21 01:36:00",
+        "locations": [
+          {
+            "country": "Brazil",
+            "city": "Federal District",
+            "latitude": "-15.800",
+            "longitude": "-47.864"
+          }
+        ],
+        "diseases": [
+          "COVID-19"
+        ],
+        "syndromes": []
+      }
+    ]
+  },
+  {
+    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34332",
+    "date_of_publication": "2020-03-21 00:39:00",
+    "headline": "PAKISTAN - Congo Fever Patient Reported In JPMC",
+    "main_text": "[Pakistantoday.com.pk] PAKISTAN - Congo Fever patient reported in JPMC “A Crimean-Congo Haemorrhagic Fever (CCHF) case was reported at Jinnah Postgraduate Medical Centre (JPMC) here on Saturday.” Read the full article: https://www.pakistantoday.com.pk/2020/03/21/congo-patient-reported-jpmc/",
+    "reports": [
+      {
+        "event_date": "2020-03-21 00:39:00",
+        "locations": [
+          {
+            "country": "Pakistan",
+            "city": "Jinnah Postgraduate Medical Centre",
+            "latitude": "24.852",
+            "longitude": "67.043"
+          }
+        ],
+        "diseases": [
+          "other"
+        ],
+        "syndromes": []
+      }
+    ]
+  },
+  {
     "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34330",
     "date_of_publication": "2020-03-20 04:41:00",
-    "headline": "THAILAND - Thailand Reports 51 New Coronavirus Infections For Total Of 322",
+    "headline": "THAILAND - Thailand Reports 50 New Coronavirus Infections For Total Of 322",
     "main_text": "[Reuters] THAILAND - Thailand reports 50 new coronavirus infections for total of 322 \"Thailand reported 50 new coronavirus infections, taking its tally to 322, a health official said on Friday, with the majority located in Bangkok, the capital.\" Read the full article: https://www.reuters.com/article/us-health-coronavirus-thailand-cases/thailand-reports-50-new-coronavirus-infections-for-total-of-322-idUSKBN2170FT",
     "reports": [
       {
@@ -462,6 +903,29 @@
     ]
   },
   {
+    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34335",
+    "date_of_publication": "2020-03-20 02:53:00",
+    "headline": "ITALY  - Italy Announces 627 Coronavirus Deaths In 24 Hours",
+    "main_text": "[aljazeera.com] ITALY  - Italy announces 627 coronavirus deaths in 24 hours \"Italy announced 627 more deaths on Friday, the biggest day-to-day increase in the country's four-week epidemic, a day after surpassing China's death toll. The total number of deaths in Italy reached 4,032. \" Read the full article: https://www.aljazeera.com/news/2020/03/coronavirus-live-updates-italy-overtakes-china-death-toll-200319224219279.html",
+    "reports": [
+      {
+        "event_date": "2020-03-20 02:53:00",
+        "locations": [
+          {
+            "country": "Italy",
+            "city": "Rome",
+            "latitude": "41.903",
+            "longitude": "12.496"
+          }
+        ],
+        "diseases": [
+          "COVID-19"
+        ],
+        "syndromes": []
+      }
+    ]
+  },
+  {
     "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34310",
     "date_of_publication": "2020-03-19 05:33:00",
     "headline": "UNITED KINGDOM  - 32 More Die In Britain As COVID-19 Death Toll Exceeds 100",
@@ -682,472 +1146,6 @@
             "city": "Phnom Penh",
             "latitude": "11.556",
             "longitude": "104.928"
-          }
-        ],
-        "diseases": [
-          "COVID-19"
-        ],
-        "syndromes": []
-      }
-    ]
-  },
-  {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34300",
-    "date_of_publication": "2020-03-19 04:53:00",
-    "headline": "SAUDI ARABIA - Saudi Arabia Registers 67 New COVID-19 Cases",
-    "main_text": "[Xinhua] SAUDI ARABIA - Saudi Arabia registers 67 new COVID-19 cases \"Saudi Arabia announced on Wednesday the registration of 67 new COVID-19 cases, the Saudi Press Agency reported.\" Read the full article: http://www.xinhuanet.com/english/2020-03/19/c_138892868.htm",
-    "reports": [
-      {
-        "event_date": "2020-03-19 04:53:00",
-        "locations": [
-          {
-            "country": "Saudi Arabia",
-            "city": "Riyadh",
-            "latitude": "24.714",
-            "longitude": "46.675"
-          }
-        ],
-        "diseases": [
-          "COVID-19"
-        ],
-        "syndromes": []
-      }
-    ]
-  },
-  {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34299",
-    "date_of_publication": "2020-03-19 04:51:00",
-    "headline": "EGYPT - Egypt Confirms 14 New COVID-19 Cases",
-    "main_text": "[Xinhua] EGYPT - Egypt confirms 14 new COVID-19 cases \"Egypt confirmed on Wednesday 14 new COVID-19 cases, bringing the total number of confirmed cases in the country to 210, Egyptian Health Ministry said in a statement.\" Read the full article: http://www.xinhuanet.com/english/2020-03/19/c_138892905.htm",
-    "reports": [
-      {
-        "event_date": "2020-03-19 04:51:00",
-        "locations": [
-          {
-            "country": "Egypt",
-            "city": "Cairo",
-            "latitude": "30.044",
-            "longitude": "31.236"
-          }
-        ],
-        "diseases": [
-          "COVID-19"
-        ],
-        "syndromes": []
-      }
-    ]
-  },
-  {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34298",
-    "date_of_publication": "2020-03-19 04:47:00",
-    "headline": "BENIN - Benin Confirms Second Case Of COVID-19",
-    "main_text": "[Xinhua] BENIN - Benin Confirms Second Case Of COVID-19 \"Benin recorded its second case of COVID-19 on Wednesday, bringing the total number of confirmed cases in the country to two, announced Benin's Minister of Health Benjamin Hounkpatin.\" Read the full article: http://www.xinhuanet.com/english/2020-03/19/c_138892924.htm",
-    "reports": [
-      {
-        "event_date": "2020-03-19 04:47:00",
-        "locations": [
-          {
-            "country": "Benin",
-            "city": "Porto-Novo",
-            "latitude": "6.497",
-            "longitude": "2.629"
-          }
-        ],
-        "diseases": [
-          "COVID-19"
-        ],
-        "syndromes": []
-      }
-    ]
-  },
-  {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34297",
-    "date_of_publication": "2020-03-19 00:46:00",
-    "headline": "ARGENTINA - Dengue Cases Rise To 430 In Corrientes",
-    "main_text": "Manual Google Translation [Grupolaprovincia.com] ARGENTINA - Dengue cases rise to 430 in Corrientes “The Corrientes government reported today that the number of dengue patients reaches 430 and that so far there are no confirmed cases of coronavirus in the province.” Read the full article: https://www.grupolaprovincia.com/sociedad/ascienden-a-430-los-casos-de-dengue-en-corrientes-464666",
-    "reports": [
-      {
-        "event_date": "2020-03-19 00:46:00",
-        "locations": [
-          {
-            "country": "Argentina",
-            "city": "Corrientes",
-            "latitude": "-27.469",
-            "longitude": "-58.831"
-          }
-        ],
-        "diseases": [
-          "dengue"
-        ],
-        "syndromes": [
-          "Haemorrhagic Fever"
-        ]
-      }
-    ]
-  },
-  {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34296",
-    "date_of_publication": "2020-03-19 00:35:00",
-    "headline": "BRAZIL - Missal Has 67 Confirmed Cases Of Dengue",
-    "main_text": "Manual Google Translation [Guiamedianeira.com.br] BRAZIL - Missal has 67 confirmed cases of Dengue “The number keeps rising, in the morning, the information was 56 cases, but with the updated epidemiological bulletin, 67 positive cases of dengue in Missal were confirmed.” Read the full article: http://www.guiamedianeira.com.br/noticia/25564/Missal+esta+com+67+casos+confirmados+de+Dengue",
-    "reports": [
-      {
-        "event_date": "2020-03-19 00:35:00",
-        "locations": [
-          {
-            "country": "Brazil",
-            "city": "Missal",
-            "latitude": "-25.092",
-            "longitude": "-54.247"
-          }
-        ],
-        "diseases": [
-          "dengue"
-        ],
-        "syndromes": [
-          "Haemorrhagic Fever"
-        ]
-      }
-    ]
-  },
-  {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34295",
-    "date_of_publication": "2020-03-19 00:28:00",
-    "headline": "INDONESIA - Two Children Die Of Dengue Fever In Cianjur",
-    "main_text": "[Antaranews.com] INDONESIA - Two children die of dengue fever in Cianjur “Two children have died of dengue hemorrhagic fever (DHF), while dozens of other people remain hospitalized across Cianjur, West Java, according to the Cianjur Health Service.” Read the full article: https://en.antaranews.com/news/144162/two-children-die-of-dengue-fever-in-cianjur",
-    "reports": [
-      {
-        "event_date": "2020-03-19 00:28:00",
-        "locations": [
-          {
-            "country": "Indonesia",
-            "city": "Cianjur Regency",
-            "latitude": "-7.358",
-            "longitude": "107.196"
-          }
-        ],
-        "diseases": [
-          "dengue"
-        ],
-        "syndromes": [
-          "Haemorrhagic Fever"
-        ]
-      }
-    ]
-  },
-  {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34291",
-    "date_of_publication": "2020-03-18 23:25:00",
-    "headline": "GLOBAL - Over 7000 People Die Of COVID-19 Globally - WHO",
-    "main_text": "[Xinhua] GLOBAL - Over 7,000 people die of COVID-19 globally: WHO \"The global death toll from COVID-19 increased by 475 to 7,426 in the past 24 hours as of 10:00 CET (0900 GMT) Tuesday, according to the daily situation report released by the World Health Organization (WHO).\" Read the full article: http://www.xinhuanet.com/english/2020-03/18/c_138889989.htm",
-    "reports": [
-      {
-        "event_date": "2020-03-18 23:25:00",
-        "locations": [
-          {
-            "country": "United States",
-            "city": "Washington DC",
-            "latitude": "38.907",
-            "longitude": "-77.037"
-          }
-        ],
-        "diseases": [
-          "COVID-19"
-        ],
-        "syndromes": []
-      }
-    ]
-  },
-  {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34290",
-    "date_of_publication": "2020-03-18 23:22:00",
-    "headline": "GABON - 2 New COVID-19 Cases Confirmed In Gabon",
-    "main_text": "[Xinhua] GABON - 2 new COVID-19 cases confirmed in Gabon \"Two more Gaboneses have tested positive for COVID-19, bringing the total number of confirmed cases in the west African country to three, Secretary General of the Ministry of Health Guy Patrick Obiang said on Tuesday.\" Read the full article: http://www.xinhuanet.com/english/2020-03/18/c_138889956.htm",
-    "reports": [
-      {
-        "event_date": "2020-03-18 23:22:00",
-        "locations": [
-          {
-            "country": "Gabon",
-            "city": "Libreville",
-            "latitude": "0.416",
-            "longitude": "9.467"
-          }
-        ],
-        "diseases": [
-          "COVID-19"
-        ],
-        "syndromes": []
-      }
-    ]
-  },
-  {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34289",
-    "date_of_publication": "2020-03-18 23:20:00",
-    "headline": "CHINA - 13 New Confirmed Cases Of Coronavirus Infection Reported On Chinese Mainland",
-    "main_text": "[Xinhua] CHINA - 13 new confirmed cases of coronavirus infection reported on Chinese mainland \"Chinese health authority said Wednesday it received reports of 13 new confirmed cases of novel coronavirus infection and 11 deaths on the Chinese mainland on Tuesday.\" Read the full article: http://www.xinhuanet.com/english/2020-03/18/c_138889976.htm",
-    "reports": [
-      {
-        "event_date": "2020-03-18 23:20:00",
-        "locations": [
-          {
-            "country": "China",
-            "city": "Beijing",
-            "latitude": "39.904",
-            "longitude": "116.407"
-          }
-        ],
-        "diseases": [
-          "COVID-19"
-        ],
-        "syndromes": []
-      }
-    ]
-  },
-  {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34288",
-    "date_of_publication": "2020-03-18 23:18:00",
-    "headline": "GAMBIA - Gambia Confirms First COVID-19 Case",
-    "main_text": "[Xinhua] GAMBIA - Gambia confirms first COVID-19 case \"The Gambian Health Minister Amadou Samateh on Tuesday evening confirmed on state broadcaster the first case of the novel coronavirus (COVID-19) in the country.\" Read the full article: http://www.xinhuanet.com/english/2020-03/18/c_138889089.htm",
-    "reports": [
-      {
-        "event_date": "2020-03-18 23:18:00",
-        "locations": [
-          {
-            "country": "Gambia",
-            "city": "Banjul",
-            "latitude": "13.455",
-            "longitude": "-16.579"
-          }
-        ],
-        "diseases": [
-          "COVID-19"
-        ],
-        "syndromes": []
-      }
-    ]
-  },
-  {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34287",
-    "date_of_publication": "2020-03-18 23:16:00",
-    "headline": "BRAZIL - Brazil Reports 1st COVID-19 Death",
-    "main_text": "[Xinhua] BRAZIL - Brazil reports 1st COVID-19 death \"The victim was a 62-year-old male resident of Sao Paulo, Brazil's most populous state and home to most of the cases in the country.\" Read the full article: http://www.xinhuanet.com/english/2020-03/18/c_138888981.htm",
-    "reports": [
-      {
-        "event_date": "2020-03-18 23:16:00",
-        "locations": [
-          {
-            "country": "Brazil",
-            "city": "Brasilia",
-            "latitude": "-15.827",
-            "longitude": "-47.922"
-          }
-        ],
-        "diseases": [
-          "COVID-19"
-        ],
-        "syndromes": []
-      }
-    ]
-  },
-  {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34286",
-    "date_of_publication": "2020-03-18 23:14:00",
-    "headline": "ZIMBABWE - Zimbabwe President Declares COVID-19 A National Disaster",
-    "main_text": "[Xinhua] ZIMBABWE - Zimbabwe's President declares COVID-19 a national disaster \"Zimbabwe has postponed its 40th independence anniversary celebrations scheduled for April 18, as well as other public gatherings and international sporting events as part of efforts to contain the spread of the coronavirus (COVID-19).\" Read the full article: http://www.xinhuanet.com/english/2020-03/17/c_138888708.htm",
-    "reports": [
-      {
-        "event_date": "2020-03-18 23:14:00",
-        "locations": [
-          {
-            "country": "Zimbabwe",
-            "city": "Harare",
-            "latitude": "-17.825",
-            "longitude": "31.034"
-          }
-        ],
-        "diseases": [
-          "COVID-19"
-        ],
-        "syndromes": []
-      }
-    ]
-  },
-  {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34294",
-    "date_of_publication": "2020-03-18 03:40:00",
-    "headline": "GABON - 2 New COVID-19 Cases Confirmed In Gabon",
-    "main_text": "[Xinhua] GABON - 2 new COVID-19 cases confirmed in Gabon \"Two more Gaboneses have tested positive for COVID-19, bringing the total number of confirmed cases in the west African country to three, Secretary General of the Ministry of Health Guy Patrick Obiang said on Tuesday.\" Read the full article: http://www.xinhuanet.com/english/2020-03/18/c_138889956.htm",
-    "reports": [
-      {
-        "event_date": "2020-03-18 03:40:00",
-        "locations": [
-          {
-            "country": "Gabon",
-            "city": "Libreville",
-            "latitude": "0.416",
-            "longitude": "9.467"
-          }
-        ],
-        "diseases": [
-          "COVID-19"
-        ],
-        "syndromes": []
-      }
-    ]
-  },
-  {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34293",
-    "date_of_publication": "2020-03-18 03:35:00",
-    "headline": "ZIMBABWE - Zimbabwe President Declares COVID-19 A National Disaster",
-    "main_text": "[Xinhua] ZIMBABWE - Zimbabwe's President declares COVID-19 a national disaster \"Zimbabwe has postponed its 40th independence anniversary celebrations scheduled for April 18, as well as other public gatherings and international sporting events as part of efforts to contain the spread of the coronavirus (COVID-19).\" Read the full article: http://www.xinhuanet.com/english/2020-03/17/c_138888708.htm",
-    "reports": [
-      {
-        "event_date": "2020-03-18 03:35:00",
-        "locations": [
-          {
-            "country": "Zimbabwe",
-            "city": "Harare",
-            "latitude": "-17.825",
-            "longitude": "31.034"
-          }
-        ],
-        "diseases": [
-          "COVID-19"
-        ],
-        "syndromes": []
-      }
-    ]
-  },
-  {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34292",
-    "date_of_publication": "2020-03-18 00:22:00",
-    "headline": "CHINA - China Hubei Cleared Of Suspected COVID-19 Cases",
-    "main_text": "[Xinhua] CHINA - China's Hubei cleared of suspected COVID-19 cases \"Central China's Hubei Province reported zero new suspected case of the novel coronavirus disease (COVID-19) for two consecutive days, the provincial health commission said Wednesday.\" Read the full article: http://www.xinhuanet.com/english/2020-03/18/c_138890141.htm",
-    "reports": [
-      {
-        "event_date": "2020-03-18 00:22:00",
-        "locations": [
-          {
-            "country": "China",
-            "city": "Beijing",
-            "latitude": "39.904",
-            "longitude": "116.407"
-          }
-        ],
-        "diseases": [
-          "COVID-19"
-        ],
-        "syndromes": []
-      }
-    ]
-  },
-  {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34285",
-    "date_of_publication": "2020-03-17 04:42:00",
-    "headline": "ALGERIA - COVID-19 Death Toll In Algeria Rises To 5",
-    "main_text": "[Xinhua] ALGERIA - COVID-19 death toll in Algeria rises to 5 \"The ministry said in a statement that the fifth victim was recorded in the Frantz Fanon Hospital in Blida province.\" Read the full article: http://www.xinhuanet.com/english/2020-03/17/c_138888158.htm",
-    "reports": [
-      {
-        "event_date": "2020-03-17 04:42:00",
-        "locations": [
-          {
-            "country": "Algeria",
-            "city": "Algiers",
-            "latitude": "36.754",
-            "longitude": "3.059"
-          }
-        ],
-        "diseases": [
-          "COVID-19"
-        ],
-        "syndromes": []
-      }
-    ]
-  },
-  {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34284",
-    "date_of_publication": "2020-03-17 04:39:00",
-    "headline": "IRAN - COVID-19 Death Toll Rises To 988 In Iran",
-    "main_text": "[Xinhua] IRAN - COVID-19 death toll rises to 988 in Iran \"Iran's Ministry of Health and Medical Education on Tuesday announced that the number of COVID-19 cases in the country has climbed to 16,169 with the death toll reaching 988.\" Read the full article: http://www.xinhuanet.com/english/2020-03/17/c_138888300.htm",
-    "reports": [
-      {
-        "event_date": "2020-03-17 04:39:00",
-        "locations": [
-          {
-            "country": "Iran",
-            "city": "Tehran",
-            "latitude": "35.689",
-            "longitude": "51.389"
-          }
-        ],
-        "diseases": [
-          "COVID-19"
-        ],
-        "syndromes": []
-      }
-    ]
-  },
-  {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34283",
-    "date_of_publication": "2020-03-17 04:38:00",
-    "headline": "JAPAN - COVID-19 Infections In Japan Rise To 821 Cases",
-    "main_text": "[Xinhua] JAPAN - COVID-19 infections in Japan rise to 821 cases \" Japan's health ministry and local governments said Tuesday the number of COVID-19 infections stood at a total of 821 as of 10:30 a.m. local time here.\" Read the full article: http://www.xinhuanet.com/english/2020-03/17/c_138887037.htm",
-    "reports": [
-      {
-        "event_date": "2020-03-17 04:38:00",
-        "locations": [
-          {
-            "country": "Japan",
-            "city": "Tokyo",
-            "latitude": "35.676",
-            "longitude": "139.650"
-          }
-        ],
-        "diseases": [
-          "COVID-19"
-        ],
-        "syndromes": []
-      }
-    ]
-  },
-  {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34282",
-    "date_of_publication": "2020-03-17 04:37:00",
-    "headline": "BURKINA FASO - Burkina Faso Records Five New Cases Of COVID-19",
-    "main_text": "[Xinhua] BURKINA FASO - Burkina Faso records five new cases of COVID-19 \"Burkina Faso has recorded five new cases of COVID-19, bringing the total number of confirmed cases in the West African nation to 20, the Minister of Health Claudine Lougue said in a statement on Tuesday.\" Read the full article: http://www.xinhuanet.com/english/2020-03/17/c_138888100.htm",
-    "reports": [
-      {
-        "event_date": "2020-03-17 04:37:00",
-        "locations": [
-          {
-            "country": "Burkina Faso",
-            "city": "Ouagadougou",
-            "latitude": "12.371",
-            "longitude": "-1.520"
-          }
-        ],
-        "diseases": [
-          "COVID-19"
-        ],
-        "syndromes": []
-      }
-    ]
-  },
-  {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34281",
-    "date_of_publication": "2020-03-17 04:35:00",
-    "headline": "MALAYSIA - Malaysia Reports 2 Deaths Due To COVID-19 - 673 Cases In Total",
-    "main_text": "[Xinhua] MALAYSIA - Malaysia reports 2 deaths due to COVID-19, 673 cases in total \"Malaysia announced its first two deaths related to the COVID-19 outbreak on Tuesday as the total number of cases climbed to 673, according to the Health Ministry.\" Read the full article: http://www.xinhuanet.com/english/2020-03/17/c_138888146.htm",
-    "reports": [
-      {
-        "event_date": "2020-03-17 04:35:00",
-        "locations": [
-          {
-            "country": "Malaysia",
-            "city": "Kuala Lumpur",
-            "latitude": "3.139",
-            "longitude": "101.687"
           }
         ],
         "diseases": [

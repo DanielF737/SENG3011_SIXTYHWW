@@ -2,14 +2,14 @@ const axios = require('axios');
 const cheerio = require('cheerio');
 const base_url = 'http://outbreaks.globalincidentmap.com/';
 const fs = require('fs');
-const db = require('../common/db');
+const database = require('../common/db');
 
 let diseases = JSON.parse(fs.readFileSync('../data/disease_list.json'));
 let syndromes = JSON.parse(fs.readFileSync('../data/syndrome_list.json'));
 
-// Grab the page
-axios(base_url)
-	.then(response => {
+database().then((db) => {
+	// Grab the page
+	axios(base_url).then(response => {
 		const html = response.data;
 		const $ = cheerio.load(html)
 		const pages = [];
@@ -47,6 +47,12 @@ axios(base_url)
 		console.log("[ERROR] Failed parsing base_url")
 		console.log(err)
 	});
+}).catch((e) => {
+  console.log(e);
+});
+
+
+
 // Grab info from article
 function parseURL(url){
 	return axios(url[0])
@@ -97,6 +103,7 @@ function parseURL(url){
 			console.log(err)
 		})
 }
+
 function parseDisease(disease){
 	for (var i =0 ; i < diseases.length; i++) {
 		if (diseases[i].equiv.includes(disease.toLowerCase())){
@@ -105,6 +112,7 @@ function parseDisease(disease){
 	}
 	return "other"
 }
+
 function parseSyndrome(syndrome){
 	for (var i =0 ; i < syndromes.length; i++) {
 		if (syndromes[i].equiv.includes(syndrome.toLowerCase())){

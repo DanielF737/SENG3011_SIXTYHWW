@@ -1,38 +1,49 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const db = require('../common/db');
-const YAML = require("yamljs")
-const swagger = require('swagger-ui-express')
-const swaggerDoc = YAML.load("../../API_Documentation/swag.yml")
+const database = require('../common/db');
+const swagger = require('swagger-ui-express');
+const swaggerDoc = require("yamljs").load("../../API_Documentation/swag.yml");
+
 // Constants
 const PORT = 3000;
 
-// Init Express
-const app = express();
+database().then((db) => {
+  // Init Express
+  const app = express();
 
-// Middleware
-app.use(bodyParser.json());
-/*
-  Routes
-*/
+  // Middleware
+  app.use(bodyParser.json());
 
-// Root
-app.use('/', swagger.serve)
-app.get('/', swagger.setup(swaggerDoc))
+  // Swagger
+  app.use('/', swagger.serve)
+  app.get('/', swagger.setup(swaggerDoc))
 
-app.get('/search', async (req, res) => {
-  const articles = await db.search(req.body);
-  res.send(articles);
+  // API Routes
+  app.get('/search', async (req, res) => {
+    console.log("/search");
+    const reports = await db.search(req.body);
+    res.send(reports);
+  });
+
+  app.put('/articles', async (req, res) =>{
+    res.send();
+  });
+  
+  app.get('/articles', async (req, res) => {
+    res.send();
+  });
+  
+  app.get('/articles/:id', async(req, res) => {
+    res.send();
+  });
+  
+  app.delete('/articles/:id', async(req,res) => {
+    res.send();
+  });
+
+  // Run Server
+  app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
+
+}).catch((e) => {
+  console.log(e);
 });
-/**
- * @swagger
- *
-*/
-
-app.get('/reports', async (req, res) => {
-  const articles = await db.getReports();
-  res.send(articles);
-});
-
-// Run Server
-app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
