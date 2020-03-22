@@ -52,7 +52,24 @@ paths:
        parameters:
          - name: body
            in: body
-           description: "Admin Only."
+           description: "id - integer: id of the article to add/update. Min 0, Must be valid ID in system\n
+           url - string: url of article\n
+           date_of_publication - string: date article was published. Must be in form \"YY-MM-DD HH-MM-SS\"\n
+           headline - string: headline of article\n
+           main_text - string: text of article\n
+           reports - array: array of report objects\n
+
+           \nreports:\n
+           event_date - string: date article was published. Must be in form \"YY-MM-DD HH-MM-SS\"\n
+           location - array of location objects\n
+           diseases - array of strings: Must be in disease_list.json\n
+           syndromes - array of strings: Must be in syndrome_list.json\n
+
+           \nDiseases:\n
+           country - string: country of report\n
+           city - string: city of report\n
+           latitude - string: latitude of city\n
+           longitude - longitude of city"
            required: true
            schema:
              $ref: '#/definitions/Article'
@@ -127,7 +144,7 @@ paths:
        parameters:
          - name: id
            in: path
-           description: "Admin Only."
+           description: "id - integer: id of article to delete. Min=0, Must be valid ID in system."
            required: true
            type: integer
            minimum: 0
