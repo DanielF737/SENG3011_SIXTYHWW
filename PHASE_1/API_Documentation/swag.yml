@@ -150,6 +150,8 @@ paths:
        security:
          - TrivialAuth: []
        responses:
+         200:
+             description: Success  
          400:
              description: Invalid ID
          401:
