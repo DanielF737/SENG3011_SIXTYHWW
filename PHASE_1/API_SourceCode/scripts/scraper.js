@@ -64,7 +64,7 @@ database().then((db) => {
 			// current seconds
 			let seconds = date_ob.getSeconds();
 
-			const logline = "run scraper at: " + year + "-" + month + "-" + date + " " + hours + ":" + minutes + ":" + seconds;
+			const logline = "run scraper at: " + year + "-" + month + "-" + date + " " + hours + ":" + minutes + ":" + seconds + "\n";
 
 			fs.appendFile('runlog.txt', logline, function (err) {
 				  if (err) throw err;
