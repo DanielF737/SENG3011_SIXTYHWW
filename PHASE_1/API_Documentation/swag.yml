@@ -1,10 +1,10 @@
 swagger: "2.0"
 info:
-  description: "API for pulling disease reports from Global Incident Tracker"
+  description: "API for pulling disease outbreak reports from Global Incident Tracker"
   version: "0.0.1"
   title: "SIXTYHWW - SENG3011"
   license:
-    name: "All the reasons you arent allowed to sue"
+    name: "Click here"
     url: 'https://www.gnu.org/licenses/gpl-3.0.txt'
 paths:
   /search:
@@ -12,7 +12,7 @@ paths:
        tags:
          - "Search"
        summary: "Search query for articles"
-       description: ""
+       description: "Search Object with parameters to find Articles."
        consumes:
          - application/json
        produces:
@@ -20,7 +20,10 @@ paths:
        parameters:
          - name: body
            in: body
-           description: "Search parameters"
+           description: "start_date - string: Must be in following format: “yyyy-MM-ddTHH:mm:ss”. (REQUIRED)\n
+             end_date - string: Must be in following format: “yyyy-MM-ddTHH:mm:ss”. (REQUIRED)\n
+             keyTerms - string: Comma separated list of key terms\n
+             location - string: location to search. (CASE SENSITIVE)\n"
            required: true
            schema:
              $ref: '#/definitions/Search'
@@ -33,13 +36,15 @@ paths:
                  items:
                    $ref: '#/definitions/Article'
          400:
-             description: something failed
+             description: Something failed
+         405:
+             description: Validation Exception
   /articles:
-     put:
+     post:
        tags:
          - "Articles"
-       summary: "Update a single Article"
-       description: ""
+       summary: "Add/Update a single Article [REQUIRES ADMIN]"
+       description: "Add or Update a single article in the database"
        consumes:
          - application/json
        produces:
@@ -47,10 +52,26 @@ paths:
        parameters:
          - name: body
            in: body
-           description: "Edit an existing Article"
+           description: "url - string: url of article\n
+           date_of_publication - string: date article was published. Must be in form \"YY-MM-DD HH-MM-SS\"\n
+           headline - string: headline of article\n
+           main_text - string: text of article\n
+           reports - array: array of report objects\n
+
+           \nreports:\n
+           event_date - string: date article was published. Must be in form \"YY-MM-DD HH-MM-SS\"\n
+           location - array of location objects\n
+           diseases - array of strings: Must be in disease_list.json\n
+           syndromes - array of strings: Must be in syndrome_list.json\n
+
+           \nDiseases:\n
+           country - string: country of report\n
+           city - string: city of report\n
+           latitude - string: latitude of city\n
+           longitude - longitude of city"
            required: true
            schema:
-             $ref: '#/definitions/Article'
+             $ref: '#/definitions/Article2'
        security:
          - TrivialAuth: []
        responses:
@@ -66,13 +87,13 @@ paths:
        tags:
          - "Articles"
        summary: "Get N most recent articles"
-       description: ""
+       description: "Fetch the N most recent Articles in the system"
        produces:
          - application/json
        parameters:
          - name: N
            in: query
-           description: "Number of articles to yoink"
+           description: "N - integer: Number of articles to recieve. Min = 1, Max = 50"
            type: integer
            default: 20
            required: true
@@ -96,7 +117,7 @@ paths:
        parameters:
          - name: id
            in: path
-           description: "ID of article to be fetched"
+           description: "ID - integer: ID of the article to fetch. Min: 0, Must be valid ID in system"
            default : 0
            required: true
            type: integer
@@ -115,20 +136,22 @@ paths:
      delete:
        tags:
          - "Articles"
-       summary: "Deletes an Article"
-       description: ""
+       summary: "Deletes an Article [REQUIRES ADMIN]"
+       description: "Delete an Article from the system"
        produces:
          - application/json
        parameters:
          - name: id
            in: path
-           description: "ID of article to be deleted"
+           description: "id - integer: id of article to delete. Min=0, Must be valid ID in system."
            required: true
            type: integer
            minimum: 0
        security:
          - TrivialAuth: []
        responses:
+         200:
+             description: Success  
          400:
              description: Invalid ID
          401:
@@ -143,9 +166,8 @@ Responses:
 securityDefinitions:
   TrivialAuth:
     type: apiKey
-    name: Password
-    in: cookie
-    adminKey: name
+    name: authorization
+    in: header
 
 definitions:
    Location:
@@ -159,6 +181,11 @@ definitions:
          type: string
        longitude:
          type: string
+     example:
+       country: "Australia"
+       city: "Sydney"
+       latitude: "-33.865"
+       longitude: "151.210"
 
    Report:
      type: object
@@ -178,38 +205,82 @@ definitions:
          type: array
          items:
            type: string
+     example:
+       event_date: "2020-03-20 04:41:00"
+       location:
+         - country: "Thailand"
+           city: "Bangkok"
+           latitude: "13.756"
+           longitude: "100.502"
+       diseases:
+         - "COVID-19"
+       syndromes:
+         - "Influenza-like illness"
+
+
 
    Article:
      type: object
      properties:
        id:
          type: integer
+         example: 7
        url:
          type: string
+         example: "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34330"
        data_of_publication:
          type: string
-         format: "date time"
+         example: "2020-03-20 04:41:00"
        headline:
          type: string
+         example: "THAILAND - Thailand Reports 51 New Coronavirus Infections For Total Of 322"
        main_text:
          type: string
+         example: "[Reuters] THAILAND - Thailand reports 50 new coronavirus infections for total of 322 \"Thailand reported 50 new coronavirus infections, taking its tally to 322, a health        official said on Friday, with the majority located in Bangkok, the capital..."
        reports:
          type: array
          items:
            $ref: "#/definitions/Report"
+   Article2:
+     type: object
+     properties:
+       url:
+         type: string
+         example: "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34330"
+       data_of_publication:
+         type: string
+         example: "2020-03-20 04:41:00"
+       headline:
+         type: string
+         example: "THAILAND - Thailand Reports 51 New Coronavirus Infections For Total Of 322"
+       main_text:
+         type: string
+         example: "[Reuters] THAILAND - Thailand reports 50 new coronavirus infections for total of 322 \"Thailand reported 50 new coronavirus infections, taking its tally to 322, a health        official said on Friday, with the majority located in Bangkok, the capital..."
+       reports:
+         type: array
+         items:
+           $ref: "#/definitions/Report"
+
    Search:
      type: object
      properties:
-       startDate:
+       start_date:
          type: string
          format: "date time"
-       endDate:
+         required: true
+       end_date:
          type: string
          format: "date time"
+         required: true
        keyTerms:
          type: array
          items:
            type: string
        location:
          type: string
+     example:
+       start_date: "2015-10-01T08:45:10"
+       end_date: "2020-11-01T19:37:12"
+       keyTerms: "covid"
+       location: "Paris"
 
