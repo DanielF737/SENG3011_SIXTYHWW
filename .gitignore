@@ -1,4 +1,5 @@
 /PHASE_1/API_SourceCode/node_modules/*
-/PHASE_1/API_SourceCode/output.json
+/PHASE_1/API_SourceCode/logs/*
 /PHASE_1/API_SourceCode/database/database.sqlite
+/PHASE_1/API_SourceCode/output.json
 /PHASE_1/API_SourceCode/scraper/runlog.txt
