@@ -29,12 +29,26 @@ database().then((db) => {
   app.post('/search', async (req, res) => {
 
     const reports = await db.search(req.body);
-    
+    reports.forEach(rep =>{
+      rep.main_text = rep.body
+      delete rep.body
+      rep.reports = []
+      rep.reports.push({'event_date': rep.event_date, 'location': [{'country':rep.country, 'city':rep.city, 'latitude':rep.latitude, 'longitude':rep.longitude}],
+      'diseases': rep.diseases, 'sydromes': rep.syndromes})
+      delete rep.event_date;
+      delete rep.country;
+      delete rep.city;
+      delete rep.latitude
+      delete rep.longitude
+      delete rep.diseases
+      delete rep.syndromes
+      delete rep.article_id
+    })
     if (reports) {
       res.send(reports);
       logger.log("/search", req.startTime, JSON.stringify(req.body, null, 2), `200 - ${reports.length} reports found`);
     }
-    
+
     else {
       res.sendStatus(400);
       logger.log("/search", req.startTime, JSON.stringify(req.body, null, 2), "400");
@@ -66,39 +80,54 @@ database().then((db) => {
         logger.log("POST /articles", req.startTime, JSON.stringify(req.body, null, 2), `400 - Invalid article`);
         return;
     }
-    
+
     const result = await db.addArticle(req.body);
-    
+
     if (result) {
       res.send(reports);
       logger.log("POST /articles", req.startTime, JSON.stringify(req.body, null, 2), `200 - OK`);
     }
-    
+
     else {
       res.sendStatus(400);
       logger.log("POST /articles", req.startTime, JSON.stringify(req.body, null, 2), "400");
     }
 
   });
-  
+
   app.get('/articles', async (req, res) => {
 
     const num = req.query.N ? req.query.N : 20;
-    
+
     const articles = await db.getAllArticles(num);
-    
+    articles.forEach(rep =>{
+      rep.main_text = rep.body
+      delete rep.body
+
+      rep.reports = []
+      rep.reports.push({'event_date': rep.event_date, 'location': [{'country':rep.country, 'city':rep.city, 'latitude':rep.latitude, 'longitude':rep.longitude}],
+      'diseases': rep.diseases, 'sydromes': rep.syndromes})
+      delete rep.event_date;
+      delete rep.country;
+      delete rep.city;
+      delete rep.latitude
+      delete rep.longitude
+      delete rep.diseases
+      delete rep.syndromes
+      delete rep.article_id
+    })
     if (articles) {
       res.send(articles);
       logger.log("GET /articles", req.startTime, JSON.stringify(req.body, null, 2), `200 - ${articles.length} articles found`);
     }
-    
+
     else {
       res.sendStatus(400);
       logger.log("GET /articles", req.startTime, JSON.stringify(req.body, null, 2), `400`);
     }
 
   });
-  
+
   app.get('/articles/:id', async(req, res) => {
 
     const id = parseInt(req.params.id);
@@ -115,14 +144,14 @@ database().then((db) => {
       res.send(article);
       logger.log("GET /articles/:id", req.startTime, JSON.stringify(req.body, null, 2), `200- OK`);
     }
-    
+
     else {
       res.sendStatus(400);
       logger.log("GET /articles/:id", req.startTime, JSON.stringify(req.body, null, 2), `404 - Article not found`);
     }
-  
+
   });
-  
+
   app.delete('/articles/:id', async(req,res) => {
 
     if (req.headers.authorization != API_KEY) {
@@ -138,14 +167,14 @@ database().then((db) => {
       logger.log("/search", req.startTime, JSON.stringify(req.body, null, 2), `400 - No id provided`);
       return;
     }
-    
+
     const article = await db.deleteArticle(id);
 
     if (article) {
       res.send(article);
       logger.log("/articles/:id", req.startTime, JSON.stringify(req.body, null, 2), `200 - OK`);
     }
-    
+
     else {
       res.sendStatus(400);
       logger.log("/articles/:id", req.startTime, JSON.stringify(req.body, null, 2), `404`);
