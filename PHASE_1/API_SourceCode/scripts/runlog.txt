@@ -1,1 +1,7 @@
-run scraper at: 2020-03-24 11:28:56
+run scraper at: 2020-03-24 11:28:56run scraper at: 2020-03-24 3:26:13
+loaded 48601reports at: 2020-03-24 3:26:18
+run scraper at: 2020-03-24 3:33:11
+loaded 48601reports at: 2020-03-24 3:33:22
+run scraper at: 2020-03-24 4:10:8
+loaded 48601reports at: 2020-03-24 4:15:1
+-----------------------------------------

@@ -138,196 +138,10 @@
     ]
   },
   {
-<<<<<<< HEAD
-<<<<<<< HEAD
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34247",
-    "date_of_publication": "2020-03-15 03:38:00",
-    "headline": "UNITED KINGDOM - Coronavirus Case Confirmed In Norwich",
-    "main_text": "[edp24.co.uk] UNITED KINGDOM - Coronavirus case confirmed in Norwich “The patient becomes the fourth confirmed case in Norfolk after three people tested positive for coronavirus at the Queen Elizabeth Hospital in King's Lynn, the first cases in the county.” Read the full article: https://www.edp24.co.uk/news/health/first-coronavirus-case-confirmed-at-norfolk-and-norwich-university-hospital-1-6561908",
-    "reports": [
-      {
-        "event_date": "2020-03-15 03:38:00",
-        "locations": [
-          {
-            "country": "United Kingdom",
-            "city": "Norwich",
-            "latitude": "52.631",
-            "longitude": "1.297"
-          }
-        ],
-        "diseases": [
-          "COVID-19"
-        ],
-        "syndromes": []
-      }
-    ]
-  },
-  {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34246",
-    "date_of_publication": "2020-03-15 03:34:00",
-    "headline": "ETHIOPIA - Ethiopia Records First Confirmed Case Of Coronavirus",
-    "main_text": "[Tadias.com] ETHIOPIA - Ethiopia records first confirmed case of coronavirus “A Japanese national who arrived in Ethiopia on 4 March from Burkina Faso, has tested positive for coronavirus, ...” Read the full article: http://www.tadias.com/03/14/2020/list-of-african-countries-with-coronavirus-grows-as-kenya-ethiopia-sudan-report-cases/",
-    "reports": [
-      {
-        "event_date": "2020-03-15 03:34:00",
-        "locations": [
-          {
-            "country": "Ethiopia",
-            "city": "Addis Ababa",
-            "latitude": "8.981",
-            "longitude": "38.758"
-          }
-        ],
-        "diseases": [
-          "COVID-19"
-        ],
-        "syndromes": []
-      }
-    ]
-  },
-  {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34245",
-    "date_of_publication": "2020-03-15 03:29:00",
-    "headline": "MICHIGAN - Henry Ford Health Reports First 3 Patients Who Tested Positive For Coronavirus",
-    "main_text": "[Clickondetroit.com] MICHIGAN - Henry Ford Health reports first 3 patients who tested positive for coronavirus “Henry Ford Health System reported its first three patients who tested positive for COVID-19.” Read the full article: https://www.clickondetroit.com/news/2020/03/14/henry-ford-health-reports-first-3-patients-who-tested-positive-for-coronavirus/",
-    "reports": [
-      {
-        "event_date": "2020-03-15 03:29:00",
-        "locations": [
-          {
-            "country": "United States",
-            "city": "Lansing, MI",
-            "latitude": "42.733",
-            "longitude": "-84.556"
-          }
-        ],
-        "diseases": [
-          "COVID-19"
-        ],
-        "syndromes": []
-      }
-    ]
-  },
-  {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34244",
-    "date_of_publication": "2020-03-15 03:25:00",
-    "headline": "TEXAS - CDC Confirms Another Positive Coronavirus Patient From JBSA-Lackland Quarantine",
-    "main_text": "[kens5.com] TEXAS - CDC Confirms Another Positive Coronavirus Patient From JBSA-Lackland Quarantine “A new case of coronavirus stemming from the Joint Base San Antonio-Lackland quarantine has been confirmed by the Centers for Disease Control—the first among the cohort of evacuees from the Grand Princess cruise ship that arrived in San Antonio last week.” Read the full article: https://www.kens5.com/article/news/health/coronavirus/cdc-confirms-another-positive-coronavirus-patient-from-jbsa-lackland-quarantine/273-054b2085-24cd-4be1-9db5-fe8d25dfacf1",
-    "reports": [
-      {
-        "event_date": "2020-03-15 03:25:00",
-        "locations": [
-          {
-            "country": "United States",
-            "city": "San Antonio, TX",
-            "latitude": "29.424",
-            "longitude": "-98.494"
-          }
-        ],
-        "diseases": [
-          "COVID-19"
-        ],
-        "syndromes": []
-      }
-    ]
-  },
-  {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34243",
-    "date_of_publication": "2020-03-15 03:02:00",
-    "headline": "IDAHO - A Second New Yorker Had Died From The Coronavirus",
-    "main_text": "[NEW YORK DAILY NEWS] IDAHO - A second New Yorker had died from the coronavirus “An 82-year-old Manhattan woman already struggling with emphysema was identified Saturday as New York state’s first coronavirus death — followed hours later by the second victim.” Read the full article: https://www.nydailynews.com/coronavirus/ny-coronavirus-first-death-20200314-dya7w5st25dstj66sddbf3pun4-story.html",
-    "reports": [
-      {
-        "event_date": "2020-03-15 03:02:00",
-        "locations": [
-          {
-            "country": "United States",
-            "city": "Albany, NY",
-            "latitude": "42.653",
-            "longitude": "-73.756"
-          }
-        ],
-        "diseases": [
-          "COVID-19"
-        ],
-        "syndromes": []
-      }
-    ]
-  },
-  {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34242",
-    "date_of_publication": "2020-03-15 02:47:00",
-    "headline": "IDAHO - 1st Coronavirus Patient In Idaho Is A Student At ISU Meridian",
-    "main_text": "[Idahonews.com] IDAHO - 1st Coronavirus patient in Idaho is a student at ISU Meridian “ISU's President Kevin Satterlee announced today that the first Coronavirus patient in Idaho is a student at the ISU-Meridian campus.” Read the full article: https://idahonews.com/news/local/1st-coronavirus-patient-in-idaho-is-a-student-at-isu-meridian",
-    "reports": [
-      {
-        "event_date": "2020-03-15 02:47:00",
-        "locations": [
-          {
-            "country": "United States",
-            "city": "ISU, ID",
-            "latitude": "42.027",
-            "longitude": "-93.646"
-          }
-        ],
-        "diseases": [
-          "COVID-19"
-        ],
-        "syndromes": []
-      }
-    ]
-  },
-  {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34241",
-    "date_of_publication": "2020-03-15 02:44:00",
-    "headline": "ISRAEL - Israeli Start-Up To Donate 120000 Masks To Stop Coronavirus Spread",
-    "main_text": "[Jpost.com] ISRAEL - Israeli start-up to donate 120,000 masks to stop coronavirus spread “An Israeli start-up company that developed an anti-pathogen fabric that could be used in masks to stop the spread of coronavirus is donating its first product – some 120,000 masks – to Israeli hospitals, medical professionals and coronavirus patients.” Read the full article: https://www.jpost.com/HEALTH-SCIENCE/Israeli-start-up-to-donate-120000-masks-to-stop-coronavirus-spread-621077",
-    "reports": [
-      {
-        "event_date": "2020-03-15 02:44:00",
-        "locations": [
-          {
-            "country": "Israel",
-            "city": "Jerusalem",
-            "latitude": "31.768",
-            "longitude": "35.214"
-          }
-        ],
-        "diseases": [
-          "COVID-19"
-        ],
-        "syndromes": []
-      }
-    ]
-  },
-  {
-=======
-<<<<<<< HEAD
->>>>>>> master
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34240",
-    "date_of_publication": "2020-03-15 02:41:00",
-    "headline": "VIRGINIA - Virginia Reports State First Death From Coronavirus",
-    "main_text": "[Associated Press] VIRGINIA - Virginia reports state’s first death from coronavirus “Virginia health officials on Saturday reported the state’s first death from the coronavirus, a man in his 70s who died of respiratory failure after acquiring the virus through an unknown source.” Read the full article: https://www.washingtonpost.com/local/virginia-reports-states-first-death-from-coronavirus/2020/03/14/bc6cde38-6659-11ea-8a8e-5c5336b32760_story.html",
-    "reports": [
-      {
-        "event_date": "2020-03-15 02:41:00",
-        "locations": [
-          {
-            "country": "United States",
-            "city": "Richmond, VA",
-            "latitude": "37.541",
-            "longitude": "-77.436"
-=======
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34344",
-    "date_of_publication": "2020-03-21 05:17:00",
-    "headline": "SINGAPORE - Singapore Reports First Two Deaths",
-    "main_text": "[ALJAZEERA] SINGAPORE - Singapore Reports First Two Deaths \"Singapore's Ministry of Health reported on Saturday the first two deaths linked to the coronavirus.\" Read the full article: https://www.aljazeera.com/news/2020/03/coronavirus-live-updates-worldwide-death-toll-surges-11000-200320225513796.html",
-=======
     "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34380",
     "date_of_publication": "2020-03-23 03:24:00",
     "headline": "IRELAND - Coronavirus - Irish Cases Reach 1125 As Patients Face Testing Delays",
     "main_text": "[irishtimes.com] IRELAND  - Coronavirus: Irish cases reach 1,125 as patients face testing delays \"As the global death toll from the coronavirus pandemic exceeds 14,500, here are some articles that will help you catch up with the latest news and analysis.\" Read the full article: https://www.irishtimes.com/news/ireland/irish-news/coronavirus-irish-cases-reach-1-125-as-patients-face-testing-delays-1.4209707",
->>>>>>> master
     "reports": [
       {
         "event_date": "2020-03-23 03:24:00",
@@ -1110,8 +924,6 @@
         "syndromes": []
       }
     ]
-<<<<<<< HEAD
-=======
   },
   {
     "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34347",
@@ -1344,6 +1156,5 @@
         "syndromes": []
       }
     ]
->>>>>>> master
   }
 ]
