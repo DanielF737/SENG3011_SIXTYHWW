@@ -24,7 +24,7 @@ async function addArticle(article) {
 
     return true;
   }
-  
+
   catch (e) {
     console.log(e);
 
@@ -48,11 +48,11 @@ async function addReport(id, report) {
   `, {
     $article_id: id,
     $disease: JSON.stringify(report.diseases),
-    $syndrome: JSON.stringify(report.syndromes), 
-    $event_date: report.event_date, 
+    $syndrome: JSON.stringify(report.syndromes),
+    $event_date: report.event_date,
     $country: report.locations[0].country,
-    $city: report.locations[0].city, 
-    $latitude: report.locations[0].latitude, 
+    $city: report.locations[0].city,
+    $latitude: report.locations[0].latitude,
     $longitude: report.locations[0].longitude
   });
 }
@@ -75,13 +75,12 @@ async function search(searchRequest) {
       $location: searchRequest.location
     });
 
-    const regex = new RegExp(searchRequest.key_terms ? searchRequest.key_terms.replace(",", "|") : "", "i");
-
+    const regex = new RegExp(searchRequest.keyTerms.trim().toLowerCase() ? searchRequest.keyTerms.trim().toLowerCase().replace(",", "|") : "", "i");
     return reports.filter((report) =>
-      regex.test(report.headline) ||
-      regex.test(report.body) ||
-      regex.test(report.diseases) ||
-      regex.test(report.syndromes)
+      regex.test(report.headline.toLowerCase()) ||
+      regex.test(report.body.toLowerCase()) ||
+      regex.test(report.diseases.toLowerCase()) ||
+      regex.test(report.syndromes.toLowerCase())
     );
   } catch (e){
     console.log(e);
@@ -91,7 +90,7 @@ async function search(searchRequest) {
 
 async function getAllArticles(n) {
   try {
-    return await conn.all("SELECT * FROM articles LIMIT $n", {
+    return await conn.all("SELECT * FROM articles, reports WHERE articles.id == reports.article_id ORDER BY articles.date_of_publication DESC LIMIT $n", {
       $n: n
     });
   } catch (e){
@@ -133,5 +132,3 @@ module.exports = async () => {
     "deleteArticle": deleteArticle
   };
 }
-
-
