@@ -23,7 +23,7 @@ To run the API:
  2. Run `npm install`
  3. Run `npm start`
 
-The server is now running and can be accessed on [localhost:3000](http://localhost:300)
+The server is now running and can be accessed on [localhost:3000](http://localhost:300).
 We recommend using a process manager such as PM2 to keep the server proccess running when the shell is not open.
 
 ## Members
