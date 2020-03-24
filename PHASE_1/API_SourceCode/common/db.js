@@ -3,22 +3,33 @@ const sqlite = require('sqlite');
 var conn;
 
 async function addArticle(article) {
-  const statement = await conn.run(`
-    INSERT INTO articles (url, headline, body, date_of_publication)
-    VALUES ($url, $headline, $body, $date)
-    ON CONFLICT (url)
-    DO UPDATE SET
-    headline = excluded.headline,
-    body = excluded.body,
-    date_of_publication = excluded.date_of_publication
-  `, {
-    $url: article.url,
-    $headline: article.headline,
-    $body: article.main_text,
-    $date: article.date_of_publication
-  });
 
-  article.reports.forEach((report) => addReport(statement.lastID, report));
+  try {
+    const statement = await conn.run(`
+      INSERT INTO articles (url, headline, body, date_of_publication)
+      VALUES ($url, $headline, $body, $date)
+      ON CONFLICT (url)
+      DO UPDATE SET
+      headline = excluded.headline,
+      body = excluded.body,
+      date_of_publication = excluded.date_of_publication
+    `, {
+      $url: article.url,
+      $headline: article.headline,
+      $body: article.main_text,
+      $date: article.date_of_publication
+    });
+
+    article.reports.forEach(async (report) => await addReport(statement.lastID, report));
+
+    return true;
+  }
+  
+  catch (e) {
+    console.log(e);
+
+    return false;
+  }
 }
 
 async function addReport(id, report) {
@@ -74,16 +85,39 @@ async function search(searchRequest) {
     );
   } catch (e){
     console.log(e);
-    return [];
+    return null;
   }
 }
 
-async function getReports() {
+async function getAllArticles(n) {
   try {
-    return await conn.all("SELECT * FROM reports");
+    return await conn.all("SELECT * FROM articles LIMIT $n", {
+      $n: n
+    });
   } catch (e){
     console.log(e);
-    return [];
+    return null;
+  }
+}
+
+async function getArticle(id) {
+  try {
+    return await conn.get("SELECT * FROM articles WHERE id == $id", {
+      $id: id
+    });
+  } catch (e){
+    console.log(e);
+    return null;
+  }
+}
+
+async function deleteArticle(id) {
+  try {
+    await conn.run("DELETE FROM articles WHERE id == $id", {
+      $id: id
+    });
+  } catch (e){
+    console.log(e);
   }
 }
 
@@ -93,7 +127,9 @@ module.exports = async () => {
   return {
     "addArticle": addArticle,
     "addReport": addReport,
-    "getReports": getReports,
-    "search": search
+    "search": search,
+    "getAllArticles": getAllArticles,
+    "getArticle": getArticle,
+    "deleteArticle": deleteArticle
   };
 }
