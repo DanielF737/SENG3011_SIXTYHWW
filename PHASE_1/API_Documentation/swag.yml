@@ -1,7 +1,7 @@
 swagger: "2.0"
 info:
-  description: "API for pulling disease outbreak reports from Global Incident Tracker"
-  version: "0.0.1"
+  description: "API for pulling disease outbreak reports from Global Incident Tracker\n\n**Changelog:**\n\nVersion 1.0.1 - 24/3/20:\n - Fixed search endpoint to correctly return results based on key terms.\n - Fixed /articles{n} to correctly return reports in the correct format.\n - Fixed /articles{id} to correctly return reports in the correct format.\n\nVersion 1.0.0 - 24/3/20:\n - First public release of finalized API. All endpoints now working correctly."
+  version: "1.0.1"
   title: "SIXTYHWW - SENG3011"
   license:
     name: "Click here"
@@ -52,8 +52,7 @@ paths:
        parameters:
          - name: body
            in: body
-           description: "id - integer: id of the article to add/update. Min 0, Must be valid ID in system\n
-           url - string: url of article\n
+           description: "url - string: url of article\n
            date_of_publication - string: date article was published. Must be in form \"YY-MM-DD HH-MM-SS\"\n
            headline - string: headline of article\n
            main_text - string: text of article\n
@@ -72,7 +71,7 @@ paths:
            longitude - longitude of city"
            required: true
            schema:
-             $ref: '#/definitions/Article'
+             $ref: '#/definitions/Article2'
        security:
          - TrivialAuth: []
        responses:
@@ -151,6 +150,8 @@ paths:
        security:
          - TrivialAuth: []
        responses:
+         200:
+             description: Success  
          400:
              description: Invalid ID
          401:
@@ -165,9 +166,8 @@ Responses:
 securityDefinitions:
   TrivialAuth:
     type: apiKey
-    name: Password
-    in: cookie
-    adminKey: name
+    name: authorization
+    in: header
 
 definitions:
    Location:
@@ -241,6 +241,26 @@ definitions:
          type: array
          items:
            $ref: "#/definitions/Report"
+   Article2:
+     type: object
+     properties:
+       url:
+         type: string
+         example: "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34330"
+       data_of_publication:
+         type: string
+         example: "2020-03-20 04:41:00"
+       headline:
+         type: string
+         example: "THAILAND - Thailand Reports 51 New Coronavirus Infections For Total Of 322"
+       main_text:
+         type: string
+         example: "[Reuters] THAILAND - Thailand reports 50 new coronavirus infections for total of 322 \"Thailand reported 50 new coronavirus infections, taking its tally to 322, a health        official said on Friday, with the majority located in Bangkok, the capital..."
+       reports:
+         type: array
+         items:
+           $ref: "#/definitions/Report"
+
    Search:
      type: object
      properties:

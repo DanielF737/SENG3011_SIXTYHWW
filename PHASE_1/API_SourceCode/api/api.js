@@ -3,41 +3,183 @@ const bodyParser = require('body-parser');
 const database = require('../common/db');
 const swagger = require('swagger-ui-express');
 const swaggerDoc = require("yamljs").load("../../API_Documentation/swag.yml");
+const logger = require("../common/logger");
 
 // Constants
 const PORT = 3000;
+const API_KEY = "YeetSwag420";
 
 database().then((db) => {
   // Init Express
   const app = express();
 
-  // Middleware
-  app.use(bodyParser.json());
-
   // Swagger
   app.use('/', swagger.serve)
   app.get('/', swagger.setup(swaggerDoc))
 
-  // API Routes
-  app.post('/search', async (req, res) => {
-    const reports = await db.search(req.body);
-    res.send(reports);
+  // Middleware
+  app.use((req, res, next) => {
+    req.startTime = new Date();
+    next();
   });
 
-  app.put('/articles', async (req, res) =>{
-    res.send();
+  app.use(bodyParser.json());
+
+  // API Routes
+  app.post('/search', async (req, res) => {
+
+    const reports = await db.search(req.body);
+    reports.forEach(rep =>{
+      rep.main_text = rep.body
+      delete rep.body
+      rep.reports = []
+      rep.reports.push({'event_date': rep.event_date, 'location': [{'country':rep.country, 'city':rep.city, 'latitude':rep.latitude, 'longitude':rep.longitude}],
+      'diseases': rep.diseases, 'sydromes': rep.syndromes})
+      delete rep.event_date;
+      delete rep.country;
+      delete rep.city;
+      delete rep.latitude
+      delete rep.longitude
+      delete rep.diseases
+      delete rep.syndromes
+      delete rep.article_id
+    })
+    if (reports) {
+      res.send(reports);
+      logger.log("/search", req.startTime, JSON.stringify(req.body, null, 2), `200 - ${reports.length} reports found`);
+    }
+
+    else {
+      res.sendStatus(400);
+      logger.log("/search", req.startTime, JSON.stringify(req.body, null, 2), "400");
+    }
+
   });
-  
+
+  app.post('/articles', async (req, res) => {
+
+    if (req.headers.authorization != API_KEY) {
+      res.sendStatus(401);
+      logger.log("POST /articles", req.startTime, JSON.stringify(req.body, null, 2), `401 - Invalid api key`);
+      return;
+    }
+
+    const article = req.body;
+
+    if (!(
+      article.url &&
+      article.date_of_publication &&
+      article.headline &&
+      article.main_text &&
+      article.reports &&
+      article.reports.event_date &&
+      article.reports.location &&
+      article.reports.diseases &&
+      article.reports.sydromes)) {
+        res.sendStatus(400);
+        logger.log("POST /articles", req.startTime, JSON.stringify(req.body, null, 2), `400 - Invalid article`);
+        return;
+    }
+
+    const result = await db.addArticle(req.body);
+
+    if (result) {
+      res.send(reports);
+      logger.log("POST /articles", req.startTime, JSON.stringify(req.body, null, 2), `200 - OK`);
+    }
+
+    else {
+      res.sendStatus(400);
+      logger.log("POST /articles", req.startTime, JSON.stringify(req.body, null, 2), "400");
+    }
+
+  });
+
   app.get('/articles', async (req, res) => {
-    res.send();
+
+    const num = req.query.N ? req.query.N : 20;
+
+    const articles = await db.getAllArticles(num);
+    articles.forEach(rep =>{
+      rep.main_text = rep.body
+      delete rep.body
+
+      rep.reports = []
+      rep.reports.push({'event_date': rep.event_date, 'location': [{'country':rep.country, 'city':rep.city, 'latitude':rep.latitude, 'longitude':rep.longitude}],
+      'diseases': rep.diseases, 'sydromes': rep.syndromes})
+      delete rep.event_date;
+      delete rep.country;
+      delete rep.city;
+      delete rep.latitude
+      delete rep.longitude
+      delete rep.diseases
+      delete rep.syndromes
+      delete rep.article_id
+    })
+    if (articles) {
+      res.send(articles);
+      logger.log("GET /articles", req.startTime, JSON.stringify(req.body, null, 2), `200 - ${articles.length} articles found`);
+    }
+
+    else {
+      res.sendStatus(400);
+      logger.log("GET /articles", req.startTime, JSON.stringify(req.body, null, 2), `400`);
+    }
+
   });
-  
+
   app.get('/articles/:id', async(req, res) => {
-    res.send();
+
+    const id = parseInt(req.params.id);
+
+    if (id == NaN) {
+      res.sendStatus(400);
+      logger.log("GET /articles/:id", req.startTime, JSON.stringify(req.body, null, 2), `400 - Invalid id`);
+      return;
+    }
+
+    const article = await db.getArticle(id);
+
+    if (article) {
+      res.send(article);
+      logger.log("GET /articles/:id", req.startTime, JSON.stringify(req.body, null, 2), `200- OK`);
+    }
+
+    else {
+      res.sendStatus(400);
+      logger.log("GET /articles/:id", req.startTime, JSON.stringify(req.body, null, 2), `404 - Article not found`);
+    }
+
   });
-  
+
   app.delete('/articles/:id', async(req,res) => {
-    res.send();
+
+    if (req.headers.authorization != API_KEY) {
+      res.sendStatus(401);
+      logger.log("POST /articles", req.startTime, JSON.stringify(req.body, null, 2), `401 - Invalid api key`);
+      return;
+    }
+
+    const id = parseInt(req.params.id);
+
+    if (id == NaN) {
+      res.sendStatus(400);
+      logger.log("/search", req.startTime, JSON.stringify(req.body, null, 2), `400 - No id provided`);
+      return;
+    }
+
+    const article = await db.deleteArticle(id);
+
+    if (article) {
+      res.send(article);
+      logger.log("/articles/:id", req.startTime, JSON.stringify(req.body, null, 2), `200 - OK`);
+    }
+
+    else {
+      res.sendStatus(400);
+      logger.log("/articles/:id", req.startTime, JSON.stringify(req.body, null, 2), `404`);
+    }
+
   });
 
   // Run Server

@@ -3,22 +3,33 @@ const sqlite = require('sqlite');
 var conn;
 
 async function addArticle(article) {
-  const statement = await conn.run(`
-    INSERT INTO articles (url, headline, body, date_of_publication)
-    VALUES ($url, $headline, $body, $date)
-    ON CONFLICT (url)
-    DO UPDATE SET
-    headline = excluded.headline,
-    body = excluded.body,
-    date_of_publication = excluded.date_of_publication
-  `, {
-    $url: article.url,
-    $headline: article.headline,
-    $body: article.main_text,
-    $date: article.date_of_publication
-  });
 
-  article.reports.forEach((report) => addReport(statement.lastID, report));
+  try {
+    const statement = await conn.run(`
+      INSERT INTO articles (url, headline, body, date_of_publication)
+      VALUES ($url, $headline, $body, $date)
+      ON CONFLICT (url)
+      DO UPDATE SET
+      headline = excluded.headline,
+      body = excluded.body,
+      date_of_publication = excluded.date_of_publication
+    `, {
+      $url: article.url,
+      $headline: article.headline,
+      $body: article.main_text,
+      $date: article.date_of_publication
+    });
+
+    article.reports.forEach(async (report) => await addReport(statement.lastID, report));
+
+    return true;
+  }
+
+  catch (e) {
+    console.log(e);
+
+    return false;
+  }
 }
 
 async function addReport(id, report) {
@@ -37,11 +48,11 @@ async function addReport(id, report) {
   `, {
     $article_id: id,
     $disease: JSON.stringify(report.diseases),
-    $syndrome: JSON.stringify(report.syndromes), 
-    $event_date: report.event_date, 
+    $syndrome: JSON.stringify(report.syndromes),
+    $event_date: report.event_date,
     $country: report.locations[0].country,
-    $city: report.locations[0].city, 
-    $latitude: report.locations[0].latitude, 
+    $city: report.locations[0].city,
+    $latitude: report.locations[0].latitude,
     $longitude: report.locations[0].longitude
   });
 }
@@ -64,26 +75,48 @@ async function search(searchRequest) {
       $location: searchRequest.location
     });
 
-    const regex = new RegExp(searchRequest.key_terms ? searchRequest.key_terms.replace(",", "|") : "", "i");
-
+    const regex = new RegExp(searchRequest.keyTerms.trim().toLowerCase() ? searchRequest.keyTerms.trim().toLowerCase().replace(",", "|") : "", "i");
     return reports.filter((report) =>
-      regex.test(report.headline) ||
-      regex.test(report.body) ||
-      regex.test(report.diseases) ||
-      regex.test(report.syndromes)
+      regex.test(report.headline.toLowerCase()) ||
+      regex.test(report.body.toLowerCase()) ||
+      regex.test(report.diseases.toLowerCase()) ||
+      regex.test(report.syndromes.toLowerCase())
     );
   } catch (e){
     console.log(e);
-    return [];
+    return null;
   }
 }
 
-async function getReports() {
+async function getAllArticles(n) {
   try {
-    return await conn.all("SELECT * FROM reports");
+    return await conn.all("SELECT * FROM articles, reports WHERE articles.id == reports.article_id ORDER BY articles.date_of_publication DESC LIMIT $n", {
+      $n: n
+    });
   } catch (e){
     console.log(e);
-    return [];
+    return null;
+  }
+}
+
+async function getArticle(id) {
+  try {
+    return await conn.get("SELECT * FROM articles WHERE id == $id", {
+      $id: id
+    });
+  } catch (e){
+    console.log(e);
+    return null;
+  }
+}
+
+async function deleteArticle(id) {
+  try {
+    await conn.run("DELETE FROM articles WHERE id == $id", {
+      $id: id
+    });
+  } catch (e){
+    console.log(e);
   }
 }
 
@@ -93,7 +126,9 @@ module.exports = async () => {
   return {
     "addArticle": addArticle,
     "addReport": addReport,
-    "getReports": getReports,
-    "search": search
+    "search": search,
+    "getAllArticles": getAllArticles,
+    "getArticle": getArticle,
+    "deleteArticle": deleteArticle
   };
 }
