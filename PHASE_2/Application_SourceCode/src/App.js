@@ -1,12 +1,12 @@
 import React from 'react';
 import './styles/App.css';
+import Feed from './components/feed';
+//import { render } from '@testing-library/react';
 
 function App() {
   return (
-    <div>
-      <h1>yeet</h1>
-    </div>
-  );
+    <Feed />
+  )
 }
 
 
