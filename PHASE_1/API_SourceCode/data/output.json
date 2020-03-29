@@ -1,363 +1,18 @@
 [
   {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34386",
-    "date_of_publication": "2020-03-23 03:56:00",
-    "headline": "ITALY - Italy Coronavirus Death Toll Rises 602 In A Day",
-    "main_text": "[Metro.co.uk] ITALY - Italy coronavirus death toll rises 602 in a day \"The total number of confirmed cases of coronavirus in Italy has jumped by almost 5,000 overnight.\" Read the full article: https://metro.co.uk/2020/03/23/italy-coronavirus-death-toll-rises-602-day-rate-dying-slowing-12444605/",
+    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34478",
+    "date_of_publication": "2020-03-29 23:20:00",
+    "headline": "ARGENTINA - Dengue In Santiago - 345 New Cases Confirmed",
+    "main_text": "Manual Google Translation [Nuevodiarioweb.com.ar] ARGENTINA - Dengue in Santiago: 345 new cases confirmed “The Ministry of Health of Santiago del Estero is in charge of publishing  a concise daily report  exposing the Dengue focus blockade actions, where positive cases are detected, active search for febriles and health education.” Read the full article: http://www.nuevodiarioweb.com.ar/noticias/2020/03/28/239714-dengue-en-santiago-confirman-345-nuevos-casos",
     "reports": [
       {
-        "event_date": "2020-03-23 03:56:00",
+        "event_date": "2020-03-29 23:20:00",
         "locations": [
           {
-            "country": "Italy",
-            "city": "Rome",
-            "latitude": "41.903",
-            "longitude": "12.496"
-          }
-        ],
-        "diseases": [
-          "COVID-19"
-        ],
-        "syndromes": []
-      }
-    ]
-  },
-  {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34385",
-    "date_of_publication": "2020-03-23 03:48:00",
-    "headline": "INDONESIA - Indonesia Coronavirus Cases Rise By 65 To 579 - Official Says",
-    "main_text": "[Reuters] INDONESIA - Indonesia coronavirus cases rise by 65 to 579, official says \"Indonesia reported 65 new positive cases of coronavirus disease on Monday, bringing the total number of cases in Southeast Asia’s largest economy to 579, Health Ministry official Achmad Yurianto told reporters.\" Read the full article: https://www.reuters.com/article/us-health-coronavirus-indonesia-cases/indonesia-coronavirus-cases-rise-by-65-to-579-official-says-idUSKBN21A139",
-    "reports": [
-      {
-        "event_date": "2020-03-23 03:48:00",
-        "locations": [
-          {
-            "country": "Indonesia",
-            "city": "Jakarta",
-            "latitude": "-6.209",
-            "longitude": "106.846"
-          }
-        ],
-        "diseases": [
-          "COVID-19"
-        ],
-        "syndromes": []
-      }
-    ]
-  },
-  {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34384",
-    "date_of_publication": "2020-03-23 03:46:00",
-    "headline": "PHILIPPINES - Philippines Coronavirus Infections Rise To 462",
-    "main_text": "[Reuters] PHILIPPINES - Philippines coronavirus infections rise to 462 \"The Philippines’ health ministry reported on Monday 82 new coronavirus infections, bringing the total in the Southeast Asian nation to 462, while deaths remain at 33.\" Read the full article: https://www.reuters.com/article/us-health-coronavirus-philippines-infect/philippines-coronavirus-infections-rise-to-462-idUSKBN21A0YS",
-    "reports": [
-      {
-        "event_date": "2020-03-23 03:46:00",
-        "locations": [
-          {
-            "country": "Philippines",
-            "city": "Manila",
-            "latitude": "14.600",
-            "longitude": "120.984"
-          }
-        ],
-        "diseases": [
-          "COVID-19"
-        ],
-        "syndromes": []
-      }
-    ]
-  },
-  {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34383",
-    "date_of_publication": "2020-03-23 03:42:00",
-    "headline": "EGYPT - Egypts COVID-19 Cases Rise To 327 With 33 New Infections",
-    "main_text": "[Xinhua] EGYPT - Egypt's COVID-19 cases rise to 327 with 33 new infections \"People wearing face masks are seen in a street of Cairo, Egypt, on March 22, 2020. Egypt confirmed on Sunday 33 new COVID-19 cases, raising the total cases in the country to 327, the Egyptian Health Ministry said in a statement.\" Read the full article: http://www.xinhuanet.com/english/2020-03/23/c_138905664_2.htm",
-    "reports": [
-      {
-        "event_date": "2020-03-23 03:42:00",
-        "locations": [
-          {
-            "country": "Egypt",
-            "city": "Cairo",
-            "latitude": "30.044",
-            "longitude": "31.236"
-          }
-        ],
-        "diseases": [
-          "COVID-19"
-        ],
-        "syndromes": []
-      }
-    ]
-  },
-  {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34382",
-    "date_of_publication": "2020-03-23 03:39:00",
-    "headline": "MEXICO - Mexico Has 316 Confirmed Cases Of Coronavirus",
-    "main_text": "[explica.co] MEXICO - Mexico has 316 confirmed cases of coronavirus \"The closing of this week in Mexico of cases confirmed of coronavirus is a total of 316 personYes, every day more and more are added to the account, corresponding 65 of those cases of just the day of today.\" Read the full article: https://www.explica.co/mexico-has-316-confirmed-cases-of-coronavirus/",
-    "reports": [
-      {
-        "event_date": "2020-03-23 03:39:00",
-        "locations": [
-          {
-            "country": "Mexico",
-            "city": "Mexico City",
-            "latitude": "19.433",
-            "longitude": "-99.133"
-          }
-        ],
-        "diseases": [
-          "COVID-19"
-        ],
-        "syndromes": []
-      }
-    ]
-  },
-  {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34381",
-    "date_of_publication": "2020-03-23 03:26:00",
-    "headline": "UNITED KINGDOM  - DEADLY SPREAD UK Coronavirus Death Toll Rises To 335 As Cases Jump To 6650",
-    "main_text": "[thesun.co.uk] UNITED KINGDOM  - DEADLY SPREAD UK coronavirus death toll rises to 335 as cases jump to 6,650 \"FIFTY-FOUR more people have today died across the UK after testing positive to coronavirus - with the death toll climbing to 335 in a day.\" Read the full article: https://www.thesun.co.uk/news/11233262/coronavirus-uk-death-toll-latest/",
-    "reports": [
-      {
-        "event_date": "2020-03-23 03:26:00",
-        "locations": [
-          {
-            "country": "United Kingdom",
-            "city": "London",
-            "latitude": "51.507",
-            "longitude": "-0.128"
-          }
-        ],
-        "diseases": [
-          "COVID-19"
-        ],
-        "syndromes": []
-      }
-    ]
-  },
-  {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34380",
-    "date_of_publication": "2020-03-23 03:24:00",
-    "headline": "IRELAND - Coronavirus - Irish Cases Reach 1125 As Patients Face Testing Delays",
-    "main_text": "[irishtimes.com] IRELAND  - Coronavirus: Irish cases reach 1,125 as patients face testing delays \"As the global death toll from the coronavirus pandemic exceeds 14,500, here are some articles that will help you catch up with the latest news and analysis.\" Read the full article: https://www.irishtimes.com/news/ireland/irish-news/coronavirus-irish-cases-reach-1-125-as-patients-face-testing-delays-1.4209707",
-    "reports": [
-      {
-        "event_date": "2020-03-23 03:24:00",
-        "locations": [
-          {
-            "country": "Ireland",
-            "city": "Dublin",
-            "latitude": "53.350",
-            "longitude": "-6.260"
-          }
-        ],
-        "diseases": [
-          "COVID-19"
-        ],
-        "syndromes": []
-      }
-    ]
-  },
-  {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34379",
-    "date_of_publication": "2020-03-23 03:22:00",
-    "headline": "ISRAEL - Israels Coronavirus Tally Up To 1238 - Another Spike In Serious Cases",
-    "main_text": "[Ynet] ISRAEL - Israel's coronavirus tally up to 1,238, another spike in serious cases \"Another 125 people have tested positive for coronavirus in Israel, bringing the country's total to 1238, with another rise of patients being admitted in serious condition, the Health Ministry reported Monday morning.\" Read the full article: https://www.ynetnews.com/article/O21RWW03U",
-    "reports": [
-      {
-        "event_date": "2020-03-23 03:22:00",
-        "locations": [
-          {
-            "country": "Israel",
-            "city": "Jerusalem",
-            "latitude": "31.768",
-            "longitude": "35.214"
-          }
-        ],
-        "diseases": [
-          "COVID-19"
-        ],
-        "syndromes": []
-      }
-    ]
-  },
-  {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34378",
-    "date_of_publication": "2020-03-23 03:11:00",
-    "headline": "MAINE - Number Of Coronavirus Cases In Maine Rises To 89",
-    "main_text": "[pressherald.com] MAINE - Number of coronavirus cases in Maine rises to 89 \"There are now 89 confirmed cases of coronavirus in Maine, an increase of 33 over the weekend, the Maine Center for Disease Control and Prevention said Sunday. More than half of the cases are in Cumberland County.\" Read the full article: https://www.pressherald.com/2020/03/22/maine-coronavirus-cases-rise-to-89/",
-    "reports": [
-      {
-        "event_date": "2020-03-23 03:11:00",
-        "locations": [
-          {
-            "country": "United States",
-            "city": "Augusta, ME",
-            "latitude": "44.311",
-            "longitude": "-69.779"
-          }
-        ],
-        "diseases": [
-          "COVID-19"
-        ],
-        "syndromes": []
-      }
-    ]
-  },
-  {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34377",
-    "date_of_publication": "2020-03-23 03:09:00",
-    "headline": "INDIA - Confirmed COVID-19 Cases Rise To 415 - Health Ministry",
-    "main_text": "[firstpost.com] INDIA - Confirmed COVID-19 cases rise to 415: Health Ministry “Total number of confirmed coronavirus cases in the nation as on 23 March is 415, including the foreign nationals, according to Union Health Ministry.” Read the full article: https://www.firstpost.com/health/coronavirus-outbreak-live-updates-covid-19-india-italy-cases-death-count-mumbai-local-train-maharashtra-section-144-alert-latest-news-today-janata-curfew-8176641.html",
-    "reports": [
-      {
-        "event_date": "2020-03-23 03:09:00",
-        "locations": [
-          {
-            "country": "India",
-            "city": "New Delhi",
-            "latitude": "28.614",
-            "longitude": "77.209"
-          }
-        ],
-        "diseases": [
-          "COVID-19"
-        ],
-        "syndromes": []
-      }
-    ]
-  },
-  {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34376",
-    "date_of_publication": "2020-03-23 03:07:00",
-    "headline": "IRAN - Iran Reports 127 New Deaths - Toll Rises To 1812",
-    "main_text": "[AFP] IRAN - Iran Reports 127 New Deaths - Toll Rises To 1812 \"Iran on Monday announced 127 new deaths from the novel coronavirus, raising the official toll to 1,812 in one of the worst hit countries along with Italy, Spain and China.\" Read the full article: https://www.livemint.com/news/world/coronavirus-outbreak-iran-reports-127-new-deaths-toll-rises-to-1-812-11584959696147.html",
-    "reports": [
-      {
-        "event_date": "2020-03-23 03:07:00",
-        "locations": [
-          {
-            "country": "Iran",
-            "city": "Tehran",
-            "latitude": "35.689",
-            "longitude": "51.389"
-          }
-        ],
-        "diseases": [
-          "COVID-19"
-        ],
-        "syndromes": []
-      }
-    ]
-  },
-  {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34375",
-    "date_of_publication": "2020-03-23 03:06:00",
-    "headline": "INDIA - Country Records 8th Death - Govt Bans Domestic Flight Ops From March 24",
-    "main_text": "[businessToday.In] INDIA - Coronavirus in India Live updates: Country records 8th death; govt bans domestic flight ops from March 24 \"A 55-year-old man who had recently returned from Italy died at a hospital in Kolkata on Monday. The man had tested positive for COVID-19 infection. This is West Bengal's first death case due to novel coronavirus and eighth in India. \" Read the full article: https://www.businesstoday.in/current/economy-politics/coronavirus-in-india-live-updates-covid-news-delhi-mumbai-maharashtra-lockdown-pm-modi-death-toll-china-italy/story/398930.html",
-    "reports": [
-      {
-        "event_date": "2020-03-23 03:06:00",
-        "locations": [
-          {
-            "country": "India",
-            "city": "Kolkata",
-            "latitude": "22.573",
-            "longitude": "88.364"
-          }
-        ],
-        "diseases": [
-          "COVID-19"
-        ],
-        "syndromes": []
-      }
-    ]
-  },
-  {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34374",
-    "date_of_publication": "2020-03-23 02:54:00",
-    "headline": "PHILIPPINES - Philippines Reports Eight New Coronavirus Deaths - 16 More Cases",
-    "main_text": "[Reuters] PHILIPPINES - Philippines reports eight new coronavirus deaths, 16 more cases \"The Philippines’ health ministry on Monday confirmed eight new deaths because of the coronavirus outbreak and 16 more infections.\" Read the full article: https://www.reuters.com/article/us-health-coronavirus-philippines-deaths/philippines-reports-eight-new-coronavirus-deaths-16-more-cases-idUSKBN21A0ES",
-    "reports": [
-      {
-        "event_date": "2020-03-23 02:54:00",
-        "locations": [
-          {
-            "country": "Philippines",
-            "city": "Manila",
-            "latitude": "14.600",
-            "longitude": "120.984"
-          }
-        ],
-        "diseases": [
-          "COVID-19"
-        ],
-        "syndromes": []
-      }
-    ]
-  },
-  {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34373",
-    "date_of_publication": "2020-03-23 00:46:00",
-    "headline": "GERMANY - Germany Reports 22672 Coronavirus Cases - 86 Deaths",
-    "main_text": "[Reuters] GERMANY - Germany reports 22,672 coronavirus cases, 86 deaths \"The number of confirmed coronavirus cases in Germany has risen to 22,672 and 86 people have died from the disease, a tally by public health agency Robert Koch Institute (RKI) showed on Monday.\" Read the full article: https://www.reuters.com/article/us-health-coronavirus-germany-cases/germany-reports-22672-coronavirus-cases-86-deaths-idUSKBN21A0UO",
-    "reports": [
-      {
-        "event_date": "2020-03-23 00:46:00",
-        "locations": [
-          {
-            "country": "Germany",
-            "city": "Berlin",
-            "latitude": "52.520",
-            "longitude": "13.405"
-          }
-        ],
-        "diseases": [
-          "COVID-19"
-        ],
-        "syndromes": []
-      }
-    ]
-  },
-  {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34372",
-    "date_of_publication": "2020-03-23 00:45:00",
-    "headline": "FRANCE - French Coronavirus Death Toll Rises By 112 To 674",
-    "main_text": "[Reuters] FRANCE - French coronavirus death toll rises by 112 to 674 \"France’s coronavirus death toll rose by 112 on Sunday to 674, senior health official Jerome Salomon said, with the number of confirmed infections increased by 1,559 to 16,018.\" Read the full article: https://www.reuters.com/article/us-health-coronavirus-france-deaths/french-coronavirus-death-toll-rises-by-112-to-674-idUSKBN21911A",
-    "reports": [
-      {
-        "event_date": "2020-03-23 00:45:00",
-        "locations": [
-          {
-            "country": "France",
-            "city": "Paris",
-            "latitude": "48.857",
-            "longitude": "2.352"
-          }
-        ],
-        "diseases": [
-          "COVID-19"
-        ],
-        "syndromes": []
-      }
-    ]
-  },
-  {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34352",
-    "date_of_publication": "2020-03-22 23:20:00",
-    "headline": "SINGAPORE - More Than 4000 Dengue Cases In Singapore Since Start Of 2020",
-    "main_text": "[Channelnewsasia.com] SINGAPORE - More than 4,000 dengue cases in Singapore since start of 2020 “More than 4,000 dengue cases have been reported since the start of 2020 – about twice the number of cases seen within the same period a year ago.” Read the full article: https://www.channelnewsasia.com/news/singapore/dengue-cases-reported-singapore-nea-2020-12565180",
-    "reports": [
-      {
-        "event_date": "2020-03-22 23:20:00",
-        "locations": [
-          {
-            "country": "Singapore",
-            "city": "Singapore City",
-            "latitude": "1.352",
-            "longitude": "103.820"
+            "country": "Argentina",
+            "city": "Santiago del Estero",
+            "latitude": "-27.783",
+            "longitude": "-64.264"
           }
         ],
         "diseases": [
@@ -370,452 +25,13 @@
     ]
   },
   {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34351",
-    "date_of_publication": "2020-03-22 23:17:00",
-    "headline": "NIGERIA - Ebonyi Records 81 Lassa Fever Cases In 3 Months",
-    "main_text": "[Sunnewsonline.com] NIGERIA - Ebonyi records 81 Lassa fever cases in 3 months “The Mangament of the Alex Ekwueme Federal University Teaching Hospital Abakaliki (AE-FUTH) at the weekend said the hospital had recorded 81 new cases of Lassa fever virus between January this year and the present month, March 2020.” Read the full article: https://www.sunnewsonline.com/ebonyi-records-81-lassa-fever-cases-in-3-months/",
+    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34477",
+    "date_of_publication": "2020-03-29 23:14:00",
+    "headline": "BANGLADESH - One New Dengue Patient In Last 24 Hrs - DGHS",
+    "main_text": "[UNB NEWS] BANGLADESH - One new dengue patient in last 24 hrs: DGHS “One new dengue patient was hospitalised in the last 24 hours until 8am on Sunday, said the Directorate General of Health Services (DGHS).” Read the full article: https://unb.com.bd/category/Bangladesh/one-new-dengue-patient-in-last-24-hrs-dghs/48215",
     "reports": [
       {
-        "event_date": "2020-03-22 23:17:00",
-        "locations": [
-          {
-            "country": "Nigeria",
-            "city": "Ebonyi",
-            "latitude": "6.265",
-            "longitude": "8.014"
-          }
-        ],
-        "diseases": [
-          "lassa fever"
-        ],
-        "syndromes": []
-      }
-    ]
-  },
-  {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34371",
-    "date_of_publication": "2020-03-22 04:04:00",
-    "headline": "FLORIDA - US Navy Sailor In Florida Tests Positive",
-    "main_text": "[The Associated Press] FLORIDA - The Latest: U.S. Navy sailor in Florida tests positive \"The Latest on the coronavirus pandemic, which has infected more than 278,000 people and killed more than 11,500. The COVID-19 illness causes mild or moderate symptoms in most people ... \" Read the full article: https://www.actionnewsjax.com/news/world/latest-us-navy/J4AZRGCRDN4YLH4LX7UORKNNQM/",
-    "reports": [
-      {
-        "event_date": "2020-03-22 04:04:00",
-        "locations": [
-          {
-            "country": "United States",
-            "city": "Tampa, FL",
-            "latitude": "27.951",
-            "longitude": "-82.457"
-          }
-        ],
-        "diseases": [
-          "COVID-19"
-        ],
-        "syndromes": []
-      }
-    ]
-  },
-  {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34370",
-    "date_of_publication": "2020-03-22 04:00:00",
-    "headline": "SPAIN - Number Of Coronavirus Cases In Spain Rises To 28572",
-    "main_text": "[Xinhua] SPAIN - Number Of Coronavirus Cases In Spain Rises To 28,572 \"The number of coronavirus cases rose to 28,572 on Sunday, an increase of 3,646 cases from Saturday's number of 24,926 cases, according to figures published by the Ministry of Health, Consumer Affairs and Social Welfare.\" Read the full article: http://www.xinhuanet.com/english/2020-03/22/c_138905133.htm",
-    "reports": [
-      {
-        "event_date": "2020-03-22 04:00:00",
-        "locations": [
-          {
-            "country": "Spain",
-            "city": "Madrid",
-            "latitude": "40.417",
-            "longitude": "-3.704"
-          }
-        ],
-        "diseases": [
-          "COVID-19"
-        ],
-        "syndromes": []
-      }
-    ]
-  },
-  {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34369",
-    "date_of_publication": "2020-03-22 03:56:00",
-    "headline": "KUWAIT - COVID-19 Cases In Kuwait Rise To 188",
-    "main_text": "[Xinhua] KUWAIT - COVID-19 Cases In Kuwait Rise To 188 \"Kuwait reported 12 new COVID-19 cases over the past 24 hours, bringing the total number of the cases in the country to 188, the Health Ministry announced Sunday.\" Read the full article: http://www.xinhuanet.com/english/2020-03/22/c_138904952.htm",
-    "reports": [
-      {
-        "event_date": "2020-03-22 03:56:00",
-        "locations": [
-          {
-            "country": "Kuwait",
-            "city": "Kuwait City",
-            "latitude": "29.376",
-            "longitude": "47.977"
-          }
-        ],
-        "diseases": [
-          "COVID-19"
-        ],
-        "syndromes": []
-      }
-    ]
-  },
-  {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34368",
-    "date_of_publication": "2020-03-22 03:55:00",
-    "headline": "ITALY - Italy Coronavirus Deaths At 5476 After 651 Rise",
-    "main_text": "[Aljazeera.com] ITALY - Italy coronavirus deaths at 5,476 after 651 rise \"The death toll from the coronavirus pandemic continued its relentless rise in Europe on Sunday with Italy announcing 651 dead in one day, bringing its total to 5,476.\" Read the full article: https://www.aljazeera.com/news/2020/03/italy-tightens-lockdown-coronavirus-deaths-mount-live-updates-200321233509033.html",
-    "reports": [
-      {
-        "event_date": "2020-03-22 03:55:00",
-        "locations": [
-          {
-            "country": "Italy",
-            "city": "Rome",
-            "latitude": "41.903",
-            "longitude": "12.496"
-          }
-        ],
-        "diseases": [
-          "COVID-19"
-        ],
-        "syndromes": []
-      }
-    ]
-  },
-  {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34367",
-    "date_of_publication": "2020-03-22 03:51:00",
-    "headline": "BURKINA FASO - Burkina Faso Reports 11 New COVID-19 Cases - 2 New Deaths",
-    "main_text": "[Xinhua] BURKINA FASO - Burkina Faso Reports 11 New COVID-19 Cases, 2 New Deaths \"Burkina Faso has reported 11 new cases and 2 new death cases of COVID-19, bringing the total number of cases to 75 and the number of death cases to five.\" Read the full article: http://www.xinhuanet.com/english/2020-03/22/c_138904970.htm",
-    "reports": [
-      {
-        "event_date": "2020-03-22 03:51:00",
-        "locations": [
-          {
-            "country": "Burkina Faso",
-            "city": "Ouagadougou",
-            "latitude": "12.371",
-            "longitude": "-1.520"
-          }
-        ],
-        "diseases": [
-          "COVID-19"
-        ],
-        "syndromes": []
-      }
-    ]
-  },
-  {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34366",
-    "date_of_publication": "2020-03-22 03:49:00",
-    "headline": "IRAN - Iran Reports 1685 Deaths From COVID-19",
-    "main_text": "[Xinhua] IRAN - Iran Reports 1,685 Deaths From COVID-19 \"Iran's health ministry said on Sunday that at least 1,685 people have died of COVID-19 in the country, official IRNA news agency reported.\" Read the full article: http://www.xinhuanet.com/english/2020-03/22/c_138904944.htm",
-    "reports": [
-      {
-        "event_date": "2020-03-22 03:49:00",
-        "locations": [
-          {
-            "country": "Iran",
-            "city": "Tehran",
-            "latitude": "35.689",
-            "longitude": "51.389"
-          }
-        ],
-        "diseases": [
-          "COVID-19"
-        ],
-        "syndromes": []
-      }
-    ]
-  },
-  {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34365",
-    "date_of_publication": "2020-03-22 03:47:00",
-    "headline": "INDONESIA - Indonesia Confirms 10 New Deaths",
-    "main_text": "[CNBC] INDONESIA - Indonesia Confirms 10 New Deaths \"Indonesia has confirmed 10 new coronavirus virus deaths, bringing the country’s death count to 48.\" Read the full article: https://www.cnbc.com/2020/03/22/coronavirus-latest-updates.html",
-    "reports": [
-      {
-        "event_date": "2020-03-22 03:47:00",
-        "locations": [
-          {
-            "country": "Indonesia",
-            "city": "Jakarta",
-            "latitude": "-6.209",
-            "longitude": "106.846"
-          }
-        ],
-        "diseases": [
-          "COVID-19"
-        ],
-        "syndromes": []
-      }
-    ]
-  },
-  {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34364",
-    "date_of_publication": "2020-03-22 03:45:00",
-    "headline": "ROMANIA - Romania Confirms First Coronavirus Death",
-    "main_text": "[CNBC] ROMANIA - Romania Confirms First Coronavirus Death \"Romania’s government confirmed its first coronavirus death on Sunday, a 67-year-old man with terminal cancer who had tested positive for the virus on March 18...\" Read the full article: https://www.cnbc.com/2020/03/22/coronavirus-latest-updates.html",
-    "reports": [
-      {
-        "event_date": "2020-03-22 03:45:00",
-        "locations": [
-          {
-            "country": "Romania",
-            "city": "Bucharest",
-            "latitude": "44.427",
-            "longitude": "26.103"
-          }
-        ],
-        "diseases": [
-          "COVID-19"
-        ],
-        "syndromes": []
-      }
-    ]
-  },
-  {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34363",
-    "date_of_publication": "2020-03-22 03:43:00",
-    "headline": "LITHUANIA - Lithuania Reports First COVID-19 Death",
-    "main_text": "[Xinhua] LITHUANIA  - Lithuania reports first COVID-19 death \"According to the ministry, the patient, an elderly woman with a number of chronic conditions, died shortly after being taken to the emergency department of Ukmerge Hospital in central Lithuania on Friday.\" Read the full article: http://www.xinhuanet.com/english/2020-03/21/c_138902969.htm",
-    "reports": [
-      {
-        "event_date": "2020-03-22 03:43:00",
-        "locations": [
-          {
-            "country": "Lithuania",
-            "city": "Vilnius",
-            "latitude": "54.687",
-            "longitude": "25.280"
-          }
-        ],
-        "diseases": [
-          "COVID-19"
-        ],
-        "syndromes": []
-      }
-    ]
-  },
-  {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34362",
-    "date_of_publication": "2020-03-22 03:42:00",
-    "headline": "CHILE - Chile Announces First Death From COVID-19",
-    "main_text": "[Xinhua] CHILE  - Chile announces first death from COVID-19 \"We are mourning the first deceased person in Chile due to COVID-19, an 83-year-old woman who fell ill and who opted for compassionate management,\" said the official through his Twitter account.\" Read the full article: http://www.xinhuanet.com/english/2020-03/22/c_138903274.htm",
-    "reports": [
-      {
-        "event_date": "2020-03-22 03:42:00",
-        "locations": [
-          {
-            "country": "Chile",
-            "city": "Santiago",
-            "latitude": "-33.449",
-            "longitude": "-70.669"
-          }
-        ],
-        "diseases": [
-          "COVID-19"
-        ],
-        "syndromes": []
-      }
-    ]
-  },
-  {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34361",
-    "date_of_publication": "2020-03-22 03:40:00",
-    "headline": "GHANA - Ghana Records First COVID-19 Death",
-    "main_text": "[Xinhua] GHANA  - Ghana records first COVID-19 death \"Ghanaian President Nana Addo Dankwa Akufo-Addo announced late Saturday the death of the first COVID-19 patient in the country.\" Read the full article: http://www.xinhuanet.com/english/2020-03/22/c_138903300.htm",
-    "reports": [
-      {
-        "event_date": "2020-03-22 03:40:00",
-        "locations": [
-          {
-            "country": "Ghana",
-            "city": "Accra",
-            "latitude": "5.604",
-            "longitude": "-0.187"
-          }
-        ],
-        "diseases": [
-          "COVID-19"
-        ],
-        "syndromes": []
-      }
-    ]
-  },
-  {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34360",
-    "date_of_publication": "2020-03-22 03:35:00",
-    "headline": "INDIA - Coronavirus Update - Another Covid-19 Positive Patient Dies In Surat Hospital",
-    "main_text": "[livemint.com] INDIA - Coronavirus update: Another Covid-19 positive patient dies in Surat hospital “Coronavirus claimed its first victim in Gujarat on Sunday when a 67-year-old man, who had tested positive for the infection, died at a private hospital here, officials said.” Read the full article: https://www.livemint.com/news/india/coronavirus-update-another-covid-19-positive-patient-dies-in-surat-hospital-11584872777253.html",
-    "reports": [
-      {
-        "event_date": "2020-03-22 03:35:00",
-        "locations": [
-          {
-            "country": "India",
-            "city": "Surat",
-            "latitude": "21.170",
-            "longitude": "72.831"
-          }
-        ],
-        "diseases": [
-          "COVID-19"
-        ],
-        "syndromes": []
-      }
-    ]
-  },
-  {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34359",
-    "date_of_publication": "2020-03-22 03:29:00",
-    "headline": "UNITED KINGDOM - Patient Dies Of Coronavirus At Warwick Hospital",
-    "main_text": "[warwickcourier.co.uk] UNITED KINGDOM - Patient dies of coronavirus at Warwick Hospital “Warwick Hospital has confirmed today (Sunday) that a patient has died of the coronavirus.” Read the full article: https://www.warwickcourier.co.uk/health/coronavirus/patient-dies-coronavirus-warwick-hospital-2504807",
-    "reports": [
-      {
-        "event_date": "2020-03-22 03:29:00",
-        "locations": [
-          {
-            "country": "United Kingdom",
-            "city": "Warwick",
-            "latitude": "52.282",
-            "longitude": "-1.585"
-          }
-        ],
-        "diseases": [
-          "COVID-19"
-        ],
-        "syndromes": []
-      }
-    ]
-  },
-  {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34358",
-    "date_of_publication": "2020-03-22 02:57:00",
-    "headline": "IRELAND - Second Death From Coronavirus Recorded In Northern Ireland",
-    "main_text": "[Irishtimes.com] IRELAND - Second death from coronavirus recorded in Northern Ireland “A second patient has died of coronavirus in Northern Ireland. The Department of Health (DoH) said the patient was elderly, had an underlying medical condition and was being treated in hospital.” Read the full article: https://www.irishtimes.com/news/ireland/irish-news/second-death-from-coronavirus-recorded-in-northern-ireland-1.4209169",
-    "reports": [
-      {
-        "event_date": "2020-03-22 02:57:00",
-        "locations": [
-          {
-            "country": "Ireland",
-            "city": "Dublin",
-            "latitude": "53.350",
-            "longitude": "-6.260"
-          }
-        ],
-        "diseases": [
-          "COVID-19"
-        ],
-        "syndromes": []
-      }
-    ]
-  },
-  {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34357",
-    "date_of_publication": "2020-03-22 02:32:00",
-    "headline": "UNITED KINGDOM - Coronavirus - Three More Patients Die As Scottish Deaths Rise To 10",
-    "main_text": "[Stv.tv] UNITED KINGDOM - Coronavirus - Three more patients die as Scottish deaths rise to 10 “The first death of a patient infected with novel coronavirus on Romania's territory was registered, the Strategic Communication Group (GCS) informed on Sunday.” Read the full article: https://news.stv.tv/scotland/coronavirus-tenth-patient-dies-as-cases-rise-to-416?top",
-    "reports": [
-      {
-        "event_date": "2020-03-22 02:32:00",
-        "locations": [
-          {
-            "country": "United Kingdom",
-            "city": "Edinburgh",
-            "latitude": "55.953",
-            "longitude": "-3.188"
-          }
-        ],
-        "diseases": [
-          "COVID-19"
-        ],
-        "syndromes": []
-      }
-    ]
-  },
-  {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34356",
-    "date_of_publication": "2020-03-22 01:48:00",
-    "headline": "ROMANIA - First Death Of Patient Infected With Novel Coronavirus On Romani Territory",
-    "main_text": "[Stiripesurse.ro] ROMANIA - First death of patient infected with novel coronavirus on Romania's territory “The first death of a patient infected with novel coronavirus on Romania's territory was registered, the Strategic Communication Group (GCS) informed on Sunday.” Read the full article: https://www.stiripesurse.ro/first-death-of-patient-infected-with-novel-coronavirus-on-romanias-territory_1443369.html",
-    "reports": [
-      {
-        "event_date": "2020-03-22 01:48:00",
-        "locations": [
-          {
-            "country": "Romania",
-            "city": "Bucharest",
-            "latitude": "44.427",
-            "longitude": "26.103"
-          }
-        ],
-        "diseases": [
-          "COVID-19"
-        ],
-        "syndromes": []
-      }
-    ]
-  },
-  {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34355",
-    "date_of_publication": "2020-03-22 01:23:00",
-    "headline": "SERBIA AND MONTENEGRO - Patient Suffering From Coronavirus Dies",
-    "main_text": "[Prishtinainsight.com] SERBIA AND MONTENEGRO - Patient Suffering From Coronavirus Dies “An 82-year-old patient from Podujevo that tested positive for coronavirus has died at the Infectious Disease Clinic in Prishtina after being admitted to hospital on 16 March.” Read the full article: https://prishtinainsight.com/patient-suffering-from-coronavirus-dies/",
-    "reports": [
-      {
-        "event_date": "2020-03-22 01:23:00",
-        "locations": [
-          {
-            "country": "Serbia And Montenegro",
-            "city": "Kosovo",
-            "latitude": "42.603",
-            "longitude": "20.903"
-          }
-        ],
-        "diseases": [
-          "COVID-19"
-        ],
-        "syndromes": []
-      }
-    ]
-  },
-  {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34354",
-    "date_of_publication": "2020-03-22 00:55:00",
-    "headline": "MEXICO - There Are 44 Cases Of Dengue In Tamaulipas",
-    "main_text": "Manual Google Translation [Milenio.com] MEXICO - There are 44 cases of dengue in Tamaulipas “Vector-borne diseases are on the rise in Tamaulipas . According to the Epidemiological bulletin of the Ministry of Health, there are already 44 cases of dengue , in its non-serious modalities, with warning signs and severe, while last year only 16 people with these conditions went.” Read the full article: https://www.milenio.com/salud/suman-44-casos-de-dengue-en-tamaulipas",
-    "reports": [
-      {
-        "event_date": "2020-03-22 00:55:00",
-        "locations": [
-          {
-            "country": "Mexico",
-            "city": "Tamaulipas",
-            "latitude": "24.267",
-            "longitude": "-98.836"
-          }
-        ],
-        "diseases": [
-          "dengue"
-        ],
-        "syndromes": [
-          "Haemorrhagic Fever"
-        ]
-      }
-    ]
-  },
-  {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34353",
-    "date_of_publication": "2020-03-22 00:53:00",
-    "headline": "BANGLADESH - 2 New Dengue Patients Detected In Last 24hrs - DGHS",
-    "main_text": "[Unb.com.bd] BANGLADESH - 2 new dengue patients detected in last 24hrs - DGHS “Two new dengue patients were hospitalised in the last 24 hours until 8am on Sunday, the Directorate General of Health Services (DGHS) said.” Read the full article: http://unb.com.bd/category/Bangladesh/2-new-dengue-patients-detected-in-last-24hrs-dghs/47698",
-    "reports": [
-      {
-        "event_date": "2020-03-22 00:53:00",
+        "event_date": "2020-03-29 23:14:00",
         "locations": [
           {
             "country": "Bangladesh",
@@ -834,19 +50,19 @@
     ]
   },
   {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34331",
-    "date_of_publication": "2020-03-21 23:58:00",
-    "headline": "IRELAND - 22 New Positive COVID-19 Tests In Northern Ireland",
-    "main_text": "[Goqradio.com] IRELAND - 22 new positive COVID-19 tests in Northern Ireland “The Department of Health has announced 22 new positive cases of coronavirus in Northern Ireland since yesterday.” Read the full article: https://www.goqradio.com/belfast/news/q-radio-local-news/22-new-positive-covid-19-tests-in-northern-ireland/",
+    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34491",
+    "date_of_publication": "2020-03-29 02:06:00",
+    "headline": "KENYA - Kenya COVID-19 Case Don Climb Reach 42",
+    "main_text": "[BBC] KENYA - Kenya COVID-19 Case Don Climb Reach 42 \"Confamed cases of Covid-19 for Kenya don rise from 38 to 42...Di new cases include one Kenyan, one American, and citizens of Cameroon and Burkina Faso..\" Read the full article: https://www.bbc.com/pidgin/live/tori-51750354",
     "reports": [
       {
-        "event_date": "2020-03-21 23:58:00",
+        "event_date": "2020-03-29 02:06:00",
         "locations": [
           {
-            "country": "Ireland",
-            "city": "Dublin",
-            "latitude": "53.350",
-            "longitude": "-6.260"
+            "country": "Kenya",
+            "city": "Nairobi",
+            "latitude": "-1.292",
+            "longitude": "36.822"
           }
         ],
         "diseases": [
@@ -857,19 +73,19 @@
     ]
   },
   {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34350",
-    "date_of_publication": "2020-03-21 05:28:00",
-    "headline": "VIRGINIA - 152 Cases Of COVID-19 Confirmed Across Virginia",
-    "main_text": "[WHSV] VIRGINIA  - 152 cases of COVID-19 confirmed across Virginia \"The commonwealth of Virginia has 152 positive or presumptive positive cases of COVID-19, as of Saturday, March 21.\" Read the full article: https://www.msn.com/en-us/news/us/152-cases-of-covid-19-confirmed-across-virginia/ar-BB11vC8b",
+    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34490",
+    "date_of_publication": "2020-03-29 02:05:00",
+    "headline": "SOUTH KOREA - South Korea Reports 105 New Cases - Total At 9583",
+    "main_text": "[ALJAZEERA] SOUTH KOREA - South Korea Reports 105 New Cases, Total At 9,583 \"Korea Centers for Disease Control and Prevention reported 105 new cases of COVID-19, bringing the total infections throughout the outbreak in the country to 9,583.\" Read the full article: https://www.aljazeera.com/news/2020/03/trump-weighs-coronavirus-lockdown-york-live-updates-200328234401911.html",
     "reports": [
       {
-        "event_date": "2020-03-21 05:28:00",
+        "event_date": "2020-03-29 02:05:00",
         "locations": [
           {
-            "country": "United States",
-            "city": "Richmond, VA",
-            "latitude": "37.541",
-            "longitude": "-77.436"
+            "country": "South Korea",
+            "city": "Seoul",
+            "latitude": "37.567",
+            "longitude": "126.978"
           }
         ],
         "diseases": [
@@ -880,19 +96,19 @@
     ]
   },
   {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34349",
-    "date_of_publication": "2020-03-21 05:26:00",
-    "headline": "TEXAS - 145 Cases Of Coronavirus COVID-19 In Greater Houston Area",
-    "main_text": "[fox7austin.com] TEXAS - 145 cases of Coronavirus COVID-19 in greater Houston area ''There have been 145 confirmed 2019 Novel Coronavirus (COVID-19) cases in and from the greater Houston area.'' Read the full article: https://www.fox7austin.com/news/145-cases-of-coronavirus-covid-19-in-greater-houston-area-2-deaths-7-recoverede/",
+    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34489",
+    "date_of_publication": "2020-03-29 01:53:00",
+    "headline": "INDIA - COVID19 - Huge Spike In Cases As 13 Test Positive In J-K Today - Toll Reaches 33",
+    "main_text": "[thekashmirmonitor.net] INDIA - COVID19: Huge spike in cases as 13 test positive in J&K today, toll reaches 33 \"In a sudden spurt in coronavirus cases in Kashmir, as many as 13 COVID-19 positive cases were reported in Jammu and Kashmir on Saturday. Those included 10 in Kashmir and three in Jammu division.\" Read the full article: https://www.thekashmirmonitor.net/covid19-huge-spike-in-cases-as-13-test-positive-in-jk-today-toll-reaches-33/",
     "reports": [
       {
-        "event_date": "2020-03-21 05:26:00",
+        "event_date": "2020-03-29 01:53:00",
         "locations": [
           {
-            "country": "United States",
-            "city": "Austin, TX",
-            "latitude": "30.267",
-            "longitude": "-97.743"
+            "country": "India",
+            "city": "Kashmir",
+            "latitude": "33.778",
+            "longitude": "76.576"
           }
         ],
         "diseases": [
@@ -903,42 +119,19 @@
     ]
   },
   {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34348",
-    "date_of_publication": "2020-03-21 05:24:00",
-    "headline": "ILLINOIS - 1 More COVID-19 Death In Illinois - 168 New Cases Saturday",
-    "main_text": "[ksdk.com] ILLINOIS - 1 more COVID-19 death in Illinois, 168 new cases Saturday   “One more person in Illinois has died because of the coronavirus, Gov. J.B. Pritzker announced Saturday afternoon.” Read the full article: https://www.ksdk.com/article/news/health/coronavirus/illinois-coronavirus-deaths-thursday/63-b2f9cc5d-ec4d-4697-bf8e-92bd850c4efb",
+    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34488",
+    "date_of_publication": "2020-03-29 01:51:00",
+    "headline": "ALABAMA - COVID-19 Cases In Alabama Now At 644 - 3 Deaths Reported",
+    "main_text": "[wrcbtv.com] ALABAMA - UPDATE: COVID-19 cases in Alabama now at 644; 3 deaths reported \"Saturday's COVID-19 case count in Alabama went up to 644 according to the Alabama Public Health Department's website, with 4,755 tests completed. Three deaths have been reported.\" Read the full article: https://www.wrcbtv.com/story/41906319/update-covid19-cases-in-alabama-now-at-538-3-deaths-reported",
     "reports": [
       {
-        "event_date": "2020-03-21 05:24:00",
-        "locations": [
-          {
-            "country": "United States",
-            "city": "Chicago, IL",
-            "latitude": "41.878",
-            "longitude": "-87.630"
-          }
-        ],
-        "diseases": [
-          "COVID-19"
-        ],
-        "syndromes": []
-      }
-    ]
-  },
-  {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34347",
-    "date_of_publication": "2020-03-21 05:22:00",
-    "headline": "MICHIGAN - Michigan Coronavirus Cases Climb To Near 800 - With 5 Deaths",
-    "main_text": "[mlive.com] MICHIGAN - Michigan coronavirus cases climb to near 800, with 5 deaths   “The number of coronavirus cases in Michigan has jumped to 787, with one new death reported since Friday.” Read the full article: https://www.mlive.com/public-interest/2020/03/michigan-coronavirus-cases-climb-to-near-800-with-5-deaths.html",
-    "reports": [
-      {
-        "event_date": "2020-03-21 05:22:00",
+        "event_date": "2020-03-29 01:51:00",
         "locations": [
           {
             "country": "United States",
-            "city": "Lansing, MI",
-            "latitude": "42.733",
-            "longitude": "-84.556"
+            "city": "Montgomery, AL",
+            "latitude": "32.379",
+            "longitude": "-86.308"
           }
         ],
         "diseases": [
@@ -949,19 +142,134 @@
     ]
   },
   {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34346",
-    "date_of_publication": "2020-03-21 05:21:00",
-    "headline": "KANSAS - First Novel Coronavirus Death Reported In Johnson County - Officials Confirm Saturday",
-    "main_text": "[msn.com] KANSAS - First novel coronavirus death reported in Johnson County, officials confirm Saturday “The first coronavirus death in Allegheny County was reported Saturday morning. Allegheny County officials said the person who died was in their late 60s and had been hospitalized at Jefferson Hospital.” Read the full article: https://www.msn.com/en-us/news/us/first-novel-coronavirus-death-reported-in-johnson-county-officials-confirm-saturday/ar-BB11vUYM",
+    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34487",
+    "date_of_publication": "2020-03-29 01:47:00",
+    "headline": "INDIA - Maharashtra Death Toll Reaches Seven As Mumbai Woman Passes Away",
+    "main_text": "[PTI] INDIA - Maharashtra Death Toll Reaches Seven As Mumbai Woman Passes Away \"The test reports of a 40-year-old woman who died in Mumbai on Saturday have come out positive for coronavirus, taking the death toll of COVID-19 patients in Maharashtra to seven, a civic official said on Sunday.\" Read the full article: https://www.newindianexpress.com/nation/2020/mar/29/coronavirus-maharashtra-death-toll-reaches-seven-as-mumbai-woman-passes-away-2123014.html",
     "reports": [
       {
-        "event_date": "2020-03-21 05:21:00",
+        "event_date": "2020-03-29 01:47:00",
+        "locations": [
+          {
+            "country": "India",
+            "city": "Maharashtra",
+            "latitude": "19.751",
+            "longitude": "75.714"
+          }
+        ],
+        "diseases": [
+          "COVID-19"
+        ],
+        "syndromes": []
+      }
+    ]
+  },
+  {
+    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34486",
+    "date_of_publication": "2020-03-29 01:46:00",
+    "headline": "ISRAEL - Jerusalem Hospital Reports Israels 13th Coronavirus Death - A 92-Year-Old Man",
+    "main_text": "[The Times of Israel] ISRAEL - Jerusalem Hospital Reports Israel’s 13th Coronavirus Death: A 92-Year-Old Man \"A 92-year-old man has died of the coronavirus in Jerusalem’s Shaare Zedek Medical Center, making him the country’s 13th fatality from the disease, the hospital says...\" Read the full article: https://www.timesofisrael.com/liveblog_entry/jerusalem-hospital-reports-israels-13th-coronavirus-death-a-92-year-old-man/",
+    "reports": [
+      {
+        "event_date": "2020-03-29 01:46:00",
+        "locations": [
+          {
+            "country": "Israel",
+            "city": "Jerusalem",
+            "latitude": "31.768",
+            "longitude": "35.214"
+          }
+        ],
+        "diseases": [
+          "COVID-19"
+        ],
+        "syndromes": []
+      }
+    ]
+  },
+  {
+    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34485",
+    "date_of_publication": "2020-03-29 01:45:00",
+    "headline": "NEW ZEALAND - New Zealand Confirms First Coronavirus Death",
+    "main_text": "[ALJAZEERA] NEW ZEALAND - New Zealand Confirms First Coronavirus Death \"New Zealand reported its first death from COVID-19, prompting Prime Minister Jacinda Ardern to renew calls on the public to \"stay at home, break the chain, and save lives..\" Read the full article: https://www.aljazeera.com/news/2020/03/trump-weighs-coronavirus-lockdown-york-live-updates-200328234401911.html",
+    "reports": [
+      {
+        "event_date": "2020-03-29 01:45:00",
+        "locations": [
+          {
+            "country": "New Zealand",
+            "city": "Wellington",
+            "latitude": "-41.286",
+            "longitude": "174.776"
+          }
+        ],
+        "diseases": [
+          "COVID-19"
+        ],
+        "syndromes": []
+      }
+    ]
+  },
+  {
+    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34484",
+    "date_of_publication": "2020-03-29 01:34:00",
+    "headline": "THAILAND - Thailand Reports 143 New Cases And One Death",
+    "main_text": "[ALJAZEERA] THAILAND - Thailand Reports 143 New Cases And One Death \"Thailand recorded 143 new coronavirus infections and one death on Sunday, Reuters news agency said, citing a spokesman for the Thai government.\" Read the full article: https://www.aljazeera.com/news/2020/03/trump-weighs-coronavirus-lockdown-york-live-updates-200328234401911.html",
+    "reports": [
+      {
+        "event_date": "2020-03-29 01:34:00",
+        "locations": [
+          {
+            "country": "Thailand",
+            "city": "Bangkok",
+            "latitude": "13.756",
+            "longitude": "100.502"
+          }
+        ],
+        "diseases": [
+          "COVID-19"
+        ],
+        "syndromes": []
+      }
+    ]
+  },
+  {
+    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34483",
+    "date_of_publication": "2020-03-29 01:32:00",
+    "headline": "BULGARIA - Fifth Coronavirus Death In Bulgaria",
+    "main_text": "[bnt.bg] BULGARIA - Fifth coronavirus death in Bulgaria \"The man is 56 years old. He was admitted to the hospital 2 days ago in serious condition. Before that he was with high temperature at his home in the town of Bansko.\" Read the full article: https://www.bnt.bg/en/a/fifth-coronavirus-death-in-bulgaria",
+    "reports": [
+      {
+        "event_date": "2020-03-29 01:32:00",
+        "locations": [
+          {
+            "country": "Bulgaria",
+            "city": "Sofia",
+            "latitude": "42.698",
+            "longitude": "23.322"
+          }
+        ],
+        "diseases": [
+          "COVID-19"
+        ],
+        "syndromes": []
+      }
+    ]
+  },
+  {
+    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34482",
+    "date_of_publication": "2020-03-29 01:31:00",
+    "headline": "NEW JERSEY - 1st Sussex County Coronavirus Death Announced",
+    "main_text": "[patch.com] NEW JERSEY - 1st Sussex County Coronavirus Death Announced \"A Newton woman has died of the new coronavirus, the first Sussex County fatality from the outbreak that has sickened more than 8,800 people across New Jersey, county officials have announced.\" Read the full article: https://patch.com/new-jersey/hopatcong-sparta/1st-sussex-county-coronavirus-death-announced",
+    "reports": [
+      {
+        "event_date": "2020-03-29 01:31:00",
         "locations": [
           {
             "country": "United States",
-            "city": "Johnson County, KS",
-            "latitude": "38.845",
-            "longitude": "-94.852"
+            "city": "Sussex County, NJ",
+            "latitude": "41.129",
+            "longitude": "-74.687"
           }
         ],
         "diseases": [
@@ -972,19 +280,88 @@
     ]
   },
   {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34345",
-    "date_of_publication": "2020-03-21 05:19:00",
-    "headline": "UNITED KINGDOM - Number Of Coronavirus Deaths In UK Jumps To 233 As Over 5018 Test Positive For Covi",
-    "main_text": "[msn.com] UNITED KINGDOM - Number of coronavirus deaths in UK jumps to 233 as over 5,018 test positive for Covid-19   “Britain's coronavirus death toll has increased to 233 after 56 more people died in just 24 hours.” Read the full article: https://www.msn.com/en-ie/news/other/number-of-coronavirus-deaths-in-uk-jumps-to-233-as-over-5018-test-positive-for-covid-19/ar-BB11vSzt",
+    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34481",
+    "date_of_publication": "2020-03-29 01:28:00",
+    "headline": "RUSSIA - Elderly Woman Dies From Coronavirus In Moscow",
+    "main_text": "[vestnikkavkaza.net] RUSSIA - Elderly woman dies from coronavirus in Moscow \"It is clarified that upon admission to the hospital, the woman was confirmed to be suffering bilateral pneumonia.\" Read the full article: https://vestnikkavkaza.net/news/Elderly-woman-dies-from-coronavirus-in-Moscow.html",
     "reports": [
       {
-        "event_date": "2020-03-21 05:19:00",
+        "event_date": "2020-03-29 01:28:00",
+        "locations": [
+          {
+            "country": "Russia",
+            "city": "Moscow",
+            "latitude": "55.756",
+            "longitude": "37.617"
+          }
+        ],
+        "diseases": [
+          "COVID-19"
+        ],
+        "syndromes": []
+      }
+    ]
+  },
+  {
+    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34480",
+    "date_of_publication": "2020-03-29 01:24:00",
+    "headline": "FRANCE - 299 Deaths In 24 Hours Bring Total To 1995",
+    "main_text": "[brusselstimes.com] FRANCE - Coronavirus – France: 299 deaths in 24 hours bring total to 1,995 \"Deaths from the novel Coronavirus in France since the start of the epidemic have risen to 1,995, including 299 persons who died within the previous 24 hours, according to an official tally on Friday evening.\" Read the full article: https://www.brusselstimes.com/all-news/103201/coronavirus-france-299-deaths-in-24-hours-bring-total-to-1995/",
+    "reports": [
+      {
+        "event_date": "2020-03-29 01:24:00",
+        "locations": [
+          {
+            "country": "France",
+            "city": "Paris",
+            "latitude": "48.857",
+            "longitude": "2.352"
+          }
+        ],
+        "diseases": [
+          "COVID-19"
+        ],
+        "syndromes": []
+      }
+    ]
+  },
+  {
+    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34479",
+    "date_of_publication": "2020-03-29 01:23:00",
+    "headline": "UNITED KINGDOM - 3 More Patients In Leeds Have Died From Coronavirus",
+    "main_text": "[yorkshireeveningpost.co.uk] UNITED KINGDOM - Three more patients in Leeds have died from coronavirus \"Dr Yvette Oade, Chief Medical Officer at Leeds Teaching Hospitals NHS Trust said today (Saturday, March 28): “We can confirm that, sadly, three patients, who had tested positive for COVID-19, and were in our care, have died.\" Read the full article: https://www.yorkshireeveningpost.co.uk/health/coronavirus/three-more-patients-leeds-have-died-coronavirus-2521501",
+    "reports": [
+      {
+        "event_date": "2020-03-29 01:23:00",
         "locations": [
           {
             "country": "United Kingdom",
-            "city": "London",
-            "latitude": "51.507",
-            "longitude": "-0.128"
+            "city": "Leeds",
+            "latitude": "53.801",
+            "longitude": "-1.549"
+          }
+        ],
+        "diseases": [
+          "COVID-19"
+        ],
+        "syndromes": []
+      }
+    ]
+  },
+  {
+    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34459",
+    "date_of_publication": "2020-03-28 23:17:00",
+    "headline": "BRAZIL - City Adds 703 Dengue Cases",
+    "main_text": "Manual Google Translation [Correio.rac.com.br] BRAZIL - City adds 703 dengue cases “The City of Campinas reported that 703 cases of dengue were confirmed between January 1st and March 20th this year. The incidence is 58 cases per 100 thousand inhabitants.” Read the full article: https://correio.rac.com.br/_conteudo/2020/03/campinas_e_rmc/918329-cidade-soma-703-casos-de-dengue.html",
+    "reports": [
+      {
+        "event_date": "2020-03-28 23:17:00",
+        "locations": [
+          {
+            "country": "Brazil",
+            "city": "Campinas",
+            "latitude": "-22.933",
+            "longitude": "-47.074"
           }
         ],
         "diseases": [
@@ -997,19 +374,19 @@
     ]
   },
   {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34344",
-    "date_of_publication": "2020-03-21 05:17:00",
-    "headline": "SINGAPORE - Singapore Reports First Two Deaths",
-    "main_text": "[ALJAZEERA] SINGAPORE - Singapore Reports First Two Deaths \"Singapore's Ministry of Health reported on Saturday the first two deaths linked to the coronavirus.\" Read the full article: https://www.aljazeera.com/news/2020/03/coronavirus-live-updates-worldwide-death-toll-surges-11000-200320225513796.html",
+    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34476",
+    "date_of_publication": "2020-03-28 03:01:00",
+    "headline": "CALIFORNIA - Culver City Costco Employee Tests Positive For Coronavirus",
+    "main_text": "[Kearth101.radio.com] CALIFORNIA - Culver City Costco Employee Tests Positive for Coronavirus \"An employee at Costco in Culver City has tested positive for COVID-19. The employee most recently worked at the store on March 17th, according to a memo the company sent to staff.\" Read the full article: https://kearth101.radio.com/promotion/culver-city-costco-employee-tests-positive-for-coronavirus",
     "reports": [
       {
-        "event_date": "2020-03-21 05:17:00",
+        "event_date": "2020-03-28 03:01:00",
         "locations": [
           {
-            "country": "Singapore",
-            "city": "Singapore City",
-            "latitude": "1.352",
-            "longitude": "103.820"
+            "country": "United States",
+            "city": "Costco Wholesale, CA",
+            "latitude": "33.773",
+            "longitude": "-117.941"
           }
         ],
         "diseases": [
@@ -1020,19 +397,19 @@
     ]
   },
   {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34343",
-    "date_of_publication": "2020-03-21 05:15:00",
-    "headline": "FINLAND - Finland Confirms First Coronavirus Death",
-    "main_text": "[ALJAZEERA NEWS] FINLAND - Finland Confirms First Coronavirus Death \"Finland has confirmed its first coronavirus death, according to national public broadcaster YLE...\" Read the full article: https://www.aljazeera.com/news/2020/03/coronavirus-live-updates-worldwide-death-toll-surges-11000-200320225513796.html",
+    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34475",
+    "date_of_publication": "2020-03-28 02:50:00",
+    "headline": "ISRAEL - Coronavirus Cases Rise To 3460 In Israel",
+    "main_text": "[Xinhua] ISRAEL - Coronavirus cases rise to 3,460 in Israel \"The number of coronavirus cases in Israel has risen to 3,460, the Israeli Ministry of Health said Saturday.\" Read the full article: http://www.xinhuanet.com/english/2020-03/28/c_138926143.htm",
     "reports": [
       {
-        "event_date": "2020-03-21 05:15:00",
+        "event_date": "2020-03-28 02:50:00",
         "locations": [
           {
-            "country": "Finland",
-            "city": "Helsinki",
-            "latitude": "60.170",
-            "longitude": "24.938"
+            "country": "Israel",
+            "city": "Jerusalem",
+            "latitude": "31.768",
+            "longitude": "35.214"
           }
         ],
         "diseases": [
@@ -1043,19 +420,19 @@
     ]
   },
   {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34342",
-    "date_of_publication": "2020-03-21 05:13:00",
-    "headline": "MAURITIUS - Mauritius Reports First Death As Cases Rise",
-    "main_text": "[ALJAZEERA NEWS] MAURITIUS - Mauritius Reports First Death As Cases Rise \"Mauritius has recorded its first death from coronavirus, the health minister has said, just the third in sub-Saharan Africa, as the archipelago nation imposed a lockdown to contain the outbreak.\" Read the full article: https://www.aljazeera.com/news/2020/03/coronavirus-live-updates-worldwide-death-toll-surges-11000-200320225513796.html",
+    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34474",
+    "date_of_publication": "2020-03-28 02:48:00",
+    "headline": "JORDAN - Jordan Reports First COVID-19 Death",
+    "main_text": "[ALJAZEERA] JORDAN - Jordan Reports First COVID-19 Death \"Jordan's state-run news agency, Petra, has reported that a woman in her 80s died from COVID-19 - the first fatality in the country.\" Read the full article: https://www.aljazeera.com/news/2020/03/coronavirus-cases-top-100000-italy-deaths-rise-live-updates-200327231629838.html",
     "reports": [
       {
-        "event_date": "2020-03-21 05:13:00",
+        "event_date": "2020-03-28 02:48:00",
         "locations": [
           {
-            "country": "Mauritius",
-            "city": "Port Louis",
-            "latitude": "-20.161",
-            "longitude": "57.501"
+            "country": "Jordan",
+            "city": "Amman",
+            "latitude": "31.954",
+            "longitude": "35.911"
           }
         ],
         "diseases": [
@@ -1066,19 +443,19 @@
     ]
   },
   {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34341",
-    "date_of_publication": "2020-03-21 05:11:00",
-    "headline": "MALAYSIA - Malaysia Reports 4th Death Due To COVID-19 - 153 New Cases",
-    "main_text": "[Xinhua] MALAYSIA - Malaysia Reports 4th Death Due To COVID-19, 153 New Cases \"Malaysia on Saturday announced the fourth death due to COVID-19, besides 153 newly confirmed cases to bring the total in the country to 1,183, according to the Health Ministry.\" Read the full article: http://www.xinhuanet.com/english/2020-03/21/c_138902319.htm",
+    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34473",
+    "date_of_publication": "2020-03-28 02:46:00",
+    "headline": "NEW ZEALAND - Coronavirus - 83 New Cases In New Zealand - 2 Patients In Intensive Car",
+    "main_text": "[rnz.co.nz] NEW ZEALAND - Coronavirus: 83 new cases in New Zealand, two patients in intensive care \"As Covid-19 spreads around the world, it can be daunting keeping up with the information. For RNZ, our responsibility is to give you verified, up to the minute, trustworthy information to help you make decisions about your lives and your health. We'll also be asking questions of officials and decision makers about how they're responding to the virus. Our aim is to keep you informed.\" Read the full article: https://www.rnz.co.nz/news/national/412818/coronavirus-83-new-cases-in-new-zealand-two-patients-in-intensive-care",
     "reports": [
       {
-        "event_date": "2020-03-21 05:11:00",
+        "event_date": "2020-03-28 02:46:00",
         "locations": [
           {
-            "country": "Malaysia",
-            "city": "Kuala Lumpur",
-            "latitude": "3.139",
-            "longitude": "101.687"
+            "country": "New Zealand",
+            "city": "Wellington",
+            "latitude": "-41.286",
+            "longitude": "174.776"
           }
         ],
         "diseases": [
@@ -1089,19 +466,19 @@
     ]
   },
   {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34340",
-    "date_of_publication": "2020-03-21 05:09:00",
-    "headline": "SPAIN - Spain To Boost Coronavirus Testing As Deaths Surpass 1300",
-    "main_text": "[jpost.com] SPAIN - Spain to boost coronavirus testing as deaths surpass 1,300   “Spanish authorities said on Saturday that they would boost coronavirus testing, potentially with the help of robots, as the toll in the country kept climbing, surpassing 1,300 deaths and reaching close to 25,000 cases.” Read the full article: https://www.jpost.com/International/Spain-to-boost-coronavirus-testing-as-deaths-surpass-1300-621816",
+    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34472",
+    "date_of_publication": "2020-03-28 02:34:00",
+    "headline": "NORTH CAROLINA - COVID-19 Case Count In North Carolina Jumps To 935 - 4 Deaths Reported",
+    "main_text": "[abc11.com] NORTH CAROLINA - COVID-19 case count in North Carolina jumps to 935; 4 deaths reported \"Halifax County health officials said a second case of COVID-19 has been confirmed. Officials are currently following up with those who may have been exposed.\" Read the full article: https://abc11.com/coronavirus-cases-aid-package-nc-update/6057994/",
     "reports": [
       {
-        "event_date": "2020-03-21 05:09:00",
+        "event_date": "2020-03-28 02:34:00",
         "locations": [
           {
-            "country": "Spain",
-            "city": "Madrid",
-            "latitude": "40.417",
-            "longitude": "-3.704"
+            "country": "United States",
+            "city": "Halifax County, NC",
+            "latitude": "36.265",
+            "longitude": "-77.608"
           }
         ],
         "diseases": [
@@ -1112,13 +489,337 @@
     ]
   },
   {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34339",
-    "date_of_publication": "2020-03-21 05:05:00",
-    "headline": "INDIANA - Indiana Reports Fourth Coronavirus Death",
-    "main_text": "[wndu.com] INDIANA - Indiana reports fourth coronavirus death ''A fourth Hoosier has died from the coronavirus, according to the Indiana State Department of Health. The patient is an adult resident of Delaware County over the age of 60 who had been hospitalized.'' Read the full article: https://www.wndu.com/content/news/Indiana-reports-fourth-coronavirus-death-568996971.html",
+    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34471",
+    "date_of_publication": "2020-03-28 02:33:00",
+    "headline": "TEXAS - First Death Related To COVID-19 Confirmed In Williamson County",
+    "main_text": "[KXAN] TEXAS - First death related to COVID-19 confirmed in Williamson County \"The first death in Williamson County related to COVID-19 has been confirmed Saturday by the Williamson County and Cities Health District.\" Read the full article: https://www.kxan.com/news/coronavirus/first-death-related-to-covid-19-confirmed-in-williamson-county/",
     "reports": [
       {
-        "event_date": "2020-03-21 05:05:00",
+        "event_date": "2020-03-28 02:33:00",
+        "locations": [
+          {
+            "country": "United States",
+            "city": "Williamson County, TX",
+            "latitude": "30.759",
+            "longitude": "-97.698"
+          }
+        ],
+        "diseases": [
+          "COVID-19"
+        ],
+        "syndromes": []
+      }
+    ]
+  },
+  {
+    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34470",
+    "date_of_publication": "2020-03-28 02:29:00",
+    "headline": "FLORIDA - 3 More Die From Coronavirus In Pinellas County",
+    "main_text": "[WFLA] FLORIDA - 3 more die from coronavirus in Pinellas County \"The Florida Dept. of Health in Pinellas County said an 83-year-old woman, a 64-year-old man, and a 52-year-old man have died, bringing the COVID-19-related death total in the county to four.\" Read the full article: https://www.wfla.com/community/health/coronavirus/3-more-die-from-coronavirus-in-pinellas-county/",
+    "reports": [
+      {
+        "event_date": "2020-03-28 02:29:00",
+        "locations": [
+          {
+            "country": "United States",
+            "city": "Pinellas County, FL",
+            "latitude": "27.876",
+            "longitude": "-82.778"
+          }
+        ],
+        "diseases": [
+          "COVID-19"
+        ],
+        "syndromes": []
+      }
+    ]
+  },
+  {
+    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34469",
+    "date_of_publication": "2020-03-28 02:27:00",
+    "headline": "FLORIDA - 6th Coronavirus Patient Dies In Lee County",
+    "main_text": "[nbc-2.com] FLORIDA - Sixth coronavirus patient dies in Lee County \"The sixth death was confirmed by Lee Health who was treating the patient. \" Read the full article: https://www.nbc-2.com/story/41948774/sixth-coronavirus-patient-dies-in-lee-county",
+    "reports": [
+      {
+        "event_date": "2020-03-28 02:27:00",
+        "locations": [
+          {
+            "country": "United States",
+            "city": "Lee County, FL",
+            "latitude": "26.663",
+            "longitude": "-81.953"
+          }
+        ],
+        "diseases": [
+          "COVID-19"
+        ],
+        "syndromes": []
+      }
+    ]
+  },
+  {
+    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34468",
+    "date_of_publication": "2020-03-28 02:26:00",
+    "headline": "TENNESSEE - 4th Coronavirus Patient Dies In Tennessee",
+    "main_text": "[WKRN] TENNESSEE - 4th coronavirus patient dies in Tennessee \"A second resident of Davidson County has died after being diagnosed with COVID-19, according to the Metro Public Health Department.\" Read the full article: https://www.wate.com/news/4th-coronavirus-patient-dies-in-tennessee/",
+    "reports": [
+      {
+        "event_date": "2020-03-28 02:26:00",
+        "locations": [
+          {
+            "country": "United States",
+            "city": "Davidson County, TN",
+            "latitude": "36.134",
+            "longitude": "-86.822"
+          }
+        ],
+        "diseases": [
+          "COVID-19"
+        ],
+        "syndromes": []
+      }
+    ]
+  },
+  {
+    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34467",
+    "date_of_publication": "2020-03-28 02:07:00",
+    "headline": "UNITED KINGDOM - Coronavirus Latest News - NHS Chief Warns Public Not To Be Complacent As Death Toll",
+    "main_text": "[telegraph.co.uk] UNITED KINGDOM - Coronavirus latest news: NHS chief warns public not to be complacent as death toll passes 1,000 in UK \"A senior NHS boss has warned the public not to be complacent about coronavirus, but to \"hone down and do what we have been told to do\".\" Read the full article: https://www.telegraph.co.uk/global-health/science-and-disease/coronavirus-news-latest-uk-deaths-cases-boris-johnson-tests/",
+    "reports": [
+      {
+        "event_date": "2020-03-28 02:07:00",
+        "locations": [
+          {
+            "country": "United Kingdom",
+            "city": "London",
+            "latitude": "51.507",
+            "longitude": "-0.128"
+          }
+        ],
+        "diseases": [
+          "COVID-19"
+        ],
+        "syndromes": []
+      }
+    ]
+  },
+  {
+    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34466",
+    "date_of_publication": "2020-03-28 02:00:00",
+    "headline": "PORTUGAL - Portimão Teacher Is Second Coronavirus Patient To Die In Algarve",
+    "main_text": "[portugalresident.com] PORTUGAL - Portimão Teacher Is Second Coronavirus Patient To Die In Algarve \"A maths teacher who worked at the Manuel Teixeira Gomes high school in Portimão has become the second person in the Algarve to die infected with the Covid-19 virus.\" Read the full article: https://www.portugalresident.com/portimao-teacher-is-second-coronavirus-patient-to-die-in-algarve/",
+    "reports": [
+      {
+        "event_date": "2020-03-28 02:00:00",
+        "locations": [
+          {
+            "country": "Portugal",
+            "city": "Faro District",
+            "latitude": "37.018",
+            "longitude": "-7.931"
+          }
+        ],
+        "diseases": [
+          "COVID-19"
+        ],
+        "syndromes": []
+      }
+    ]
+  },
+  {
+    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34465",
+    "date_of_publication": "2020-03-28 01:59:00",
+    "headline": "INDIA - India Death Toll Rises To 19 - As COVID - 19 Cases Reach 873",
+    "main_text": "[Xinhua] INDIA - India death toll rises to 19, as COVID-19 cases reach 873 \"The death toll from COVID-19 in India rose to 19 on Saturday morning, the Indian health ministry said.\" Read the full article: http://www.xinhuanet.com/english/2020-03/28/c_138925596.htm",
+    "reports": [
+      {
+        "event_date": "2020-03-28 01:59:00",
+        "locations": [
+          {
+            "country": "India",
+            "city": "New Delhi",
+            "latitude": "28.614",
+            "longitude": "77.209"
+          }
+        ],
+        "diseases": [
+          "COVID-19"
+        ],
+        "syndromes": []
+      }
+    ]
+  },
+  {
+    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34464",
+    "date_of_publication": "2020-03-28 01:52:00",
+    "headline": "BRUNEI - Brunei Reports First Coronavirus Death",
+    "main_text": "[ALJAZEERA] BRUNEI - Brunei Reports First Coronavirus Death \"Brunei reported its first coronavirus death on Saturday, that of a 64-year-old man.\" Read the full article: https://www.aljazeera.com/news/2020/03/coronavirus-cases-top-100000-italy-deaths-rise-live-updates-200327231629838.html",
+    "reports": [
+      {
+        "event_date": "2020-03-28 01:52:00",
+        "locations": [
+          {
+            "country": "Brunei",
+            "city": "Bandar Seri Begawan",
+            "latitude": "4.903",
+            "longitude": "114.940"
+          }
+        ],
+        "diseases": [
+          "COVID-19"
+        ],
+        "syndromes": []
+      }
+    ]
+  },
+  {
+    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34463",
+    "date_of_publication": "2020-03-28 01:49:00",
+    "headline": "NIGERIA - Death Toll From Lassa Fever Outbreak Hits 193 In 12 Weeks",
+    "main_text": "[NAN] NIGERIA - Death toll from Lassa fever outbreak hits 193 in 12 weeks “The death toll from Lassa fever outbreak has risen to 173, the Nigeria Centre for Disease Control has said.” Read the full article: https://theeagleonline.com.ng/death-toll-from-lassa-fever-outbreak-hits-193-in-12-weeks/",
+    "reports": [
+      {
+        "event_date": "2020-03-28 01:49:00",
+        "locations": [
+          {
+            "country": "Nigeria",
+            "city": "Abuja",
+            "latitude": "9.076",
+            "longitude": "7.399"
+          }
+        ],
+        "diseases": [
+          "lassa fever"
+        ],
+        "syndromes": []
+      }
+    ]
+  },
+  {
+    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34462",
+    "date_of_publication": "2020-03-28 01:46:00",
+    "headline": "INDIA - 24-Year-Old Woman Dies Of Swine Flu In Haridwar",
+    "main_text": "[TNN] INDIA - 24-year-old woman dies of swine flu in Haridwar “A 24-year-old woman from Haridwar died of swine flu on Friday. This is the third death of H1N1 in Uttarakhand this year.” Read the full article: https://timesofindia.indiatimes.com/city/dehradun/24-year-old-woman-dies-of-swine-flu-in-haridwar/articleshow/74854248.cms",
+    "reports": [
+      {
+        "event_date": "2020-03-28 01:46:00",
+        "locations": [
+          {
+            "country": "India",
+            "city": "Haridwar",
+            "latitude": "29.946",
+            "longitude": "78.164"
+          }
+        ],
+        "diseases": [
+          "other"
+        ],
+        "syndromes": []
+      }
+    ]
+  },
+  {
+    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34461",
+    "date_of_publication": "2020-03-28 01:41:00",
+    "headline": "BRAZIL - Exams Confirm 11 Dengue Deaths In Londrina",
+    "main_text": "Manual Google Translation [Temlondrina.com.br] BRAZIL - Exams confirm 11 dengue deaths in Londrina “The Health Department of Londrina announced on Friday (27) that the city added 11 fatal victims of dengue, according to the results of tests released this week.” Read the full article: https://temlondrina.com.br/saude/exames-confirmam-11-mortes-por-dengue-em-londrina/",
+    "reports": [
+      {
+        "event_date": "2020-03-28 01:41:00",
+        "locations": [
+          {
+            "country": "Brazil",
+            "city": "Londrina",
+            "latitude": "-23.304",
+            "longitude": "-51.170"
+          }
+        ],
+        "diseases": [
+          "dengue"
+        ],
+        "syndromes": [
+          "Haemorrhagic Fever"
+        ]
+      }
+    ]
+  },
+  {
+    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34460",
+    "date_of_publication": "2020-03-27 23:19:00",
+    "headline": "PHILIPPINES - DOH Confirms 3 Covid-19 Cases In Bicol",
+    "main_text": "[Pna.gov.ph] PHILIPPINES - DOH confirms 3 Covid-19 cases in Bicol “The Department of Health (DOH) regional office here confirmed on Friday evening the first three coronavirus disease (Covid-19) cases in Bicol.” Read the full article: https://www.pna.gov.ph/articles/1098086",
+    "reports": [
+      {
+        "event_date": "2020-03-27 23:19:00",
+        "locations": [
+          {
+            "country": "Philippines",
+            "city": "Bicol",
+            "latitude": "13.421",
+            "longitude": "123.414"
+          }
+        ],
+        "diseases": [
+          "COVID-19"
+        ],
+        "syndromes": []
+      }
+    ]
+  },
+  {
+    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34458",
+    "date_of_publication": "2020-03-27 05:34:00",
+    "headline": "ITALY - Italy Records Almost 1000 Coronavirus Deaths In 24 Hours",
+    "main_text": "[thelocal.it] ITALY - Italy records almost 1,000 coronavirus deaths in 24 hours \"Italy recorded a sharp spike in coronavirus deaths on Friday with 969 new victims, the worst daily record for any country since the pandemic began.\" Read the full article: https://www.thelocal.it/20200327/breaking-italy-records-shocking-rise-in-coronavirus-deaths",
+    "reports": [
+      {
+        "event_date": "2020-03-27 05:34:00",
+        "locations": [
+          {
+            "country": "Italy",
+            "city": "Rome",
+            "latitude": "41.903",
+            "longitude": "12.496"
+          }
+        ],
+        "diseases": [
+          "COVID-19"
+        ],
+        "syndromes": []
+      }
+    ]
+  },
+  {
+    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34457",
+    "date_of_publication": "2020-03-27 05:28:00",
+    "headline": "NORTH CAROLINA - Vineland Woman Is First Confirmed Coronavirus Patient In Cumberland County",
+    "main_text": "[thedailyjournal.com] NORTH CAROLINA - Vineland woman is first confirmed coronavirus patient in Cumberland County \"An unidentified 35-year-old woman who is the first confirmed coronavirus patient in Cumberland County is a resident of Vineland, the city Health Department reported on Friday.\" Read the full article: https://www.thedailyjournal.com/story/news/2020/03/20/nj-vineland-woman-coronavirus-confirmed-first-cumberland-county/2889736001/",
+    "reports": [
+      {
+        "event_date": "2020-03-27 05:28:00",
+        "locations": [
+          {
+            "country": "United States",
+            "city": "Cumberland County, NC",
+            "latitude": "34.954",
+            "longitude": "-78.748"
+          }
+        ],
+        "diseases": [
+          "COVID-19"
+        ],
+        "syndromes": []
+      }
+    ]
+  },
+  {
+    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34456",
+    "date_of_publication": "2020-03-27 05:27:00",
+    "headline": "INDIANA - 7 More Die From Coronavirus In Indiana - Positive Cases Now At 981",
+    "main_text": "[theindychannel.com] INDIANA - Seven more die from coronavirus in Indiana, positive cases now at 981 \"Seven additional people in Indiana have died from the coronavirus since Thursday, according to new numbers released by the Indiana State Department of Health.\" Read the full article: https://www.theindychannel.com/news/coronavirus/seven-more-die-from-coronavirus-in-indiana-positive-cases-now-at-981",
+    "reports": [
+      {
+        "event_date": "2020-03-27 05:27:00",
         "locations": [
           {
             "country": "United States",
@@ -1135,25 +836,328 @@
     ]
   },
   {
-    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34338",
-    "date_of_publication": "2020-03-21 05:03:00",
-    "headline": "PORTUGAL - Portugal Death Toll Doubles To 12",
-    "main_text": "[ALJAZEERA NEWS] PORTUGAL - Portugal's Death Toll Doubles To 12   \"The death toll from the coronavirus pandemic in Portugal doubled overnight to 12, the country's national health authority DGS has said. ..\" Read the full article: https://www.aljazeera.com/news/2020/03/coronavirus-live-updates-worldwide-death-toll-surges-11000-200320225513796.html",
+    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34455",
+    "date_of_publication": "2020-03-27 05:23:00",
+    "headline": "WASHINGTON - 2 More COVID-19 Deaths In Whatcom County",
+    "main_text": "[kgmi.com] WASHINGTON - Two more COVID-19 deaths in Whatcom County \"The Whatcom County Health Department reports that both patients were either current or previous residents at assisted living facilities.\" Read the full article: https://kgmi.com/news/007700-two-more-covid-19-deaths-in-whatcom-county/",
     "reports": [
       {
-        "event_date": "2020-03-21 05:03:00",
+        "event_date": "2020-03-27 05:23:00",
         "locations": [
           {
-            "country": "Portugal",
-            "city": "Lisbon",
-            "latitude": "38.722",
-            "longitude": "-9.139"
+            "country": "United States",
+            "city": "Whatcom County, WA",
+            "latitude": "48.879",
+            "longitude": "-121.972"
           }
         ],
         "diseases": [
           "COVID-19"
         ],
         "syndromes": []
+      }
+    ]
+  },
+  {
+    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34454",
+    "date_of_publication": "2020-03-27 05:22:00",
+    "headline": "TURKEY - Turkeys Coronavirus Death Toll Climbs To 75",
+    "main_text": "[Xinhua] TURKEY - Turkey's coronavirus death toll climbs to 75 \"Turkey on Thursday reported 16 new deaths from COVID-19, as the death toll reached 75.\" Read the full article: http://www.xinhuanet.com/english/2020-03/27/c_138921044.htm",
+    "reports": [
+      {
+        "event_date": "2020-03-27 05:22:00",
+        "locations": [
+          {
+            "country": "Turkey",
+            "city": "Ankara",
+            "latitude": "39.933",
+            "longitude": "32.860"
+          }
+        ],
+        "diseases": [
+          "COVID-19"
+        ],
+        "syndromes": []
+      }
+    ]
+  },
+  {
+    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34453",
+    "date_of_publication": "2020-03-27 05:21:00",
+    "headline": "THAILAND - Thailand Reports 91 New COVID-19 Cases - One Additional Death",
+    "main_text": "[Xinhua] THAILAND - Thailand Reports 91 New COVID-19 Cases - One Additional Death \" Thailand's Ministry of Public Health reported one more COVID-19 death and 91 new patients on Friday, raising the total number of cases in the country to 1,136.\" Read the full article: http://www.xinhuanet.com/english/2020-03/27/c_138923437.htm",
+    "reports": [
+      {
+        "event_date": "2020-03-27 05:21:00",
+        "locations": [
+          {
+            "country": "Thailand",
+            "city": "Bangkok",
+            "latitude": "13.756",
+            "longitude": "100.502"
+          }
+        ],
+        "diseases": [
+          "COVID-19"
+        ],
+        "syndromes": []
+      }
+    ]
+  },
+  {
+    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34452",
+    "date_of_publication": "2020-03-27 05:20:00",
+    "headline": "ISRAEL - Israels COVID-19 Death Toll Climbs To 10 - Total Cases Reach 3035",
+    "main_text": "[Xinhua] ISRAEL - Israels COVID-19 Death Toll Climbs To 10 - Total Cases Reach 3035 \"Israel reported two new death cases from the novel coronavirus, bringing the death toll to 10, while total confirmed cases reached 3,035, the state's Ministry of Health said on Friday.\" Read the full article: http://www.xinhuanet.com/english/2020-03/27/c_138923300.htm",
+    "reports": [
+      {
+        "event_date": "2020-03-27 05:20:00",
+        "locations": [
+          {
+            "country": "Israel",
+            "city": "Jerusalem",
+            "latitude": "31.768",
+            "longitude": "35.214"
+          }
+        ],
+        "diseases": [
+          "COVID-19"
+        ],
+        "syndromes": []
+      }
+    ]
+  },
+  {
+    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34451",
+    "date_of_publication": "2020-03-27 05:15:00",
+    "headline": "MALAYSIA - COVID-19 Death Toll In Malaysia Rises To 26 With 130 New Cases Confirmed",
+    "main_text": "[Xinhua] MALAYSIA - COVID-19 Death Toll In Malaysia Rises To 26 With 130 New Cases Confirmed \"A total of 26 people have died of the COVID-19 in Malaysia as of Friday with 130 newly confirmed cases, bringing the total to 2,161, said the Health Ministry.\" Read the full article: http://www.xinhuanet.com/english/2020-03/27/c_138923297.htm",
+    "reports": [
+      {
+        "event_date": "2020-03-27 05:15:00",
+        "locations": [
+          {
+            "country": "Malaysia",
+            "city": "Kuala Lumpur",
+            "latitude": "3.139",
+            "longitude": "101.687"
+          }
+        ],
+        "diseases": [
+          "COVID-19"
+        ],
+        "syndromes": []
+      }
+    ]
+  },
+  {
+    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34450",
+    "date_of_publication": "2020-03-27 05:14:00",
+    "headline": "UZBEKISTAN - Uzbekistan Reports Frst Coronavirus Death",
+    "main_text": "[Xinhua] UZBEKISTAN - Uzbekistan Reports Frst Coronavirus Death \"Uzbekistan reported its first death from COVID-19, the ministry of health said Friday.\" Read the full article: http://www.xinhuanet.com/english/2020-03/27/c_138922956.htm",
+    "reports": [
+      {
+        "event_date": "2020-03-27 05:14:00",
+        "locations": [
+          {
+            "country": "Uzbekistan",
+            "city": "Tashkent",
+            "latitude": "41.299",
+            "longitude": "69.240"
+          }
+        ],
+        "diseases": [
+          "COVID-19"
+        ],
+        "syndromes": []
+      }
+    ]
+  },
+  {
+    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34449",
+    "date_of_publication": "2020-03-27 05:12:00",
+    "headline": "BRAZIL - Brazil Reports 1st COVID-19 Death",
+    "main_text": "[Xinhua] BRAZIL - Brazil reports 1st COVID-19 death \"The victim was a 62-year-old male resident of Sao Paulo, Brazil's most populous state and home to most of the cases in the country.\" Read the full article: http://www.xinhuanet.com/english/2020-03/18/c_138888981.htm",
+    "reports": [
+      {
+        "event_date": "2020-03-27 05:12:00",
+        "locations": [
+          {
+            "country": "Brazil",
+            "city": "Sao Paulo",
+            "latitude": "-23.551",
+            "longitude": "-46.633"
+          }
+        ],
+        "diseases": [
+          "COVID-19"
+        ],
+        "syndromes": []
+      }
+    ]
+  },
+  {
+    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34448",
+    "date_of_publication": "2020-03-27 05:11:00",
+    "headline": "INDONESIA - COVID-19 Deaths Reach 87 In Indonesia As Total Cases Surge To 1046",
+    "main_text": "[Xinhua] INDONESIA - COVID-19 Deaths Reach 87 In Indonesia As Total Cases Surge To 1046 \" The Indonesian government said the death toll of COVID-19 in the country climbed to 87 on Friday, the highest in Southeast Asia.\" Read the full aticle: http://www.xinhuanet.com/english/2020-03/27/c_138923446.htm",
+    "reports": [
+      {
+        "event_date": "2020-03-27 05:11:00",
+        "locations": [
+          {
+            "country": "Indonesia",
+            "city": "Jakarta",
+            "latitude": "-6.209",
+            "longitude": "106.846"
+          }
+        ],
+        "diseases": [
+          "COVID-19"
+        ],
+        "syndromes": []
+      }
+    ]
+  },
+  {
+    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34447",
+    "date_of_publication": "2020-03-27 05:10:00",
+    "headline": "IRAN - Death Toll Of COVID-19 Rises To 2378 In Iran",
+    "main_text": "[Xinhua] IRAN - Death toll of COVID-19 rises to 2,378 in Iran \"Iran's Health Ministry on Friday announced 144 new deaths from the novel coronavirus, raising the death toll to 2,378 across the country, official IRNA news agency reported.\" Read the full article: http://www.xinhuanet.com/english/2020-03/27/c_138923316.htm",
+    "reports": [
+      {
+        "event_date": "2020-03-27 05:10:00",
+        "locations": [
+          {
+            "country": "Iran",
+            "city": "Tehran",
+            "latitude": "35.689",
+            "longitude": "51.389"
+          }
+        ],
+        "diseases": [
+          "COVID-19"
+        ],
+        "syndromes": []
+      }
+    ]
+  },
+  {
+    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34446",
+    "date_of_publication": "2020-03-27 05:09:00",
+    "headline": "INDIA - India Death Toll Rises To 17 - As COVID - 19 Cases Reach 724",
+    "main_text": "[Xinhua] INDIA - India death toll rises to 17, as COVID-19 cases reach 724 \"The death toll due to COVID-19 in India Friday morning rose to 17, the federal health ministry said.\" Read the full article: http://www.xinhuanet.com/english/2020-03/27/c_138922505.htm",
+    "reports": [
+      {
+        "event_date": "2020-03-27 05:09:00",
+        "locations": [
+          {
+            "country": "India",
+            "city": "New Delhi",
+            "latitude": "28.614",
+            "longitude": "77.209"
+          }
+        ],
+        "diseases": [
+          "COVID-19"
+        ],
+        "syndromes": []
+      }
+    ]
+  },
+  {
+    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34445",
+    "date_of_publication": "2020-03-27 05:07:00",
+    "headline": "SPAIN - Spain Reports 655 Deaths In Past 24 Hours - Fewer Than Wednesday",
+    "main_text": "[Bloomberg] SPAIN - Spain Reports 655 Deaths in Past 24 hours, Fewer Than Wednesday   \"The total number of deaths rose to 4,089 and the number of confirmed cases climbed to 56,188 from 47,610 a day earlier, the Health Ministry said Thursday.\"   Read the full article: https://www.bloombergquint.com/politics/spain-reports-655-deaths-in-past-24-hours-fewer-than-wednesday",
+    "reports": [
+      {
+        "event_date": "2020-03-27 05:07:00",
+        "locations": [
+          {
+            "country": "Spain",
+            "city": "Madrid",
+            "latitude": "40.417",
+            "longitude": "-3.704"
+          }
+        ],
+        "diseases": [
+          "COVID-19"
+        ],
+        "syndromes": []
+      }
+    ]
+  },
+  {
+    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34444",
+    "date_of_publication": "2020-03-27 05:05:00",
+    "headline": "ISRAEL - The Number Of Fatalities From Coronavirus Climbs To 12",
+    "main_text": "[Ynet] ISRAEL - The number of fatalities from coronavirus climbs to 12 \"An 80-year-old patient who was in critical condition who was suffering from underlying conditions has passed away in the Wolfson Hospital  ... \" Read the full article: https://www.ynetnews.com/article/BJ4O8KjU8",
+    "reports": [
+      {
+        "event_date": "2020-03-27 05:05:00",
+        "locations": [
+          {
+            "country": "Israel",
+            "city": "Wolfson Hospital, Tel Aviv",
+            "latitude": "32.036",
+            "longitude": "34.763"
+          }
+        ],
+        "diseases": [
+          "COVID-19"
+        ],
+        "syndromes": []
+      }
+    ]
+  },
+  {
+    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34443",
+    "date_of_publication": "2020-03-27 02:26:00",
+    "headline": "ARGENTINA - 49 Cases Of Dengue In San Francisco",
+    "main_text": "Manual Google Translation [Radiocanal.com.ar] ARGENTINA - 49 cases of dengue in San Francisco “From epidemiological week number 3 to March 26, there are 49 cases of dengue in San Francisco.” Read the full article: https://www.radiocanal.com.ar/noticia/49-casos-de-dengue-en-san-francisco-117106",
+    "reports": [
+      {
+        "event_date": "2020-03-27 02:26:00",
+        "locations": [
+          {
+            "country": "Argentina",
+            "city": "San Francisco",
+            "latitude": "-31.425",
+            "longitude": "-62.084"
+          }
+        ],
+        "diseases": [
+          "dengue"
+        ],
+        "syndromes": [
+          "Haemorrhagic Fever"
+        ]
+      }
+    ]
+  },
+  {
+    "url": "http://outbreaks.globalincidentmap.com/eventdetail.php?ID=34442",
+    "date_of_publication": "2020-03-27 02:23:00",
+    "headline": "MEXICO - SLP Registers 33 Dengue Cases",
+    "main_text": "Manual Google Translation [Planoinformativo.com] MEXICO - SLP registers 33 dengue cases “According to the weekly report of the Epidemiology System in San Luis Potosí, there are already 33 cases of dengue, one of which occurred in the capital.” Read the full article: https://planoinformativo.com/722855/slp-registra-33-casos-de-dengue",
+    "reports": [
+      {
+        "event_date": "2020-03-27 02:23:00",
+        "locations": [
+          {
+            "country": "Mexico",
+            "city": "San Luis Potosi",
+            "latitude": "22.156",
+            "longitude": "-100.986"
+          }
+        ],
+        "diseases": [
+          "dengue"
+        ],
+        "syndromes": [
+          "Haemorrhagic Fever"
+        ]
       }
     ]
   }
