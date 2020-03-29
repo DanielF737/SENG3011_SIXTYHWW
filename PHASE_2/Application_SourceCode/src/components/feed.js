@@ -1,6 +1,5 @@
 import React from 'react';
-const apiURL = 'http://localhost:3000'
-//  const apiURL = 'http://api.sixtyhww.com:3000'
+const apiURL = 'http://api.sixtyhww.com:3000'
 
 class Feed extends React.Component {
   constructor () {
@@ -36,13 +35,12 @@ class Feed extends React.Component {
         {results.map((obj, i) => {
           return (
             <div key={i}>
-              <h5>{obj.id}</h5>
+              <h4>{obj.headline} - ID:{obj.id}</h4>
               <p>{obj.url}</p>
-              <p>{obj.headline}</p>
-              <p>{obj.date_of_publication}</p>
-              <p>{obj.reports[0].location[0].city},{obj.reports[0].location[0].country}</p>
+              <p>{obj.date_of_publication} - {obj.reports[0].location[0].city},{obj.reports[0].location[0].country}</p>
               <p>{obj.reports[0].disease}</p>
               <p>{obj.main_text}</p>
+              <break></break>
             </div>
           );
         })}
