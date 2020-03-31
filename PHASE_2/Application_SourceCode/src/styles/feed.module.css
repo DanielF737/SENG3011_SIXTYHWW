@@ -1,0 +1,26 @@
+.feed {
+  min-width: 500px;
+  max-width: 800px;
+  width: 80%;
+  margin: 10px auto;
+  padding: 5px;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  z-index: 1000;
+  background-color: #bababa;
+  border-radius: 15px;
+}
+
+.feedObj {
+  min-width: 500px;
+  max-width: 800px;
+  width: 95%;
+  margin: 5px auto;
+  padding: 2px;
+  padding-left: 5px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  z-index: 1000;
+  background-color: #cbcbcb;
+  border-radius: 5px;
+}
