@@ -54,9 +54,11 @@ function reportToPoints(reports) {
     let sepHeadline = stripHeadline(newHeadline);
     sepHeadline = removeGarbage(sepHeadline);
     sepHeadline = removeDuplicates(sepHeadline);
-    console.log(sepHeadline);
+
     // Groups together relevant information.
     let filteredInfo = filterInformation(sepHeadline);
+    filteredInfo = organiseData(filteredInfo);
+
     console.log(filteredInfo);
     //console.log(headline);
     //console.log("\n");
@@ -136,13 +138,6 @@ function filterInformation(sepHeadline) {
     return filteredInfo; 
   }
 
-  // Handles edge cases with only words.
-  if (sepHeadline.length == 2) {
-
-  } else if (sepHeadline == 3) {
-    
-  }
-
   // Handles general cases.
   let cases = false; let deaths = false; let nums = false; let totals = false;
   let j = 0;
@@ -204,10 +199,37 @@ function filterInformation(sepHeadline) {
   // Handles data that did not process properly.
   if (filteredInfo.length > 1) {
     for (let i = 0; i < filteredInfo.length; i++) {
+      // If the there is a single entry for set of informations, then move
+      // the last word from previous entry to current entry.
       if (i >= 1 && filteredInfo[i].length == 1 && filteredInfo[i-1].length >= 2) {
         let tmp = filteredInfo[i-1].pop();
         filteredInfo[i].push(tmp);
+        if ((filteredInfo[i][0] == "total" && !isNaN(filteredInfo[i][1])) || 
+          (filteredInfo[i][1] == "total" && !isNaN(filteredInfo[i][0]))) {
+
+          // Cycles through previous and determines whether it is for cases or deaths.
+          for (let l = 0; l < filteredInfo[i-1].length; l++) {
+            if (filteredInfo[i-1][l] == "case" || filteredInfo[i-1][l] == "death") {
+              filteredInfo[i].push(filteredInfo[i-1][l]);
+              break;
+            }
+          }
+        }
+        
       }
+    }
+  }
+
+  // Removes data with insufficient information.
+  for (let i = filteredInfo.length-1; i >= 0; i--) {
+    // Counts up all the information that are not numbers.
+    let count = 0;
+    for (let j = 0; j < filteredInfo[i].length; j++) {
+      if (isNaN(filteredInfo[i][j])) count++;
+    }
+    // If it contains non-useful information it is removed.
+    if (count == filteredInfo[i].length) {
+      filteredInfo.splice(i, 1);
     }
   }
 
@@ -225,6 +247,34 @@ function extractInfo(start, end, info) {
     }
   }
   return tmp;
+}
+
+// Organises the data entries to the appropriate format.
+function organiseData(filteredData) {
+  //
+  for (let i = 0; i < filteredData.length; i++) {
+    let cases = -1; let deaths = -1; let nums = -1; let totals = -1;
+    for (let j = 0; j < filteredData[i].length; j++) {
+      if (filteredData[i][j] == "case") {
+        cases = j;
+      } else if (filteredData[i][j] == "death") {
+        deaths = j;
+      } else if (filteredData[i][j] == "total") {
+        totals = j;
+      } else if (!isNaN(filteredData[i][j])) {
+        nums = j;
+      }
+    }
+    let tmp = [];
+    if (cases != -1) tmp.push("case");
+    if (deaths != -1) tmp.push("death");
+    if (nums != -1) tmp.push(filteredData[i][nums]);
+    if (totals != -1) tmp.push("total");
+    console.log(tmp);
+    filteredData[i] = tmp;
+  }
+  
+  return filteredData;
 }
 
 getReports("sd", "");
