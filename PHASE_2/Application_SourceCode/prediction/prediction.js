@@ -4,7 +4,7 @@ const fetch = require("node-fetch");
 
 const diseaseAPI = "http://api.sixtyhww.com:3000";
 const localAPI = "http://localhost:3000"
-const extractWordCases = ["cases", "case", "new"];
+const extractWordCases = ["cases", "case", "new", "positive"];
 const extractWordDeaths = ["die", "death", "deaths", "dies"];
 const totalWords = ["total", "totals", "toll", "tally", "tolls", "tallies", "already"]; 
 const garbageWords = ["hours", "hour", "day", "days", "hrs"];
@@ -17,7 +17,7 @@ function getReports(location, disease) {
     "start_date": "2015-10-01T08:45:10",
     "end_date": "2020-11-01T19:37:12",
     "keyTerms": "COVID",
-    "location": "Italy"
+    "location": "United States"
   };
   let points = [];
   let options = {
@@ -31,7 +31,7 @@ function getReports(location, disease) {
   .then(r => r.json())
   .then(r => {
     points = reportToPoints(r);
-    console.log(points);
+    //console.log(points);
     return points;
   });
 }
@@ -43,6 +43,9 @@ function reportToPoints(reports) {
     // Gets the date.
     let date = reports[i].date_of_publication.substring(0,10);
     
+    // Get the state if applicable.
+    let state = reports[i].reports[0].location[0].city;
+
     // Gets the headline and converts any numbers written as words into integers.
     let headline = reports[i].headline;
     let newHeadline = wtn.wordsToNumbers(headline);
@@ -51,12 +54,13 @@ function reportToPoints(reports) {
     let sepHeadline = stripHeadline(newHeadline);
     sepHeadline = removeGarbage(sepHeadline);
     sepHeadline = removeDuplicates(sepHeadline);
-    
+    console.log(sepHeadline);
     // Groups together relevant information.
-    
+    let filteredInfo = filterInformation(sepHeadline);
+    console.log(filteredInfo);
     //console.log(headline);
     //console.log("\n");
-    let tmp = [date, sepHeadline];
+    let tmp = [date, sepHeadline, state];
     points.push(tmp);
   }
   return points;
@@ -118,6 +122,111 @@ function removeDuplicates(strippedData) {
   return strippedData; 
 }
 
+// Organises all the information.
+function filterInformation(sepHeadline) {
+  let filteredInfo = [];
+
+  // Handles edge case where only one input is provided.
+  if (sepHeadline.length == 1) {
+    if (sepHeadline[0] == "case") {
+      filteredInfo.push(["case", 1]);
+    } else if (sepHeadline[0] == "death") {
+      filteredInfo.push(["death", 1]);
+    }
+    return filteredInfo; 
+  }
+
+  // Handles edge cases with only words.
+  if (sepHeadline.length == 2) {
+
+  } else if (sepHeadline == 3) {
+    
+  }
+
+  // Handles general cases.
+  let cases = false; let deaths = false; let nums = false; let totals = false;
+  let j = 0;
+  for (let i = 0; i < sepHeadline.length; i++) {
+    if (sepHeadline[i] == "case") {
+      if (deaths == true || cases == true) {
+        // Extracts required data and resets values.
+        filteredInfo.push(extractInfo(j, i, sepHeadline));
+        j = i;
+        cases = false;
+        deaths = false;
+        nums = false;
+        totals = false;
+      } else {
+        cases = true;
+      }
+    } else if (sepHeadline[i] == "deaths") {
+      if (deaths == true || cases == true) {
+        // Extracts required data and resets values.
+        filteredInfo.push(extractInfo(j, i, sepHeadline));
+        j = i;
+        cases = false;
+        deaths = false;
+        nums = false;
+        totals = false;
+      } else {
+        death = true;
+      }
+    } else if (sepHeadline[i] == "total") {
+      if (totals == true) {
+        // Extracts required data and resets values.
+        filteredInfo.push(extractInfo(j, i, sepHeadline));
+        j = i;
+        cases = false;
+        deaths = false;
+        nums = false;
+        totals = false;
+      }
+    } else if (!isNaN(sepHeadline[i])) {
+      if (nums == true) {
+        // Extracts required data and resets values.
+        filteredInfo.push(extractInfo(j, i, sepHeadline));
+        j = i;
+        cases = false;
+        deaths = false;
+        nums = false;
+        totals = false;
+      } else {
+        nums = true;
+      }
+    } 
+
+    // If it reaches the last element, then extracts all the required data.
+    if (i == sepHeadline.length - 1) {
+      filteredInfo.push(extractInfo(j, i+1, sepHeadline));
+    }
+  }
+
+  // Handles data that did not process properly.
+  if (filteredInfo.length > 1) {
+    for (let i = 0; i < filteredInfo.length; i++) {
+      if (i >= 1 && filteredInfo[i].length == 1 && filteredInfo[i-1].length >= 2) {
+        let tmp = filteredInfo[i-1].pop();
+        filteredInfo[i].push(tmp);
+      }
+    }
+  }
+
+  return filteredInfo;
+}
+
+// Extracts the required information specifically from the headline.
+function extractInfo(start, end, info) {
+  let tmp = [];
+  for (let k = start; k < end; k++) {
+    if (!isNaN(info[k])) {
+      tmp.push(parseInt(info[k]));
+    } else {
+      tmp.push(info[k]);
+    }
+  }
+  return tmp;
+}
+
 getReports("sd", "");
 
 /*
@@ -172,3 +281,23 @@ console.log("ARGENTINA - It Is Estimated That There Are Already At Least 51 Case
 console.log(x);
 console.log("\n");
 */
+
+
+
+// Initial run to determine contents of headline.
+  /*
+  let cases = 0;
+  let deaths = 0;
+  let nums = 0;
+  let totals = 0;
+  for (let i = 0; i < sepHeadline.length; i++) {
+    if (sepHeadline[i] == "case") cases++;
+    if (sepHeadline[i] == "death") deaths++;
+    if (!isNaN(sepHeadline[i])) nums++;
+    if (sepHeadline[i] == "total") totals++;
+  }
+  */
+  /*
+  let str = "Cases: " + cases.toString() + " Deaths: " + deaths.toString() + " Nums: " + nums.toString() + " Totals: " + totals.toString();
+  console.log(str);
+  */
