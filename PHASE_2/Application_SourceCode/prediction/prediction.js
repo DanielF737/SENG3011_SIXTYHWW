@@ -17,7 +17,7 @@ function getReports(location, disease) {
     "start_date": "2015-10-01T08:45:10",
     "end_date": "2020-11-01T19:37:12",
     "keyTerms": "COVID",
-    "location": "United States"
+    "location": "Italy"
   };
   let points = [];
   let options = {
@@ -31,8 +31,9 @@ function getReports(location, disease) {
   .then(r => r.json())
   .then(r => {
     points = reportToPoints(r);
-    //console.log(points);
-    return points;
+    let finalPoints = convertParaToPoints(points);
+    //console.log(finalPoints);
+    return finalPoints;
   });
 }
 
@@ -54,14 +55,16 @@ function reportToPoints(reports) {
     let sepHeadline = stripHeadline(newHeadline);
     sepHeadline = removeGarbage(sepHeadline);
     sepHeadline = removeDuplicates(sepHeadline);
-
+    //console.log(sepHeadline);
     // Groups together relevant information.
     let filteredInfo = filterInformation(sepHeadline);
     filteredInfo = organiseData(filteredInfo);
 
     // Only adds info that has data.
     if (filteredInfo.length >= 1) {
-      let tmp = [date, filteredInfo, state];
+      // Date, X-Coord, Y-Coords, State/City
+      let tmp = [date, 0, filteredInfo, state];
+      console.log(tmp);
       points.push(tmp);
     }
 
@@ -74,13 +77,55 @@ function reportToPoints(reports) {
     if (a[0] < b[0]) return -1;
     if (a[0] == b[0]) {
       // Sorts by state/city otherwise.
-      if (a[2] > b[2]) return 1;
-      if (a[2] < b[2]) return -1;
+      if (a[3] > b[3]) return 1;
+      if (a[3] < b[3]) return -1;
     }
     return 0;
   });
-  console.log(points);
+  //console.log(points);
   return points;
+}
+
+// Converts dates to an x coordinate, and case/death numbers to y coordinates.
+function convertParaToPoints(points) {
+  let x = 0;
+  let curDate = new Date(points[0][0]);
+  for (let i = 0; i < points.length; i++) {
+    let tmpDate = new Date(points[i][0]);
+    if (tmpDate > curDate) {
+      // Converts dates to x-coordinates.
+      let diff = Math.abs(tmpDate - curDate);
+      diff = Math.floor(((diff/1000)/86400));
+
+      // Adds to the x-coordinate.
+      x = x + diff;
+      points[i][1] = x;
+      curDate = tmpDate
+    } else {
+      points[i][1] = x;
+    }
+  }
+  x = 0;
+  let finalPoints = [];
+  let cases = 0; let deaths = 0;
+  for (let i = 0; i < points.length; i++) {
+    if (points[i][1] == x) {
+      for (let j = 0; j < points[i][2].length; j++) {
+        if (points[i][2][j][0] == "case") {
+          cases += points[i][2][j][1];
+        } else if (points[i][2][j][0] == "death") {
+          deaths += points[i][2][j][1];
+        }
+      } 
+    } else {
+      let tmp = [points[i][0], x, cases, deaths];
+      finalPoints.push(tmp);
+      x = points[i][1];
+      cases = 0;
+      deaths = 0;
+    }
+  }
+  return finalPoints;
 }
 
 // Strips the headline of all non-essential data.
@@ -169,7 +214,7 @@ function filterInformation(sepHeadline) {
       } else {
         cases = true;
       }
-    } else if (sepHeadline[i] == "deaths") {
+    } else if (sepHeadline[i] == "death") {
       if (deaths == true || cases == true) {
         // Extracts required data and resets values.
         filteredInfo.push(extractInfo(j, i, sepHeadline));
@@ -179,7 +224,7 @@ function filterInformation(sepHeadline) {
         nums = false;
         totals = false;
       } else {
-        death = true;
+        deaths = true;
       }
     } else if (sepHeadline[i] == "total") {
       if (totals == true) {
@@ -212,7 +257,6 @@ function filterInformation(sepHeadline) {
       filteredInfo.push(extractInfo(j, i+1, sepHeadline));
     }
   }
-
   // Performs filtering of incorrect data.
   filteredInfo = removeImproperData(filteredInfo);
   filteredInfo = removeInsufficientData(filteredInfo);
@@ -228,7 +272,8 @@ function removeImproperData(filteredInfo) {
     for (let i = 0; i < filteredInfo.length; i++) {
       // If the there is a single entry for set of informations, then move
       // the last word from previous entry to current entry.
-      if (i >= 1 && filteredInfo[i].length == 1 && filteredInfo[i-1].length >= 2) {
+      if (i >= 1 && filteredInfo[i].length == 1 && filteredInfo[i-1].length >= 2 &&
+        isNaN(filteredInfo[i-1][filteredInfo[i-1].length-1])) {
         let tmp = filteredInfo[i-1].pop();
         filteredInfo[i].push(tmp);
         if ((filteredInfo[i][0] == "total" && !isNaN(filteredInfo[i][1])) || 
