@@ -12,7 +12,7 @@ const garbageWords = ["hours", "hour", "day", "days", "hrs"];
 let data = [];
 
 // Gets the required reports for a location and disease.
-function getReports(location, disease) {
+function getReports(location, disease, predictionDay) {
   reqJSON = {
     "start_date": "2015-10-01T08:45:10",
     "end_date": "2020-11-01T19:37:12",
@@ -31,9 +31,10 @@ function getReports(location, disease) {
   .then(r => r.json())
   .then(r => {
     points = reportToPoints(r);
-    if (points.length >= 4) {
+    if (points.length > 0) {
       let finalPoints = convertParaToPoints(points);
-      return finalPoints;
+      let results = prediction(finalPoints, predictionDay);
+      return results;
     } else {
       console.log("Insufficient data");
     }
@@ -58,7 +59,7 @@ function reportToPoints(reports) {
     let sepHeadline = stripHeadline(newHeadline);
     sepHeadline = removeGarbage(sepHeadline);
     sepHeadline = removeDuplicates(sepHeadline);
-    //console.log(sepHeadline);
+
     // Groups together relevant information.
     let filteredInfo = filterInformation(sepHeadline);
     filteredInfo = organiseData(filteredInfo);
@@ -162,7 +163,6 @@ function convertParaToPoints(points) {
       i--;
     }
   }
-  console.log(finalPoints);
   return finalPoints;
 }
 
@@ -391,87 +391,93 @@ function organiseData(filteredData) {
   return filteredData;
 }
 
-getReports("United States", "COVID");
-/*
-let str = "DISTRICT OF COLUMBIA - First COVID - 19 Death Confirmed In Winnebago County - 5 New Cases Also Confi";
-str = wtn.wordsToNumbers(str);
-str = stripHeadline(str);
-str = removeGarbage(str);
-console.log(str);
-str = removeDuplicates(str);
-console.log(str);
-str = filterInformation(str);
-console.log(str);
-*/
-/*
-let x = [];
-x = stripHeadline("ITALY - Coronavirus Live Updates - Italy Deaths Jump By 743 In 1 Day - Global Cases Top 400000");
-console.log("ITALY - Coronavirus Live Updates - Italy Deaths Jump By 743 In 1 Day - Global Cases Top 400000");
-console.log(x);
-console.log("\n");
-
-x = stripHeadline("ILLINOIS - 1 More COVID-19 Death In Illinois - 168 New Cases Saturday");
-console.log("ILLINOIS - 1 More COVID-19 Death In Illinois - 168 New Cases Saturday");
-console.log(x);
-console.log("\n");
-
-x = stripHeadline("ITALY - Italy Records Almost 1000 Coronavirus Deaths In 24 Hours");
-console.log("ITALY - Italy Records Almost 1000 Coronavirus Deaths In 24 Hours");
-console.log(x);
-console.log("\n");
-
-x = stripHeadline("AUSTRALIA - Australian COVID-19 Death Toll Rises To 12");
-console.log("AUSTRALIA - Australian COVID-19 Death Toll Rises To 12");
-console.log(x);
-console.log("\n");
-
-x = stripHeadline("FRANCE - 299 Deaths In 24 Hours Bring Total To 1995");
-console.log("FRANCE - 299 Deaths In 24 Hours Bring Total To 1995");
-console.log(x);
-console.log("\n");
-
-x = stripHeadline("SPAIN - Spains Coronavirus Death Toll Jumps 514 In 24 Hours");
-console.log("SPAIN - Spains Coronavirus Death Toll Jumps 514 In 24 Hours");
-console.log(x);
-console.log("\n");
-
-x = stripHeadline("SPAIN - Spain To Boost Coronavirus Testing As Deaths Surpass 1300");
-console.log("SPAIN - Spain To Boost Coronavirus Testing As Deaths Surpass 1300");
-console.log(x);
-console.log("\n");
-
-x = stripHeadline("ISRAEL - Israels Coronavirus Tally Up To 1238 - Another Spike In Serious Cases");
-console.log("ISRAEL - Israels Coronavirus Tally Up To 1238 - Another Spike In Serious Cases");
-console.log(x);
-console.log("\n");
-
-x = stripHeadline("BANGLADESH - 1 New Dengue Patient In Last 24 Hrs - DGHS");
-console.log("BANGLADESH - 1 New Dengue Patient In Last 24 Hrs - DGHS");
-console.log(x);
-console.log("\n");
-
-x = stripHeadline("ARGENTINA - It Is Estimated That There Are Already At Least 51 Cases Of Dengue In Metan");
-console.log("ARGENTINA - It Is Estimated That There Are Already At Least 51 Cases Of Dengue In Metan");
-console.log(x);
-console.log("\n");
-*/
+// Uses the data gathered to perform the prediction, and return a JSON.
+function prediction(points, days) {
+  let cases = [];
+  let deaths = [];
+  let xCases = 0;
+  let xDeaths = 0;
+  let caseDates = [];
+  let deathDates = [];
 
 
+  // Gathers the points together.
+  for (let i = 0; i < points.length; i++) {
+    // If point is for cases.
+    if (points[i][2] > 0) {
+      cases.push([points[i][1], points[i][2]]);
+      xCases = points[i][1];
+      caseDates.push(points[i][0]);
+    }
 
-// Initial run to determine contents of headline.
-  /*
-  let cases = 0;
-  let deaths = 0;
-  let nums = 0;
-  let totals = 0;
-  for (let i = 0; i < sepHeadline.length; i++) {
-    if (sepHeadline[i] == "case") cases++;
-    if (sepHeadline[i] == "death") deaths++;
-    if (!isNaN(sepHeadline[i])) nums++;
-    if (sepHeadline[i] == "total") totals++;
+    // If point is for deaths.
+    if (points[i][3] > 0) {
+      deaths.push([points[i][1], points[i][3]]);
+      xDeaths = points[i][1];
+      deathDates.push(points[i][0]);
+    }
+
   }
-  */
-  /*
-  let str = "Cases: " + cases.toString() + " Deaths: " + deaths.toString() + " Nums: " + nums.toString() + " Totals: " + totals.toString();
-  console.log(str);
-  */
+
+  // Calculates the x-coordinate for the prediction.
+  let curDate = new Date();
+  curDate = curDate.toISOString().slice(0,10);
+  let diff = Math.abs(new Date(curDate) - new Date(caseDates[caseDates.length-1]));
+  diff = Math.floor(((diff/1000)/86400)) + xCases + days;
+
+  // Gets the date for the prediction.
+  let futureDate = new Date();
+  futureDate.setDate(futureDate.getDate() + days);
+  futureDate = futureDate.toISOString().slice(0, 10);
+
+  let casePred = {};
+  // If there are sufficient points to generate a polynomial.
+  if (cases.length >= 4) {
+    // Creates the polynomial that best fits the data.
+    let casePoly = regression.polynomial(cases, {order:4});
+    // Formats all the relevant data for cases to send to frontend.
+    casePred = {
+      string: casePoly.string,
+      points: casePoly.points,
+      eqn: casePoly.equation,
+      dates: caseDates,
+      predictedDate: futureDate,
+      prediction: casePoly.predict(diff)
+    };
+  } else {
+    casePred = {
+      string: "Insufficient Points"
+    };
+  }
+
+  let deathPred = {};
+  if (deaths.length >= 4) {
+    // Creates the polynomial that best fits the data.
+    let deathsPoly = regression.polynomial(deaths, {order:4});
+    // Formats all the relevant data for deaths to send to frontend.
+    deathPred = {
+      string: deathsPoly.string,
+      points: deathsPoly.points,
+      eqn: deathsPoly.equation,
+      dates: deathDates,
+      predictedDate: futureDate,
+      prediction: deathsPoly.predict(diff)
+    };
+  } else {
+    deathPred = {
+      string: "Insufficient Points"
+    };
+  }
+  //
+  
+  // Compiles the data for cases and deaths for frontend.
+  let predPackage = {
+    cases: casePred,
+    deaths: deathPred
+  };
+
+  console.log(predPackage);
+  return JSON.stringify(predPackage);
+}
+
+getReports("United States", "COVID", 5);
