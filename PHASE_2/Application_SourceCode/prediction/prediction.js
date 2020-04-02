@@ -64,6 +64,7 @@ function reportToPoints(reports) {
       let tmp = [date, filteredInfo, state];
       points.push(tmp);
     }
+
   }
 
   // Sorts all the data into a more easily searchable format.
@@ -212,6 +213,16 @@ function filterInformation(sepHeadline) {
     }
   }
 
+  // Performs filtering of incorrect data.
+  filteredInfo = removeImproperData(filteredInfo);
+  filteredInfo = removeInsufficientData(filteredInfo);
+
+  return filteredInfo;
+}
+
+// Removes data that was processed incorrectly and fixes issues in
+// placement of data.
+function removeImproperData(filteredInfo) {
   // Handles data that did not process properly.
   if (filteredInfo.length > 1) {
     for (let i = 0; i < filteredInfo.length; i++) {
@@ -231,12 +242,14 @@ function filterInformation(sepHeadline) {
             }
           }
         }
-        
       }
     }
   }
-  
-  // Removes data with insufficient information.
+  return filteredInfo;
+}
+
+// Removes data with insufficient information.
+function removeInsufficientData(filteredInfo) {
   for (let i = filteredInfo.length-1; i >= 0; i--) {
     // Counts up all the information that are not numbers.
     let count = 0;
@@ -249,7 +262,6 @@ function filterInformation(sepHeadline) {
       filteredInfo.splice(i, 1);
     }
   }
-
   return filteredInfo;
 }
 
