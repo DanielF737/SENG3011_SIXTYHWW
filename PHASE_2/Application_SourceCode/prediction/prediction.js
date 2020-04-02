@@ -16,8 +16,8 @@ function getReports(location, disease) {
   reqJSON = {
     "start_date": "2015-10-01T08:45:10",
     "end_date": "2020-11-01T19:37:12",
-    "keyTerms": "COVID",
-    "location": "Italy"
+    "keyTerms": disease,
+    "location": location
   };
   let points = [];
   let options = {
@@ -31,9 +31,12 @@ function getReports(location, disease) {
   .then(r => r.json())
   .then(r => {
     points = reportToPoints(r);
-    let finalPoints = convertParaToPoints(points);
-    //console.log(finalPoints);
-    return finalPoints;
+    if (points.length >= 4) {
+      let finalPoints = convertParaToPoints(points);
+      return finalPoints;
+    } else {
+      console.log("Insufficient data");
+    }
   });
 }
 
@@ -64,7 +67,6 @@ function reportToPoints(reports) {
     if (filteredInfo.length >= 1) {
       // Date, X-Coord, Y-Coords, State/City
       let tmp = [date, 0, filteredInfo, state];
-      console.log(tmp);
       points.push(tmp);
     }
 
@@ -82,7 +84,7 @@ function reportToPoints(reports) {
     }
     return 0;
   });
-  //console.log(points);
+
   return points;
 }
 
@@ -105,26 +107,62 @@ function convertParaToPoints(points) {
       points[i][1] = x;
     }
   }
+
+  // Handles the y-coordinates for cases and deaths.
   x = 0;
   let finalPoints = [];
   let cases = 0; let deaths = 0;
+  let totalCases = 0; let totalDeaths = 0;
+  // Cycles through all data entries.
   for (let i = 0; i < points.length; i++) {
+    // If the data entry has the same x-coordinate as the previous.
     if (points[i][1] == x) {
+      // Cycles through all possible y-coordinates for the data entry.
       for (let j = 0; j < points[i][2].length; j++) {
         if (points[i][2][j][0] == "case") {
-          cases += points[i][2][j][1];
+          // If the potential coordinate is for cases.
+          if (points[i][2][j].length == 3) {
+            // If the coordinate is for a total, not an addition.
+            // New total must be greater than previous total.
+            if (points[i][2][j][1] > totalCases) {
+              cases += points[i][2][j][1] - totalCases;
+            } else {
+              cases += points[i][2][j][1];
+            }
+          } else {
+            // Adds on number of cases.
+            cases += points[i][2][j][1];
+            totalCases += points[i][2][j][1];
+          }
         } else if (points[i][2][j][0] == "death") {
-          deaths += points[i][2][j][1];
+          // If the potential coordinate is for deaths.
+          if (points[i][2][j].length == 3) {
+            // If the coordinate is for a total, not an addition.
+            // New total must be greater than previous total.
+            if (points[i][2][j][1] > totalDeaths) {
+              deaths += points[i][2][j][1] - totalDeaths;
+            } else {
+              deaths += points[i][2][j][1];
+            }
+          } else {
+            // Adds on number of deaths.
+            deaths += points[i][2][j][1];
+            totalDeaths += points[i][2][j][1];
+          }
         }
       } 
     } else {
-      let tmp = [points[i][0], x, cases, deaths];
+      // If there is a different x-coordinate than the previous.
+      let tmp = [points[i-1][0], points[i-1][1], cases, deaths];
       finalPoints.push(tmp);
-      x = points[i][1];
-      cases = 0;
+      // Sets up x for next iteration, and reverts i by one.
       deaths = 0;
+      cases = 0;
+      x = points[i][1];
+      i--;
     }
   }
+  console.log(finalPoints);
   return finalPoints;
 }
 
@@ -353,7 +391,7 @@ function organiseData(filteredData) {
   return filteredData;
 }
 
-getReports("sd", "");
+getReports("United States", "COVID");
 /*
 let str = "DISTRICT OF COLUMBIA - First COVID - 19 Death Confirmed In Winnebago County - 5 New Cases Also Confi";
 str = wtn.wordsToNumbers(str);
