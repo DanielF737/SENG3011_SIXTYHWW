@@ -4,8 +4,8 @@ const fetch = require("node-fetch");
 
 const diseaseAPI = "http://api.sixtyhww.com:3000";
 const localAPI = "http://localhost:3000"
-const extractWordCases = ["cases", "case", "new", "positive"];
-const extractWordDeaths = ["die", "death", "deaths", "dies"];
+const extractWordCases = ["cases", "case", "positive"];
+const extractWordDeaths = ["die", "death", "deaths", "dies", "dead"];
 const totalWords = ["total", "totals", "toll", "tally", "tolls", "tallies", "already"]; 
 const garbageWords = ["hours", "hour", "day", "days", "hrs"];
 // Holds all the points.
@@ -59,12 +59,26 @@ function reportToPoints(reports) {
     let filteredInfo = filterInformation(sepHeadline);
     filteredInfo = organiseData(filteredInfo);
 
-    console.log(filteredInfo);
-    //console.log(headline);
-    //console.log("\n");
-    let tmp = [date, sepHeadline, state];
-    points.push(tmp);
+    // Only adds info that has data.
+    if (filteredInfo.length >= 1) {
+      let tmp = [date, filteredInfo, state];
+      points.push(tmp);
+    }
   }
+
+  // Sorts all the data into a more easily searchable format.
+  points.sort(function(a, b) {
+    // First sorts by date.
+    if (a[0] > b[0]) return 1;
+    if (a[0] < b[0]) return -1;
+    if (a[0] == b[0]) {
+      // Sorts by state/city otherwise.
+      if (a[2] > b[2]) return 1;
+      if (a[2] < b[2]) return -1;
+    }
+    return 0;
+  });
+  console.log(points);
   return points;
 }
 
@@ -175,6 +189,8 @@ function filterInformation(sepHeadline) {
         deaths = false;
         nums = false;
         totals = false;
+      } else {
+        totals = true;
       }
     } else if (!isNaN(sepHeadline[i])) {
       if (nums == true) {
@@ -219,7 +235,7 @@ function filterInformation(sepHeadline) {
       }
     }
   }
-
+  
   // Removes data with insufficient information.
   for (let i = filteredInfo.length-1; i >= 0; i--) {
     // Counts up all the information that are not numbers.
@@ -228,7 +244,8 @@ function filterInformation(sepHeadline) {
       if (isNaN(filteredInfo[i][j])) count++;
     }
     // If it contains non-useful information it is removed.
-    if (count == filteredInfo[i].length) {
+    if (count == filteredInfo[i].length || filteredInfo[i].length == 1 || 
+      filteredInfo[i].length > 3) {
       filteredInfo.splice(i, 1);
     }
   }
@@ -251,8 +268,10 @@ function extractInfo(start, end, info) {
 
 // Organises the data entries to the appropriate format.
 function organiseData(filteredData) {
-  //
+  // Cycles through all data entries.
   for (let i = 0; i < filteredData.length; i++) {
+    // Cycles through the data for each entry, and documents the information
+    // for the entry through its index.
     let cases = -1; let deaths = -1; let nums = -1; let totals = -1;
     for (let j = 0; j < filteredData[i].length; j++) {
       if (filteredData[i][j] == "case") {
@@ -265,20 +284,30 @@ function organiseData(filteredData) {
         nums = j;
       }
     }
+
+    // Re-adds the data based off indexes obtained in the correct order.
     let tmp = [];
     if (cases != -1) tmp.push("case");
     if (deaths != -1) tmp.push("death");
     if (nums != -1) tmp.push(filteredData[i][nums]);
     if (totals != -1) tmp.push("total");
-    console.log(tmp);
     filteredData[i] = tmp;
   }
-  
   return filteredData;
 }
 
 getReports("sd", "");
-
+/*
+let str = "DISTRICT OF COLUMBIA - First COVID - 19 Death Confirmed In Winnebago County - 5 New Cases Also Confi";
+str = wtn.wordsToNumbers(str);
+str = stripHeadline(str);
+str = removeGarbage(str);
+console.log(str);
+str = removeDuplicates(str);
+console.log(str);
+str = filterInformation(str);
+console.log(str);
+*/
 /*
 let x = [];
 x = stripHeadline("ITALY - Coronavirus Live Updates - Italy Deaths Jump By 743 In 1 Day - Global Cases Top 400000");
