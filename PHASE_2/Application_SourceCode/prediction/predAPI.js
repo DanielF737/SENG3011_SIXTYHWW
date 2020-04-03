@@ -1,4 +1,5 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const prediction = require('./prediction.js');
 
 // Constants
@@ -20,7 +21,9 @@ app.use((req, res, next) => {
   next();
 });
 
-app.get('/predict', async function(req, res) {
+app.use(bodyParser.json());
+
+app.get('/predict', async(req, res) => {
   console.log(req.query.country);
   console.log(req.query.disease);
   console.log(req.query.days);

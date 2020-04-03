@@ -8,45 +8,49 @@ const extractWordCases = ["cases", "case", "positive"];
 const extractWordDeaths = ["die", "death", "deaths", "dies", "dead"];
 const totalWords = ["total", "totals", "toll", "tally", "tolls", "tallies", "already"]; 
 const garbageWords = ["hours", "hour", "day", "days", "hrs"];
-// Holds all the points.
-let data = [];
 
-// Gets the required reports for a location and disease.
+// Function wrapper for the whole program.
 async function predictAll(location, disease, predictionDay) {
   try {
-    reqJSON = {
-      "start_date": "2015-10-01T08:45:10",
-      "end_date": "2020-11-01T19:37:12",
-      "keyTerms": disease,
-      "location": location
-    };
-    let points = [];
-    let options = {
-      method: "POST",
-      headers: {
-          'Content-Type' : 'application/JSON'
-      },
-      body:JSON.stringify(reqJSON)
-    };  
-    fetch(diseaseAPI + "/search", options)
-    .then(r => r.json())
-    .then(r => {
-      points = reportToPoints(r);
-      if (points.length > 0) {
-        let finalPoints = convertParaToPoints(points);
-        let results = prediction(finalPoints, predictionDay);
-        console.log(results);
-        return results;
-      } else {
-        let a = {
-  
-        }
-      }
-    });
-  } catch (e) {
+    return getReports(location, disease, predictionDay);
+  } catch(e) {
     console.log(e);
+    return null;
   }
-  
+}
+
+// Gets the required reports for a location and disease.
+function getReports(location, disease, predictionDay) {
+  // Sets up requirements for fetch.
+  reqJSON = {
+    "start_date": "2015-10-01T08:45:10",
+    "end_date": "2020-11-01T19:37:12",
+    "keyTerms": disease,
+    "location": location
+  };
+  let points = [];
+  let options = {
+    method: "POST",
+    headers: {
+        'Content-Type' : 'application/JSON'
+    },
+    body:JSON.stringify(reqJSON)
+  };  
+
+  // Fetches data and returns prediction.
+  fetch(diseaseAPI + "/search", options)
+  .then(r => r.json())
+  .then(r => {
+    points = reportToPoints(r);
+    if (points.length > 0) {
+      let finalPoints = convertParaToPoints(points);
+      let results = prediction(finalPoints, predictionDay);
+      console.log(results);
+      return results;
+    } else {
+      return null;
+    }
+  });
 }
 
 // Converts the dates and case numbers into proper points.
@@ -490,8 +494,8 @@ function prediction(points, days) {
   };
 
   //console.log(predPackage);
-  return JSON.stringify(predPackage);
+  return predPackage;
 }
 
 module.exports.predictAll =  predictAll;
-//predictAll("United States", "COVID", 5);
+predictAll("United States", "COVID", 5);
