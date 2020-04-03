@@ -12,33 +12,41 @@ const garbageWords = ["hours", "hour", "day", "days", "hrs"];
 let data = [];
 
 // Gets the required reports for a location and disease.
-function getReports(location, disease, predictionDay) {
-  reqJSON = {
-    "start_date": "2015-10-01T08:45:10",
-    "end_date": "2020-11-01T19:37:12",
-    "keyTerms": disease,
-    "location": location
-  };
-  let points = [];
-  let options = {
-    method: "POST",
-    headers: {
-        'Content-Type' : 'application/JSON'
-    },
-    body:JSON.stringify(reqJSON)
-  };  
-  fetch(diseaseAPI + "/search", options)
-  .then(r => r.json())
-  .then(r => {
-    points = reportToPoints(r);
-    if (points.length > 0) {
-      let finalPoints = convertParaToPoints(points);
-      let results = prediction(finalPoints, predictionDay);
-      return results;
-    } else {
-      console.log("Insufficient data");
-    }
-  });
+async function predictAll(location, disease, predictionDay) {
+  try {
+    reqJSON = {
+      "start_date": "2015-10-01T08:45:10",
+      "end_date": "2020-11-01T19:37:12",
+      "keyTerms": disease,
+      "location": location
+    };
+    let points = [];
+    let options = {
+      method: "POST",
+      headers: {
+          'Content-Type' : 'application/JSON'
+      },
+      body:JSON.stringify(reqJSON)
+    };  
+    fetch(diseaseAPI + "/search", options)
+    .then(r => r.json())
+    .then(r => {
+      points = reportToPoints(r);
+      if (points.length > 0) {
+        let finalPoints = convertParaToPoints(points);
+        let results = prediction(finalPoints, predictionDay);
+        console.log(results);
+        return results;
+      } else {
+        let a = {
+  
+        }
+      }
+    });
+  } catch (e) {
+    console.log(e);
+  }
+  
 }
 
 // Converts the dates and case numbers into proper points.
@@ -47,9 +55,9 @@ function reportToPoints(reports) {
   for (let i = 0; i < reports.length; i++) {    
     // Gets the date.
     let date = reports[i].date_of_publication.substring(0,10);
-    
+
     // Get the state if applicable.
-    let state = reports[i].reports[0].location[0].city;
+    let state = reports[i].reports[0].locations[0].city;
 
     // Gets the headline and converts any numbers written as words into integers.
     let headline = reports[i].headline;
@@ -399,7 +407,7 @@ function prediction(points, days) {
   let xDeaths = 0;
   let caseDates = [];
   let deathDates = [];
-
+  let successVal = false;
 
   // Gathers the points together.
   for (let i = 0; i < points.length; i++) {
@@ -444,6 +452,7 @@ function prediction(points, days) {
       predictedDate: futureDate,
       prediction: casePoly.predict(diff)
     };
+    successVal = true;
   } else {
     casePred = {
       string: "Insufficient Points"
@@ -463,21 +472,26 @@ function prediction(points, days) {
       predictedDate: futureDate,
       prediction: deathsPoly.predict(diff)
     };
+    successVal = true;
   } else {
     deathPred = {
       string: "Insufficient Points"
     };
   }
-  //
+  
+  // If anything was successful.
+
   
   // Compiles the data for cases and deaths for frontend.
   let predPackage = {
+    success: successVal,
     cases: casePred,
     deaths: deathPred
   };
 
-  console.log(predPackage);
+  //console.log(predPackage);
   return JSON.stringify(predPackage);
 }
 
-getReports("United States", "COVID", 5);
+module.exports.predictAll =  predictAll;
+//predictAll("United States", "COVID", 5);
