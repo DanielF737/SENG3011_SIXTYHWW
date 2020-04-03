@@ -3,23 +3,31 @@ import {
   Link
 } from "react-router-dom";
 import "../styles/navbar.css"
+import Autocomplete from "./autocomplete"
 
 class Navbar extends React.Component {
   render () {
     return (
       <div className="Navbar">
         <ul>
-          <li>
-            <Link to="/">Home</Link>
+          <li className="logo">
+            <Link to="/">SIXTYHWW</Link>
           </li>
           <li>
-            <Link to="/article">article</Link>
-          </li>
-          <li>
-            <Link to="/disease">disease</Link>
-          </li>
-          <li>
-            <Link to="/location">location</Link>
+            <Autocomplete
+              suggestions={[
+                "Alligator",
+                "Bask",
+                "Crocodilian",
+                "Death Roll",
+                "Eggs",
+                "Jaws",
+                "Reptile",
+                "Solitary",
+                "Tail",
+                "Wetlands"
+              ]}
+            />
           </li>
         </ul>
       </div>

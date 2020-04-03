@@ -40,7 +40,7 @@ database().then((db) => {
       rep.main_text = rep.body
       delete rep.body
       rep.reports = []
-      rep.reports.push({'event_date': rep.event_date, 'location': [{'country':rep.country, 'city':rep.city, 'latitude':rep.latitude, 'longitude':rep.longitude}],
+      rep.reports.push({'event_date': rep.event_date, 'locations': [{'country':rep.country, 'city':rep.city, 'latitude':rep.latitude, 'longitude':rep.longitude}],
       'diseases': rep.diseases, 'sydromes': rep.syndromes})
       delete rep.event_date;
       delete rep.country;
@@ -112,7 +112,7 @@ database().then((db) => {
       delete rep.body
 
       rep.reports = []
-      rep.reports.push({'event_date': rep.event_date, 'location': [{'country':rep.country, 'city':rep.city, 'latitude':rep.latitude, 'longitude':rep.longitude}],
+      rep.reports.push({'event_date': rep.event_date, 'locations': [{'country':rep.country, 'city':rep.city, 'latitude':rep.latitude, 'longitude':rep.longitude}],
       'diseases': rep.diseases, 'sydromes': rep.syndromes})
       delete rep.event_date;
       delete rep.country;

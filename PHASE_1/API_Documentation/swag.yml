@@ -1,7 +1,7 @@
 swagger: "2.0"
 info:
-  description: "API for pulling disease outbreak reports from Global Incident Tracker\n\n**Changelog:**\n\nVersion 1.0.1 - 24/3/20:\n - Fixed search endpoint to correctly return results based on key terms.\n - Fixed /articles{n} to correctly return reports in the correct format.\n - Fixed /articles{id} to correctly return reports in the correct format.\n\nVersion 1.0.0 - 24/3/20:\n - First public release of finalized API. All endpoints now working correctly."
-  version: "1.0.1"
+  description: "API for pulling disease outbreak reports from Global Incident Tracker\n\n**Changelog:**\n\nVersion 1.0.2 - 3/4/20:\n - Fixed all endpoints to give locations as report.locations not report.location\n\nVersion 1.0.1 - 24/3/20:\n - Fixed search endpoint to correctly return results based on key terms.\n - Fixed /articles{n} to correctly return reports in the correct format.\n - Fixed /articles{id} to correctly return reports in the correct format.\n\nVersion 1.0.0 - 24/3/20:\n - First public release of finalized API. All endpoints now working correctly."
+  version: "1.0.2"
   title: "SIXTYHWW - SENG3011"
   license:
     name: "Click here"
