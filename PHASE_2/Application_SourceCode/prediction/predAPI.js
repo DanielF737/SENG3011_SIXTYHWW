@@ -24,12 +24,10 @@ app.use((req, res, next) => {
 app.use(bodyParser.json());
 
 app.get('/predict', async(req, res) => {
-  console.log(req.query.country);
-  console.log(req.query.disease);
-  console.log(req.query.days);
-  const results = await prediction.predictAll(req.query.country, req.query.disease, req.query.days);
+  const results = await prediction.predictAll(req.country, req.disease, req.days);
   console.log(results);
-  res.send(results);
+  res.send(JSON.stringify(results));
+  return;
 });
 
 // Run Server

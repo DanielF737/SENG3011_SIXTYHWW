@@ -38,14 +38,14 @@ function getReports(location, disease, predictionDay) {
   };  
 
   // Fetches data and returns prediction.
-  fetch(diseaseAPI + "/search", options)
+  return fetch(diseaseAPI + "/search", options)
   .then(r => r.json())
   .then(r => {
     points = reportToPoints(r);
     if (points.length > 0) {
       let finalPoints = convertParaToPoints(points);
       let results = prediction(finalPoints, predictionDay);
-      console.log(results);
+      //console.log(results);
       return results;
     } else {
       return null;
@@ -498,4 +498,4 @@ function prediction(points, days) {
 }
 
 module.exports.predictAll =  predictAll;
-predictAll("United States", "COVID", 5);
+//predictAll("United States", "COVID", 5);
