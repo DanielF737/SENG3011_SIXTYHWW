@@ -15,7 +15,7 @@ async function predictAll(location, disease, predictionDay) {
     return getReports(location, disease, predictionDay);
   } catch(e) {
     console.log(e);
-    return null;
+    return {success: false};
   }
 }
 
@@ -45,10 +45,9 @@ function getReports(location, disease, predictionDay) {
     if (points.length > 0) {
       let finalPoints = convertParaToPoints(points);
       let results = prediction(finalPoints, predictionDay);
-      //console.log(results);
       return results;
     } else {
-      return null;
+      return {success: false};
     }
   });
 }
@@ -407,8 +406,7 @@ function organiseData(filteredData) {
 function prediction(points, days) {
   let cases = [];
   let deaths = [];
-  let xCases = 0;
-  let xDeaths = 0;
+  let xVal = 0;
   let caseDates = [];
   let deathDates = [];
   let successVal = false;
@@ -418,30 +416,34 @@ function prediction(points, days) {
     // If point is for cases.
     if (points[i][2] > 0) {
       cases.push([points[i][1], points[i][2]]);
-      xCases = points[i][1];
       caseDates.push(points[i][0]);
     }
 
     // If point is for deaths.
     if (points[i][3] > 0) {
       deaths.push([points[i][1], points[i][3]]);
-      xDeaths = points[i][1];
       deathDates.push(points[i][0]);
     }
-
+    xVal = points[i][1];
+  }
+  let lastDate = "";
+  if (caseDates[caseDates.length-1] > deathDates[deathDates.length-1]) {
+    lastDate = caseDates[caseDates.length-1];
+  } else {
+    lastDate = deathDates[deathDates.length-1];
   }
 
   // Calculates the x-coordinate for the prediction.
   let curDate = new Date();
   curDate = curDate.toISOString().slice(0,10);
-  let diff = Math.abs(new Date(curDate) - new Date(caseDates[caseDates.length-1]));
-  diff = Math.floor(((diff/1000)/86400)) + xCases + days;
+  let dateDiff = Math.abs(new Date(curDate) - new Date(lastDate));
+  let diff = Math.floor((dateDiff/1000)/86400) + parseInt(xVal) + parseInt(days);
 
   // Gets the date for the prediction.
-  let futureDate = new Date();
-  futureDate.setDate(futureDate.getDate() + days);
+  let futureDate = new Date().getTime() + days * 86400000;
+  futureDate = new Date(futureDate);
   futureDate = futureDate.toISOString().slice(0, 10);
-
+  
   let casePred = {};
   // If there are sufficient points to generate a polynomial.
   if (cases.length >= 4) {

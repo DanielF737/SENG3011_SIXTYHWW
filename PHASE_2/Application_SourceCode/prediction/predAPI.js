@@ -23,9 +23,30 @@ app.use((req, res, next) => {
 
 app.use(bodyParser.json());
 
-app.get('/predict', async(req, res) => {
-  const results = await prediction.predictAll(req.country, req.disease, req.days);
-  console.log(results);
+// API Call for prediction.
+app.post('/predict', async(req, res) => {
+
+  if (isNaN(req.body.days)) {
+    res.status(400).send({error: "Days is invalid. It needs to be a number >= 1."});
+    return;
+  }
+
+  // Checks if days provided is correct.
+  if (req.body.days < 1) {
+    res.status(401).send({error: "Days is invalid. Day should be >= 1."});
+    return;
+  }
+
+  // Calls prediction.
+  const results = await prediction.predictAll(req.body.country, req.body.disease, req.body.days);
+  
+  // If no entries are sent back for the country.
+  if (results.success == false) {
+    res.status(402).send({error: "Insufficient data for " + req.body.country + "."});
+    return;
+  }
+
+  // Returns the respone.
   res.send(JSON.stringify(results));
   return;
 });
