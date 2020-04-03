@@ -15,8 +15,8 @@ import Notfound from './components/notfound'
 
 const routing = (
   <Router>
-    <div>
-      <Navbar />
+  <Navbar />
+    <div className="page">
       <Switch>
         <Route exact path="/" component={App} />
         <Route path="/article/:id" component={Article} />
