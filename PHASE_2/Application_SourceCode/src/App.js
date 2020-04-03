@@ -6,10 +6,11 @@ import MapContainer from './components/map'
 
 function App() {
   return (
-    <div>
-      <MapContainer />
-      <br></br>
+    <div className="pageBody">
       <Feed />
+      <div className="mapBox">
+        <MapContainer />
+      </div>
     </div>
   )
 }
