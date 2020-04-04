@@ -11,6 +11,7 @@ import Navbar from './components/navbar';
 import Article from './components/article';
 import Disease from './components/disease';
 import Place from './components/place';
+import Search from './components/search';
 import Notfound from './components/notfound'
 
 const routing = (
@@ -22,6 +23,7 @@ const routing = (
         <Route path="/article/:id" component={Article} />
         <Route path="/disease/:id" component={Disease} />
         <Route path="/location/:id" component={Place} />
+        <Route path="/search/disease=:disease&country=:country" component={Search} />
         <Route component={Notfound} />
       </Switch>
     </div>

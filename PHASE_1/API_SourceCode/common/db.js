@@ -59,40 +59,73 @@ async function addReport(id, report) {
 
 async function search(searchRequest) {
   try {
-    var query = `
-      SELECT * FROM articles, reports
-      WHERE articles.id == reports.article_id
-      AND event_date > $start_date
-      AND event_date < $end_date
-    `;
+    var query = "SELECT * FROM articles, reports WHERE articles.id == reports.article_id";
 
-    if (searchRequest.location)
-      query += `AND (country == $location OR city == $location)`;
+    var params = {};
 
-    const reports = await conn.all(query, {
-      $start_date: searchRequest.start_date,
-      $end_date: searchRequest.end_date,
-      $location: searchRequest.location
-    });
+    console.log(typeof searchRequest.start_date);
 
-    const regex = new RegExp(searchRequest.keyTerms.trim().toLowerCase() ? searchRequest.keyTerms.trim().toLowerCase().replace(",", "|") : "", "i");
-    return reports.filter((report) =>
-      regex.test(report.headline.toLowerCase()) ||
-      regex.test(report.body.toLowerCase()) ||
-      regex.test(report.diseases.toLowerCase()) ||
-      regex.test(report.syndromes.toLowerCase())
-    );
+    if (searchRequest.start_date) {
+      query += " AND event_date > $start_date";
+      params.$start_date = searchRequest.start_date;
+
+    }
+
+    if (searchRequest.end_date) {
+      query += " AND event_date < $end_date";
+      params.$end_date = searchRequest.end_date;
+    }
+
+    if (searchRequest.location) {
+      query += " AND (country == $location OR city == $location)";
+      params.$location = searchRequest.location;
+    }
+
+    console.log(query);
+    console.log(params);
+
+    var reports = await conn.all(query, params);
+
+    if (searchRequest.keyTerms) {
+      const regex = new RegExp(searchRequest.keyTerms.trim().toLowerCase() ? searchRequest.keyTerms.trim().toLowerCase().replace(",", "|") : "", "i");
+
+      reports = reports.filter((report) =>
+        regex.test(report.headline.toLowerCase()) ||
+        regex.test(report.body.toLowerCase()) ||
+        regex.test(report.diseases.toLowerCase()) ||
+        regex.test(report.syndromes.toLowerCase())
+      );
+    }
+
+    if (searchRequest.pagination) {
+      console.log("pagination")
+      const values = searchRequest.pagination.split(",");
+      if (values.length == 2) {
+        const val1 = parseInt(values[0]);
+        const val2 = parseInt(values[1]);
+        console.log(val1);
+        console.log(val2);
+
+        if (val1 != NaN && val2 != NaN) {
+          reports = reports.slice(val1, val2);
+        }
+      }
+    }
+
+    return reports;
   } catch (e){
     console.log(e);
     return null;
   }
 }
 
-async function getAllArticles(n) {
+async function getAllArticles(start,end) {
   try {
-    return await conn.all("SELECT * FROM articles, reports WHERE articles.id == reports.article_id ORDER BY articles.date_of_publication DESC LIMIT $n", {
-      $n: n
-    });
+    let reports = await conn.all("SELECT * FROM articles, reports WHERE articles.id == reports.article_id ORDER BY articles.date_of_publication")
+    if(start >= 0 && end > start) {
+      reports = reports.slice(start, end)
+    }
+    return reports;
   } catch (e){
     console.log(e);
     return null;

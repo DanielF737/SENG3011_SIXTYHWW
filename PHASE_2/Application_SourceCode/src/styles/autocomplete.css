@@ -26,6 +26,7 @@ input {
   .no-suggestions {
     color: #999;
     padding: 0.5rem;
+    display: block;
   }
   
   .suggestions {
@@ -37,6 +38,7 @@ input {
     overflow-y: auto;
     padding-left: 0;
     width: calc(300px + 1rem);
+    display: block;
   }
   
   .suggestions li {
