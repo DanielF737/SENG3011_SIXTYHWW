@@ -61,10 +61,9 @@ class Feed extends React.Component {
         {results.map((obj, i) => {
           return (
             <div className="feedObj" key={i}>
-              <h4>{obj.headline} - ID:obj.id}</h4>
+              <h4>{obj.headline}</h4>
               <p><a href={obj.url}>View the original source</a></p>
               <p>{obj.date_of_publication}</p>
-              <p>{obj.reports[0].diseases}</p>
               <p>{obj.main_text}</p>
               <br></br>
             </div>
