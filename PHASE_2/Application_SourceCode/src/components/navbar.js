@@ -1,11 +1,38 @@
 import React from 'react';
-import {
-  Link
-} from "react-router-dom";
+import {withRouter, Link} from 'react-router-dom';
+
 import "../styles/navbar.css"
-import Autocomplete from "./autocomplete"
+
+
+import Diseases from "../data/diseases.json"
+import Countries from "../data/countries.json"
 
 class Navbar extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      disease: 'COVID-19',
+      country: 'Australia'
+    };
+
+    this.handleChange = this.handleChangeDisease.bind(this);
+    this.handleChange = this.handleChangeCountry.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handleChangeDisease = (event) => {
+    this.setState({disease: event.target.value})
+  }
+
+  handleChangeCountry = (event) => {
+    this.setState({country: event.target.value});
+  }
+
+  handleSubmit = (event) => {
+    this.props.history.push(`/search/disease=${this.state.disease}&country=${this.state.country}`);
+  }
+
+
   render () {
     return (
       <div className="Navbar">
@@ -14,20 +41,15 @@ class Navbar extends React.Component {
             <Link to="/">SIXTYHWW</Link>
           </li>
           <li>
-            <Autocomplete
-              suggestions={[
-                "Alligator",
-                "Bask",
-                "Crocodilian",
-                "Death Roll",
-                "Eggs",
-                "Jaws",
-                "Reptile",
-                "Solitary",
-                "Tail",
-                "Wetlands"
-              ]}
-            />
+            <form onSubmit={this.handleSubmit}>
+              <select value={this.state.disease} onChange={this.handleChangeDisease}>
+                {Diseases.map((obj, i) => <option key={obj.name}>{obj.name}</option>)}
+              </select>
+              <select value={this.state.country} onChange={this.handleChangeCountry}>
+                {Countries.map((obj, i) => <option key={obj.name}>{obj.name}</option>)}
+              </select>
+              <input type="submit" value="Search" />
+            </form>
           </li>
         </ul>
       </div>
@@ -35,4 +57,4 @@ class Navbar extends React.Component {
   }
 }
 
-export default Navbar;
+export default withRouter(Navbar);

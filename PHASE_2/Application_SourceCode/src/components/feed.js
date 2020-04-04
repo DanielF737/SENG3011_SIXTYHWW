@@ -1,10 +1,10 @@
 import React from 'react'
-import styles from '../styles/feed.module.css'
+import '../styles/feed.css'
 
-const mattsToken = "AOYyHmVa91VOLs5ktY5LV1TUowA2"
-const mattsURL = 'https://sympt-server.herokuapp.com'
+//const mattsToken = "AOYyHmVa91VOLs5ktY5LV1TUowA2"
+//const mattsURL = 'https://sympt-server.herokuapp.com'
 
-const mipsToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImRhbmllbEBmZXJyYS5ybyIsInZlcmlmeSI6ImhleWhleWhleSIsImV4cCI6MTU4NTkwODgxM30.cWJW3gjsDtxJaGiVC4FIBwurNr0ejYTCuhzK1nrfOyg"
+const mipsToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImRhbmllbEBmZXJyYS5ybyIsInZlcmlmeSI6ImhleWhleWhleSIsImV4cCI6MTU4NTk4OTEwNX0.iHlHi5PSQGN7iJV257MQolx7WDnKGyuu5btLfGMj-l8"
 const mipsURL = "https://audbotb4h3.execute-api.ap-southeast-2.amazonaws.com/dev"
 
 const apiURL = 'http://api.sixtyhww.com:3000'
@@ -57,10 +57,10 @@ class Feed extends React.Component {
     console.log("these are what we got")
     console.log({results})
     return (
-      <div className={styles.feed}>
+      <div className="feed">
         {results.map((obj, i) => {
           return (
-            <div className={styles.feedObj} key={i}>
+            <div className="feedObj" key={i}>
               <h4>{obj.headline} - ID:obj.id}</h4>
               <p><a href={obj.url}>View the original source</a></p>
               <p>{obj.date_of_publication}</p>
