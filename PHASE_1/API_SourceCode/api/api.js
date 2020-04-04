@@ -36,22 +36,24 @@ database().then((db) => {
   app.post('/search', async (req, res) => {
 
     const reports = await db.search(req.body);
-    reports.forEach(rep =>{
-      rep.main_text = rep.body
-      delete rep.body
-      rep.reports = []
-      rep.reports.push({'event_date': rep.event_date, 'locations': [{'country':rep.country, 'city':rep.city, 'latitude':rep.latitude, 'longitude':rep.longitude}],
-      'diseases': rep.diseases, 'sydromes': rep.syndromes})
-      delete rep.event_date;
-      delete rep.country;
-      delete rep.city;
-      delete rep.latitude
-      delete rep.longitude
-      delete rep.diseases
-      delete rep.syndromes
-      delete rep.article_id
-    })
+    
     if (reports) {
+      reports.forEach(rep =>{
+        rep.main_text = rep.body
+        delete rep.body
+        rep.reports = []
+        rep.reports.push({'event_date': rep.event_date, 'locations': [{'country':rep.country, 'city':rep.city, 'latitude':rep.latitude, 'longitude':rep.longitude}],
+        'diseases': rep.diseases, 'sydromes': rep.syndromes})
+        delete rep.event_date;
+        delete rep.country;
+        delete rep.city;
+        delete rep.latitude
+        delete rep.longitude
+        delete rep.diseases
+        delete rep.syndromes
+        delete rep.article_id
+      });
+      
       res.send(reports);
       logger.log("/search", req.startTime, JSON.stringify(req.body, null, 2), `200 - ${reports.length} reports found`);
     }
