@@ -1,7 +1,18 @@
 swagger: "2.0"
 info:
-  description: "API for pulling disease outbreak reports from Global Incident Tracker\n\n**Changelog:**\n\nVersion 1.0.2 - 3/4/20:\n - Fixed all endpoints to give locations as report.locations not report.location\n\nVersion 1.0.1 - 24/3/20:\n - Fixed search endpoint to correctly return results based on key terms.\n - Fixed /articles{n} to correctly return reports in the correct format.\n - Fixed /articles{id} to correctly return reports in the correct format.\n\nVersion 1.0.0 - 24/3/20:\n - First public release of finalized API. All endpoints now working correctly."
-  version: "1.0.2"
+  description: "API for pulling disease outbreak reports from Global Incident Tracker\n\n**Changelog:**\n\n
+    Version 1.0.3 - 4/4/20:\n
+    - Added pagination field to search endpoint
+    - Changed get /articles to start and end index instead of N most recent\n\n
+    Version 1.0.2 - 3/4/20:\n
+    - Fixed all endpoints to give locations as report.locations not report.location\n\n
+    Version 1.0.1 - 24/3/20:\n
+    - Fixed search endpoint to correctly return results based on key terms.\n
+    - Fixed /articles{n} to correctly return reports in the correct format.\n
+    - Fixed /articles{id} to correctly return reports in the correct format.\n\n
+      Version 1.0.0 - 24/3/20:\n
+    - First public release of finalized API. All endpoints now working correctly."
+  version: "1.0.3"
   title: "SIXTYHWW - SENG3011"
   license:
     name: "Click here"
@@ -23,7 +34,8 @@ paths:
            description: "start_date - string: Must be in following format: “yyyy-MM-ddTHH:mm:ss”. (REQUIRED)\n
              end_date - string: Must be in following format: “yyyy-MM-ddTHH:mm:ss”. (REQUIRED)\n
              keyTerms - string: Comma separated list of key terms\n
-             location - string: location to search. (CASE SENSITIVE)\n"
+             location - string: location to search. (CASE SENSITIVE)\n
+             pagination - string: start index and end index separated by comma\n"
            required: true
            schema:
              $ref: '#/definitions/Search'
@@ -86,17 +98,22 @@ paths:
      get:
        tags:
          - "Articles"
-       summary: "Get N most recent articles"
+       summary: "Get N most recent articles in a certain range"
        description: "Fetch the N most recent Articles in the system"
        produces:
          - application/json
        parameters:
-         - name: N
+         - name: start
            in: query
-           description: "N - integer: Number of articles to recieve. Min = 1, Max = 50"
+           description: "start - integer: start index of articles to return. Default 0"
+           type: integer
+           default: 0
+         - name: end
+           in: query
+           description: "end - integer: end index of articles to return. Default 20"
            type: integer
            default: 20
-           required: true
+
        responses:
          200:
              description: Success
@@ -151,7 +168,7 @@ paths:
          - TrivialAuth: []
        responses:
          200:
-             description: Success  
+             description: Success
          400:
              description: Invalid ID
          401:
@@ -278,9 +295,12 @@ definitions:
            type: string
        location:
          type: string
+       pagination:
+         type: string
      example:
        start_date: "2015-10-01T08:45:10"
        end_date: "2020-11-01T19:37:12"
        keyTerms: "covid"
        location: "Paris"
+       pagination: "0,5"
 
