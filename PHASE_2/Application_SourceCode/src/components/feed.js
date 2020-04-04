@@ -54,6 +54,7 @@ class Feed extends React.Component {
 
   render () {
     let {results} = this.state;
+    console.log("these are what we got")
     console.log({results})
     return (
       <div className={styles.feed}>
@@ -62,7 +63,7 @@ class Feed extends React.Component {
             <div className={styles.feedObj} key={i}>
               <h4>{obj.headline} - ID:obj.id}</h4>
               <p><a href={obj.url}>View the original source</a></p>
-              <p>{obj.date_of_publication} - {obj.reports[0].locations}</p>
+              <p>{obj.date_of_publication}</p>
               <p>{obj.reports[0].diseases}</p>
               <p>{obj.main_text}</p>
               <br></br>
