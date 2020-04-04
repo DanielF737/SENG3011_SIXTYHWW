@@ -15,7 +15,7 @@ database().then((db) => {
 
   //CORS
   app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*"); 
+    res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
   });
@@ -36,7 +36,7 @@ database().then((db) => {
   app.post('/search', async (req, res) => {
 
     const reports = await db.search(req.body);
-    
+
     if (reports) {
       reports.forEach(rep =>{
         rep.main_text = rep.body
@@ -53,7 +53,7 @@ database().then((db) => {
         delete rep.syndromes
         delete rep.article_id
       });
-      
+
       res.send(reports);
       logger.log("/search", req.startTime, JSON.stringify(req.body, null, 2), `200 - ${reports.length} reports found`);
     }
@@ -105,10 +105,10 @@ database().then((db) => {
   });
 
   app.get('/articles', async (req, res) => {
+    const start = req.query.start ? req.query.start : 0;
+    const end = req.query.end ? req.query.end : 20;
 
-    const num = req.query.N ? req.query.N : 20;
-
-    const articles = await db.getAllArticles(num);
+    const articles = await db.getAllArticles(start, end);
     articles.forEach(rep =>{
       rep.main_text = rep.body
       delete rep.body

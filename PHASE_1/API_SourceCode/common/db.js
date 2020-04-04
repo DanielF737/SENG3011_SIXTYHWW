@@ -68,7 +68,7 @@ async function search(searchRequest) {
     if (searchRequest.start_date) {
       query += " AND event_date > $start_date";
       params.$start_date = searchRequest.start_date;
-      
+
     }
 
     if (searchRequest.end_date) {
@@ -108,7 +108,7 @@ async function search(searchRequest) {
 
         if (val1 != NaN && val2 != NaN) {
           reports = reports.slice(val1, val2);
-        } 
+        }
       }
     }
 
@@ -119,11 +119,13 @@ async function search(searchRequest) {
   }
 }
 
-async function getAllArticles(n) {
+async function getAllArticles(start,end) {
   try {
-    return await conn.all("SELECT * FROM articles, reports WHERE articles.id == reports.article_id ORDER BY articles.date_of_publication DESC LIMIT $n", {
-      $n: n
-    });
+    let reports = await conn.all("SELECT * FROM articles, reports WHERE articles.id == reports.article_id ORDER BY articles.date_of_publication")
+    if(start >= 0 && end > start) {
+      reports = reports.slice(start, end)
+    }
+    return reports;
   } catch (e){
     console.log(e);
     return null;
