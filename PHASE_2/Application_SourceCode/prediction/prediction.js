@@ -8,6 +8,7 @@ const extractWordCases = ["cases", "case", "positive"];
 const extractWordDeaths = ["die", "death", "deaths", "dies", "dead"];
 const totalWords = ["total", "totals", "toll", "tally", "tolls", "tallies", "already"]; 
 const garbageWords = ["hours", "hour", "day", "days", "hrs"];
+const predReq = 3;
 
 // Function wrapper for the whole program.
 async function predictAll(location, disease, predictionDay) {
@@ -411,13 +412,17 @@ function prediction(points, days) {
   let deathDates = [];
   let successVal = false;
 
+  // Sets up a beginning for the graph.
+  cases.push[-1, 0];
+  deaths.push[-1, 0];
+  
   // Gathers the points together.
   for (let i = 0; i < points.length; i++) {
     // If point is for cases.
     if (points[i][2] > 0) {
       cases.push([points[i][1], points[i][2]]);
       caseDates.push(points[i][0]);
-    }
+    } 
 
     // If point is for deaths.
     if (points[i][3] > 0) {
@@ -426,6 +431,29 @@ function prediction(points, days) {
     }
     xVal = points[i][1];
   }
+
+  // Cycles through cases and deaths and fills in the missing values for
+  // y-coordinates for missing x-coordinates. Does this by using the average
+  // of previous and next values.
+  /*
+  for (let i = 0; i < cases.length-1; i++) {
+    if (cases[i][0] != cases[i+1][0]-1) {
+      console.log(cases[i][0]);
+      console.log(cases[i+1][0]);
+      let yVal = (cases[i][1] + cases[i+1][1])/2;
+      let xVal = Math.floor((cases[i][0] + cases[i+1][0])/2);
+      cases.splice(i, 0, [xVal, yVal]);
+    }
+  }
+
+  for (let i = 0; i < deaths.length-1; i++) {
+    if (deaths[i][0] != deaths[i+1][0]-1) {
+      let yVal = (deaths[i][1] + deaths[i+1][1])/2;
+      let xVal = Math.floor((deaths[i][0] + deaths[i+1][0])/2);
+      deaths.splice(i, 0, [xVal, yVal]);
+    }
+  }*/
+
   let lastDate = "";
   if (caseDates[caseDates.length-1] > deathDates[deathDates.length-1]) {
     lastDate = caseDates[caseDates.length-1];
@@ -446,19 +474,30 @@ function prediction(points, days) {
   
   let casePred = {};
   // If there are sufficient points to generate a polynomial.
-  if (cases.length >= 4) {
+  if (cases.length >= predReq) {
     // Creates the polynomial that best fits the data.
-    let casePoly = regression.polynomial(cases, {order:4});
-    // Formats all the relevant data for cases to send to frontend.
-    casePred = {
-      string: casePoly.string,
-      points: casePoly.points,
-      eqn: casePoly.equation,
-      dates: caseDates,
-      predictedDate: futureDate,
-      prediction: casePoly.predict(diff)
-    };
-    successVal = true;
+    let casePoly = regression.polynomial(cases, {order:predReq});
+    // If the library is incapable of making the equation.
+    if (casePoly.equation.indexOf(null) == -1) {
+      // Performs the actual prediction.
+      let tmpCase = casePoly.predict(diff);
+      // If number is a negative, then there should be no cases.
+      if (tmpCase[1] < 0) tmpCase[1] = 0;
+      // Formats all the relevant data for cases to send to frontend.
+      casePred = {
+        string: casePoly.string,
+        points: casePoly.points,
+        eqn: casePoly.equation,
+        dates: caseDates,
+        predictedDate: futureDate,
+        prediction: tmpCase
+      };
+      successVal = true;
+    } else {
+      casePred = {
+        string: "Failed to generate equation"
+      };
+    }
   } else {
     casePred = {
       string: "Insufficient Points"
@@ -466,19 +505,31 @@ function prediction(points, days) {
   }
 
   let deathPred = {};
-  if (deaths.length >= 4) {
+  if (deaths.length >= predReq) {
     // Creates the polynomial that best fits the data.
-    let deathsPoly = regression.polynomial(deaths, {order:4});
-    // Formats all the relevant data for deaths to send to frontend.
-    deathPred = {
-      string: deathsPoly.string,
-      points: deathsPoly.points,
-      eqn: deathsPoly.equation,
-      dates: deathDates,
-      predictedDate: futureDate,
-      prediction: deathsPoly.predict(diff)
-    };
-    successVal = true;
+    let deathsPoly = regression.polynomial(deaths, {order:predReq});
+    // If the library is incapable of making the equation.
+    if (deathsPoly.equation.indexOf(null) == -1) {
+      // Performs the actual prediction.
+      let tmpDeath = deathsPoly.predict(diff);
+      // If number is a negative, then there should be no deaths.
+      if (tmpDeath[1] < 0) tmpDeath[1] = 0;
+      // Formats all the relevant data for deaths to send to frontend.
+      deathPred = {
+        string: deathsPoly.string,
+        points: deathsPoly.points,
+        eqn: deathsPoly.equation,
+        dates: deathDates,
+        predictedDate: futureDate,
+        prediction: tmpDeath
+      };
+      successVal = true;
+    } else {
+      deathPred = {
+        string: "Failed to generate equation"
+      };
+    }
+    
   } else {
     deathPred = {
       string: "Insufficient Points"
