@@ -34,6 +34,52 @@ class Prediction extends React.Component {
         results: this.state.results.concat(r)
       })
     });
+
+    reqBody = {
+      "country": "United Kingdom",
+      "disease": "COVID",
+      "days": "5"
+    };
+    
+    options = {
+      method: "POST",
+      headers: {
+          'Content-Type' : 'application/JSON'
+      },
+      body:JSON.stringify(reqBody)
+    };  
+    
+    fetch(`${apiURL}/predict`, options)
+    .then(r => r.json())
+    .then(r => {
+      console.log(r);
+      this.setState({
+        results: this.state.results.concat(r)
+      })
+    });
+
+    reqBody = {
+      "country": "China",
+      "disease": "COVID",
+      "days": "5"
+    };
+    
+    options = {
+      method: "POST",
+      headers: {
+          'Content-Type' : 'application/JSON'
+      },
+      body:JSON.stringify(reqBody)
+    };  
+    
+    fetch(`${apiURL}/predict`, options)
+    .then(r => r.json())
+    .then(r => {
+      console.log(r);
+      this.setState({
+        results: this.state.results.concat(r)
+      })
+    });
   }
   
   render() {
