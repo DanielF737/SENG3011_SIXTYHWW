@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
+import {withRouter} from 'react-router-dom';
 
 const apiURL = 'http://api.sixtyhww.com:3000'
 
@@ -10,6 +11,7 @@ const mapStyles = {
   borderRadius: '20px',
   display: 'block'
 };
+
 
 export class MapContainer extends Component {
   constructor(props) {
@@ -40,6 +42,7 @@ export class MapContainer extends Component {
 
   render() {
     let {markers} = this.state
+    console.log(this.props)
     return (
       <Map
         google={this.props.google}
@@ -47,7 +50,7 @@ export class MapContainer extends Component {
         style={mapStyles}
         initialCenter={{ lat: 35.676, lng: 139.650}}
       >
-        {markers.map((store, index) => {  
+        {markers.map((store, index) => {
           return <Marker key={index} id={index} position={{
             lat: store.latitude,
             lng: store.longitude

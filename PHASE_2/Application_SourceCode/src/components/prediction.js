@@ -88,7 +88,7 @@ class Prediction extends React.Component {
       <div className="feed">
         <div className="feedObj">
           <h1>Prediction</h1>
-          <h2>Forcast for <strong>COVID-19</strong></h2>
+          <h2>Forecast for <strong>COVID-19</strong></h2>
         </div>
           <div className="feedObj">
           {results.map((obj,i) => {

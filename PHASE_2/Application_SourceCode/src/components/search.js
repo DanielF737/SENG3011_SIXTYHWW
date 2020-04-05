@@ -2,7 +2,6 @@ import React from 'react'
 import '../styles/feed.css'
 import '../styles/App.css';
 import MapContainer from './map'
-import Prediction from './prediction'
 
 //const mattsToken = "AOYyHmVa91VOLs5ktY5LV1TUowA2"
 //const mattsURL = 'https://sympt-server.herokuapp.com'

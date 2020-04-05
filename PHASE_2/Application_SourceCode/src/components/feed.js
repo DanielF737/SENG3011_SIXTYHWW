@@ -1,5 +1,6 @@
 import React from 'react'
 import '../styles/feed.css'
+import {Link} from 'react-router-dom';
 
 //const mattsToken = "AOYyHmVa91VOLs5ktY5LV1TUowA2"
 //const mattsURL = 'https://sympt-server.herokuapp.com'
@@ -70,15 +71,27 @@ class Feed extends React.Component {
     return (
       <div className="feed">
         {results.map((obj, i) => {
-          return (
+          if (obj.hasOwnProperty('id')) {return (
             <div className="feedObj" key={i}>
-              <h4>{obj.headline}</h4>
+              <h4><Link to={`/article/${obj.id}`}>{obj.headline} - ID:{obj.id}</Link></h4>
               <p><a href={obj.url}>View the original source</a></p>
               <p>{obj.date_of_publication}</p>
               <p>{obj.main_text}</p>
               <br></br>
             </div>
           )
+            
+          } else {
+            return (
+              <div className="feedObj" key={i}>
+                <h4>{obj.headline}</h4>
+                <p><a href={obj.url}>View the original source</a></p>
+                <p>{obj.date_of_publication}</p>
+                <p>{obj.main_text}</p>
+                <br></br>
+              </div>
+            )
+          }
         })}
       </div>
     )
