@@ -107,7 +107,19 @@ class Search extends React.Component {
             <div className="mapBox">
               <MapContainer />
             </div>
-            <Prediction />
+            <div className="predBox">
+              <div className="feed">
+                <div className="feedObj">
+                  <h1>Prediction</h1>
+                  <h2>Forecast for {params.disease}</h2>
+                </div>
+                <div className="feedObj">
+                  <h4>{params.country} in the next 5 days</h4>
+                  <p>NaN new cases</p>
+                  <p>NaN more deaths</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       )

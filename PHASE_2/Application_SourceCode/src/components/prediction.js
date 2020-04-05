@@ -36,7 +36,7 @@ class Prediction extends React.Component {
     });
 
     reqBody = {
-      "country": "United Kingdom",
+      "country": "India",
       "disease": "COVID",
       "days": "5"
     };
@@ -59,7 +59,7 @@ class Prediction extends React.Component {
     });
 
     reqBody = {
-      "country": "China",
+      "country": "Israel",
       "disease": "COVID",
       "days": "5"
     };
@@ -79,18 +79,29 @@ class Prediction extends React.Component {
       this.setState({
         results: this.state.results.concat(r)
       })
-    });
+    });    
   }
   
   render() {
-
+    const {results} = this.state
     return (
       <div className="feed">
         <div className="feedObj">
           <h1>Prediction</h1>
-          <h2>Forcast for <strong>COVID-19</strong> in the next 5 days</h2>
-          <p>United States: 0 new cases, </p>
+          <h2>Forcast for <strong>COVID-19</strong></h2>
         </div>
+          <div className="feedObj">
+          {results.map((obj,i) => {
+            return (
+              <div>
+                <h4>{obj.location} in the next {obj.days} days</h4>
+                <p>{obj.cases.prediction[1]} new cases</p>
+                <p>{obj.deaths.prediction[1]} more deaths</p>
+                <break></break>
+              </div>
+            )
+          })}
+          </div>
       </div>
     )
   }
