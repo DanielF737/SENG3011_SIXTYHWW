@@ -1,7 +1,7 @@
 const fetch = require("node-fetch");
 
 reqJSON = {
-  "country": "United Kingdom",
+  "country": "United States",
   "disease": "COVID",
   "days": "5"
 };
