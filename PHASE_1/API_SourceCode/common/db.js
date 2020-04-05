@@ -121,7 +121,7 @@ async function search(searchRequest) {
 
 async function getAllArticles(start,end) {
   try {
-    let reports = await conn.all("SELECT * FROM articles, reports WHERE articles.id == reports.article_id ORDER BY articles.date_of_publication")
+    let reports = await conn.all("SELECT * FROM articles, reports WHERE articles.id == reports.article_id ORDER BY articles.date_of_publication DESC")
     if(start >= 0 && end > start) {
       reports = reports.slice(start, end)
     }
