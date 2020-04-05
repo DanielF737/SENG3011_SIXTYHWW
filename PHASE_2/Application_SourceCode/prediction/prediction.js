@@ -45,6 +45,7 @@ function getReports(location, disease, predictionDay) {
     if (points.length > 0) {
       let finalPoints = convertParaToPoints(points);
       let results = prediction(finalPoints, predictionDay);
+      results["location"] = location;
       return results;
     } else {
       return {success: false};
