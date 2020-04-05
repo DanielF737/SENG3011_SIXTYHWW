@@ -7,7 +7,7 @@ const extractWordCases = ["cases", "case", "positive"];
 const extractWordDeaths = ["die", "death", "deaths", "dies", "dead"];
 const totalWords = ["total", "totals", "toll", "tally", "tolls", "tallies", "already"]; 
 const garbageWords = ["hours", "hour", "day", "days", "hrs"];
-const predReq = 3;
+const predReq = 4;
 
 // Function wrapper for the whole program.
 async function predictAll(location, disease, predictionDay) {
