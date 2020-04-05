@@ -5,7 +5,9 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
+
 import './styles/index.css';
+
 import App from './App';
 import Navbar from './components/navbar';
 import Article from './components/article';
