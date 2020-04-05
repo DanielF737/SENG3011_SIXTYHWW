@@ -2,6 +2,7 @@ import React from 'react'
 import '../styles/feed.css'
 import '../styles/App.css';
 import MapContainer from './map'
+import Prediction from './prediction'
 
 //const mattsToken = "AOYyHmVa91VOLs5ktY5LV1TUowA2"
 //const mattsURL = 'https://sympt-server.herokuapp.com'
@@ -102,8 +103,11 @@ class Search extends React.Component {
             })}
           </div>
           
-          <div className="mapBox">
-            <MapContainer />
+          <div className="rightCol">
+            <div className="mapBox">
+              <MapContainer />
+            </div>
+            <Prediction />
           </div>
         </div>
       )

@@ -1,25 +1,60 @@
 import React, { Component } from 'react';
-import { Map, GoogleApiWrapper } from 'google-maps-react';
+import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
+
+const apiURL = 'http://api.sixtyhww.com:3000'
 
 const mapStyles = {
   padding: '50px',
   width: '700px',
   height: '350px',
-  borderRadius: '20px'
+  borderRadius: '20px',
+  display: 'block'
 };
 
 export class MapContainer extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      markers: []
+    }
+  }
+
+  componentDidMount() {
+    let options = {
+      method: "GET",
+      headers: {
+          'Content-Type' : 'application/JSON'
+      }
+    }
+    
+    fetch(`${apiURL}/articles?start=0&end=20`, options)
+    .then(r=> r.json())
+    .then(r => {
+      let marks = r.map(obj => obj.reports[0].locations[0])
+      this.setState({
+        markers:this.state.markers.concat(marks)
+      })
+  }) 
+  }
+
   render() {
+    let {markers} = this.state
     return (
       <Map
         google={this.props.google}
-        zoom={14}
+        zoom={2}
         style={mapStyles}
-        initialCenter={{
-         lat: -1.2884,
-         lng: 36.8233
-        }}
-      />
+        initialCenter={{ lat: 35.676, lng: 139.650}}
+      >
+        {markers.map((store, index) => {  
+          return <Marker key={index} id={index} position={{
+            lat: store.latitude,
+            lng: store.longitude
+          }}
+          onClick={() => console.log("You clicked me!")} />
+        })}
+      </Map>
     );
   }
 }

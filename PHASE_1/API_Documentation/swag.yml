@@ -2,7 +2,7 @@ swagger: "2.0"
 info:
   description: "API for pulling disease outbreak reports from Global Incident Tracker\n\n**Changelog:**\n\n
     Version 1.1.0 - 4/4/20:\n
-    - Added pagination field to search endpoint
+    - Added pagination field to search endpoint\n
     - Changed get /articles to start and end index instead of N most recent\n\n
     Version 1.0.2 - 3/4/20:\n
     - Fixed all endpoints to give locations as report.locations not report.location\n\n

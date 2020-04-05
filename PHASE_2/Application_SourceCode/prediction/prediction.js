@@ -3,7 +3,6 @@ const wtn = require("words-to-numbers")
 const fetch = require("node-fetch");
 
 const diseaseAPI = "http://api.sixtyhww.com:3000";
-const localAPI = "http://localhost:3000"
 const extractWordCases = ["cases", "case", "positive"];
 const extractWordDeaths = ["die", "death", "deaths", "dies", "dead"];
 const totalWords = ["total", "totals", "toll", "tally", "tolls", "tallies", "already"]; 

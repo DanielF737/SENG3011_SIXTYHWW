@@ -37,19 +37,27 @@
   }
 }
 
-.mapBox {
+.rightCol {
+  float: left;
   min-width: 500px;
   max-width: 800px;
   width: 80%;
-  height: 450px;
   margin: 10px auto;
   padding: 5px;
   margin-top: 50px;
   margin-bottom: 100px;
   z-index: 1000;
+}
+
+.mapBox {
   background-color: #bababa;
+  height: 450px;
   border-radius: 15px;
-  float: left;
+  position: fixed;  
+}
+.predBox {
+  margin-top: 450px;
+  position: fixed;
 }
 
 .pageBody {
