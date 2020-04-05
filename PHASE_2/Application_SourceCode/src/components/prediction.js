@@ -1,8 +1,7 @@
 import React from 'react'
 import '../styles/feed.css'
 
-//const apiURL = 'http://api.sixtyhww.com:3001'
-const apiURL = 'http://localhost:3001'
+const apiURL = 'http://api.sixtyhww.com:3001'
 
 class Prediction extends React.Component {
   constructor (props) {
