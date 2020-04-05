@@ -45,9 +45,16 @@ class Search extends React.Component {
 
     let reqBody = {
       "start_date": start,
-      "end_date": current,
-      "keyTerms": params.disease,
-      "location": params.country
+      "end_date": current
+    }
+
+    if (params.disease != "All") {
+      console.log("Not all diseases")
+      reqBody["keyTerms"] = params.disease
+    }
+    if (params.country != "All") {
+      console.log("Not all countries")
+      reqBody["location"] = params.country
     }
 
     console.log(reqBody)
@@ -59,6 +66,8 @@ class Search extends React.Component {
       },
       body: JSON.stringify(reqBody)
     }
+
+    console.log(options)
     
     fetch(`${apiURL}/search`, options)
     .then(r=> r.json())

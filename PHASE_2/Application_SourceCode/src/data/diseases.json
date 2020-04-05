@@ -1,4 +1,5 @@
 [
+{ "name": "All" , "equiv":[]},
 { "name": "anthrax cutaneous" , "equiv":["anthrax cutaneous"]},
 { "name": "anthrax gastrointestinous" , "equiv":["anthrax gastrointestinous"]},
 { "name": "anthrax inhalation" , "equiv":["anthrax inhalation"]},
