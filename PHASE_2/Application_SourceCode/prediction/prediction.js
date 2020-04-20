@@ -433,24 +433,14 @@ function prediction(points, days) {
     xVal = points[i][1];
   }
 
-  console.log(cases);
-  console.log(deaths);
   // Cycles through cases and deaths and fills in the missing values for
   // y-coordinates for missing x-coordinates. Does this by using the average
   // of previous and next values.
+  if (!checkContinuous(cases)) cases = fillIn(cases);
+  if (!checkContinuous(deaths)) deaths = fillIn(deaths);
+  console.log(cases);
+  console.log(deaths);
   
-  if (!checkContinuous(cases)) console.log("Cases Not Continuous");
-  if (!checkContinuous(deaths)) console.log("Deaths Not Continuous");
-  /*
-  let i = 0;
-  while (!checkContinuous(cases)) {
-    if ((i < cases.length - 1) && (cases[i][0] != cases[i+1][0] - 1)) {
-
-    } else {
-      i++;
-    }
-  }
-  */
   let lastDate = "";
   if (caseDates[caseDates.length-1] > deathDates[deathDates.length-1]) {
     lastDate = caseDates[caseDates.length-1];
@@ -547,13 +537,33 @@ function prediction(points, days) {
 // Checks if an array is continuous. i.e. 1, 2, 3
 function checkContinuous(array) {
   continuous = true;
-  for (let i = 0; i < array.length; i++) {
+  for (let i = 0; i < array.length - 1; i++) {
     if (array[i][0] != array[i+1][0] - 1) {
       continuous = false;
       break;
     }
   }
   return continuous;
+}
+
+// Fills in missing data with averages.
+function fillIn(array) {
+  console.log("Here");
+  let i = 0;
+  while (!checkContinuous(array)) {
+    if ((i < array.length - 1) && (array[i][0] != array[i+1][0] - 1)) {
+      let x = Math.floor((array[i][0] + array[i+1][0])/2);
+      let y = Math.floor((array[i][1] + array[i+1][1])/2);
+      let xy = [x, y];
+      console.log(xy)
+      array.splice(i+1, 0, xy)
+    } else if (i == array.length-1) {
+      break; 
+    } else {
+      i++;
+    }
+  }
+  return array;
 }
 
 module.exports.predictAll =  predictAll;
