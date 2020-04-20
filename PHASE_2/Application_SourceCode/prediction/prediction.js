@@ -433,28 +433,24 @@ function prediction(points, days) {
     xVal = points[i][1];
   }
 
+  console.log(cases);
+  console.log(deaths);
   // Cycles through cases and deaths and fills in the missing values for
   // y-coordinates for missing x-coordinates. Does this by using the average
   // of previous and next values.
+  
+  if (!checkContinuous(cases)) console.log("Cases Not Continuous");
+  if (!checkContinuous(deaths)) console.log("Deaths Not Continuous");
   /*
-  for (let i = 0; i < cases.length-1; i++) {
-    if (cases[i][0] != cases[i+1][0]-1) {
-      console.log(cases[i][0]);
-      console.log(cases[i+1][0]);
-      let yVal = (cases[i][1] + cases[i+1][1])/2;
-      let xVal = Math.floor((cases[i][0] + cases[i+1][0])/2);
-      cases.splice(i, 0, [xVal, yVal]);
+  let i = 0;
+  while (!checkContinuous(cases)) {
+    if ((i < cases.length - 1) && (cases[i][0] != cases[i+1][0] - 1)) {
+
+    } else {
+      i++;
     }
   }
-
-  for (let i = 0; i < deaths.length-1; i++) {
-    if (deaths[i][0] != deaths[i+1][0]-1) {
-      let yVal = (deaths[i][1] + deaths[i+1][1])/2;
-      let xVal = Math.floor((deaths[i][0] + deaths[i+1][0])/2);
-      deaths.splice(i, 0, [xVal, yVal]);
-    }
-  }*/
-
+  */
   let lastDate = "";
   if (caseDates[caseDates.length-1] > deathDates[deathDates.length-1]) {
     lastDate = caseDates[caseDates.length-1];
@@ -536,10 +532,7 @@ function prediction(points, days) {
       string: "Insufficient Points"
     };
   }
-  
-  // If anything was successful.
-
-  
+    
   // Compiles the data for cases and deaths for frontend.
   let predPackage = {
     success: successVal,
@@ -549,6 +542,18 @@ function prediction(points, days) {
 
   //console.log(predPackage);
   return predPackage;
+}
+
+// Checks if an array is continuous. i.e. 1, 2, 3
+function checkContinuous(array) {
+  continuous = true;
+  for (let i = 0; i < array.length; i++) {
+    if (array[i][0] != array[i+1][0] - 1) {
+      continuous = false;
+      break;
+    }
+  }
+  return continuous;
 }
 
 module.exports.predictAll =  predictAll;
