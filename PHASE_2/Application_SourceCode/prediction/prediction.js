@@ -3,7 +3,7 @@ const wtn = require("words-to-numbers")
 const fetch = require("node-fetch");
 
 const diseaseAPI = "http://api.sixtyhww.com:3000";
-const extractWordCases = ["cases", "case", "positive"];
+const extractWordCases = ["cases", "case", "positive", "new", "patients", "patient"];
 const extractWordDeaths = ["die", "death", "deaths", "dies", "dead"];
 const totalWords = ["total", "totals", "toll", "tally", "tolls", "tallies", "already"]; 
 const garbageWords = ["hours", "hour", "day", "days", "hrs"];
@@ -67,12 +67,12 @@ function reportToPoints(reports) {
     // Gets the headline and converts any numbers written as words into integers.
     let headline = reports[i].headline;
     let newHeadline = wtn.wordsToNumbers(headline);
-
+    
     // Removes unecessary data.
     let sepHeadline = stripHeadline(newHeadline);
     sepHeadline = removeGarbage(sepHeadline);
     sepHeadline = removeDuplicates(sepHeadline);
-
+    
     // Groups together relevant information.
     let filteredInfo = filterInformation(sepHeadline);
     filteredInfo = organiseData(filteredInfo);
@@ -438,12 +438,16 @@ function prediction(points, days) {
   // of previous and next values.
   if (!checkContinuous(cases)) cases = fillIn(cases);
   if (!checkContinuous(deaths)) deaths = fillIn(deaths);
-  console.log(cases);
-  console.log(deaths);
   
   let lastDate = "";
-  if (caseDates[caseDates.length-1] > deathDates[deathDates.length-1]) {
+  // Compares the last dates.
+  if ((caseDates.length >= 1) && (deathDates.length >= 1) 
+    && (caseDates[caseDates.length-1] > deathDates[deathDates.length-1])) {
     lastDate = caseDates[caseDates.length-1];
+  } else if ((caseDates.length >= 1) && (deathDates.length == 0)) {
+    lastDate = caseDates[caseDates.length-1];
+  } else if ((caseDates.length == 0) && (deathDates.length >= 1)) {
+    lastDate = deathDates[deathDates.length-1];
   } else {
     lastDate = deathDates[deathDates.length-1];
   }
@@ -468,6 +472,7 @@ function prediction(points, days) {
     if (casePoly.equation.indexOf(null) == -1) {
       // Performs the actual prediction.
       let tmpCase = casePoly.predict(diff);
+      
       // If number is a negative, then there should be no cases.
       if (tmpCase[1] < 0) tmpCase[1] = 0;
       // Formats all the relevant data for cases to send to frontend.
@@ -530,7 +535,6 @@ function prediction(points, days) {
     deaths: deathPred
   };
 
-  //console.log(predPackage);
   return predPackage;
 }
 
@@ -548,14 +552,12 @@ function checkContinuous(array) {
 
 // Fills in missing data with averages.
 function fillIn(array) {
-  console.log("Here");
   let i = 0;
   while (!checkContinuous(array)) {
     if ((i < array.length - 1) && (array[i][0] != array[i+1][0] - 1)) {
       let x = Math.floor((array[i][0] + array[i+1][0])/2);
       let y = Math.floor((array[i][1] + array[i+1][1])/2);
       let xy = [x, y];
-      console.log(xy)
       array.splice(i+1, 0, xy)
     } else if (i == array.length-1) {
       break; 
