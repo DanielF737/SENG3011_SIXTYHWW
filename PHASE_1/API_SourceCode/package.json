@@ -4,11 +4,11 @@
   "description": "",
   "main": "api.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node api.js",
     "dbinit": "node scripts/createdb",
     "scraper": "node scripts/scraper",
-    "loaddata": "node scripts/loadData"
+    "loaddata": "node scripts/loadData",
+    "test": "node services/test.js"
   },
   "author": "",
   "license": "ISC",
