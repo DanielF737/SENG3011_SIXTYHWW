@@ -191,60 +191,80 @@ app.delete('/articles/:id', async (req,res) => {
 
 });
 
-  app.post('/register', async (req, res) => {
-    try {
-      if (!req.body.username) throw "Username not given";
-      if (!req.body.password) throw "Password not given";
-      token = await userService.register(req.body.username, req.body.password);
-      res.send(token);
-    } catch (e) {
-      res.status(400).send(e);
-    }
-  });
+app.post('/register', async (req, res) => {
+  try {
+    if (!req.body.username) throw "Username not given";
+    if (!req.body.password) throw "Password not given";
+    token = await userService.register(req.body.username, req.body.password);
+    res.send(token);
+  } catch (e) {
+    res.status(400).send(e);
+  }
+});
 
-  app.post('/login', async (req, res) => {
-    try {
-      if (!req.body.username) throw "Username not given";
-      if (!req.body.password) throw "Password not given";
-      token = await userService.login(req.body.username, req.body.password);
-      res.send(token);
-    } catch(e) {
-      res.status(400).send(e);
-    }
-  });
+app.post('/login', async (req, res) => {
+  try {
+    if (!req.body.username) throw "Username not given";
+    if (!req.body.password) throw "Password not given";
+    token = await userService.login(req.body.username, req.body.password);
+    res.send(token);
+  } catch(e) {
+    res.status(400).send(e);
+  }
+});
 
-  app.post('/logout', async (req, res) => {
-    try {
-      if (!req.headers.authorization) throw "Token not given"
-      await userService.logout(req.headers.authorization);
-    } catch(e) {
-      res.status(400).send(e)
-    }
-  });
+app.post('/logout', async (req, res) => {
+  try {
+    if (!req.headers.authorization) throw "Token not given"
+    await userService.logout(req.headers.authorization);
+  } catch(e) {
+    res.status(400).send(e)
+  }
+});
 
-  app.post('/follow_location', async (req, res) => {
-    try {
-      if (!req.headers.authorization) throw "Token not given"
-      if (!req.body.location) throw "Location not given"
-      user = await userService
-      await userService.addLocationFollow(req.headers.authorization,
-        req.body.location)
-    } catch(e) {
-      res.status(400).send(e)
-    }
-  });
+app.post('/follow_location', async (req, res) => {
+  try {
+    if (!req.headers.authorization) throw "Token not given"
+    if (!req.body.location) throw "Location not given"
+    user = await userService.tokenToUserId(req.headers.authorization)
+    await userService.addLocationFollow(user,req.body.location)
+  } catch(e) {
+    res.status(400).send(e)
+  }
+});
 
 
-  app.post('/follow_disease_or_syndrome', async (req, res) => {
-    try {
-      if (!req.headers.authorization) throw "Token not given"
-      if (!req.body.disease_or_syndrome) throw "Location not given"
-      await userService.addSyndromeOrDiseaseFollow(req.headers.authorization,
-        req.body.disease_or_syndrome)
-    } catch(e) {
-      res.status(400).send(e)
-    }
-  });
+app.post('/follow_disease_or_syndrome', async (req, res) => {
+  try {
+    if (!req.headers.authorization) throw "Token not given"
+    if (!req.body.disease_or_syndrome) throw "Location not given"
+    user = await userService.tokenToUserId(req.headers.authorization)
+    await userService.addSyndromeOrDiseaseFollow(user, req.body.disease_or_syndrome)
+  } catch(e) {
+    res.status(400).send(e)
+  }
+});
 
+app.get('/follow_disease_or_syndrome', async (req, res) => {
+  try {
+    if (!req.headers.authorization) throw "Token not given"
+    if (!req.body.disease_or_syndrome) throw "Location not given"
+    user = await userService.tokenToUserId(req.headers.authorization)
+    await userService.addSyndromeOrDiseaseFollow(user, req.body.disease_or_syndrome)
+  } catch(e) {
+    res.status(400).send(e)
+  }
+});
+app.get('/feed', async(req, res) => {
+  try {
+    if (!req.headers.authorization) throw "Token not given";
+    user = await userService.tokenToUserId(req.headers.authorization)
+    feed = await userService.getFeed(user);
+    res.send(feed)
+  } catch(e){
+    res.status(400).send(e)
+  }
+
+})
 // Run Server
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
