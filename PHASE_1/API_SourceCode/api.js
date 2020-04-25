@@ -226,6 +226,7 @@ app.delete('/articles/:id', async (req,res) => {
     try {
       if (!req.headers.authorization) throw "Token not given"
       if (!req.body.location) throw "Location not given"
+      user = await userService
       await userService.addLocationFollow(req.headers.authorization,
         req.body.location)
     } catch(e) {
