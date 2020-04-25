@@ -30,6 +30,9 @@ async function addArticle (article) {
 }
 
 async function addReport(id, report) {
+
+  console.log(id);
+
   const statement = await conn.run(`
     INSERT INTO reports (article_id, diseases, syndromes, event_date, country, city, latitude, longitude)
     VALUES ($article_id, $disease, $syndrome, $event_date, $country, $city, $latitude, $longitude)
@@ -60,8 +63,6 @@ async function search(searchRequest) {
 
     var params = {};
 
-    console.log(typeof searchRequest.start_date);
-
     if (searchRequest.start_date) {
       query += " AND event_date > $start_date";
       params.$start_date = searchRequest.start_date;
@@ -82,6 +83,8 @@ async function search(searchRequest) {
     console.log(params);
 
     var reports = await conn.all(query, params);
+
+    console.log(reports);
 
     if (searchRequest.keyTerms) {
       const regex = new RegExp(searchRequest.keyTerms.trim().toLowerCase() ? searchRequest.keyTerms.trim().toLowerCase().replace(",", "|") : "", "i");
