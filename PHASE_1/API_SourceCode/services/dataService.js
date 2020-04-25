@@ -17,6 +17,8 @@ async function addArticle (article) {
       $date: article.date_of_publication
     });
 
+    console.log(statement);
+
     article.reports.forEach(async (report) => await addReport(statement.lastID, report));
 
     return true;
