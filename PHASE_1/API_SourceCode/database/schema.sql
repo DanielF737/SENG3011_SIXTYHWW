@@ -44,6 +44,6 @@ CREATE TABLE IF NOT EXISTS reports (
   foreign key (article_id) references articles(id)
 );
 
-CREATE UNIQUE INDEX users_idx ON articles (username);
+CREATE UNIQUE INDEX users_idx ON users (uname);
 CREATE UNIQUE INDEX articles_idx ON articles (url);
 CREATE UNIQUE INDEX reports_idx ON reports (diseases, syndromes, event_date, country, city, longitude, latitude);
