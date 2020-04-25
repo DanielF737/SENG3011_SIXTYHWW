@@ -1,15 +1,16 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const database = require('../common/db');
 const swagger = require('swagger-ui-express');
-const swaggerDoc = require("yamljs").load("../../API_Documentation/swag.yml");
-const logger = require("../common/logger");
+const database = require('./common/db');
+const logger = require("./common/logger");
+const swaggerDoc = require("yamljs").load("../API_Documentation/swag.yml");
 
 // Constants
 const PORT = 3000;
 const API_KEY = "YeetSwag420";
 
 database().then((db) => {
+
   // Init Express
   const app = express();
 
@@ -137,7 +138,7 @@ database().then((db) => {
 
   });
 
-  app.get('/articles/:id', async(req, res) => {
+  app.get('/articles/:id', async (req, res) => {
 
     const id = parseInt(req.params.id);
 
@@ -161,7 +162,7 @@ database().then((db) => {
 
   });
 
-  app.delete('/articles/:id', async(req,res) => {
+  app.delete('/articles/:id', async (req,res) => {
 
     if (req.headers.authorization != API_KEY) {
       res.sendStatus(401);
@@ -188,6 +189,38 @@ database().then((db) => {
       res.sendStatus(400);
       logger.log("/articles/:id", req.startTime, JSON.stringify(req.body, null, 2), `404`);
     }
+
+  });
+
+  app.post('/register', async (req, res) => {
+    try {
+      if (!req.body.username) throw "Username not given";
+      if (!req.body.password) throw "Password not given";
+      
+    } catch (e) {
+      res.status(400).send(e);
+    }
+  });
+
+  app.post('/login', async (req, res) => {
+
+  });
+
+  app.post('/logout', async (req, res) => {
+
+  });
+
+  app.post('/follow_country', async (req, res) => {
+
+    req.headers.authorization
+
+  });
+
+  app.post('/follow_city', async (req, res) => {
+
+  });
+
+  app.post('/follow_disease_or_syndrome', async (req, res) => {
 
   });
 

@@ -1,4 +1,5 @@
-const sqlite = require('sqlite');
+import { open } from 'sqlite';
+import { v4 as uuidv4 } from 'uuid';
 
 var conn;
 
@@ -153,8 +154,75 @@ async function deleteArticle(id) {
   }
 }
 
-module.exports = async () => {
-  conn = await sqlite.open("../database/database.sqlite");
+/*
+
+  Users
+
+*/
+
+async function register(username, password) {
+  await conn.run(`
+    INSERT INTO users (uname, pword)
+    VALUES ($username, $password)
+  `, {
+    $username: username,
+    $password: password
+  });
+}
+
+async function login(username, password) {
+  try {
+
+    const user = await conn.get("SELECT * FROM users WHERE uname == $username", {
+      $username: username
+    });
+
+    if (user.password !== password) throw "Incorrect password";
+
+    const user = await conn.get("SELECT * FROM sessions WHERE user_id == $user_id", {
+      $user_id: user.user_id
+    });
+
+    const token = uuidv4();
+
+    await conn.run(`
+      INSERT INTO sessions (token, user_id)
+      VALUES ($token, $user_id)
+    `, {
+      $token: token,
+      $user_id: user.user_id
+    });
+
+    return token;
+
+  } catch (e){
+    console.log(e);
+    throw e;
+  }
+}
+
+async function addLocationFollow(user_id, location_name) {
+  await conn.run(`
+    INSERT INTO location_follows (user_id, location_name)
+    VALUES ($user_id, $location_name)
+  `, {
+    $user_id: user_id,
+    $location_name: location_name
+  });
+}
+
+async function addSyndromeOrDiseaseFollow(user_id, disease_or_syndrome) {
+  await conn.run(`
+    INSERT INTO disease_and_syndrome_follows (user_id, disease_or_syndrome)
+    VALUES ($user_id, $disease_or_syndrome)
+  `, {
+    $user_id: user_id,
+    $disease_or_syndrome: disease_or_syndrome
+  });
+}
+
+export default async () => {
+  conn = await open("../database/database.sqlite");
 
   return {
     "addArticle": addArticle,
