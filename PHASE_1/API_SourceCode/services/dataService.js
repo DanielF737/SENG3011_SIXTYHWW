@@ -1,7 +1,6 @@
 const conn = require('./dbService.js');
 
-module.exports.addArticle = async  (article) => {
-
+async function addArticle (article) {
   try {
     const statement = await conn.run(`
       INSERT INTO articles (url, headline, body, date_of_publication)
@@ -30,7 +29,7 @@ module.exports.addArticle = async  (article) => {
   }
 }
 
-module.exports.addReport = async (id, report) => {
+async function addReport(id, report) {
   const statement = await conn.run(`
     INSERT INTO reports (article_id, diseases, syndromes, event_date, country, city, latitude, longitude)
     VALUES ($article_id, $disease, $syndrome, $event_date, $country, $city, $latitude, $longitude)
@@ -55,7 +54,7 @@ module.exports.addReport = async (id, report) => {
   });
 }
 
-module.exports.search = async (searchRequest) => {
+async function searchRequest(searchRequest) {
   try {
     var query = "SELECT * FROM articles, reports WHERE articles.id == reports.article_id";
 
@@ -116,8 +115,7 @@ module.exports.search = async (searchRequest) => {
     return null;
   }
 }
-
-module.exports.getAllArticles = async (start,end) => {
+async function getAllArticles(start,end) {
   try {
     let reports = await conn.all("SELECT * FROM articles, reports WHERE articles.id == reports.article_id ORDER BY articles.date_of_publication DESC")
     if(start >= 0 && end > start) {
@@ -130,7 +128,7 @@ module.exports.getAllArticles = async (start,end) => {
   }
 }
 
-module.exports.getArticle = async (id) => {
+async function getArticle(id) {
   try {
     return await conn.get("SELECT * FROM articles WHERE id == $id", {
       $id: id
@@ -140,8 +138,7 @@ module.exports.getArticle = async (id) => {
     return null;
   }
 }
-
-module.exports.deleteArticle = async (id) => {
+async function deleteArticle(id) {
   try {
     await conn.run("DELETE FROM articles WHERE id == $id", {
       $id: id
@@ -149,4 +146,13 @@ module.exports.deleteArticle = async (id) => {
   } catch (e){
     console.log(e);
   }
+}
+
+module.exports = {
+  addArticle:     addArticle,
+  addReport:      addReport,
+  searchRequest:  searchRequest,
+  getAllArticles: getAllArticles,
+  getArticle:     getArticle,
+  deleteArticle:  deleteArticle
 }

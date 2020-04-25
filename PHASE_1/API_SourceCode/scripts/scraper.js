@@ -2,85 +2,79 @@ const axios = require('axios');
 const cheerio = require('cheerio');
 const base_url = 'http://outbreaks.globalincidentmap.com/';
 const fs = require('fs');
-const database = require('../common/db');
+const dataService = require('../services/dataService');
 
-let diseases = JSON.parse(fs.readFileSync('../data/disease_list.json'));
-let syndromes = JSON.parse(fs.readFileSync('../data/syndrome_list.json'));
+let diseases = JSON.parse(fs.readFileSync('./data/disease_list.json'));
+let syndromes = JSON.parse(fs.readFileSync('./data/syndrome_list.json'));
 
-database().then((db) => {
-	// Grab the page
-	axios(base_url).then(response => {
-		const html = response.data;
-		const $ = cheerio.load(html)
-		const pages = [];
+// Grab the page
+axios(base_url).then(response => {
+  const html = response.data;
+  const $ = cheerio.load(html)
+  const pages = [];
 
-		// Find the list of recent events
-		const items = $('#pic1');
-		links = items.find('.b2')
-		links.each(function(){
-			pages.push([base_url + $(this).attr('href'), $(this).text().trim()])
-		})
-		// For each event, add the url to the list
-		return Promise.all(
-			pages.map(url => {
-				return parseURL(url)
-			})
-		)
-	}).then(res =>{
-		res.forEach(async (article) => {
-			try {
-				await db.addArticle(article);
-			} catch (e) {
-				console.error(e);
-			}
-		});
+  // Find the list of recent events
+  const items = $('#pic1');
+  links = items.find('.b2')
+  links.each(function(){
+    pages.push([base_url + $(this).attr('href'), $(this).text().trim()])
+  })
+  // For each event, add the url to the list
+  return Promise.all(
+    pages.map(url => {
+      return parseURL(url)
+    })
+  )
+}).then(res =>{
+  res.forEach(async (article) => {
+    try {
+      await dataService.addArticle(article);
+    } catch (e) {
+      console.error(e);
+    }
+  });
 
-		fs.writeFile("../data/output.json", JSON.stringify(res, null, 2), 'utf8', err => {
-			if (err){
-				console.log("[ERROR] Failed to write output.json")
-				return console.log(err);
-			}
-			console.log("[LOG] Saved output to output.json")
-			const fs = require('fs');
-			
-			let date_ob = new Date();
+  fs.writeFile("./data/output.json", JSON.stringify(res, null, 2), 'utf8', err => {
+    if (err){
+      console.log("[ERROR] Failed to write output.json")
+      return console.log(err);
+    }
+    console.log("[LOG] Saved output to output.json")
+    const fs = require('fs');
+    
+    let date_ob = new Date();
 
-			// current date
-			// adjust 0 before single digit date
-			let date = ("0" + date_ob.getDate()).slice(-2);
-			
-			// current month
-			let month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
-			
-			// current year
-			let year = date_ob.getFullYear();
-			
-			// current hours
-			let hours = date_ob.getHours();
-			
-			// current minutes
-			let minutes = date_ob.getMinutes();
-			
-			// current seconds
-			let seconds = date_ob.getSeconds();
+    // current date
+    // adjust 0 before single digit date
+    let date = ("0" + date_ob.getDate()).slice(-2);
+    
+    // current month
+    let month = ("0" + (date_ob.getMonth() + 1)).slice(-2);
+    
+    // current year
+    let year = date_ob.getFullYear();
+    
+    // current hours
+    let hours = date_ob.getHours();
+    
+    // current minutes
+    let minutes = date_ob.getMinutes();
+    
+    // current seconds
+    let seconds = date_ob.getSeconds();
 
-			const logline = "run scraper at: " + year + "-" + month + "-" + date + " " + hours + ":" + minutes + ":" + seconds + "\n";
+    const logline = "run scraper at: " + year + "-" + month + "-" + date + " " + hours + ":" + minutes + ":" + seconds + "\n";
 
-			fs.appendFile('runlog.txt', logline, function (err) {
-				  if (err) throw err;
-				  console.log('Saved!');
-			});
-		})
-	})
-	.catch(err =>{
-		console.log("[ERROR] Failed parsing base_url")
-		console.log(err)
-	});
-}).catch((e) => {
-  console.log(e);
+    fs.appendFile('runlog.txt', logline, function (err) {
+        if (err) throw err;
+        console.log('Saved!');
+    });
+  })
+})
+.catch(err =>{
+  console.log("[ERROR] Failed parsing base_url")
+  console.log(err)
 });
-
-
 
 // Grab info from article
 function parseURL(url){
