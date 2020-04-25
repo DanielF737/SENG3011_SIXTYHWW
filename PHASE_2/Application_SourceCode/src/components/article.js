@@ -10,50 +10,33 @@ class Article extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      results:[]
+      results:[],
+      markers:[]
     }
-  }
-
-  componentDidMount() {
-    const { params } = this.props.match
-
-    let options = {
-    method: "GET",
-    headers: {
-        'Content-Type' : 'application/JSON'
-    }
-  }
-  
-  fetch(`${apiURL}/articles/${params.id}`, options)
-  .then(r=> r.json())
-  .then(r => {
-    console.log(r)
-    this.setState({
-      results:this.state.results.concat(r)
-    })
-  })
-
   }
   
   render() {
+    console.log(this.props.location.articleProps)
+    let article=this.props.location.articleProps.article
+    let marker= this.props.location.articleProps.marker
+    console.log(marker)
     const { params } = this.props.match
     return (
       <div className="pageBody">
         <div className="feed">
-            {this.state.results.map((obj, i) => {
-              return(
-                <div className="feedObj">
-                  <h4>{obj.headline}</h4>
-                  <p><a href={obj.url}>View the original source</a></p>
-                  <p>{obj.date_of_publication}</p>
-                  <p>{obj.body}</p>
-                </div>
-              )
-            })}
+          
+          <div className="feedObj">
+            <h4> {article.headline}</h4>
+            <p><a href={article.url}>View the original source</a></p>
+            <p>{article.date_of_publication}</p>
+            <p>{article.main_text}</p>
+            <br></br>
+          </div>
+
         </div>
         <div className="rightCol">
           <div className="mapBox">
-            <MapContainer />
+            <MapContainer markers={marker}/>
           </div>
         </div>
       </div>

@@ -1,4 +1,5 @@
 import React from 'react'
+import {Link} from 'react-router-dom';
 import '../styles/feed.css'
 import '../styles/App.css';
 import MapContainer from './map'
@@ -15,7 +16,8 @@ class Search extends React.Component {
   constructor () {
     super();
     this.state = {
-      results: []
+      results: [],
+      markers: []
     };
   }
 
@@ -48,11 +50,11 @@ class Search extends React.Component {
       "end_date": current
     }
 
-    if (params.disease != "All") {
+    if (params.disease !== "All") {
       console.log("Not all diseases")
       reqBody["keyTerms"] = params.disease
     }
-    if (params.country != "All") {
+    if (params.country !== "All") {
       console.log("Not all countries")
       reqBody["location"] = params.country
     }
@@ -72,10 +74,15 @@ class Search extends React.Component {
     fetch(`${apiURL}/search`, options)
     .then(r=> r.json())
     .then(r => {
-        console.log(r)
-        this.setState({
-          results:this.state.results.concat(r.reverse())
-        })
+      let marks = r.map(obj => obj.reports[0].locations[0])
+      console.log(marks)
+      for (var i = 0; i < r.length; i++) {
+        r[i].source="Global Incident Tracker"
+      }
+      this.setState({
+        results:this.state.results.concat(r),
+        markers:this.state.markers.concat(marks)
+      })
     })
   }
 
@@ -99,21 +106,25 @@ class Search extends React.Component {
           <div className="feed">
             <h2>Results for {params.disease} in {params.country}</h2>
             {results.map((obj, i) => {
-                return (
-                  <div className="feedObj" key={i}>
-                    <h4>{obj.headline}</h4>
-                    <p><a href={obj.url}>View the original source</a></p>
-                    <p>{obj.date_of_publication}</p>
-                    <p>{obj.main_text}</p>
-                    <br></br>
-                  </div>
-                )
-            })}
+              return (
+                <div className="feedObj" key={i}>
+                  <h4><Link to={{
+                    pathname: `/article/${obj.id}`,
+                    articleProps: {
+                      article:obj,
+                      marker:[obj.reports[0].locations[0]]
+                    }
+                  }}> {obj.headline}</Link></h4>
+                  <p>{obj.date_of_publication}</p>
+                  <p>{obj.source}</p>
+                  <br></br>
+                </div>
+            )})}
           </div>
           
           <div className="rightCol">
             <div className="mapBox">
-              <MapContainer />
+              <MapContainer markers={this.state.markers}/>
             </div>
             <div className="predBox">
               <div className="feed">
