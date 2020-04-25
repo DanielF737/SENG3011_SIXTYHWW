@@ -54,7 +54,7 @@ async function addReport(id, report) {
   });
 }
 
-async function searchRequest(searchRequest) {
+async function search(searchRequest) {
   try {
     var query = "SELECT * FROM articles, reports WHERE articles.id == reports.article_id";
 
@@ -151,7 +151,7 @@ async function deleteArticle(id) {
 module.exports = {
   addArticle:     addArticle,
   addReport:      addReport,
-  searchRequest:  searchRequest,
+  search:         search,
   getAllArticles: getAllArticles,
   getArticle:     getArticle,
   deleteArticle:  deleteArticle
