@@ -196,32 +196,56 @@ database().then((db) => {
     try {
       if (!req.body.username) throw "Username not given";
       if (!req.body.password) throw "Password not given";
-      
+      token = await db.register(req.body.username, req.body.password);
+      res.send(token);
     } catch (e) {
       res.status(400).send(e);
     }
   });
 
   app.post('/login', async (req, res) => {
+    try {
+      if (!req.body.username) throw "Username not given";
+      if (!req.body.password) throw "Password not given";
+      token = await db.login(req.body.username, req.body.password);
+      res.send(token);
+    } catch(e) {
+      res.status(400).send(e);
+    }
+
 
   });
 
   app.post('/logout', async (req, res) => {
-
+    try {
+      if (!req.headers.authorization) throw "Token not given"
+      await db.logout(req.headers.authorization);
+    } catch(e) {
+      res.status(400).send(e)
+    }
   });
 
-  app.post('/follow_country', async (req, res) => {
-
-    req.headers.authorization
-
-  });
-
-  app.post('/follow_city', async (req, res) => {
+  app.post('/follow_location', async (req, res) => {
+    try {
+      if (!req.headers.authorization) throw "Token not given"
+      if (!req.body.location) throw "Location not given"
+      await db.addLocationFollow(req.headers.authorization,
+        req.body.location)
+    } catch(e) {
+      res.status(400).send(e)
+    }
 
   });
 
   app.post('/follow_disease_or_syndrome', async (req, res) => {
-
+    try {
+      if (!req.headers.authorization) throw "Token not given"
+      if (!req.body.disease_or_syndrome) throw "Location not given"
+      await db.addSyndromeOrDiseaseFollow(req.headers.authorization,
+        req.body.disease_or_syndrome)
+    } catch(e) {
+      res.status(400).send(e)
+    }
   });
 
   // Run Server
