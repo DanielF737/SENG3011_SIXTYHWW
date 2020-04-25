@@ -3,7 +3,7 @@ const wtn = require("words-to-numbers")
 const fetch = require("node-fetch");
 
 const diseaseAPI = "http://api.sixtyhww.com:3000";
-const extractWordCases = ["cases", "case", "positive"];
+const extractWordCases = ["cases", "case", "positive", "new", "patients", "patient"];
 const extractWordDeaths = ["die", "death", "deaths", "dies", "dead"];
 const totalWords = ["total", "totals", "toll", "tally", "tolls", "tallies", "already"]; 
 const garbageWords = ["hours", "hour", "day", "days", "hrs"];
@@ -67,12 +67,12 @@ function reportToPoints(reports) {
     // Gets the headline and converts any numbers written as words into integers.
     let headline = reports[i].headline;
     let newHeadline = wtn.wordsToNumbers(headline);
-
+    
     // Removes unecessary data.
     let sepHeadline = stripHeadline(newHeadline);
     sepHeadline = removeGarbage(sepHeadline);
     sepHeadline = removeDuplicates(sepHeadline);
-
+    
     // Groups together relevant information.
     let filteredInfo = filterInformation(sepHeadline);
     filteredInfo = organiseData(filteredInfo);
@@ -436,28 +436,18 @@ function prediction(points, days) {
   // Cycles through cases and deaths and fills in the missing values for
   // y-coordinates for missing x-coordinates. Does this by using the average
   // of previous and next values.
-  /*
-  for (let i = 0; i < cases.length-1; i++) {
-    if (cases[i][0] != cases[i+1][0]-1) {
-      console.log(cases[i][0]);
-      console.log(cases[i+1][0]);
-      let yVal = (cases[i][1] + cases[i+1][1])/2;
-      let xVal = Math.floor((cases[i][0] + cases[i+1][0])/2);
-      cases.splice(i, 0, [xVal, yVal]);
-    }
-  }
-
-  for (let i = 0; i < deaths.length-1; i++) {
-    if (deaths[i][0] != deaths[i+1][0]-1) {
-      let yVal = (deaths[i][1] + deaths[i+1][1])/2;
-      let xVal = Math.floor((deaths[i][0] + deaths[i+1][0])/2);
-      deaths.splice(i, 0, [xVal, yVal]);
-    }
-  }*/
-
+  if (!checkContinuous(cases)) cases = fillIn(cases);
+  if (!checkContinuous(deaths)) deaths = fillIn(deaths);
+  
   let lastDate = "";
-  if (caseDates[caseDates.length-1] > deathDates[deathDates.length-1]) {
+  // Compares the last dates.
+  if ((caseDates.length >= 1) && (deathDates.length >= 1) 
+    && (caseDates[caseDates.length-1] > deathDates[deathDates.length-1])) {
     lastDate = caseDates[caseDates.length-1];
+  } else if ((caseDates.length >= 1) && (deathDates.length == 0)) {
+    lastDate = caseDates[caseDates.length-1];
+  } else if ((caseDates.length == 0) && (deathDates.length >= 1)) {
+    lastDate = deathDates[deathDates.length-1];
   } else {
     lastDate = deathDates[deathDates.length-1];
   }
@@ -482,6 +472,7 @@ function prediction(points, days) {
     if (casePoly.equation.indexOf(null) == -1) {
       // Performs the actual prediction.
       let tmpCase = casePoly.predict(diff);
+      
       // If number is a negative, then there should be no cases.
       if (tmpCase[1] < 0) tmpCase[1] = 0;
       // Formats all the relevant data for cases to send to frontend.
@@ -536,10 +527,7 @@ function prediction(points, days) {
       string: "Insufficient Points"
     };
   }
-  
-  // If anything was successful.
-
-  
+    
   // Compiles the data for cases and deaths for frontend.
   let predPackage = {
     success: successVal,
@@ -547,8 +535,37 @@ function prediction(points, days) {
     deaths: deathPred
   };
 
-  //console.log(predPackage);
   return predPackage;
+}
+
+// Checks if an array is continuous. i.e. 1, 2, 3
+function checkContinuous(array) {
+  continuous = true;
+  for (let i = 0; i < array.length - 1; i++) {
+    if (array[i][0] != array[i+1][0] - 1) {
+      continuous = false;
+      break;
+    }
+  }
+  return continuous;
+}
+
+// Fills in missing data with averages.
+function fillIn(array) {
+  let i = 0;
+  while (!checkContinuous(array)) {
+    if ((i < array.length - 1) && (array[i][0] != array[i+1][0] - 1)) {
+      let x = Math.floor((array[i][0] + array[i+1][0])/2);
+      let y = Math.floor((array[i][1] + array[i+1][1])/2);
+      let xy = [x, y];
+      array.splice(i+1, 0, xy)
+    } else if (i == array.length-1) {
+      break; 
+    } else {
+      i++;
+    }
+  }
+  return array;
 }
 
 module.exports.predictAll =  predictAll;
