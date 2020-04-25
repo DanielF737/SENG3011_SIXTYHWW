@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
+import { Map, GoogleApiWrapper, Marker, InfoWindow} from 'google-maps-react';
 import {withRouter} from 'react-router-dom';
 
 const apiURL = 'http://api.sixtyhww.com:3000'
@@ -17,31 +17,10 @@ export class MapContainer extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      markers: []
-    }
-  }
-
-  componentDidMount() {
-    let options = {
-      method: "GET",
-      headers: {
-          'Content-Type' : 'application/JSON'
-      }
-    }
-    
-    fetch(`${apiURL}/articles?start=0&end=20`, options)
-    .then(r=> r.json())
-    .then(r => {
-      let marks = r.map(obj => obj.reports[0].locations[0])
-      this.setState({
-        markers:this.state.markers.concat(marks)
-      })
-  }) 
   }
 
   render() {
-    let {markers} = this.state
+    let {markers} = this.props
     console.log(this.props)
     return (
       <Map
