@@ -39,7 +39,7 @@ app.post('/search', async (req, res) => {
   const reports = await dataService.search(req.body);
 
   if (reports) {
-    reports.forEach(rep =>{
+    reports.forEach(rep => {
       rep.main_text = rep.body
       delete rep.body
       rep.reports = []
@@ -125,7 +125,8 @@ app.get('/articles', async (req, res) => {
     delete rep.diseases
     delete rep.syndromes
     delete rep.article_id
-  })
+  });
+
   if (articles) {
     res.send(articles);
     loggingService.log("GET /articles", req.startTime, JSON.stringify(req.body, null, 2), `200 - ${articles.length} articles found`);
@@ -177,8 +178,7 @@ app.delete('/articles/:id', async (req,res) => {
     loggingService.log("/search", req.startTime, JSON.stringify(req.body, null, 2), `400 - No id provided`);
     return;
   }
-
-
+  
   const article = await dataService.deleteArticle(id);
 
   if (article) {
