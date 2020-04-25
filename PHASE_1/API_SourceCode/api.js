@@ -1,119 +1,47 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const swagger = require('swagger-ui-express');
-const database = require('./common/db');
-const logger = require("./common/logger");
 const swaggerDoc = require("yamljs").load("../API_Documentation/swag.yml");
+
+// Import services
+const dataService = require('./services/dataService.js');
+const userService = require('./services/userService.js');
+const loggingService = require('./services/loggingService.js');
 
 // Constants
 const PORT = 3000;
 const API_KEY = "YeetSwag420";
 
-database().then((db) => {
+// Init Express
+const app = express();
+//CORS
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 
-  // Init Express
-  const app = express();
+// Swagger
+app.use('/', swagger.serve)
+app.get('/', swagger.setup(swaggerDoc))
 
-  //CORS
-  app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-    next();
-  });
+// Middleware
+app.use((req, res, next) => {
+  req.startTime = new Date();
+  next();
+});
 
-  // Swagger
-  app.use('/', swagger.serve)
-  app.get('/', swagger.setup(swaggerDoc))
+app.use(bodyParser.json());
 
-  // Middleware
-  app.use((req, res, next) => {
-    req.startTime = new Date();
-    next();
-  });
+// API Routes
+app.post('/search', async (req, res) => {
 
-  app.use(bodyParser.json());
+  const reports = await dataService.search(req.body);
 
-  // API Routes
-  app.post('/search', async (req, res) => {
-
-    const reports = await db.search(req.body);
-
-    if (reports) {
-      reports.forEach(rep =>{
-        rep.main_text = rep.body
-        delete rep.body
-        rep.reports = []
-        rep.reports.push({'event_date': rep.event_date, 'locations': [{'country':rep.country, 'city':rep.city, 'latitude':rep.latitude, 'longitude':rep.longitude}],
-        'diseases': rep.diseases, 'sydromes': rep.syndromes})
-        delete rep.event_date;
-        delete rep.country;
-        delete rep.city;
-        delete rep.latitude
-        delete rep.longitude
-        delete rep.diseases
-        delete rep.syndromes
-        delete rep.article_id
-      });
-
-      res.send(reports);
-      logger.log("/search", req.startTime, JSON.stringify(req.body, null, 2), `200 - ${reports.length} reports found`);
-    }
-
-    else {
-      res.sendStatus(400);
-      logger.log("/search", req.startTime, JSON.stringify(req.body, null, 2), "400");
-    }
-
-  });
-
-  app.post('/articles', async (req, res) => {
-
-    if (req.headers.authorization != API_KEY) {
-      res.sendStatus(401);
-      logger.log("POST /articles", req.startTime, JSON.stringify(req.body, null, 2), `401 - Invalid api key`);
-      return;
-    }
-
-    const article = req.body;
-
-    if (!(
-      article.url &&
-      article.date_of_publication &&
-      article.headline &&
-      article.main_text &&
-      article.reports &&
-      article.reports.event_date &&
-      article.reports.location &&
-      article.reports.diseases &&
-      article.reports.sydromes)) {
-        res.sendStatus(400);
-        logger.log("POST /articles", req.startTime, JSON.stringify(req.body, null, 2), `400 - Invalid article`);
-        return;
-    }
-
-    const result = await db.addArticle(req.body);
-
-    if (result) {
-      res.send(reports);
-      logger.log("POST /articles", req.startTime, JSON.stringify(req.body, null, 2), `200 - OK`);
-    }
-
-    else {
-      res.sendStatus(400);
-      logger.log("POST /articles", req.startTime, JSON.stringify(req.body, null, 2), "400");
-    }
-
-  });
-
-  app.get('/articles', async (req, res) => {
-    const start = req.query.start ? req.query.start : 0;
-    const end = req.query.end ? req.query.end : 20;
-
-    const articles = await db.getAllArticles(start, end);
-    articles.forEach(rep =>{
+  if (reports) {
+    reports.forEach(rep =>{
       rep.main_text = rep.body
       delete rep.body
-
       rep.reports = []
       rep.reports.push({'event_date': rep.event_date, 'locations': [{'country':rep.country, 'city':rep.city, 'latitude':rep.latitude, 'longitude':rep.longitude}],
       'diseases': rep.diseases, 'sydromes': rep.syndromes})
@@ -125,78 +53,149 @@ database().then((db) => {
       delete rep.diseases
       delete rep.syndromes
       delete rep.article_id
-    })
-    if (articles) {
-      res.send(articles);
-      logger.log("GET /articles", req.startTime, JSON.stringify(req.body, null, 2), `200 - ${articles.length} articles found`);
-    }
+    });
 
-    else {
+    res.send(reports);
+    loggingService.log("/search", req.startTime, JSON.stringify(req.body, null, 2), `200 - ${reports.length} reports found`);
+  }
+
+  else {
+    res.sendStatus(400);
+    loggingService.log("/search", req.startTime, JSON.stringify(req.body, null, 2), "400");
+  }
+
+});
+
+app.post('/articles', async (req, res) => {
+
+  if (req.headers.authorization != API_KEY) {
+    res.sendStatus(401);
+    loggingService.log("POST /articles", req.startTime, JSON.stringify(req.body, null, 2), `401 - Invalid api key`);
+    return;
+  }
+
+  const article = req.body;
+
+  if (!(
+    article.url &&
+    article.date_of_publication &&
+    article.headline &&
+    article.main_text &&
+    article.reports &&
+    article.reports.event_date &&
+    article.reports.location &&
+    article.reports.diseases &&
+    article.reports.sydromes)) {
       res.sendStatus(400);
-      logger.log("GET /articles", req.startTime, JSON.stringify(req.body, null, 2), `400`);
-    }
-
-  });
-
-  app.get('/articles/:id', async (req, res) => {
-
-    const id = parseInt(req.params.id);
-
-    if (id == NaN) {
-      res.sendStatus(400);
-      logger.log("GET /articles/:id", req.startTime, JSON.stringify(req.body, null, 2), `400 - Invalid id`);
+      loggingService.log("POST /articles", req.startTime, JSON.stringify(req.body, null, 2), `400 - Invalid article`);
       return;
-    }
+  }
 
-    const article = await db.getArticle(id);
+  const result = await dataService.addArticle(req.body);
 
-    if (article) {
-      res.send(article);
-      logger.log("GET /articles/:id", req.startTime, JSON.stringify(req.body, null, 2), `200- OK`);
-    }
+  if (result) {
+    res.send(reports);
+    loggingService.log("POST /articles", req.startTime, JSON.stringify(req.body, null, 2), `200 - OK`);
+  }
 
-    else {
-      res.sendStatus(400);
-      logger.log("GET /articles/:id", req.startTime, JSON.stringify(req.body, null, 2), `404 - Article not found`);
-    }
+  else {
+    res.sendStatus(400);
+    loggingService.log("POST /articles", req.startTime, JSON.stringify(req.body, null, 2), "400");
+  }
 
-  });
+});
 
-  app.delete('/articles/:id', async (req,res) => {
+app.get('/articles', async (req, res) => {
+  const start = req.query.start ? req.query.start : 0;
+  const end = req.query.end ? req.query.end : 20;
 
-    if (req.headers.authorization != API_KEY) {
-      res.sendStatus(401);
-      logger.log("POST /articles", req.startTime, JSON.stringify(req.body, null, 2), `401 - Invalid api key`);
-      return;
-    }
+  const articles = await dataService.getAllArticles(start, end);
+  articles.forEach(rep =>{
+    rep.main_text = rep.body
+    delete rep.body
 
-    const id = parseInt(req.params.id);
+    rep.reports = []
+    rep.reports.push({'event_date': rep.event_date, 'locations': [{'country':rep.country, 'city':rep.city, 'latitude':rep.latitude, 'longitude':rep.longitude}],
+    'diseases': rep.diseases, 'sydromes': rep.syndromes})
+    delete rep.event_date;
+    delete rep.country;
+    delete rep.city;
+    delete rep.latitude
+    delete rep.longitude
+    delete rep.diseases
+    delete rep.syndromes
+    delete rep.article_id
+  })
+  if (articles) {
+    res.send(articles);
+    loggingService.log("GET /articles", req.startTime, JSON.stringify(req.body, null, 2), `200 - ${articles.length} articles found`);
+  }
 
-    if (id == NaN) {
-      res.sendStatus(400);
-      logger.log("/search", req.startTime, JSON.stringify(req.body, null, 2), `400 - No id provided`);
-      return;
-    }
+  else {
+    res.sendStatus(400);
+    loggingService.log("GET /articles", req.startTime, JSON.stringify(req.body, null, 2), `400`);
+  }
 
-    const article = await db.deleteArticle(id);
+});
 
-    if (article) {
-      res.send(article);
-      logger.log("/articles/:id", req.startTime, JSON.stringify(req.body, null, 2), `200 - OK`);
-    }
+app.get('/articles/:id', async (req, res) => {
 
-    else {
-      res.sendStatus(400);
-      logger.log("/articles/:id", req.startTime, JSON.stringify(req.body, null, 2), `404`);
-    }
+  const id = parseInt(req.params.id);
 
-  });
+  if (id == NaN) {
+    res.sendStatus(400);
+    loggingService.log("GET /articles/:id", req.startTime, JSON.stringify(req.body, null, 2), `400 - Invalid id`);
+    return;
+  }
+
+  const article = await dataService.getArticle(id);
+
+  if (article) {
+    res.send(article);
+    loggingService.log("GET /articles/:id", req.startTime, JSON.stringify(req.body, null, 2), `200- OK`);
+  }
+
+  else {
+    res.sendStatus(400);
+    loggingService.log("GET /articles/:id", req.startTime, JSON.stringify(req.body, null, 2), `404 - Article not found`);
+  }
+
+});
+
+app.delete('/articles/:id', async (req,res) => {
+
+  if (req.headers.authorization != API_KEY) {
+    res.sendStatus(401);
+    loggingService.log("POST /articles", req.startTime, JSON.stringify(req.body, null, 2), `401 - Invalid api key`);
+    return;
+  }
+
+  const id = parseInt(req.params.id);
+
+  if (id == NaN) {
+    res.sendStatus(400);
+    loggingService.log("/search", req.startTime, JSON.stringify(req.body, null, 2), `400 - No id provided`);
+    return;
+  }
+
+
+  const article = await dataService.deleteArticle(id);
+
+  if (article) {
+    res.send(article);
+    loggingService.log("/articles/:id", req.startTime, JSON.stringify(req.body, null, 2), `200 - OK`);
+  } else {
+    res.sendStatus(400);
+    loggingService.log("/articles/:id", req.startTime, JSON.stringify(req.body, null, 2), `404`);
+  }
+
+});
 
   app.post('/register', async (req, res) => {
     try {
       if (!req.body.username) throw "Username not given";
       if (!req.body.password) throw "Password not given";
-      token = await db.register(req.body.username, req.body.password);
+      token = await userService.register(req.body.username, req.body.password);
       res.send(token);
     } catch (e) {
       res.status(400).send(e);
@@ -207,19 +206,17 @@ database().then((db) => {
     try {
       if (!req.body.username) throw "Username not given";
       if (!req.body.password) throw "Password not given";
-      token = await db.login(req.body.username, req.body.password);
+      token = await userService.login(req.body.username, req.body.password);
       res.send(token);
     } catch(e) {
       res.status(400).send(e);
     }
-
-
   });
 
   app.post('/logout', async (req, res) => {
     try {
       if (!req.headers.authorization) throw "Token not given"
-      await db.logout(req.headers.authorization);
+      await userService.logout(req.headers.authorization);
     } catch(e) {
       res.status(400).send(e)
     }
@@ -229,28 +226,24 @@ database().then((db) => {
     try {
       if (!req.headers.authorization) throw "Token not given"
       if (!req.body.location) throw "Location not given"
-      await db.addLocationFollow(req.headers.authorization,
+      await userService.addLocationFollow(req.headers.authorization,
         req.body.location)
     } catch(e) {
       res.status(400).send(e)
     }
-
   });
+
 
   app.post('/follow_disease_or_syndrome', async (req, res) => {
     try {
       if (!req.headers.authorization) throw "Token not given"
       if (!req.body.disease_or_syndrome) throw "Location not given"
-      await db.addSyndromeOrDiseaseFollow(req.headers.authorization,
+      await userService.addSyndromeOrDiseaseFollow(req.headers.authorization,
         req.body.disease_or_syndrome)
     } catch(e) {
       res.status(400).send(e)
     }
   });
 
-  // Run Server
-  app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
-
-}).catch((e) => {
-  console.log(e);
-});
+// Run Server
+app.listen(PORT, () => console.log(`Listening on port ${PORT}`));

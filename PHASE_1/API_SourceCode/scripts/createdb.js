@@ -6,4 +6,4 @@ const DB_SCHEMA = "../database/schema.sql";
 
 fs.existsSync(DB_PATH) ? fs.unlinkSync(DB_PATH) : null;
 const schema = fs.readFileSync(DB_SCHEMA, "utf8");
-sqlite.open(DB_PATH).then(conn => conn.exec(schema));
+sqlite.open(DB_PATH).then(conn => conn.exec(schema)).catch(e => console.log(e));
