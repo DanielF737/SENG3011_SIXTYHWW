@@ -178,7 +178,7 @@ app.delete('/articles/:id', async (req,res) => {
     loggingService.log("/search", req.startTime, JSON.stringify(req.body, null, 2), `400 - No id provided`);
     return;
   }
-  
+
   const article = await dataService.deleteArticle(id);
 
   if (article) {
@@ -257,9 +257,31 @@ app.get('/follow_disease_or_syndrome', async (req, res) => {
 });
 app.get('/feed', async(req, res) => {
   try {
+    const start = req.query.start ? req.query.start : 0;
+    const end = req.query.end ? req.query.end : 20;
+
+
     if (!req.headers.authorization) throw "Token not given";
     user = await userService.tokenToUserId(req.headers.authorization)
-    feed = await userService.getFeed(user);
+    feed = await userService.getFeed(user, start, end);
+    if (feed) {
+      feed.forEach(rep => {
+        rep.main_text = rep.body
+        delete rep.body
+        rep.reports = []
+        rep.reports.push({'event_date': rep.event_date, 'locations': [{'country':rep.country, 'city':rep.city, 'latitude':rep.latitude, 'longitude':rep.longitude}],
+        'diseases': rep.diseases, 'sydromes': rep.syndromes})
+        delete rep.event_date;
+        delete rep.country;
+        delete rep.city;
+        delete rep.latitude
+        delete rep.longitude
+        delete rep.diseases
+        delete rep.syndromes
+        delete rep.article_id
+      });
+    }
+
     res.send(feed)
   } catch(e){
     res.status(400).send(e)

@@ -146,7 +146,7 @@ const getSyndromeOrDiseaseFollows = async (user_id) => {
   }
 }
 
-module.exports.getFeed = async (user_id) => {
+module.exports.getFeed = async (user_id, start,end) => {
   try {
     const location_follows = await getLocationFollows(user_id);
     const disease_and_syndrome_follows = await getSyndromeOrDiseaseFollows(user_id);
@@ -162,7 +162,7 @@ module.exports.getFeed = async (user_id) => {
     location_follows
       .forEach(location =>
         conditions.push(`(country == '${location}' OR city == '${location}')`));
-    
+
     // Add condition queries for diseases and syndromes
     disease_and_syndrome_follows
       .forEach(diseaseOrSyndrome =>
@@ -180,7 +180,9 @@ module.exports.getFeed = async (user_id) => {
 
     // Run query
     const reports = await conn.all(query);
-
+    if(start >= 0 && end > start) {
+      reports = reports.slice(start, end)
+    }
     return reports;
 
   } catch (e) {
