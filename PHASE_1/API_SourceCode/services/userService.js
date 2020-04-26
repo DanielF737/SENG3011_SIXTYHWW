@@ -179,7 +179,7 @@ module.exports.getFeed = async (user_id, start,end) => {
     console.log(query);
 
     // Run query
-    const reports = await conn.all(query);
+    let reports = await conn.all(query);
     if(start >= 0 && end > start) {
       reports = reports.slice(start, end)
     }
