@@ -6,10 +6,17 @@ import {Link} from 'react-router-dom';
 class Feed extends React.Component {
 
   render () {
+    let token = localStorage.getItem('token')
+    let isLoggedIn=false
+    if (token != null) {
+      isLoggedIn=true
+    }
+
     let {results} = this.props
     results = results.sort((a, b) => (a.date_of_publication < b.date_of_publication) ? 1 : -1)
     return (
       <div className="feed">
+        <h1>{isLoggedIn ? 'Your Feed' : 'Public Feed'}</h1>
         {results.map((obj, i) => {
           return (
             <div className="feedObj" key={i}>

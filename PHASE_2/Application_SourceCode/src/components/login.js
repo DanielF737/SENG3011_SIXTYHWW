@@ -25,7 +25,7 @@ class Login extends React.Component {
   }
 
   handleSubmit = (event) => {
-    console.log(event.target.name)
+    //console.log(event.target.name)
     if (this.state.uname.length === 0 || this.state.pword.length === 0) {
       this.setState({
         error: "Please fill out all fields"
@@ -48,13 +48,13 @@ class Login extends React.Component {
 
         body: JSON.stringify(reqBody)
       }
-      console.log(options)
+      //console.log(options)
 
-      console.log(`${apiURL}/${event.target.name}`)
+      //console.log(`${apiURL}/${event.target.name}`)
       fetch(`${apiURL}/${event.target.name}`, options)
       .then(r=> r.text())
       .then(r => {
-        console.log(r)
+        //console.log(r)
         if (r==='{"errno":19,"code":"SQLITE_CONSTRAINT"}') {
           this.setState({
             error: "An account with this username already exists"
@@ -64,17 +64,48 @@ class Login extends React.Component {
             error: r
           })
         } else if (r==='Invalid username') {
-        this.setState({
-          error: r
-        })
-      }
+          this.setState({
+            error: r
+          })
+        } else if (r==='') {
+          fetch(`${apiURL}/login`, options)
+          .then(r=> r.text())
+          .then(r => {
+            localStorage.setItem('token', r)
+            this.props.history.push(`/`);
+          })
+        } else {
+          localStorage.setItem('token', r)
+          this.props.history.push(`/`);
+        }
         
       })
     }
   }
 
   render() {
-    let token = localStorage.getItem('token') 
+    let token = localStorage.getItem('token')
+    let isLoggedIn=false
+    if (token != null) {
+      isLoggedIn=true
+
+      let options = {
+        method: "POST",
+        headers: {
+            'Content-Type' : 'application/JSON'
+        }
+      }
+
+      fetch(`${apiURL}/logout`, options)
+      .then(r=> r.text())
+      .then(r => {
+        //console.log(r)
+        localStorage.removeItem('token')  
+        this.props.history.push(`/`);      
+      })
+    }
+
+
     return (
       <div className="pageBody">
         <div className="login">

@@ -36,11 +36,11 @@ class Navbar extends React.Component {
 
   render () {
     let token = localStorage.getItem('token')
+    let isLoggedIn=false
     if (token != null) {
-      this.setState({
-        isLoggedIn:true
-      })
+      isLoggedIn=true
     }
+
     return (
       <div className="Navbar">
         <ul>
@@ -59,7 +59,7 @@ class Navbar extends React.Component {
             </form>
           </li>
           <li>
-            <Link to="/login">{this.state.isLoggedIn ? 'Log Out' : 'Login'}</Link>
+            <strong><Link to="/login">{isLoggedIn ? 'Log Out' : 'Login'}</Link></strong>
           </li>
         </ul>
       </div>

@@ -17,6 +17,7 @@ class Search extends React.Component {
       results: [],
       markers: []
     };
+    this.handleFollow = this.handleFollow.bind(this);
   }
 
 
@@ -41,7 +42,7 @@ class Search extends React.Component {
     s = startDate.getSeconds();
     let start = y + '-' + (m <= 9 ? '0' + m : m) + '-' + (d <= 9 ? '0' + d : d) + 'T' + (h <= 9 ? '0' + h : h) + ':'+ (min <= 9 ? '0' + min : min) + ':'+ (s <= 9 ? '0' + s : s)
 
-    //console.log(start + ' ' + current)
+    ////console.log(start + ' ' + current)
 
     let reqBody = {
       "start_date": start,
@@ -49,15 +50,15 @@ class Search extends React.Component {
     }
 
     if (params.disease !== "All") {
-      //console.log("Not all diseases")
+      ////console.log("Not all diseases")
       reqBody["keyTerms"] = params.disease
     }
     if (params.country !== "All") {
-      //console.log("Not all countries")
+      ////console.log("Not all countries")
       reqBody["location"] = params.country
     }
 
-    //console.log(reqBody)
+    ////console.log(reqBody)
 
     let options = {
       method: "POST",
@@ -67,7 +68,7 @@ class Search extends React.Component {
       body: JSON.stringify(reqBody)
     }
 
-    //console.log(options)
+    ////console.log(options)
     
     fetch(`${apiURL}/search`, options)
     .then(r=> r.json())
@@ -104,7 +105,7 @@ class Search extends React.Component {
     .then (r => {
 
       let mipsToken = r.content.token 
-      //console.log(mipsToken)
+      ////console.log(mipsToken)
       options = {
         method: "GET",
         headers: {
@@ -126,7 +127,7 @@ class Search extends React.Component {
           fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${r.content.results[i].reports[0].locations[0]}&key=AIzaSyBmt_0FRwk3-I3ohh4gK5PfUToBqL58d8I`)
           .then(res=>res.json())
           .then(res => {
-            //console.log(res)
+            ////console.log(res)
             if (res.status != "ZERO_RESULTS") {
               let mark = {
                 latitude: res.results[0].geometry.location.lat,
@@ -164,16 +165,36 @@ class Search extends React.Component {
 
   }
 
+  handleFollow(item) {
+
+  }
+
   render() {
     const { params } = this.props.match
 
     let {results} = this.state;
     results = results.sort((a, b) => (a.date_of_publication < b.date_of_publication) ? 1 : -1)
-    //console.log("these are what we got")
-    //console.log({results})
-    //console.log("length is " + results.length)
+    
+    
+    let token = localStorage.getItem('token')
+    let isLoggedIn=false
+    if (token != null) {
+      isLoggedIn=true
+    }
+    let terms = []
+    if (params.disease != "All") {
+      console.log(params.disease)
+      terms.push({name: params.disease,
+                  type: "disease"})
+    }
+    if (params.country != "All") {
+      terms.push({name: params.country,
+                  type: "country"})
+    }
+
+    console.log(terms)
+
     if (results.length === 0) {
-      console.log("got here")
       return (
         <div className="pageBody">
         <div className="feedObj">
@@ -184,7 +205,15 @@ class Search extends React.Component {
       return (
         <div className="pageBody">
           <div className="feed">
-            <h2>  Results for {params.disease} in {params.country}</h2>
+            <div className="feedObj">
+              <h2>  Results for {params.disease} in {params.country}</h2>
+                  
+              {terms.map((yeet,i) => {
+                return(
+                <label><a href='#' onClick={() => this.handleFollow(yeet)}>Follow  {yeet.name}</a>. </label>
+                )
+              })}
+            </div>
             {results.map((obj, i) => {
               return (
                 <div className="feedObj" key={i}>
@@ -210,8 +239,6 @@ class Search extends React.Component {
               <div className="feed">
                 <div className="feedObj">
                   <h1>Predictions</h1>
-                </div>
-                <div className="feedObj">
                   <h4>Forecast for {params.disease} in {params.country} over the next 5 days</h4>
                   <p>NaN new cases</p>
                   <p>NaN more deaths</p>

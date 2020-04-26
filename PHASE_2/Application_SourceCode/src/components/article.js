@@ -15,10 +15,11 @@ class Article extends React.Component {
   }
   
   render() {
-    console.log(this.props.location.articleProps)
+    //console.log(this.props.location.articleProps)
     let article=this.props.location.articleProps.article
     let marker= this.props.location.articleProps.marker
-    console.log(marker)
+    //console.log(marker)
+    
     return (
       <div className="pageBody">
         <div className="feed">

@@ -29,7 +29,7 @@ class Prediction extends React.Component {
     fetch(`${apiURL}/predict`, options)
     .then(r => r.json())
     .then(r => {
-      console.log(r);
+      //console.log(r);
       this.setState({
         results: this.state.results.concat(r)
       })
@@ -52,7 +52,7 @@ class Prediction extends React.Component {
     fetch(`${apiURL}/predict`, options)
     .then(r => r.json())
     .then(r => {
-      console.log(r);
+      //console.log(r);
       this.setState({
         results: this.state.results.concat(r)
       })
@@ -75,7 +75,7 @@ class Prediction extends React.Component {
     fetch(`${apiURL}/predict`, options)
     .then(r => r.json())
     .then(r => {
-      console.log(r);
+      //console.log(r);
       this.setState({
         results: this.state.results.concat(r)
       })
@@ -87,25 +87,23 @@ class Prediction extends React.Component {
     return (
       <div className="feed">
         <div className="feedObj">
-          <h1>Predictions</h1>
-        </div>
-          <div className="feedObj">
-              <div>
-                <h4>Forecast for <strong>COVID-19</strong> in Australia in the next 5 days</h4>
-                <p>128 new cases</p>
-                <p>2 more deaths</p>
-              </div>
-              <div>
-                <h4>Forecast for <strong>COVID-19</strong> in United States in the next 5 days</h4>
-                <p>151,373 new cases</p>
-                <p>8,531 more deaths</p>
-              </div>
-              <div>
-                <h4>Forecast for <strong>COVID-19</strong> in India in the next 5 days</h4>
-                <p>7,749 new cases</p>
-                <p>240 more deaths</p>
-              </div>
+          <h1>Featured Predictions</h1>
+          <div>
+            <h4>Forecast for <strong>COVID-19</strong> in Australia in the next 5 days</h4>
+            <p>128 new cases</p>
+            <p>2 more deaths</p>
           </div>
+          <div>
+            <h4>Forecast for <strong>COVID-19</strong> in United States in the next 5 days</h4>
+            <p>151,373 new cases</p>
+            <p>8,531 more deaths</p>
+          </div>
+          <div>
+            <h4>Forecast for <strong>COVID-19</strong> in India in the next 5 days</h4>
+            <p>7,749 new cases</p>
+            <p>240 more deaths</p>
+          </div>
+        </div>
       </div>
     )
   }

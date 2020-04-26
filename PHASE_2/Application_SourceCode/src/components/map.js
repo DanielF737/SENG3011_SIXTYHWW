@@ -26,8 +26,8 @@ export class MapContainer extends Component {
   }
 
   handleClick(marker) {
-    console.log("You clicked me!")
-    console.log(marker)
+    //console.lo("You clicked me!")
+    //console.lo(marker)
     this.setState({
       showingInfoWindow:true,
       infoWindowLat:marker.latitude,
@@ -48,7 +48,7 @@ export class MapContainer extends Component {
 
   render() {
     let {markers} = this.props
-    console.log(this.props)
+    //console.lo(this.props)
     return (
       <Map
         google={this.props.google}
