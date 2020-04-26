@@ -15,6 +15,7 @@ import Disease from './components/disease';
 import Place from './components/place';
 import Search from './components/search';
 import Notfound from './components/notfound'
+import Login from "./components/login"
 
 const routing = (
   <Router>
@@ -22,6 +23,7 @@ const routing = (
     <div className="page">
       <Switch>
         <Route exact path="/" component={App} />
+        <Route exact path="/login" component={Login} />
         <Route path="/article/:id" component={Article} />
         <Route path="/disease/:id" component={Disease} />
         <Route path="/location/:id" component={Place} />

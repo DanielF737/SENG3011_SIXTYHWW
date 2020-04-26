@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
 import { Map, GoogleApiWrapper, Marker, InfoWindow} from 'google-maps-react';
-import {withRouter} from 'react-router-dom';
-
-const apiURL = 'http://api.sixtyhww.com:3000'
 
 const mapStyles = {
   padding: '50px',

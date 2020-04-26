@@ -7,8 +7,8 @@ import Prediction from './components/prediction'
 
 const mipsURL = "https://audbotb4h3.execute-api.ap-southeast-2.amazonaws.com/dev"
 const apiURL = 'http://api.sixtyhww.com:3000'
-const mattsToken = "AOYyHmVa91VOLs5ktY5LV1TUowA2"
-const mattsURL = 'https://sympt-server.herokuapp.com'
+//const mattsToken = "AOYyHmVa91VOLs5ktY5LV1TUowA2"
+//const mattsURL = 'https://sympt-server.herokuapp.com'
 
 
 export class App extends Component {
@@ -19,6 +19,16 @@ export class App extends Component {
       results: [],
       markers: []
     }
+  }
+
+  
+  // calls the login method in authentication service
+  login = () => {
+    this.props.auth.login();
+  }
+  // calls the logout method in authentication service
+  logout = () => {
+    this.props.auth.logout();
   }
 
   componentDidMount() {
