@@ -151,8 +151,9 @@ module.exports.getFeed = async (user_id) => {
     const location_follows = await getLocationFollows(user_id);
     const disease_and_syndrome_follows = await getSyndromeOrDiseaseFollows(user_id);
 
+    // Return empty array if the user isnt following anything
     if ((location_follows.length + disease_and_syndrome_follows.length == 0))
-      throw "Not following anything";
+      return [];
 
     // List of sqlite condition queries
     var conditions = [];
