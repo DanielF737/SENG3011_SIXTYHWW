@@ -7,8 +7,8 @@ import Prediction from './components/prediction'
 
 const mipsURL = "https://audbotb4h3.execute-api.ap-southeast-2.amazonaws.com/dev"
 const apiURL = 'http://api.sixtyhww.com:3000'
-//const mattsToken = "AOYyHmVa91VOLs5ktY5LV1TUowA2"
-//const mattsURL = 'https://sympt-server.herokuapp.com'
+const mattsToken = "AOYyHmVa91VOLs5ktY5LV1TUowA2"
+const mattsURL = 'https://sympt-server.herokuapp.com'
 
 
 export class App extends Component {
@@ -47,8 +47,6 @@ export class App extends Component {
       fetch(`${apiURL}/feed`, options)
       .then(r=> r.json())
       .then(r => {
-        console.log("here")
-        console.log(r)
         for (var i = 0; i < r.length; i++) {
           r[i].reports[0].diseases=r[i].reports[0].diseases.replace('"', '')
           r[i].reports[0].diseases=r[i].reports[0].diseases.replace('"', '')
@@ -57,7 +55,6 @@ export class App extends Component {
           r[i].reports[0].locations[0].disease=r[i].reports[0].diseases
           r[i].reports[0].locations[0].report=r[i]
           r[i].source="Global Incident Tracker"
-          console.log(r[i])
         }
         let marks = r.map(obj => obj.reports[0].locations[0])
         this.setState({
@@ -87,7 +84,6 @@ export class App extends Component {
             r[i].reports[0].locations[0].disease=r[i].reports[0].diseases
             r[i].reports[0].locations[0].report=r[i]
             r[i].source="Global Incident Tracker"
-            console.log(r[i])
           }
           let marks = r.map(obj => obj.reports[0].locations[0])
           this.setState({
@@ -121,7 +117,7 @@ export class App extends Component {
           }
         }
     
-        fetch(`${mipsURL}/report?size=10`, options)
+        fetch(`${mipsURL}/report?start_date=2020-01-01T00%3A00%3A00.000Z&end_date=2030-01-01T00%3A00%3A00.000Z&size=10`, options)
         .then(r=> r.json())
         .then(r => {
           for (var i = 0; i < r.content.results.length; i++) {
@@ -136,6 +132,13 @@ export class App extends Component {
             .then(res => {
               ////console.log(res)
               if (res.status != "ZERO_RESULTS") {
+                report.reports[0].locations[0] = {
+                  country: report.reports[0].locations[0],
+                  latitude: res.results[0].geometry.location.lat,
+                  longitude: res.results[0].geometry.location.lng,
+                  disease : disease,
+                  report : report
+                }
                 let mark = {
                   latitude: res.results[0].geometry.location.lat,
                   longitude: res.results[0].geometry.location.lng,
@@ -168,6 +171,66 @@ export class App extends Component {
           this.setState({
             results:this.state.results.concat(r.content.results)
           })
+        })
+      })
+
+      options = {
+        method: "GET",
+        headers: {
+          'authorization': mattsToken
+        },
+      }
+
+      fetch(`${mattsURL}/articles/?startdate=2019-06-02T00%3A00%3A00&enddate=2020-04-28T00%3A00%3A00&location=United%20States&keyterms=coronavirus&count=10`, options)
+      .then(r=>r.json())
+      .then(r=> {
+        console.log(r)
+        for (var i = 0; i < r.articles.length; i++) {
+          r.articles[i].source="ProMed"
+          r.articles[i].id=i
+          r.articles[i].date_of_publication = r.articles[i].date_of_publication.replace('T', ' ')
+          r.articles[i].date_of_publication = r.articles[i].date_of_publication.replace('Z', '')
+          let disease = r.articles[i].reports[0].diseases[0]
+          let report = r.articles[i]
+          fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${r.articles[i].reports[0].locations[0].country}&key=AIzaSyBmt_0FRwk3-I3ohh4gK5PfUToBqL58d8I`)
+          .then(res=>res.json())
+          .then(res => {
+            console.log("here")
+            if (res.status != "ZERO_RESULTS") {
+              report.reports[0].locations[0].latitude= res.results[0].geometry.location.lat
+              report.reports[0].locations[0].longitude= res.results[0].geometry.location.lng
+              report.reports[0].locations[0].disease= disease
+              report.reports[0].locations[0].report= report
+              let mark = {
+                latitude: res.results[0].geometry.location.lat,
+                longitude: res.results[0].geometry.location.lng,
+                disease: disease
+              }
+
+              if(res.results[0].hasOwnProperty('address_components')){
+                mark.country=res.results[0].address_components[0].long_name
+              }else{
+                
+                mark.country=""
+              }
+
+              if(res.results[0].hasOwnProperty('address_components') && res.results[0].address_components[1]!=null) {
+                mark.city=res.results[0].address_components[1].long_name
+              }else{
+                mark.city=""
+              }
+              mark.report=report
+              console.log(mark)
+              this.setState({
+                markers:this.state.markers.concat(mark)
+            
+              })
+              
+            }
+          })
+        }
+        this.setState({
+          results:this.state.results.concat(r.articles)
         })
       })
     }

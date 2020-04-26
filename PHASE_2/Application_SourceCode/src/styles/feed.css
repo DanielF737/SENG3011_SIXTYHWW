@@ -25,6 +25,15 @@
   border-radius: 5px;
 }
 
+.feedTitle {
+  min-width: 500px;
+  max-width: 800px;
+  width: 95%;
+  margin-left: 10px;
+  padding-left: 10px;
+  z-index: 1000;
+}
+
 .headerText {
   color: black;
   text-decoration: none;
@@ -35,4 +44,8 @@
   font-style: italic;
   color: #8a8a8a;
   padding-top: 0px;
+}
+
+.centerText {
+  text-align: center;
 }

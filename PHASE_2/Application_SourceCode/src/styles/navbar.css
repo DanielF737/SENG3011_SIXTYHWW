@@ -16,6 +16,7 @@ ul {
   li {
     padding:5px;
     float: left;
+    background-color: red;
   }
 
   li a {

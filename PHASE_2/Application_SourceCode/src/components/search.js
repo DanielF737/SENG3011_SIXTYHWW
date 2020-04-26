@@ -4,8 +4,8 @@ import '../styles/feed.css'
 import '../styles/App.css';
 import MapContainer from './map'
 
-//const mattsToken = "AOYyHmVa91VOLs5ktY5LV1TUowA2"
-//const mattsURL = 'https://sympt-server.herokuapp.com'
+const mattsToken = "AOYyHmVa91VOLs5ktY5LV1TUowA2"
+const mattsURL = 'https://sympt-server.herokuapp.com'
 
 const apiURL = 'http://api.sixtyhww.com:3000'
 const mipsURL = "https://audbotb4h3.execute-api.ap-southeast-2.amazonaws.com/dev"
@@ -15,7 +15,8 @@ class Search extends React.Component {
     super();
     this.state = {
       results: [],
-      markers: []
+      markers: [],
+      following:[false,false]
     };
     this.handleFollow = this.handleFollow.bind(this);
   }
@@ -129,6 +130,13 @@ class Search extends React.Component {
           .then(res => {
             ////console.log(res)
             if (res.status != "ZERO_RESULTS") {
+              report.reports[0].locations[0] = {
+                country: report.reports[0].locations[0],
+                latitude: res.results[0].geometry.location.lat,
+                longitude: res.results[0].geometry.location.lng,
+                disease : disease,
+                report : report
+              }
               let mark = {
                 latitude: res.results[0].geometry.location.lat,
                 longitude: res.results[0].geometry.location.lng,
@@ -162,19 +170,82 @@ class Search extends React.Component {
         })
       })
     })
+    options = {
+      method: "GET",
+      headers: {
+        'authorization': mattsToken
+      },
+    }
 
+    fetch(`${mattsURL}/articles/?startdate=2019-06-02T00%3A00%3A00&enddate=2020-04-28T00%3A00%3A00&location=${params.country.replace(' ', '%20')}&keyterms=${params.disease}&count=10`, options)
+    .then(r=>r.json())
+    .then(r=> {
+      for (var i = 0; i < r.articles.length; i++) {
+        r.articles[i].source="ProMed"
+        r.articles[i].id=i
+        r.articles[i].date_of_publication = r.articles[i].date_of_publication.replace('T', ' ')
+        r.articles[i].date_of_publication = r.articles[i].date_of_publication.replace('Z', '')
+        let disease = r.articles[i].reports[0].diseases[0]
+        let report = r.articles[i]
+        fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${r.articles[i].reports[0].locations[0]}&key=AIzaSyBmt_0FRwk3-I3ohh4gK5PfUToBqL58d8I`)
+        .then(res=>res.json())
+        .then(res => {
+          if (res.status != "ZERO_RESULTS") {
+            report.reports[0].locations[0].latitude= res.results[0].geometry.location.lat
+            report.reports[0].locations[0].longitude= res.results[0].geometry.location.lng
+            report.reports[0].locations[0].disease= disease
+            report.reports[0].locations[0].report= report
+            let mark = {
+              latitude: res.results[0].geometry.location.lat,
+              longitude: res.results[0].geometry.location.lng,
+              disease: disease
+            }
+
+            if(res.results[0].hasOwnProperty('address_components')){
+              mark.country=res.results[0].address_components[0].long_name
+            }else{
+              
+              mark.country=""
+            }
+
+            if(res.results[0].hasOwnProperty('address_components') && res.results[0].address_components[1]!=null) {
+              mark.city=res.results[0].address_components[1].long_name
+            }else{
+              mark.city=""
+            }
+            mark.report=report
+            this.setState({
+              markers:this.state.markers.concat(mark)
+          
+            })
+            
+          }
+        })
+      }
+      this.setState({
+        results:this.state.results.concat(r.articles)
+      })
+    })
   }
 
   handleFollow(item) {
     let token = localStorage.getItem('token')
     let req=null
     let reqbody=null
+    let f1 = this.state.following[0]
+    let f2 = this.state.following[1]
     if (item.type==="country") {
+      this.setState({
+        following: [f1, !f2]
+      })
       req="location"
       reqbody= {
         location: item.name
       }
     } else {
+      this.setState({
+        following: [!f1, f2]
+      })
       req="disease_or_syndrome"
       reqbody= {
         disease_or_syndrome: item.name
@@ -214,17 +285,17 @@ class Search extends React.Component {
       isLoggedIn=true
     }
     let terms = []
-    if (params.disease != "All") {
+    if (params.disease != "All" && isLoggedIn) {
       console.log(params.disease)
       terms.push({name: params.disease,
                   type: "disease"})
     }
-    if (params.country != "All") {
+    if (params.country != "All" && isLoggedIn) {
       terms.push({name: params.country,
                   type: "country"})
     }
 
-    console.log(terms)
+    //console.log(terms)
 
     if (results.length === 0) {
       return (
@@ -237,12 +308,12 @@ class Search extends React.Component {
       return (
         <div className="pageBody">
           <div className="feed">
-            <div className="feedObj">
+            <div className="feedTitle">
               <h2>  Results for {params.disease} in {params.country}</h2>
                   
               {terms.map((yeet,i) => {
                 return(
-                <label><a href='#' onClick={() => this.handleFollow(yeet)}>Follow  {yeet.name}</a>. </label>
+                <button onClick={() => this.handleFollow(yeet)}>{this.state.following[i] ? 'Following' : 'Follow'} {yeet.name}</button>
                 )
               })}
             </div>
