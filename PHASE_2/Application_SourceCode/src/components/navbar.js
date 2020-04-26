@@ -12,11 +12,12 @@ class Navbar extends React.Component {
     super(props);
     this.state = {
       disease: 'COVID-19',
-      country: 'Australia'
+      country: 'Australia',
+      isLoggedIn: false
     };
 
-    this.handleChange = this.handleChangeDisease.bind(this);
-    this.handleChange = this.handleChangeCountry.bind(this);
+    this.handleChangeDisease = this.handleChangeDisease.bind(this);
+    this.handleChangeCountry = this.handleChangeCountry.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -34,6 +35,12 @@ class Navbar extends React.Component {
 
 
   render () {
+    let token = localStorage.getItem('token')
+    if (token != null) {
+      this.setState({
+        isLoggedIn:true
+      })
+    }
     return (
       <div className="Navbar">
         <ul>
@@ -50,6 +57,9 @@ class Navbar extends React.Component {
               </select>
               <input type="submit" value="Search" />
             </form>
+          </li>
+          <li>
+            <Link to="/login">{this.state.isLoggedIn ? 'Log Out' : 'Login'}</Link>
           </li>
         </ul>
       </div>

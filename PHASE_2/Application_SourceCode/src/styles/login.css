@@ -1,0 +1,23 @@
+
+.pageBody {
+    width: 1800px;
+    float: center;
+}
+
+.login {
+    text-align: center;
+    width: 800px;
+    margin: 10px 50px;
+    padding: 5px;
+    margin-top: 50px;
+    margin-bottom: 100px;
+    z-index: 1000;
+    background-color: #bababa;
+    border-radius: 15px;
+    float: center;
+}
+
+.errorText {
+    color: red;
+    font-style: italic;
+}

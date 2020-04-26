@@ -4,7 +4,6 @@ import MapContainer from './map'
 import '../styles/feed.css'
 import '../styles/App.css';
 
-const apiURL = 'http://api.sixtyhww.com:3000'
 
 class Article extends React.Component {
   constructor (props) {
@@ -20,7 +19,6 @@ class Article extends React.Component {
     let article=this.props.location.articleProps.article
     let marker= this.props.location.articleProps.marker
     console.log(marker)
-    const { params } = this.props.match
     return (
       <div className="pageBody">
         <div className="feed">
