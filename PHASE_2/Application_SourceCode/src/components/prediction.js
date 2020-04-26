@@ -94,7 +94,7 @@ class Prediction extends React.Component {
           {results.map((obj,i) => {
             return (
               <div>
-                <h4>{obj.location} in the next {obj.days} days</h4>
+                <h4>Forecast for COVID-19 in {obj.location} over the next {obj.days} days</h4>
                 <p>{obj.cases.hasOwnProperty("prediction") ? Math.round(obj.cases.prediction[1]): "Insufficient data to calculate how many more"} new cases</p>
                 <p>{obj.deaths.hasOwnProperty("prediction") ? Math.round(obj.deaths.prediction[1]): "Insufficient data to calculate how many more"} more deaths</p>
               </div>
