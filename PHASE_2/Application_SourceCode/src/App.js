@@ -49,6 +49,7 @@ export class App extends Component {
           r[i].reports[0].diseases=r[i].reports[0].diseases.replace('[', '')
           r[i].reports[0].diseases=r[i].reports[0].diseases.replace(']', '')
           r[i].reports[0].locations[0].disease=r[i].reports[0].diseases
+          r[i].reports[0].locations[0].report=r[i]
           r[i].source="Global Incident Tracker"
           console.log(r[i])
         }
@@ -93,19 +94,38 @@ export class App extends Component {
           r.content.results[i].date_of_publication = r.content.results[i].date_of_publication.replace('T', ' ')
           r.content.results[i].date_of_publication = r.content.results[i].date_of_publication.replace('Z', '')
           let disease = r.content.results[i].reports[0].diseases[0]
+          let report = r.content.results[i]
           fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${r.content.results[i].reports[0].locations[0]}&key=AIzaSyBmt_0FRwk3-I3ohh4gK5PfUToBqL58d8I`)
           .then(res=>res.json())
           .then(res => {
-            let mark = {
-              country: res.results[0].address_components[0].long_name,
-              //city: res.results[0].address_components[1].long_name,
-              latitude: res.results[0].geometry.location.lat,
-              longitude: res.results[0].geometry.location.lng,
-              disease: disease
+            //console.log(res)
+            if (res.status != "ZERO_RESULTS") {
+              let mark = {
+                latitude: res.results[0].geometry.location.lat,
+                longitude: res.results[0].geometry.location.lng,
+                disease: disease
+              }
+
+              if(res.results[0].hasOwnProperty('address_components')){
+                mark.country=res.results[0].address_components[0].long_name
+              }else{
+                
+                mark.country=""
+              }
+
+              if(res.results[0].hasOwnProperty('address_components') && res.results[0].address_components[1]!=null) {
+                mark.city=res.results[0].address_components[1].long_name
+              }else{
+                mark.city=""
+              }
+              mark.report=report
+
+              this.setState({
+                markers:this.state.markers.concat(mark)
+            
+              })
+              
             }
-            this.setState({
-              markers:this.state.markers.concat(mark)
-            })
           })
         }
         console.log(r)

@@ -41,7 +41,7 @@ class Search extends React.Component {
     s = startDate.getSeconds();
     let start = y + '-' + (m <= 9 ? '0' + m : m) + '-' + (d <= 9 ? '0' + d : d) + 'T' + (h <= 9 ? '0' + h : h) + ':'+ (min <= 9 ? '0' + min : min) + ':'+ (s <= 9 ? '0' + s : s)
 
-    console.log(start + ' ' + current)
+    //console.log(start + ' ' + current)
 
     let reqBody = {
       "start_date": start,
@@ -49,15 +49,15 @@ class Search extends React.Component {
     }
 
     if (params.disease !== "All") {
-      console.log("Not all diseases")
+      //console.log("Not all diseases")
       reqBody["keyTerms"] = params.disease
     }
     if (params.country !== "All") {
-      console.log("Not all countries")
+      //console.log("Not all countries")
       reqBody["location"] = params.country
     }
 
-    console.log(reqBody)
+    //console.log(reqBody)
 
     let options = {
       method: "POST",
@@ -67,7 +67,7 @@ class Search extends React.Component {
       body: JSON.stringify(reqBody)
     }
 
-    console.log(options)
+    //console.log(options)
     
     fetch(`${apiURL}/search`, options)
     .then(r=> r.json())
@@ -78,8 +78,8 @@ class Search extends React.Component {
         r[i].reports[0].diseases=r[i].reports[0].diseases.replace('[', '')
         r[i].reports[0].diseases=r[i].reports[0].diseases.replace(']', '')
         r[i].reports[0].locations[0].disease=r[i].reports[0].diseases
+        r[i].reports[0].locations[0].report=r[i]
         r[i].source="Global Incident Tracker"
-        console.log(r[i])
       }
       let marks = r.map(obj => obj.reports[0].locations[0])
       this.setState({
@@ -104,7 +104,7 @@ class Search extends React.Component {
     .then (r => {
 
       let mipsToken = r.content.token 
-      console.log(mipsToken)
+      //console.log(mipsToken)
       options = {
         method: "GET",
         headers: {
@@ -116,31 +116,46 @@ class Search extends React.Component {
       fetch(`${mipsURL}/report?key_terms=${params.disease}&location=${params.country.replace(' ', '%20')}`, options)
       .then(r=> r.json())
       .then(r => {
-        console.log("heere")
-        console.log(r)
         for (var i = 0; i < r.content.results.length; i++) {
-          console.log(r.content.results[i])
           r.content.results[i].source="CDC"
           r.content.results[i].id=i
           r.content.results[i].date_of_publication = r.content.results[i].date_of_publication.replace('T', ' ')
           r.content.results[i].date_of_publication = r.content.results[i].date_of_publication.replace('Z', '')
           let disease = r.content.results[i].reports[0].diseases[0]
+          let report = r.content.results[i]
           fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${r.content.results[i].reports[0].locations[0]}&key=AIzaSyBmt_0FRwk3-I3ohh4gK5PfUToBqL58d8I`)
           .then(res=>res.json())
           .then(res => {
-            let mark = {
-              country: res.results[0].address_components[0].long_name,
-              //city: res.results[0].address_components[1].long_name,
-              latitude: res.results[0].geometry.location.lat,
-              longitude: res.results[0].geometry.location.lng,
-              disease: disease
+            //console.log(res)
+            if (res.status != "ZERO_RESULTS") {
+              let mark = {
+                latitude: res.results[0].geometry.location.lat,
+                longitude: res.results[0].geometry.location.lng,
+                disease: disease
+              }
+
+              if(res.results[0].hasOwnProperty('address_components')){
+                mark.country=res.results[0].address_components[0].long_name
+              }else{
+                
+                mark.country=""
+              }
+
+              if(res.results[0].hasOwnProperty('address_components') && res.results[0].address_components[1]!=null) {
+                mark.city=res.results[0].address_components[1].long_name
+              }else{
+                mark.city=""
+              }
+              mark.report=report
+
+              this.setState({
+                markers:this.state.markers.concat(mark)
+            
+              })
+              
             }
-            this.setState({
-              markers:this.state.markers.concat(mark)
-            })
           })
         }
-        console.log(r)
         this.setState({
           results:this.state.results.concat(r.content.results)
         })
@@ -154,9 +169,9 @@ class Search extends React.Component {
 
     let {results} = this.state;
     results = results.sort((a, b) => (a.date_of_publication < b.date_of_publication) ? 1 : -1)
-    console.log("these are what we got")
-    console.log({results})
-    console.log("length is " + results.length)
+    //console.log("these are what we got")
+    //console.log({results})
+    //console.log("length is " + results.length)
     if (results.length === 0) {
       console.log("got here")
       return (

@@ -52,7 +52,7 @@ class Login extends React.Component {
 
       console.log(`${apiURL}/${event.target.name}`)
       fetch(`${apiURL}/${event.target.name}`, options)
-      .then(r=> r.json())
+      .then(r=> r.text())
       .then(r => {
         console.log(r)
       })
