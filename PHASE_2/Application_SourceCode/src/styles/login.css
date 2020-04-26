@@ -1,12 +1,14 @@
 
 .pageBody {
-    width: 1800px;
     float: center;
+    text-align: center;
+    width: 100%;
 }
 
 .login {
     text-align: center;
-    width: 800px;
+    width: 400px;
+    height: 400px;
     margin: 10px 50px;
     padding: 5px;
     margin-top: 50px;
@@ -15,6 +17,7 @@
     background-color: #bababa;
     border-radius: 15px;
     float: center;
+    display: inline-block;
 }
 
 .errorText {
