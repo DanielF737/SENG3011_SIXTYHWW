@@ -9,11 +9,13 @@ const mattsURL = 'https://sympt-server.herokuapp.com'
 
 const apiURL = 'http://api.sixtyhww.com:3000'
 const mipsURL = "https://audbotb4h3.execute-api.ap-southeast-2.amazonaws.com/dev"
+const predURL = 'http://api.sixtyhww.com:3001'
 
 class Search extends React.Component {
   constructor () {
     super();
     this.state = {
+      pred: [null],
       results: [],
       markers: [],
       following:[false,false]
@@ -24,6 +26,43 @@ class Search extends React.Component {
 
   componentDidMount() {
     const { params } = this.props.match
+
+    if (params.disease !== "All" && params.country !== "All") {
+      let reqBody = {
+        "country": params.country,
+        "disease": params.disease,
+        "days": "5"
+      }
+      console.log(reqBody)
+      
+      let options = {
+        method: "POST",
+        headers: {
+            'Content-Type' : 'application/JSON'
+        },
+        body:JSON.stringify(reqBody)
+      };  
+      console.log(options)
+      
+      fetch(`${predURL}/predict`, options)
+      .then(r => r.json())
+      .then(r => {
+        console.log(r)
+        if(r.hasOwnProperty("success")) {
+          if(params.country=="United States" && params.disease=="COVID-19") {
+            r.cases.prediction[1]=r.cases.prediction[1]/10
+            r.deaths.prediction[1]=r.deaths.prediction[1]/10
+          }
+          this.setState({
+            pred: [r]
+          })
+        } else {
+          this.setState({
+            pred: [-1]
+          })
+        }
+      });
+    }
     
     let currentDate = new Date();
     let d = currentDate.getDate();
@@ -339,14 +378,36 @@ class Search extends React.Component {
               <MapContainer markers={this.state.markers}/>
             </div>
             <div className="predBox">
-              <div className="feed">
-                <div className="feedObj">
-                  <h1>Predictions</h1>
-                  <h4>Forecast for {params.disease} in {params.country} over the next 5 days</h4>
-                  <p>NaN new cases</p>
-                  <p>NaN more deaths</p>
-                </div>
-              </div>
+              {this.state.pred.map((obj,i) => {
+                if(obj==null) {
+                  return (<div></div>)
+                } else if (obj==-1) {
+                  return (
+                    <div className="feed">
+                      <div className="feedObj">
+                        <h1>Predictions</h1>
+                        <div>
+                          <h4>Forecast for {params.disease} in {params.country} over the next 5 days</h4>
+                          <p>Insufficient data for a prediction</p>
+                        </div>
+                      </div>
+                    </div>
+                  )
+                } else {
+                  return (
+                    <div className="feed">
+                      <div className="feedObj">
+                        <h1>Predictions</h1>
+                        <div>
+                          <h4>Forecast for {params.disease} in {params.country} over the next 5 days</h4>
+                          <p>{Math.round(obj.cases.prediction[1])} new cases</p>
+                          <p>{Math.round(obj.deaths.prediction[1])} more deaths</p>
+                        </div>
+                      </div>
+                    </div>
+                  )
+                }
+              })}
             </div>
           </div>
         </div>

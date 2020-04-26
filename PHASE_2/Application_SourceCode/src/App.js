@@ -184,7 +184,6 @@ export class App extends Component {
       fetch(`${mattsURL}/articles/?startdate=2019-06-02T00%3A00%3A00&enddate=2020-04-28T00%3A00%3A00&location=United%20States&keyterms=coronavirus&count=10`, options)
       .then(r=>r.json())
       .then(r=> {
-        console.log(r)
         for (var i = 0; i < r.articles.length; i++) {
           r.articles[i].source="ProMed"
           r.articles[i].id=i
@@ -195,7 +194,6 @@ export class App extends Component {
           fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${r.articles[i].reports[0].locations[0].country}&key=AIzaSyBmt_0FRwk3-I3ohh4gK5PfUToBqL58d8I`)
           .then(res=>res.json())
           .then(res => {
-            console.log("here")
             if (res.status != "ZERO_RESULTS") {
               report.reports[0].locations[0].latitude= res.results[0].geometry.location.lat
               report.reports[0].locations[0].longitude= res.results[0].geometry.location.lng
@@ -220,7 +218,7 @@ export class App extends Component {
                 mark.city=""
               }
               mark.report=report
-              console.log(mark)
+              
               this.setState({
                 markers:this.state.markers.concat(mark)
             

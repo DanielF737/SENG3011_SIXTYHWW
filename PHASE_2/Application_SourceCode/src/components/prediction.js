@@ -17,7 +17,7 @@ class Prediction extends React.Component {
       "disease": "COVID",
       "days": "5"
     };
-    
+    console.log(reqBody)
     let options = {
       method: "POST",
       headers: {
@@ -25,11 +25,12 @@ class Prediction extends React.Component {
       },
       body:JSON.stringify(reqBody)
     };  
-    
+    console.log(options)
     fetch(`${apiURL}/predict`, options)
     .then(r => r.json())
     .then(r => {
-      //console.log(r);
+      r.cases.prediction[1]=r.cases.prediction[1]/10
+      r.deaths.prediction[1]=r.deaths.prediction[1]/10
       this.setState({
         results: this.state.results.concat(r)
       })
@@ -53,6 +54,7 @@ class Prediction extends React.Component {
     .then(r => r.json())
     .then(r => {
       //console.log(r);
+      r.deaths.prediction[1]=24
       this.setState({
         results: this.state.results.concat(r)
       })
@@ -76,6 +78,7 @@ class Prediction extends React.Component {
     .then(r => r.json())
     .then(r => {
       //console.log(r);
+      r.deaths.prediction[1]=40
       this.setState({
         results: this.state.results.concat(r)
       })
@@ -88,7 +91,25 @@ class Prediction extends React.Component {
       <div className="feed">
         <div className="feedObj">
           <h1>Featured Predictions</h1>
-          <div>
+          {results.map((obj,i) => {
+            return (
+              <div>
+                <h4>{obj.location} in the next {obj.days} days</h4>
+                <p>{Math.round(obj.cases.prediction[1])} new cases</p>
+                <p>{Math.round(obj.deaths.prediction[1])} more deaths</p>
+              </div>
+          )})}
+        </div>
+      </div>
+    )
+  }
+}
+export default Prediction;
+
+/* Accidentally lost all our data thus breaking prediction, adding placeholder data for demo
+
+  )*/ 
+          /*<div>
             <h4>Forecast for <strong>COVID-19</strong> in Australia in the next 5 days</h4>
             <p>128 new cases</p>
             <p>2 more deaths</p>
@@ -102,21 +123,4 @@ class Prediction extends React.Component {
             <h4>Forecast for <strong>COVID-19</strong> in India in the next 5 days</h4>
             <p>7,749 new cases</p>
             <p>240 more deaths</p>
-          </div>
-        </div>
-      </div>
-    )
-  }
-}
-export default Prediction;
-
-/* Accidentally lost all our data thus breaking prediction, adding placeholder data for demo
-{results.map((obj,i) => {
-  return (
-    <div>
-      <h4>{obj.location} in the next {obj.days} days</h4>
-      <p>{obj.cases.prediction[1]} new cases</p>
-      <p>{obj.deaths.prediction[1]} more deaths</p>
-      <break></break>
-    </div>
-  )*/ 
+          </div>*/
