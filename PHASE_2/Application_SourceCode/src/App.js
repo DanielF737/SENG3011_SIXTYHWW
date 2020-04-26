@@ -42,10 +42,17 @@ export class App extends Component {
     fetch(`${apiURL}/articles?start=0&end=20`, options)
     .then(r=> r.json())
     .then(r => {
-        let marks = r.map(obj => obj.reports[0].locations[0])
+
         for (var i = 0; i < r.length; i++) {
+          r[i].reports[0].diseases=r[i].reports[0].diseases.replace('"', '')
+          r[i].reports[0].diseases=r[i].reports[0].diseases.replace('"', '')
+          r[i].reports[0].diseases=r[i].reports[0].diseases.replace('[', '')
+          r[i].reports[0].diseases=r[i].reports[0].diseases.replace(']', '')
+          r[i].reports[0].locations[0].disease=r[i].reports[0].diseases
           r[i].source="Global Incident Tracker"
+          console.log(r[i])
         }
+        let marks = r.map(obj => obj.reports[0].locations[0])
         this.setState({
           results:this.state.results.concat(r),
           markers:this.state.markers.concat(marks)
@@ -77,13 +84,29 @@ export class App extends Component {
         }
       }
   
-      fetch(`${mipsURL}/report?start_date=2020-01-01T00%3A00%3A00.000Z&end_date=2030-01-01T00%3A00%3A00.000Z&size=10`, options)
+      fetch(`${mipsURL}/report?size=10`, options)
       .then(r=> r.json())
       .then(r => {
         for (var i = 0; i < r.content.results.length; i++) {
           r.content.results[i].source="CDC"
           r.content.results[i].id=i
-          //https://maps.googleapis.com/maps/api/geocode/json?address=sydney,+Australia&key=AIzaSyBmt_0FRwk3-I3ohh4gK5PfUToBqL58d8I
+          r.content.results[i].date_of_publication = r.content.results[i].date_of_publication.replace('T', ' ')
+          r.content.results[i].date_of_publication = r.content.results[i].date_of_publication.replace('Z', '')
+          let disease = r.content.results[i].reports[0].diseases[0]
+          fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${r.content.results[i].reports[0].locations[0]}&key=AIzaSyBmt_0FRwk3-I3ohh4gK5PfUToBqL58d8I`)
+          .then(res=>res.json())
+          .then(res => {
+            let mark = {
+              country: res.results[0].address_components[0].long_name,
+              //city: res.results[0].address_components[1].long_name,
+              latitude: res.results[0].geometry.location.lat,
+              longitude: res.results[0].geometry.location.lng,
+              disease: disease
+            }
+            this.setState({
+              markers:this.state.markers.concat(mark)
+            })
+          })
         }
         console.log(r)
         this.setState({

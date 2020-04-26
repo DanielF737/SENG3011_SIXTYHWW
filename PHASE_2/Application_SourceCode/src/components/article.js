@@ -24,11 +24,10 @@ class Article extends React.Component {
         <div className="feed">
           
           <div className="feedObj">
-            <h4> {article.headline}</h4>
-            <p><a href={article.url}>View the original source</a></p>
-            <p>{article.date_of_publication}</p>
+            <h4 className="headerText"> {article.headline}</h4>
+            <p className="subText">{article.date_of_publication} - {article.source}</p>
             <p>{article.main_text}</p>
-            <br></br>
+            <p><a href={article.url}>View the original article</a></p>
           </div>
 
         </div>

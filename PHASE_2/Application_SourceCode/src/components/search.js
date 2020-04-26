@@ -7,10 +7,8 @@ import MapContainer from './map'
 //const mattsToken = "AOYyHmVa91VOLs5ktY5LV1TUowA2"
 //const mattsURL = 'https://sympt-server.herokuapp.com'
 
-//const mipsToken = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImRhbmllbEBmZXJyYS5ybyIsInZlcmlmeSI6ImhleWhleWhleSIsImV4cCI6MTU4NTk4OTEwNX0.iHlHi5PSQGN7iJV257MQolx7WDnKGyuu5btLfGMj-l8"
-//const mipsURL = "https://audbotb4h3.execute-api.ap-southeast-2.amazonaws.com/dev"
-
 const apiURL = 'http://api.sixtyhww.com:3000'
+const mipsURL = "https://audbotb4h3.execute-api.ap-southeast-2.amazonaws.com/dev"
 
 class Search extends React.Component {
   constructor () {
@@ -74,50 +72,117 @@ class Search extends React.Component {
     fetch(`${apiURL}/search`, options)
     .then(r=> r.json())
     .then(r => {
-      let marks = r.map(obj => obj.reports[0].locations[0])
-      console.log(marks)
       for (var i = 0; i < r.length; i++) {
+        r[i].reports[0].diseases=r[i].reports[0].diseases.replace('"', '')
+        r[i].reports[0].diseases=r[i].reports[0].diseases.replace('"', '')
+        r[i].reports[0].diseases=r[i].reports[0].diseases.replace('[', '')
+        r[i].reports[0].diseases=r[i].reports[0].diseases.replace(']', '')
+        r[i].reports[0].locations[0].disease=r[i].reports[0].diseases
         r[i].source="Global Incident Tracker"
+        console.log(r[i])
       }
+      let marks = r.map(obj => obj.reports[0].locations[0])
       this.setState({
         results:this.state.results.concat(r),
         markers:this.state.markers.concat(marks)
       })
     })
+
+    options = {
+      method: 'POST',
+      headers: {
+        'Content-Type' : 'application/json'
+      },
+      body: JSON.stringify({
+        'email' : 'daniel@ferra.ro',
+        'password' : 'P@ssw0rd'
+      })
+    }
+
+    fetch(`${mipsURL}/user/login`, options)
+    .then (r => r.json())
+    .then (r => {
+
+      let mipsToken = r.content.token 
+      console.log(mipsToken)
+      options = {
+        method: "GET",
+        headers: {
+            'Content-Type' : 'application/JSON',
+            'token' : mipsToken
+        }
+      }
+      
+      fetch(`${mipsURL}/report?key_terms=${params.disease}&location=${params.country.replace(' ', '%20')}`, options)
+      .then(r=> r.json())
+      .then(r => {
+        console.log("heere")
+        console.log(r)
+        for (var i = 0; i < r.content.results.length; i++) {
+          console.log(r.content.results[i])
+          r.content.results[i].source="CDC"
+          r.content.results[i].id=i
+          r.content.results[i].date_of_publication = r.content.results[i].date_of_publication.replace('T', ' ')
+          r.content.results[i].date_of_publication = r.content.results[i].date_of_publication.replace('Z', '')
+          let disease = r.content.results[i].reports[0].diseases[0]
+          fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${r.content.results[i].reports[0].locations[0]}&key=AIzaSyBmt_0FRwk3-I3ohh4gK5PfUToBqL58d8I`)
+          .then(res=>res.json())
+          .then(res => {
+            let mark = {
+              country: res.results[0].address_components[0].long_name,
+              //city: res.results[0].address_components[1].long_name,
+              latitude: res.results[0].geometry.location.lat,
+              longitude: res.results[0].geometry.location.lng,
+              disease: disease
+            }
+            this.setState({
+              markers:this.state.markers.concat(mark)
+            })
+          })
+        }
+        console.log(r)
+        this.setState({
+          results:this.state.results.concat(r.content.results)
+        })
+      })
+    })
+
   }
 
   render() {
     const { params } = this.props.match
 
     let {results} = this.state;
+    results = results.sort((a, b) => (a.date_of_publication < b.date_of_publication) ? 1 : -1)
     console.log("these are what we got")
     console.log({results})
     console.log("length is " + results.length)
     if (results.length === 0) {
       console.log("got here")
       return (
+        <div className="pageBody">
         <div className="feedObj">
           <h4>No results for {params.disease} in {params.country}</h4>
-        </div>
+        </div></div>
       );
     } else {
       return (
         <div className="pageBody">
           <div className="feed">
-            <h2>Results for {params.disease} in {params.country}</h2>
+            <h2>  Results for {params.disease} in {params.country}</h2>
             {results.map((obj, i) => {
               return (
                 <div className="feedObj" key={i}>
-                  <h4><Link to={{
+                  
+                  <h2 ><Link className="headerText" to={{
                     pathname: `/article/${obj.id}`,
                     articleProps: {
                       article:obj,
                       marker:[obj.reports[0].locations[0]]
                     }
-                  }}> {obj.headline}</Link></h4>
-                  <p>{obj.date_of_publication}</p>
-                  <p>{obj.source}</p>
-                  <br></br>
+                  }}> {obj.headline}</Link></h2>
+                  <p className="subText">{obj.date_of_publication} - {obj.source}</p>
+
                 </div>
             )})}
           </div>
@@ -129,11 +194,10 @@ class Search extends React.Component {
             <div className="predBox">
               <div className="feed">
                 <div className="feedObj">
-                  <h1>Prediction</h1>
-                  <h2>Forecast for {params.disease}</h2>
+                  <h1>Predictions</h1>
                 </div>
                 <div className="feedObj">
-                  <h4>{params.country} in the next 5 days</h4>
+                  <h4>Forecast for {params.disease} in {params.country} over the next 5 days</h4>
                   <p>NaN new cases</p>
                   <p>NaN more deaths</p>
                 </div>

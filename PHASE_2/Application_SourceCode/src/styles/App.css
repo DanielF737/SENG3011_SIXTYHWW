@@ -50,10 +50,10 @@
 }
 
 .mapBox {
-  background-color: #bababa;
   height: 450px;
   border-radius: 15px;
   position: fixed;  
+  padding-left: 50px;
 }
 .predBox {
   margin-top: 450px;

@@ -34,19 +34,22 @@ class Login extends React.Component {
       this.setState({
         error: ""
       })
-      console.log("input ok")
 
       let reqBody = {
         "username": this.state.uname,
         "password": this.state.pword
       }
+
       let options = {
         method: "POST",
         headers: {
             'Content-Type' : 'application/JSON'
         },
+
         body: JSON.stringify(reqBody)
       }
+      console.log(options)
+
       console.log(`${apiURL}/${event.target.name}`)
       fetch(`${apiURL}/${event.target.name}`, options)
       .then(r=> r.json())
@@ -69,7 +72,7 @@ class Login extends React.Component {
             <input type="password" name = "password" onChange={this.handleChangePword} placeholder="password" />
             <br></br>
             <button type='button' name="login" onClick={this.handleSubmit}>Login</button>
-            <button type='button' name="signup" onClick={this.handleSubmit}>Sign Up</button>
+            <button type='button' name="register" onClick={this.handleSubmit}>Sign Up</button>
           </form>
         </div>
       </div>
