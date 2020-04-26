@@ -13,7 +13,7 @@ const mapStyles = {
 export class MapContainer extends Component {
   constructor(props) {
     super(props);
-    state = {
+    this.state = {
       selectedMarker: null
     }
   }
