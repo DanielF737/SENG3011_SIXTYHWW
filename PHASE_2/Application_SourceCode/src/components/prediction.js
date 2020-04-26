@@ -121,4 +121,4 @@ export default Prediction;
       <p>{obj.deaths.prediction[1]} more deaths</p>
       <break></break>
     </div>
-  )*/
+  )*/ 
