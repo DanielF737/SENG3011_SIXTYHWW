@@ -2,32 +2,71 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 100vw;
+  padding: 6px 16px;
+  background-color: #55cf71;
+  display: flex;
+  text-align: left;
 }
 
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    background-color: #71e394;
-  }
-  
-  li {
-    padding:5px;
-    float: left;
-    background-color: red;
-  }
+.navItems {
+  display:flex;
+  text-align: left;
+}
 
-  li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 8px 6px;
-    text-decoration: none;
-  }
-  
+.navItemsRight{
+  margin-top:15px;
+  margin-left:auto;
+  text-align: left;
+  padding-right: 50px;
+}
 
-.logo {
+.navItem {
+  text-align: left;
+  padding-right: 8px;
+}
+
+.logoText {
+  margin-right: 25px;
   font-size: 40px;
+  align-items: center;
+  color: white;
+  text-decoration: none;
+}
+
+.searchSelect {
+  margin-top:15px;
+  background-color: white;
+  border-radius: 7px;
+  font-size: 18px;
+    margin-left: 5px;
+    padding: 5px 0px;
+  text-align: center;
+  text-decoration: none;
+  border: thick;
+  width:200px;
+}
+
+.searchButton {
+  background-color: white;
+  border-radius: 7px;
+  font-size: 18px;
+  margin-left: 5px;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  border: thick;
+}
+
+.loginButton {
+  text-align: left;
+  width: 60%;
+  display:inline-block;
+}
+
+.loginText {
+  text-align: left;
+  font-size: 25px;
+  color: white;
+  text-decoration: none;
 }

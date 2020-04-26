@@ -43,25 +43,27 @@ class Navbar extends React.Component {
 
     return (
       <div className="Navbar">
-        <ul>
-          <li className="logo">
-            <Link to="/">SIXTYHWW</Link>
-          </li>
-          <li>
+        <nav className="navItems">
+          <div className="navItem">
+            <Link className="logoText" to="/">SIXTYHWW</Link>
+          </div>
+          <div className="navItem">
             <form onSubmit={this.handleSubmit}>
-              <select value={this.state.disease} onChange={this.handleChangeDisease}>
+              <select className="searchSelect" value={this.state.disease} onChange={this.handleChangeDisease}>
                 {Diseases.map((obj, i) => <option key={obj.name}>{obj.name}</option>)}
               </select>
-              <select value={this.state.country} onChange={this.handleChangeCountry}>
+              <select className="searchSelect" value={this.state.country} onChange={this.handleChangeCountry}>
                 {Countries.map((obj, i) => <option key={obj.name}>{obj.name}</option>)}
               </select>
-              <input type="submit" value="Search" />
+              <input className="searchButton" type="submit" value="Search" />
             </form>
-          </li>
-          <li>
-            <strong><Link to="/login">{isLoggedIn ? 'Log Out' : 'Login'}</Link></strong>
-          </li>
-        </ul>
+          </div>
+        </nav>
+        <nav className="navItems navItemsRight">
+          <div className="navItem">
+            <strong><Link className="loginText" to="/login">{isLoggedIn ? 'Log Out' : 'Login'}</Link></strong>
+          </div>
+        </nav>
       </div>
     )
   }

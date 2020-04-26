@@ -1,5 +1,8 @@
 import React from 'react'
 import '../styles/login.css'
+import dp from '../data/default2.png';
+
+
 const apiURL = 'http://api.sixtyhww.com:3000'
 
 class Login extends React.Component {
@@ -111,13 +114,14 @@ class Login extends React.Component {
         <div className="login">
           <form >
             <h2>Login or Sign Up</h2>
-            <p className="errorText">{this.state.error}</p>
-            <input type="text" name="email" onChange={this.handleChangeUname} placeholder="email" />
+            <img className="loginImage" src={dp}></img>
+            <p className='errorText'><strong>{this.state.error}</strong></p>
+            <input className="loginTextBox" type="text" name="email" onChange={this.handleChangeUname} placeholder="email" />
             <br></br>
-            <input type="password" name = "password" onChange={this.handleChangePword} placeholder="password" />
+            <input className="loginTextBox" type="password" name = "password" onChange={this.handleChangePword} placeholder="password" />
             <br></br>
-            <button type='button' name="login" onClick={this.handleSubmit}>Login</button>
-            <button type='button' name="register" onClick={this.handleSubmit}>Sign Up</button>
+            <button className="loginBtn" type='button' name="login" onClick={this.handleSubmit}>Login</button>
+            <button className="signupBtn" type='button' name="register" onClick={this.handleSubmit}>Sign Up</button>
           </form>
         </div>
       </div>

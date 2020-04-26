@@ -49,3 +49,21 @@
 .centerText {
   text-align: center;
 }
+
+.followBtnPressed {
+  background-color: #55cf71;
+  color: white;
+  border:none;
+  border-radius: 5px;
+  font-size: 18px;
+  width: 200px;
+  margin-right: 10px;
+}
+
+.followBtn {
+  border:none;
+  border-radius: 5px;
+  font-size: 18px;
+  width: 200px;
+  margin-right: 10px;
+}

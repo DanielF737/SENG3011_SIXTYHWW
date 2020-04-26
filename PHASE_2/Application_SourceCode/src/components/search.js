@@ -352,7 +352,7 @@ class Search extends React.Component {
                   
               {terms.map((yeet,i) => {
                 return(
-                <button onClick={() => this.handleFollow(yeet)}>{this.state.following[i] ? 'Following' : 'Follow'} {yeet.name}</button>
+                <button className={this.state.following[i] ? 'followBtnPressed' : 'followBtn'} onClick={() => this.handleFollow(yeet)}>{this.state.following[i] ? 'Following' : 'Follow'} {yeet.name}</button>
                 )
               })}
             </div>

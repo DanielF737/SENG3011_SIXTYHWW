@@ -8,7 +8,7 @@
 .login {
     text-align: center;
     width: 400px;
-    height: 400px;
+    height: 450px;
     margin: 10px 50px;
     padding: 5px;
     margin-top: 50px;
@@ -23,4 +23,37 @@
 .errorText {
     color: red;
     font-style: italic;
+}
+
+.loginImage {
+    width: 150px;
+    height: 150px;
+}
+
+.loginTextBox {
+    border:none;
+    border-radius: 5px;
+    font-size: 20px;
+    padding: 5px 5px;
+    margin: 5px;
+}
+
+.loginBtn {
+    width: 120px;
+    border:none;
+    border-radius: 5px;
+    font-size: 20px;
+    padding: 5px 5px;
+    margin: 5px;
+}
+
+.signupBtn {
+    background-color: #55cf71;
+    color: white;
+    width: 120px;
+    border:none;
+    border-radius: 5px;
+    font-size: 20px;
+    padding: 5px 5px;
+    margin: 5px;
 }
