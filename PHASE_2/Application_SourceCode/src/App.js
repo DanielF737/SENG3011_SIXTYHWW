@@ -87,7 +87,7 @@ export class App extends Component {
             r[i].reports[0].locations[0].disease=r[i].reports[0].diseases
             r[i].reports[0].locations[0].report=r[i]
             r[i].source="Global Incident Tracker"
-            //console.log(r[i])
+            console.log(r[i])
           }
           let marks = r.map(obj => obj.reports[0].locations[0])
           this.setState({
