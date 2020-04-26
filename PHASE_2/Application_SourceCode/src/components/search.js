@@ -400,8 +400,8 @@ class Search extends React.Component {
                         <h1>Predictions</h1>
                         <div>
                           <h4>Forecast for {params.disease} in {params.country} over the next 5 days</h4>
-                          <p>{Math.round(obj.cases.prediction[1])} new cases</p>
-                          <p>{Math.round(obj.deaths.prediction[1])} more deaths</p>
+                          <p>{obj.cases.hasOwnProperty("prediction") ? Math.round(obj.cases.prediction[1]): "Insufficient data to calculate how many more"} new cases</p>
+                          <p>{obj.deaths.hasOwnProperty("prediction") ? Math.round(obj.deaths.prediction[1]): "Insufficient data to calculate how many more"} more deaths</p>
                         </div>
                       </div>
                     </div>
