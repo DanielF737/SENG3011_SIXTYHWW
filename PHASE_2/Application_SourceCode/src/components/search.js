@@ -166,7 +166,33 @@ class Search extends React.Component {
   }
 
   handleFollow(item) {
+    let token = localStorage.getItem('token')
+    let req=null
+    if (item.type==="country") {
+      req="location"
+    } else {
+      req="disease_or_syndrome"
+    }
 
+    let reqbody= {
+      req: item.name
+    }
+
+    let options = {
+      method: "POST",
+      headers: {
+          'Content-Type' : 'application/JSON',
+          'authorization': token
+      },
+      body:JSON.stringify(reqbody)
+    }
+    
+    console.log(`${apiURL}/follow_${req}`)
+    fetch(`${apiURL}/follow_${req}`, options)
+    .then(r=> r.text())
+    .then(r => {
+      console.log(r)
+    })
   }
 
   render() {
