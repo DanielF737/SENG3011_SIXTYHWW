@@ -55,6 +55,20 @@ class Login extends React.Component {
       .then(r=> r.text())
       .then(r => {
         console.log(r)
+        if (r==='{"errno":19,"code":"SQLITE_CONSTRAINT"}') {
+          this.setState({
+            error: "An account with this username already exists"
+          })
+        } else if (r==='Incorrect password') {
+          this.setState({
+            error: r
+          })
+        } else if (r==='Invalid username') {
+        this.setState({
+          error: r
+        })
+      }
+        
       })
     }
   }
