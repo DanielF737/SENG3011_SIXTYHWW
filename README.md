@@ -49,6 +49,10 @@ The server is now running and can be accessed on [localhost:3001](http://localho
 
 We recommend using a process manager such as PM2 to keep the proccess running when the shell is not open.
 
+## Testing
+All test scripts are located in `/PHASE_1/TestScripts`, with acompanying documentation in `/Reports/Testing Documentation.pdf`
+
+
 ## Members
 Daniel Ferraro z5204902
 
