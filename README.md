@@ -39,6 +39,7 @@ The server is now running and can be accessed on [localhost:80](http://localhost
 We recommend using a process manager such as PM2 to keep the proccess running when the shell is not open.
 
 Routes are located in `/PHASE_2/Application_SourceCode/src/index.js`
+
 Pages are located in `/PHASE_2/Application_SourceCode/src/components`
 
 ## Getting Started - PredictionAPI
