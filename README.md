@@ -23,9 +23,31 @@ To run the API:
  2. Run `npm install`
  3. Run `npm start`
 
-The server is now running and can be accessed on [localhost:3000](http://localhost:300).
+The server is now running and can be accessed on [localhost:3000](http://localhost:3000).
 
 We recommend using a process manager such as PM2 to keep the server proccess running when the shell is not open.
+
+## Getting Started - WebApp
+To run the API:
+
+ 1. Navigate to `/PHASE_2/Application_SourceCode`
+ 2. Run `npm install`
+ 3. Run `npm start`
+
+The server is now running and can be accessed on [localhost:80](http://localhost:80).
+
+We recommend using a process manager such as PM2 to keep the proccess running when the shell is not open.
+
+## Getting Started - PredictionAPI
+To run the API:
+
+ 1. Navigate to `/PHASE_2/Application_SourceCode/prediction`
+ 2. Run `npm install`
+ 3. Run `npm start`
+
+The server is now running and can be accessed on [localhost:3001](http://localhost:3001).
+
+We recommend using a process manager such as PM2 to keep the proccess running when the shell is not open.
 
 ## Members
 Daniel Ferraro z5204902
