@@ -7,3 +7,4 @@
 /PHASE_1/API_SourceCode/scripts/runlog.txt
 /PHASE_1/API_SourceCode/common/node_modules/*
 /PHASE_2/Application_SourceCode/node_modules/*
+/PHASE_2/Application_SourceCode/src/components/keys.js

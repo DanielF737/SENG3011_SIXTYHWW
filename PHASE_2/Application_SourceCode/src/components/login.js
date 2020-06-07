@@ -1,9 +1,9 @@
 import React from 'react'
 import '../styles/login.css'
-import dp from '../data/default2.png';
+import dp from '../data/default2.png'
+import 'keys'
 
 
-const apiURL = 'http://api.sixtyhww.com:3000'
 
 class Login extends React.Component {
   constructor (props) {

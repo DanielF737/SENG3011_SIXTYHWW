@@ -3,12 +3,7 @@ import './styles/App.css';
 import Feed from './components/feed';
 import MapContainer from './components/map'
 import Prediction from './components/prediction'
-
-
-const mipsURL = "https://audbotb4h3.execute-api.ap-southeast-2.amazonaws.com/dev"
-const apiURL = 'http://api.sixtyhww.com:3000'
-const mattsToken = "AOYyHmVa91VOLs5ktY5LV1TUowA2"
-const mattsURL = 'https://sympt-server.herokuapp.com'
+import './components/keys'
 
 
 export class App extends Component {
