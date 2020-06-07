@@ -1,3 +1,7 @@
+University group project where we were tasked with creating a RESTful API that we then populate with data scraped from other sources, that can then be used in a webapp we have created.
+
+Technologies include nodeJS for the API and scraper and React for the webapp
+
 # SENG3011_SIXTYHWW
 
 SIXTHWW's scraper, API and frontend for SENG3011.
